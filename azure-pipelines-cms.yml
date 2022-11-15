@@ -1,0 +1,62 @@
+# Pipeline for the CMS.
+
+pool:
+  name: Azure Pipelines
+  vmImage: "windows-2022"
+
+trigger:
+  branches:
+    include:
+      - develop
+  batch: true
+  paths:
+    include:
+      - Njh_Admin
+      - Njh_Shared
+
+variables:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+
+  # disable the coverage autogeneration
+  disable.coverage.autogenerate: "true"
+
+  cmsSolution: "**/Njh_Admin.sln"
+  buildPlatform: "Any CPU"
+  buildConfiguration: "Release"
+
+  # major version
+  Version.Major: 0
+
+  # minor version follows the sprint number
+  Version.Minor: 7
+
+  # revision
+  Version.Revision: $[counter(variables['Version.Minor'], 0)]
+
+  # version number
+  Version.Number: cms-$(Version.Major).$(Version.Minor).$(Version.Revision)
+
+steps:
+  - task: NuGetToolInstaller@1
+
+  - task: NuGetCommand@2
+    displayName: "NuGet restore"
+    inputs:
+      restoreSolution: "$(cmsSolution)"
+      feedsToUse: config
+      nugetConfigPath: NuGet.config
+      externalFeedCredentials: "reason-one-feed"
+      restoreDirectory: '..\packages\'
+
+  - task: VSBuild@1
+    inputs:
+      solution: "$(cmsSolution)"
+      msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)" /p:SourceRevisionId="$(Version.Number)"'
+      platform: "$(buildPlatform)"
+      configuration: "$(buildConfiguration)"
+
+  - task: PublishBuildArtifacts@1
+    displayName: "Publish Artifact"
+    inputs:
+      PathtoPublish: "$(build.artifactstagingdirectory)"
+    condition: succeededOrFailed()
