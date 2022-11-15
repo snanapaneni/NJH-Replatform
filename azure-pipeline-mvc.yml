@@ -14,27 +14,27 @@ trigger:
       - Njh_Shared
 
 steps:
-  - task: UseNode@1
-    displayName: "Use Node"
-    inputs:
-      version: "18.12.1"
-      checkLatest: true
+  # - task: UseNode@1
+  #   displayName: "Use Node"
+  #   inputs:
+  #     version: "18.12.1"
+  #     checkLatest: true
 
-  - task: Npm@1
-    displayName: "npm install"
-    inputs:
-      workingDir: "Njh_Site/Njh/src"
-      verbose: true
-    enabled: true
+  # - task: Npm@1
+  #   displayName: "npm install"
+  #   inputs:
+  #     workingDir: "Njh_Site/Njh/src"
+  #     verbose: true
+  #   enabled: true
 
-  - task: Npm@1
-    displayName: "npm build"
-    inputs:
-      command: custom
-      workingDir: "Njh_Site/Njh/src"
-      verbose: true
-      customCommand: "run build"
-    enabled: true
+  # - task: Npm@1
+  #   displayName: "npm build"
+  #   inputs:
+  #     command: custom
+  #     workingDir: "Njh_Site/Njh/src"
+  #     verbose: true
+  #     customCommand: "run build"
+  #   enabled: true
 
   - task: UseDotNet@2
     displayName: "Use .NET Core sdk"

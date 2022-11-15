@@ -45,7 +45,7 @@ steps:
       restoreSolution: "$(cmsSolution)"
       feedsToUse: config
       nugetConfigPath: NuGet.config
-      externalFeedCredentials: "reason-one-feed"
+      # externalFeedCredentials: "reason-one-feed"
       restoreDirectory: '..\packages\'
 
   - task: VSBuild@1
