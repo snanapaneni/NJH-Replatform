@@ -20,7 +20,7 @@ variables:
   # disable the coverage autogeneration
   disable.coverage.autogenerate: "true"
 
-  cmsSolution: "$(cmsSolution)"
+  cmsSolution: "**/Njh_Admin.sln"
   buildPlatform: "Any CPU"
   buildConfiguration: "Release"
 
@@ -42,11 +42,11 @@ steps:
   - task: NuGetCommand@2
     displayName: "NuGet restore"
     inputs:
-      restoreSolution: "$(cmsSolution)"
+      restoreSolution: "**/Njh_Admin.sln"
 
   - task: VSBuild@1
     inputs:
-      solution: "$(cmsSolution)"
+      solution: "**/Njh_Admin.sln"
       msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)" /p:SourceRevisionId="$(Version.Number)"'
       platform: "$(buildPlatform)"
       configuration: "$(buildConfiguration)"
