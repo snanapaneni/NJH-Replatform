@@ -39,24 +39,11 @@ import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
 import App__appHeader from "./components/app-header";
 import App__appSidebar from "./components/app-sidebar";
 import App__accordion from "./components/accordion";
-import App__eventRouting from "./components/event-routing";
-import App__featuredContent from "./components/featured-content";
-import App__feedbackMessage from "./components/feedback-message";
 import App__formBuilder from "./components/form-builder";
-import App__globalAlert from "./components/global-alert";
-import App__logoZone from "./components/logo-zone";
-import App__localAccountCreate from "./components/local-account-create";
-import App__moneris from "./components/moneris";
+//import App__globalAlert from "./components/global-alert";
 import App__newsletterSignup from "./components/newsletter-signup";
 import App__formCountryProvinceSelects from "./components/form-country-province-selects";
-import App__partnerProfile from "./components/partner-profile";
-import App__portalAnnouncements from "./components/portal-announcements";
-import App__portalBulkUpload from "./components/portal-bulk-upload";
 import App__routing from "./components/routing";
-import App__searchEvents from "./components/search-events";
-import App__searchGlobal from "./components/search-global";
-import App__searchNews from "./components/search-news";
-import App__searchResoures from "./components/search-resources";
 import App__video from "./components/video";
 // Utilities
 import App__externalLinkClass from "./utilities/external-link-class";
@@ -78,24 +65,11 @@ App.appHeader                  = App__appHeader;
 App.appSidebar                 = App__appSidebar;
 // Components
 App.accordion                  = App__accordion;
-App.eventRouting               = App__eventRouting;
-App.featuredContent            = App__featuredContent;
-App.feedbackMessage            = App__feedbackMessage;
 App.formBuilder                = App__formBuilder;
-App.globalAlert                = App__globalAlert;
-App.localAccountCreate         = App__localAccountCreate;
-App.logoZone                   = App__logoZone;
-App.moneris                    = App__moneris;
+//App.globalAlert                = App__globalAlert;
 App.newsletterSignup           = App__newsletterSignup;
 App.formCountryProvinceSelects = App__formCountryProvinceSelects;
-App.partnerProfile             = App__partnerProfile;
-App.portalAnnouncements        = App__portalAnnouncements;
-App.portalBulkUpload           = App__portalBulkUpload;
 App.routing                    = App__routing;
-App.searchEvents               = App__searchEvents;
-App.searchGlobal               = App__searchGlobal;
-App.searchNews                 = App__searchNews;
-App.searchResoures             = App__searchResoures;
 App.video                      = App__video;
 
 App.mediaQueries = {
@@ -162,28 +136,14 @@ App.utils.urlToolkit = App__urlToolkit;
 
 // Global App component initialization
 App.init = function () {
-    App.globalAlert.init();
+   // App.globalAlert.init();
     App.appHeader.init();
     App.appSidebar.init();
     // Components
     App.accordion.init();
-    App.eventRouting.init();
-    App.featuredContent.init();
-    App.feedbackMessage.init();
     App.formBuilder.init();
-    App.localAccountCreate.init();
-    App.logoZone.init();
-    App.moneris.init();
     App.newsletterSignup.init();
     App.formCountryProvinceSelects.init();
-    App.partnerProfile.init();
-    App.portalAnnouncements.init();
-    App.portalBulkUpload.init();
-    App.routing.init();
-    App.searchEvents.init();
-    App.searchGlobal.init();
-    App.searchNews.init();
-    App.searchResoures.init();
     App.video.init();
 }
 

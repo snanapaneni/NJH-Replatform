@@ -1,0 +1,36 @@
+body {
+  //Enable breakpoint indicators for debugging
+  &:after {
+    background-color: red;
+    bottom: 0;
+    content: "";
+    color: #d4d4d4;
+    left: 0;
+    position: fixed;
+    top: 0;
+    white-space: nowrap;
+    width: 10px;
+    z-index: 10000;
+
+    @include media-breakpoint-up(sm) {
+      content: "--SM";
+      background-color: rgba(orange, 0.75);
+    }
+    @include media-breakpoint-up(md) {
+      content: "--MD";
+      background-color: rgba(yellow, 0.75);
+    }
+    @include media-breakpoint-up(lg) {
+      content: "--LG";
+      background-color: rgba(green, 0.75);
+    }
+    @include media-breakpoint-up(xl) {
+      content: "--XL";
+      background-color: rgba(blue, 0.75);
+    }
+    @include media-breakpoint-up(xxl) {
+      content: "--XXL";
+      background-color: rgba(purple, 0.75);
+    }
+  }
+}

@@ -30,6 +30,11 @@
 
 }
 
+::selection {
+  background: map_get($app-colors, "orange");
+  color: map_get($app-colors, "neutral--850");
+}
+
 
 .app-main__content {
   display: flex;

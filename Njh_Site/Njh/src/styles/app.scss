@@ -17,27 +17,27 @@
 
 /* Bootstrap Core Layout
 =========================================================================== */
-// @import "~bootstrap/scss/reboot";
-// @import "~bootstrap/scss/root";
-// @import "~bootstrap/scss/containers";
-// @import "~bootstrap/scss/grid";
-// @import "~bootstrap/scss/type";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/type";
 
 /* Bootstrap Components
    Only uncomment what you need to reduce css payload size
 =========================================================================== */
-// @import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/accordion";
 // @import "~bootstrap/scss/alert";
 // @import "~bootstrap/scss/badge";
 // @import "~bootstrap/scss/breadcrumb";
 // @import "~bootstrap/scss/button-group";
 @import "~bootstrap/scss/buttons";
-// @import "~bootstrap/scss/card";
+@import "~bootstrap/scss/card";
 // @import "~bootstrap/scss/carousel";
 @import "~bootstrap/scss/close";
 // @import "~bootstrap/scss/dropdown";
-// @import "~bootstrap/scss/forms";
-// @import "~bootstrap/scss/images";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/images";
 // @import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/modal";
 // @import "~bootstrap/scss/nav";
@@ -51,67 +51,13 @@
 // @import "~bootstrap/scss/tooltip";
 // @import "~bootstrap/scss/transitions";
 
+@import './breakpoint-helper';
 
-/* Hamburgers
-=========================================================================== */
-// $hamburger-types: (collapse); // Only pull the style we are using
-// @import "../node_modules/hamburgers/_sass/hamburgers/hamburgers";
-/* Using local version from vendors directory below instead of npm version above
-   so we can fix a sass issue (use line above instead and view build output for more)
-*/
-// @import "../vendor/hamburgers/_sass/hamburgers/hamburgers";
-
-body {
-  // Enable breakpoint indicators for debugging
-  // &:after {
-  //   background-color: red;
-  //   bottom: 0;
-  //   content: '';
-  //   color: #d4d4d4;
-  //   left: 0;
-  //   position: fixed;
-  //   top: 0;
-  //   white-space: nowrap;
-  //   width: 10px;
-  //   z-index: 10000;
-
-  //   @include media-breakpoint-up(sm) {
-  //     content: '--SM';
-  //     background-color: rgba(orange, .75);
-  //   }
-  //   @include media-breakpoint-up(md) {
-  //     content: '--MD';
-  //     background-color: rgba(yellow, .75);
-  //   }
-  //   @include media-breakpoint-up(lg) {
-  //     content: '--LG';
-  //     background-color: rgba(green, .75);
-  //   }
-  //   @include media-breakpoint-up(xl) {
-  //     content: '--XL';
-  //     background-color: rgba(blue, .75);
-  //   }
-  //   @include media-breakpoint-up(xxl) {
-  //     content: '--XXL';
-  //     background-color: rgba(purple, .75);
-  //   }
-  // }
-}
-
-::selection {
-  background: map_get($app-colors, "orange");
-  color: map_get($app-colors, "neutral--850");
-}
-
-img {
-  max-width: 100%;
-}
 
 @import "./mixins/globals";
 
-// @import "./forms";
-// @import "./themes";
-// @import "./order-details";
+@import "./forms";
+@import "./themes";
 
 @import "./app-header";
 @import "./app-main";
@@ -120,66 +66,34 @@ img {
 @import "./animations";
 
 // Elements
-@import "./elements/headings";
-@import "./elements/links";
-@import "./elements/buttons";
-@import "./elements/icons";
-@import "./elements/horizontal-rule";
+// @import "./elements/headings";
+// @import "./elements/links";
+// @import "./elements/buttons";
+// @import "./elements/icons";
+// @import "./elements/horizontal-rule";
 
 // Components
-@import "./components/accordion";
-@import "./components/basic-image";
-@import "./components/basic-text-block";
-@import "./components/breadcrumbs";
-@import "./components/cohort-directory";
-@import "./components/cta-banner";
-@import "./components/event-routing";
-@import "./components/featured-content";
-@import "./components/feedback-message";
-@import "./components/form-builder";
-@import "./components/gated-content-cta";
-@import "./components/headshot";
-@import "./components/hero-banner";
-@import "./components/home-collage-cta";
-@import "./components/home-hero-banner";
-@import "./components/home-program-routing";
-@import "./components/iframe";
-@import "./components/impact-stats";
-@import "./components/kentico-admin";
-@import "./components/loader";
-@import "./components/logo-zone";
-@import "./components/magazine-rack";
-@import "./components/modal";
-@import "./components/newsletter-signup";
-@import "./components/order-review-member-msg";
-@import "./components/pagination";
-@import "./components/pagination-react";
-@import "./components/partner-profile";
-@import "./components/portal-announcements";
-@import "./components/portal-billing-and-payments";
-@import "./components/portal-directory";
-@import "./components/portal-featured-cta";
-@import "./components/portal-membership-renewals";
-@import "./components/portal-news";
-@import "./components/portal-quicklinks";
-@import "./components/portal-roster-activity-bar";
-@import "./components/portal-resources";
-@import "./components/portal-roster-management";
-@import "./components/product-details";
-@import "./components/rich-text";
-@import "./components/routing";
-@import "./components/tables";
-@import "./components/video";
+// @import "./components/accordion";
+// @import "./components/basic-image";
+// @import "./components/basic-text-block";
+// @import "./components/breadcrumbs";
+// @import "./components/cta-banner";
+// @import "./components/form-builder";
+// @import "./components/iframe";
+// @import "./components/modal";
+// @import "./components/pagination";
+// @import "./components/rich-text";
+// @import "./components/routing";
+// @import "./components/tables";
+// @import "./components/video";
 
 // Search UI
-@import "./components/search";
-@import "./components/search-filters";
+// @import "./components/search";
+// @import "./components/search-filters";
 
 
 // Page Templates
-@import "./page-templates/_portalpage.scss";
-@import "./page-templates/_subpage.scss";
-@import "./page-templates/_campaign-landing.scss";
+
 
 // Print styles
 @import "./print";
