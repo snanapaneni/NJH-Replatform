@@ -20,7 +20,7 @@ variables:
   # disable the coverage autogeneration
   disable.coverage.autogenerate: "true"
 
-  cmsSolution: "**/Njh_Admin.sln"
+  cmsSolution: "$(cmsSolution)"
   buildPlatform: "Any CPU"
   buildConfiguration: "Release"
 
