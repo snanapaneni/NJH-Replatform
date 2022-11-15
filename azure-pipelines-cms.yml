@@ -42,15 +42,11 @@ steps:
   - task: NuGetCommand@2
     displayName: "NuGet restore"
     inputs:
-      restoreSolution: "$(cmsSolution)"
-      feedsToUse: config
-      nugetConfigPath: NuGet.config
-      externalFeedCredentials: "reason-one-feed"
-      restoreDirectory: '..\packages\'
+      restoreSolution: "**/Njh_Admin.sln"
 
   - task: VSBuild@1
     inputs:
-      solution: "$(cmsSolution)"
+      solution: "**/Njh_Admin.sln"
       msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)" /p:SourceRevisionId="$(Version.Number)"'
       platform: "$(buildPlatform)"
       configuration: "$(buildConfiguration)"
