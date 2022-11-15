@@ -1,0 +1,130 @@
+/*! purgecss start ignore */
+@media print {
+
+
+  // Hide these
+  button,
+  #onetrust-consent-sdk,
+  .app-header__alert-banner,
+  .app-header__alert-banner-content,
+  .app-header__primary-nav-list,
+  .app-header__primary-nav-cta a,
+  .app-footer,
+  .ot-floating-button,
+  .ot-floating-button__front.custom-persistent-icon, 
+  #ot-sdk-btn-floating, #ot-sdk-btn-floating .ot-floating-button__front {
+    display:none !important;
+  }
+
+  .app-header__primary-banner {
+    border-bottom: 0 !important;
+  }
+
+  .hero-banner {
+    padding-bottom: 0 !important;
+    padding-left: 8pt !important;
+
+    > .row > .col:nth-child(1) {
+      padding: 0 !important;
+
+      @include media-breakpoint-up(lg) {
+        padding: 0 !important;
+      }
+
+      @include media-breakpoint-up(xl) {
+        padding: 0 !important;
+      }
+    }
+
+    .hero-banner__headline:after {
+      margin-top: 0 !important;
+    }
+
+    .hero-banner__text-content-wrapper {
+      padding: 1rem 0 !important;
+
+      @include media-breakpoint-up(lg) {
+        padding: 1rem 0 !important;
+      }
+    }
+
+    .hero-banner__headline {
+      font-size:1.5rem !important;
+    }
+  }
+
+  /* Order review
+  ========================================================================= */
+
+  .order-details {
+
+    .hero-banner {
+      padding-left: 0 !important;
+    }
+
+    .order-details__content-wrapper {
+      box-shadow: none !important;
+      font-size: .9rem !important;
+      padding: 0 !important;
+
+      @include media-breakpoint-up(sm) {
+        padding: 0 !important;
+      }
+
+      @include media-breakpoint-up(md) {
+        padding: 0 !important;
+      }
+
+      .mb-5 {
+        margin-bottom: $spacer * 1.5 !important;
+      }
+      .my-3 {
+        margin-bottom: $spacer * .5 !important;
+        margin-top: $spacer * .5 !important;
+      }
+      .pb-5 {
+        padding-bottom: $spacer * 1.25 !important;
+      }
+
+      .feedback-message {
+        display:none !important;
+      }
+
+      .print-toolbar {
+        display: none !important;
+      }
+
+      .ruled-content-header {
+        font-size: .9rem !important;
+        margin-bottom: 0 !important;
+      }
+
+      hr {
+        border-top: .5pt solid map-get($app-colors, 'neutral--900');
+        display: block !important;
+      }
+
+      .order-details__line-item-name {
+        font-size:0.9rem !important;
+      }
+
+      .order-details__line-item.order-details__line-item--total {
+        .order-details__line-item-amount {
+          font-size: 0.9rem !important;
+        }
+      }
+
+      .order-details__line-item-amount,.order-details__line-item-description {
+        font-size: 0.9rem !important;
+      }
+
+      .col-auto a {
+        display:none !important;
+      }
+
+    }
+
+  }
+
+}
+/*! purgecss end ignore */

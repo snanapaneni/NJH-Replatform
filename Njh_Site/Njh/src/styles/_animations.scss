@@ -1,0 +1,178 @@
+// To use animations:
+// 1. add class="animate" to the component
+// 2. add in a second class for the type of animation you want to use, e.g. class="animate fade-in-up"
+// 3. add in a delay class if delay in animation is required, e.g. class="animate fade-in-up delay-1"
+
+.animate-delay-1 {
+  animation-delay: 0.5s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.85s;
+}
+
+.animate-delay-3 {
+  animation-delay: 1.25s;
+}
+
+.slide-up.animation {
+  animation-duration: 1.5s;
+  animation-name: slideUp;
+  opacity: 1;
+}
+
+.fade-in-up.animation {
+  animation-duration: 1.25s;
+  animation-name: fadeInUp;
+  opacity: 1;
+}
+
+.fade-in-up-short.animation {
+  animation-duration: 0.75s;
+  animation-name: fadeInUpShort;
+  opacity: 1;
+}
+
+.slide-up-stagger.animation {
+  animation-duration: 2s;
+  animation-name: slideUpStagger;
+  opacity: 1;
+}
+
+.slide-in-left.animation {
+  opacity: 1;
+
+  > * {
+    &:after {
+      opacity: 1;
+      transform-origin: top left;
+      transition: transform 0.3s ease;
+      animation-duration: 0.3s;
+      animation-name: slideInLeft;
+    }
+  }
+}
+
+.reveal-down {
+  height: 0;
+  overflow: hidden;
+}
+
+.reveal-down.animation {
+  animation-duration: 3s;
+  animation-name: revealDown;
+  transform-origin: top;
+  opacity: 1;
+  height: auto;
+}
+
+.animate {
+  animation-fill-mode: both;
+  transform-style: preserve-3d;
+  opacity: 0;
+}
+
+.page-builder,
+.ktc-widget-body-wrapper,
+.ktc-section {
+  .animate {
+    opacity: 1 !important;
+    height: auto !important;
+  }
+}
+
+// Overrides
+@media (prefers-reduced-motion) {
+  .animate,
+  .animation {
+    animation: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .animate,
+  .animation {
+    -webkit-animation: none !important;
+    -moz-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+// keyframes
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInUpShort {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideUpStagger {
+  0% {
+    //   opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  35% {
+    // opacity: 1;
+    transform: translate3d(0, 55%, 0);
+  }
+
+  55% {
+    // opacity: 1;
+    transform: translate3d(0, 55%, 0);
+  }
+
+  100% {
+    //   opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes revealDown {
+  from {
+    max-height: 0;
+  }
+
+  to {
+    max-height: 300px;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

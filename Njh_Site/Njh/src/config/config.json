@@ -1,0 +1,4 @@
+{
+  "WEBROOT": "../../../wwwroot",
+  "WEBPACK_DIST_PATH": "../../../wwwroot/dist"
+}

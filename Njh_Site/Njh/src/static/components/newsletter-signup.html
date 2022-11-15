@@ -1,0 +1,82 @@
+
+<section class="t-white">
+  <div class="app-main__content  app-main__content--1col">
+
+    <div class="app-main__content-column">
+
+      <div class="newsletter-signup">
+
+          <div class="newsletter-signup__text-column">
+            <h2 class="newsletter-signup__headline">Subscribe to our newsletter</h2>
+            <div class="newsletter-signup__description">
+              <p>You may opt-out anytime by clicking "unsubscribe" from the newsletter or from your account. Contact The Toronto Region Board of Trade at any time.</p>
+            </div>
+          </div>
+
+          <div class="newsletter-signup__form-column">
+            <form method="post" data-hook="newsletterSignupForm">
+
+              <!--
+              <div class="feedback-message feedback-message--error" role="alert" tabindex="-1" data-hook="feedbackMessage">
+                <p class="feedback-message__title">
+                  These are the things that are wrong
+                </p>
+                <div class="feedback-message__description">
+                  <p>The form has 3 errors, please correct them.</p>
+                  <ul>
+                    <li><a href="#firstName">Please enter first name</a></li>
+                    <li><a href="#lastName">Please enter last name</a></li>
+                    <li><a href="#emailAddress">Please enter email address</a></li>
+                  </ul>
+                </div>
+              </div>
+              -->
+
+              <div class="row">
+                <div class="col-12 col-sm-6 col-lg-6 mb-4">
+                  <label for="firstName" class="form-label is-required">First Name</label>
+                  <input type="text" id="firstName" aria-required="true" aria-describedby="firstNameError" class="form-control is-invalid">
+                  <span id="firstNameError" class="invalid-feedback">Please enter first name</span>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-6 mb-4">
+                  <label for="lastName" class="form-label is-required">Last Name</label>
+                  <input type="text" id="lastName" aria-required="true" aria-describedby="lastNameError" class="form-control is-invalid">
+                  <span id="lastNameError" class="invalid-feedback">Please enter last name</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12 mb-4">
+                  <label for="emailAddress" class="form-label is-required">Email Address</label>
+                  <input type="text" id="emailAddress" aria-required="true" aria-describedby="emailAddressError" class="form-control is-invalid">
+                  <span id="emailAddressError" class="invalid-feedback">Please enter valid email address</span>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <div class="newsletter-signup__submit-section-wrapper">
+                    <div class="newsletter-signup__recaptcha-wrapper">
+                      <img src="../images/captcha.png" alt="">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Subscribe">
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+
+
+          <div class="newsletter-signup__image-column">
+            <div class="newsletter-signup__image-wrapper">
+              <img src="../images/placeholder/placeholder-photo-horizontal-2.jpg" alt="">
+            </div>
+          </div>
+
+      </div>
+
+    </div> <!-- /app-main__content-column -->
+
+  </div> <!-- /.app-main__content -->
+</section>

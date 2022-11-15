@@ -1,0 +1,92 @@
+.breadcrumbs {
+  @include global-component;
+  padding-top: $spacer;
+  padding-bottom: $spacer;
+
+  @include media-breakpoint-up(lg) {
+    padding-left: $spacer;
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-left: $spacer * 4;
+  }
+}
+
+.breadcrumbs__list {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  font-size: $spacer * 0.875;
+}
+
+.breadcrumbs__list-item {
+  align-items: center;
+  display: none;
+  font-weight: 400;
+  line-height: 1.15;
+
+  // Initially only display the second level link. More will appear at lg breakpoint (below)
+  &:nth-last-of-type(2) {
+    display: flex;
+
+    &:before {
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.106 2.767 3.04.097a.388.388 0 0 1 .513 0l.342.311a.31.31 0 0 1 0 .466L1.57 3l2.324 2.126a.31.31 0 0 1 0 .466l-.342.311a.388.388 0 0 1-.513 0L.106 3.233a.31.31 0 0 1 0-.466Z' fill='#{encode_color( map_get($app-colors, 'blue') )}'/%3E%3C/svg%3E");
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      height: 6px;
+      margin-right: ($spacer * .65);
+      width: 6px;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    display: flex;
+
+    &:before {
+      display: none;
+    }
+
+    &:after {
+      background-image: url("data:image/svg+xml,%3Csvg width='4' height='6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.894 3.233.96 5.903a.388.388 0 0 1-.513 0l-.342-.311a.31.31 0 0 1 0-.466L2.43 3 .105.874A.31.31 0 0 1 .106.408L.448.097a.388.388 0 0 1 .513 0l2.933 2.67a.31.31 0 0 1 0 .466Z' fill='#{encode_color( map_get($app-colors, 'blue') )}'/%3E%3C/svg%3E");
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      height: 6px;
+      margin: 0 $spacer * .65;
+      width: 6px;
+    }
+
+    &:last-child {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+
+  a {
+    align-items: center;
+    color: map_get($app-colors, "neutral--700");
+    display: flex;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: map_get($app-colors, "blue");
+      text-decoration: underline;
+    }
+  }
+
+  &.is-current {
+    p {
+      display: inline;
+      // color: map_get($app-colors, "neutral--900");
+      color: #000;
+    }
+  }
+
+
+}

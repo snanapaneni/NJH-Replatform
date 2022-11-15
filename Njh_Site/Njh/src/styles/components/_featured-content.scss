@@ -1,0 +1,105 @@
+.featured-content {
+  @include global-component;
+
+  &:hover {
+    cursor: pointer;
+
+    .featured-content__image-wrapper {
+      .featured-content__image-wrapper-inner {
+        &:after {
+          opacity: 0;
+        }
+
+        img {
+          filter: grayscale(0%) contrast(100%);
+          transform: scale(1.2);
+        }
+      }
+    }
+    a.featured-content__headline {
+      color: map_get($app-colors, "blue");
+      span {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.featured-content__eyebrow {
+  @include global-component__eyebrow--light;
+}
+
+.featured-content__image-wrapper {
+  margin-bottom: $spacer * 1.25;
+  position: relative;
+
+  &:before {
+    background-color: map_get($app-colors, "green");
+    content: "";
+    position: absolute;
+    right: -$spacer;
+    top: -$spacer;
+    width: 40%;
+    height: 70%;
+  }
+
+  .featured-content__image-wrapper-inner {
+    overflow: hidden;
+    padding-bottom: 45.5%;
+    position: relative;
+
+    &:after {
+      background-color: #333986;
+      mix-blend-mode: screen;
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      transition: opacity 0.25s;
+    }
+
+    img {
+      filter: grayscale(100%) contrast(125%);
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      transition: filter 0.25s, transform 0.25s;
+      width: 100%;
+    }
+  }
+}
+
+a.featured-content__headline {
+  @include global-card-title;
+}
+
+.featured-content__description {
+  @include global-component__description;
+  padding-top: $spacer * .5;
+
+  @include media-breakpoint-up(md) {
+    font-size: .95em;
+  }
+}
+
+
+// ============================================================================
+// Overrides for when in 1 column layout
+.app-main__content--1col {
+  .featured-content {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      > div:first-child {
+        width: 45.25%;
+      }
+      > div:last-child {
+        width: 45.25%;
+      }
+    }
+  }
+}

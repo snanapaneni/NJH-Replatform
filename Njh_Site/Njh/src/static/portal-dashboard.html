@@ -1,0 +1,321 @@
+ <!DOCTYPE html>
+ <html lang="en">
+   <head>
+     <meta charset="utf-8" />
+     <title>Portal Dashboard</title>
+     <meta content="width=device-width, initial-scale=1" name="viewport">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+   </head>
+   <body class="content-has-sidebar">
+
+    <a href="#main" class="skip-to-content visually-hidden-focusable">Skip to content</a>
+
+    <header-partial></header-partial>
+
+
+    <main class="app-main" id="main">
+
+      <div class="app-portalpage-content">
+
+        <div class="app-main__content  app-main__content--1col">
+          <div class="app-main__content-column">
+
+            <div class="row gx-0 gx-lg-5">
+              <div class="col-12 col-lg-4">
+
+                <aside class="app-portalpage-content__sidebar" data-hook="appSidebar">
+
+                  <div class="app-portalpage-content__sidebar-section">
+
+                    <div class="app-portalpage-content__sidebar-user-info">
+                      <p class="app-portalpage-content__sidebar-user-welcome">
+                        <span class="app-portalpage-content__sidebar-user-salutation">Welcome,</span> <span class="app-portalpage-content__sidebar-user-fullname">Joseph Smith</span> <span class="app-portalpage-content__sidebar-user-pronouns">(He/Him)</span>
+                      </p>
+                      <p class="app-portalpage-content__sidebar-user-organization">Acme Corp</p>
+                      <p class="app-portalpage-content__sidebar-user-title">Chief Financial Officer</p>
+                      <p class="app-portalpage-content__sidebar-user-membership-tier">Influencer</p>
+                      <hr>
+                      <a class="app-portalpage-content__sidebar-user-edit-profile-link" href="#">
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg>
+                        <span>Edit my profile</span>
+                      </a>
+                    </div>
+
+                    <div data-hook="sideNavWrapper">
+                      <nav class="app-portalpage-content__sidebar-nav " data-hook="sideNav---portal">
+
+                        <ul role="list" id="side-nav__menu" aria-labelledby="app-header__utility-nav-portal-menu-trigger" aria-hidden="false" data-hook="sideNav__menu">
+
+                          <li>
+                            <div>
+                              <a href="#" class="is-current">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>
+                                <span>My Dashboard</span>
+                              </a>
+                            </div>
+                          </li>
+
+                          <li>
+                            <div>
+                              <a href="#">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>
+                                <span>Company Settings</span>
+                              </a>
+                            </div>
+                          </li>
+
+                          <li>
+                            <div>
+                              <a href="#">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>
+                                <span>Profile & Account</span>
+                              </a>
+                            </div>
+                          </li>
+
+                          <li>
+                            <div>
+                              <a href="#">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>
+                                <span>Billing & Payments</span>
+                              </a>
+                            </div>
+                          </li>
+
+                          <li>
+                            <div>
+                              <a href="https://google.com">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th" class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z"></path></svg>
+                                <span>Virtual Bot Cafe</span>
+                              </a>
+                            </div>
+                          </li>
+
+                        </ul>
+                      </nav>
+                    </div>
+
+                  </div>
+
+                  <div class="app-portalpage-content__sidebar-section">
+                    <div class="app-portalpage-content__sidebar-contact-cta"  data-hook="accordionGroupItem">
+                      <p class="app-portalpage-content__sidebar-contact-cta-header">
+                        <button data-hook="accordionGroupItem__title" id="accordion-header-portal-contact" aria-expanded="false" aria-controls="accordion-content-portal-contact"><span>Get in touch</span></button>
+                        <span>
+                          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-square-alt" class="svg-inline--fa fa-phone-square-alt fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-16.39 307.37l-15 65A15 15 0 0 1 354 416C194 416 64 286.29 64 126a15.7 15.7 0 0 1 11.63-14.61l65-15A18.23 18.23 0 0 1 144 96a16.27 16.27 0 0 1 13.79 9.09l30 70A17.9 17.9 0 0 1 189 181a17 17 0 0 1-5.5 11.61l-37.89 31a231.91 231.91 0 0 0 110.78 110.78l31-37.89A17 17 0 0 1 299 291a17.85 17.85 0 0 1 5.91 1.21l70 30A16.25 16.25 0 0 1 384 336a17.41 17.41 0 0 1-.39 3.37z"></path></svg>
+                          <span>Get in touch</span>
+                        </span>
+                      </p>
+                      <div id="accordion-content-portal-contact" class="accordion-content-portal-contact" role="region" aria-hidden="true" aria-labelledby="accordion-header-portal-contact" data-hook="accordionGroupItem__content">
+                        <div class="app-portalpage-content__sidebar-contact-cta-details">
+                          <p><strong>Email:</strong> ssmith@bot.com<br><strong>Phone:</strong> 123-456-7890</p>
+                          <p><a href="#">Contact Us</a></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--
+                  <div class="app-portalpage-content__sidebar-section">
+                    <div class="app-portalpage__sidebar-membership-cta">
+                      <p class="app-portalpage__sidebar-membership-cta-header">Learn About Member Benefits</p>
+                      <a href="#" class="btn btn-primary">Become a Member</a>
+                    </div>
+                  </div>
+                  -->
+
+                </aside>
+
+              </div>
+
+              <div class="col-12 col-lg-8" tabindex="-1">
+
+                <main-partial></main-partial>
+
+                <div class="event-routing event-routing--triple">
+
+                  <div class="event-routing__eyebrow">
+                    <p>New & Notable</p>
+                  </div>
+
+                  <h2 class="event-routing__headline">
+                    Triple Event Routing Component
+                  </h2>
+
+                  <div class="event-routing__description">
+                    <p>Feugiat sit bibendum enim nisl, nisl, neque, donec viverra vulputate. Sed placerat morbi suspendisse a, lorem quisque. Pulvinar pellentesque sapien nullam fames nec porttitor. Ac lectus risus.</p>
+                  </div>
+
+                  <div class="event-routing__cards">
+
+                    <div class="event-routing__card" data-hook="eventRoutingCard">
+                      <div class="event-routing__card-inner">
+
+                        <div class="event-routing__card-image-wrapper">
+                          <img class="event-routing__card-image" src="../images/placeholder/placeholder-photo-horizontal-1.jpg" alt="Alt text here">
+                        </div>
+
+                        <div class="event-routing__card-main">
+                          <div class="event-routing__card-date-box">
+                            <p class="event-routing__card-date-box-month">Jun</p>
+                            <p class="event-routing__card-date-box-day">12</p>
+                          </div>
+
+                          <div class="event-routing__card-title-info-wrapper">
+                            <a href="/" class="event-routing__card-title e-arrow-link">Picking up Speed: Digital Maturity in Canadian SMEs and Why Increasing it Matters Due to Very Long Headlines of the World</a>
+                          </div>
+
+                          <div class="event-routing__card-footer">
+                            <p class="event-routing__card-dateline">
+                              <span class="event-routing__card-date">Jun 12, 2022</span>
+                              <span>Kitchener, ON, Canada</span>
+                              <span>In Person</span>
+                            </p>
+                            <p class="event-routing__card-sponsor">
+                              Sponsored by Scotia Bank Unlimited
+                            </p>
+                            <div class="event-routing__card-pseudo-button">
+                              <p>View Event Details</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="event-routing__card" data-hook="eventRoutingCard">
+                      <div class="event-routing__card-inner">
+
+                        <div class="event-routing__card-image-wrapper">
+                          <img class="event-routing__card-image" src="../images/placeholder/placeholder-photo-vertical-1.jpg" alt="Alt text here">
+                        </div>
+
+                        <div class="event-routing__card-main">
+                          <div class="event-routing__card-date-box">
+                            <p class="event-routing__card-date-box-month">Aug</p>
+                            <p class="event-routing__card-date-box-day">24</p>
+                          </div>
+
+                          <div class="event-routing__card-title-info-wrapper">
+                            <a href="/" class="event-routing__card-title e-arrow-link">Member Speed Networking</a>
+                            <p class="event-routing__card-additional-event-info">Featuring Igor Wilson & His Pet Monkey Arlo!</p>
+                          </div>
+
+                          <div class="event-routing__card-footer">
+                            <p class="event-routing__card-dateline">
+                              <span class="event-routing__card-date">Aug 24, 2022 – Aug 27, 2022</span>
+                              <span>KITCHENER, ON, CANADA</span>
+                              <span>In Person</span>
+                            </p>
+                            <!-- <p class="event-routing__card-sponsor"> -->
+                              <!-- &nbsp; -->
+                            <!-- </p> -->
+                            <div class="event-routing__card-pseudo-button">
+                              <p>View Event Details</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="event-routing__card" data-hook="eventRoutingCard">
+                      <div class="event-routing__card-inner">
+
+                        <div class="event-routing__card-image-wrapper">
+                          <img class="event-routing__card-image" src="../images/placeholder/placeholder-photo-vertical-1.jpg" alt="Alt text here">
+                        </div>
+
+                        <div class="event-routing__card-main">
+                          <div class="event-routing__card-date-box">
+                            <p class="event-routing__card-date-box-month">Oct</p>
+                            <p class="event-routing__card-date-box-year">2022</p>
+                          </div>
+
+                          <div class="event-routing__card-title-info-wrapper">
+                            <a href="/" class="event-routing__card-title e-arrow-link">RAP Webcast Series: De-Risking the Technology Procurement Process</a>
+                            <p class="event-routing__card-additional-event-info">Details Coming Soon</p>
+                          </div>
+
+                          <div class="event-routing__card-footer">
+                            <p class="event-routing__card-dateline">
+                              <span class="event-routing__card-date">Oct 2022</span>
+                              <span>Virtual</span>
+                            </p>
+                            <p class="event-routing__card-sponsor">
+                              Sponsored by Ryerson University
+                            </p>
+                            <div class="event-routing__card-pseudo-button">
+                              <p>View Event Details</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <div class="event-routing__cta-link-wrapper">
+                    <a href="#" class="event-routing__cta-link">See all Events</a>
+                  </div>
+
+                </div>
+
+                <script type="application/json" data-hook="availablePortalAnnouncements">
+                    [
+                      {
+                        "guid": "f03c20a1-f077-4eba-8320-6c920479e9cb",
+                        "title": "Announcement Title Number One",
+                        "description": "Description text...",
+                        "imageUrl": "../images/placeholder/placeholder-photo-horizontal-1.jpg",
+                        "imageAltText": "Image alt text",
+                        "ctaText": "Learn more about this thing",
+                        "ctaUrl": "https://some-url.com/some-page"
+                      },
+                      {
+                        "guid": "7cf7c46b-ce1b-4f66-9565-648ef4ad3e54",
+                        "title": "Announcement Title Number Two",
+                        "description": "Description text...",
+                        "imageUrl": "../images/placeholder/placeholder-photo-horizontal-2.jpg",
+                        "imageAltText": "Image alt text",
+                        "ctaText": "Learn more about this thing",
+                        "ctaUrl": "https://some-url.com/some-page"
+                      },
+                      {
+                        "guid": "0a1f03c2-f077-4eba-8320-6c920479e9cb",
+                        "title": "Announcement Title Number Three",
+                        "description": "Description text...",
+                        "imageUrl": "../images/placeholder/placeholder-photo-vertical-1.jpg",
+                        "imageAltText": "Image alt text",
+                        "ctaText": "Learn more about this thing",
+                        "ctaUrl": "https://some-url.com/some-page"
+                      },
+                      {
+                        "guid": "c46bcf7-ce1b-4f66-9565-d648ef4a3e54",
+                        "title": "Announcement Title Number Four",
+                        "description": "Description text...",
+                        "imageUrl": "../images/placeholder/placeholder-photo-vertical-2.jpg",
+                        "imageAltText": "Image alt text",
+                        "ctaText": "Learn more about this thing",
+                        "ctaUrl": "https://some-url.com/some-page"
+                      }
+                    ]
+                </script>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <footer-partial></footer-partial>
+
+  </body>
+</html>

@@ -1,0 +1,4 @@
+.iframe {
+  @include global-component;
+  background-color: map_get($app-colors, 'neutral--100');
+}

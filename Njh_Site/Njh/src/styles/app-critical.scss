@@ -1,0 +1,246 @@
+@import "./variables";
+@import "./utilities";
+@import "./functions";
+
+/* Bootstrap Core Functions
+=========================================================================== */
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+/* Bootstrap Core Utilities
+=========================================================================== */
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/helpers";
+@import "../node_modules/bootstrap/scss/utilities/api";
+
+/* Bootstrap Core Layout
+=========================================================================== */
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/type";
+
+/* Bootstrap Components
+   Only uncomment what you need to reduce css payload size
+=========================================================================== */
+// @import "../node_modules/bootstrap/scss/accordion";
+// @import "../node_modules/bootstrap/scss/alert";
+// @import "../node_modules/bootstrap/scss/badge";
+// @import "../node_modules/bootstrap/scss/breadcrumb";
+// @import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/buttons";
+// @import "../node_modules/bootstrap/scss/card";
+// @import "../node_modules/bootstrap/scss/carousel";
+// @import "../node_modules/bootstrap/scss/close";
+// @import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/forms";
+// @import "../node_modules/bootstrap/scss/images";
+// @import "../node_modules/bootstrap/scss/list-group";
+// @import "../node_modules/bootstrap/scss/modal";
+// @import "../node_modules/bootstrap/scss/nav";
+// @import "../node_modules/bootstrap/scss/navbar";
+// @import "../node_modules/bootstrap/scss/pagination";
+// @import "../node_modules/bootstrap/scss/popover";
+// @import "../node_modules/bootstrap/scss/progress";
+// @import "../node_modules/bootstrap/scss/spinners";
+// @import "../node_modules/bootstrap/scss/tables";
+// @import "../node_modules/bootstrap/scss/toasts";
+// @import "../node_modules/bootstrap/scss/tooltip";
+// @import "../node_modules/bootstrap/scss/transitions";
+
+
+/* Hamburgers
+=========================================================================== */
+$hamburger-types: (collapse); // Only pull the style we are using
+// @import "../node_modules/hamburgers/_sass/hamburgers/hamburgers";
+/* Using local version from vendors directory below instead of npm version above
+   so we can fix a sass issue (use line above instead and view build output for more)
+*/
+@import "../vendor/hamburgers/_sass/hamburgers/hamburgers";
+
+body {
+  color: map_get($app-colors, "neutral--850");
+  font-family: $font-family-sans-serif;
+  line-height: 1.9;
+
+  &.remove-scrollbar {
+    height: 100vh;
+    overflow: hidden;
+    // padding-right: 15px; // Preserve scrollbar space to prevent content shift
+
+    //.app-header__small-screen-nav-panel-trigger {
+      // right: 25px; // Adjust for padding-right set above to prevent button location shift
+    //}
+  }
+
+  // > .body-overlay {
+  //   // background-color: rgba(#fff, .7);
+  //   position: fixed;
+  //   display: none;
+  //   left: 0;
+  //   right: 0;
+  //   top: 0;
+  //   bottom: 0;
+  //   z-index: 0;
+  // }
+  p,
+  div {
+    &:focus {
+      outline: none;
+    }
+  }
+
+  a.skip-to-content {
+    background-color: map_get($app-colors, "neutral--850");
+    color: map_get($app-colors, "neutral--100");
+    display: block;
+    left: 0;
+    padding: $spacer;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    text-decoration: underline;
+    top: 0;
+    width: 100%;
+    z-index: 110;
+
+    &:hover {
+      color: map_get($app-colors, "neutral--100");
+      text-decoration: none;
+    }
+  }
+
+  a.skip-to-primary-content {
+    background-color: map_get($app-colors, "neutral--850");
+    color: map_get($app-colors, "neutral--100");
+    display: none;
+    left: $spacer * 2;
+    padding: $spacer * .5;
+    position: absolute;
+    right: $spacer * 2;
+    text-align: center;
+    text-decoration: underline;
+    top: $spacer;
+    z-index: 110;
+
+    &:hover {
+      color: map_get($app-colors, "neutral--100");
+      text-decoration: none;
+    }
+
+    @include media-breakpoint-up(lg) {
+      @include visually-hidden-focusable;
+      display: block;
+      left: $spacer;
+      right: $spacer;
+    }
+  }
+
+  .app-overlay {
+    background-color: rgba(map_get($app-colors, "neutral--850"), .8);
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+
+    &.is-active {
+      display: block;
+      z-index: 90;
+    }
+
+    &.is-transparent {
+      background-color: transparent;
+    }
+  }
+
+}
+
+// ::selection {
+//   background: map_get($app-colors, "orange");
+//   color: map_get($app-colors, "neutral--850");
+// }
+
+img {
+  max-width: 100%;
+}
+
+@import "./mixins/globals";
+
+@import "./forms";
+@import "./themes";
+@import "./order-details";
+
+@import "./app-header";
+@import "./app-main";
+// @import "./app-footer";
+
+@import "./animations";
+
+// @import "./azure";
+
+// Components
+// @import "./components/accordion";
+// @import "./components/basic-image";
+// @import "./components/basic-text-block";
+@import "./components/breadcrumbs";
+// @import "./components/cohort-directory";
+// @import "./components/cta-banner";
+// @import "./components/event-routing";
+// @import "./components/featured-content";
+// @import "./components/feedback-message";
+// @import "./components/form-builder";
+// @import "./components/gated-content-cta";
+// @import "./components/headshot";
+@import "./components/hero-banner";
+// @import "./components/home-collage-cta";
+@import "./components/home-hero-banner";
+// @import "./components/home-program-routing";
+// @import "./components/iframe";
+// @import "./components/impact-stats";
+// @import "./components/kentico-admin";
+// @import "./components/loader";
+@import "./components/logo-zone";
+// @import "./components/magazine-rack";
+// @import "./components/modal";
+// @import "./components/newsletter-signup";
+// @import "./components/order-review-member-msg";
+// @import "./components/pagination";
+// @import "./components/pagination-react";
+// @import "./components/partner-profile";
+// @import "./components/portal-announcements";
+// @import "./components/portal-billing-and-payments";
+// @import "./components/portal-directory";
+// @import "./components/portal-featured-cta";
+// @import "./components/portal-membership-renewals";
+// @import "./components/portal-news";
+// @import "./components/portal-quicklinks";
+// @import "./components/portal-roster-activity-bar";
+// @import "./components/portal-resources";
+// @import "./components/portal-roster-management";
+// @import "./components/product-details";
+// @import "./components/rich-text";
+// @import "./components/routing";
+// @import "./components/tables";
+// @import "./components/video";
+
+// Search UI
+// @import "./components/search";
+// @import "./components/search-filters";
+
+// Elements
+@import "./elements/headings";
+@import "./elements/links";
+@import "./elements/buttons";
+// @import "./elements/icons";
+// @import "./elements/horizontal-rule";
+
+// Page Templates
+// @import "./page-templates/_portalpage.scss";
+// @import "./page-templates/_subpage.scss";
+
+// Print styles
+// @import "./print";

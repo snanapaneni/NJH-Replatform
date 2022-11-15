@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Resource Detail</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+
+    <a href="#main" class="skip-to-content visually-hidden-focusable"
+      >Skip to content</a
+    >
+
+    <header-partial></header-partial>
+
+    <main class="app-main" id="main">
+      <div class="app-main__content app-main__content--1col py-0">
+        <div class="app-main__content-column">
+          <div class="breadcrumbs">
+            <nav aria-label="Breadcrumbs">
+              <ul role="list" class="breadcrumbs__list">
+                <li class="breadcrumbs__list-item"><a href="/">Home</a></li>
+                <li class="breadcrumbs__list-item">
+                  <a href="/initiatives">Page</a>
+                </li>
+                <li class="breadcrumbs__list-item is-current">
+                  <p>Current Page</p>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <section class="t-pale-green" style="position: relative">
+        <div class="app-main__content app-main__content--1col">
+          <div class="app-main__content-column">
+            <!--
+            DEV NOTES:
+            Add the has-image class to the component if an image is present
+             -->
+
+            <!-- Begin Resource Hero Banner -->
+            <div class="hero-banner  hero-banner--wide   has-image   t-pale-green">
+
+              <div class="hero-banner__text-content-wrapper">
+
+                <div class="hero-banner__eyebrow">
+                  <p>Report</p>
+                </div>
+
+                <h1 class="hero-banner__headline">Housing a Generation of Essential Workers</h1>
+
+                <div class="hero-banner__description">
+                  <p>The Knowledge Creation District has a small geographic footprint, yet an outsized influence on the regional economy.</p>
+                </div>
+
+                <!--
+                <div class="hero-banner__cta">
+                  <a href="#" class="btn btn-primary">Button Text</a>
+                  <div class="hero-banner__cta-pricing">
+                    <p class="hero-banner__cta-price"><strong>$1,299 CAD</strong></p>
+                    <p class="hero-banner__cta-price-description">Member Price: <strong>$899 CAD</strong> (Save $400)</p>
+                  </div>
+                </div>
+                -->
+              </div>
+
+              <div class="logo-zone is-inline">
+                <p class="logo-zone__headline">Sponsored by</p>
+                <ul role="list" class="logo-zone__list">
+                  <!-- Logo item -->
+                  <li class="logo-zone__list-item" data-hook="logoZoneItem">
+                    <a href="#">
+                      <img src="../images/placeholder/placeholder-logo-horizontal-1.svg" loading="lazy"  alt="" />
+                    </a>
+                  </li>
+                  <!-- End Logo item -->
+                  <!-- Logo item -->
+                  <li class="logo-zone__list-item" data-hook="logoZoneItem">
+                    <a href="#">
+                      <img src="../images/placeholder/placeholder-logo-horizontal-2.svg" loading="lazy"  alt="" />
+                    </a>
+                  </li>
+                  <!-- End Logo item -->
+                </ul>
+              </div>
+
+              <!-- if has-image -->
+              <img class="hero-banner__image" src="../images/placeholder/placeholder-photo-horizontal-2.jpg" alt=""/>
+              <!-- End if has-image -->
+
+            </div>
+            <!-- End Resource Hero Banner -->
+
+          </div>
+          <!-- /app-main__content-column -->
+        </div>
+        <!-- /.app-main__content -->
+      </section>
+
+      <div class="app-main__content app-main__content--1col">
+        <div class="app-main__content-column">
+          <div class="app-subpage-content">
+            <div class="row gx-0 gx-lg-5">
+              <div class="col-12 col-lg-5 col-xl-4">
+                <aside
+                  class="app-subpage-content__sidebar"
+                  data-hook="appSidebar"
+                >
+                  <div class="app-subpage-content__sidebar-member-exclusive">
+                    <p>Member Exclusive</p>
+                  </div>
+                  <div class="app-subpage-content__sidebar-content-wrapper">
+                    <section class="app-subpage-content__sidebar-published">
+                      <header class="app-subpage-content__sidebar-header">
+                        <div>Date Published</div>
+                      </header>
+                      <div class="app-subpage-content__sidebar-content">
+                        <p class="app-subpage-content__sidebar-publish-date">
+                          July 2021
+                        </p>
+                      </div>
+                    </section>
+
+                    <section
+                      class="app-subpage-content__sidebar-accordion"
+                      data-hook="accordionGroupItem"
+                    >
+                      <header class="app-subpage-content__sidebar-header">
+                        <button
+                          data-hook="accordionGroupItem__title"
+                          id="accordion-header-authors"
+                          aria-expanded="false"
+                          aria-controls="accordion-content-authors"
+                        >
+                          Authors
+                        </button>
+                        <div>Authors</div>
+                      </header>
+                      <div
+                        class="app-subpage-content__sidebar-content"
+                        data-hook="accordionGroupItem__content"
+                        role="region"
+                        aria-hidden="true"
+                        aria-labelledby="accordion-header-authors"
+                      >
+                        <ul
+                          role="list"
+                          class="
+                            app-subpage-content__sidebar-authors
+                            has-images
+                          "
+                        >
+                          <!--  Dev Note: If image is enabled, add has-images class to this element -->
+                          <li class="app-subpage-content__sidebar-authors-item">
+                            <img
+                              src="../images/placeholder/placeholder-photo-horizontal-1.jpg"
+                              loading="lazy"
+                              alt=""
+                            />
+                            <p><strong>Bobby Lee</strong></p>
+                            <p>
+                              Nunc purus mauris sed ac molestie id duis ut eget
+                              egestas cras facilisi enim
+                            </p>
+                          </li>
+                          <li class="app-subpage-content__sidebar-authors-item">
+                            <img
+                              src="../images/placeholder/placeholder-photo-horizontal-1.jpg"
+                              loading="lazy"
+                              alt=""
+                            />
+                            <p><strong>Andy Santino</strong></p>
+                            <p>
+                              Egestas cras facilisi enim nunc purus mauris sed
+                              ac molestie id duis ut eget
+                            </p>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+
+                    <section
+                      class="app-subpage-content__sidebar-accordion"
+                      data-hook="accordionGroupItem"
+                    >
+                      <header class="app-subpage-content__sidebar-header">
+                        <button
+                          data-hook="accordionGroupItem__title"
+                          id="accordion-header-tags"
+                          aria-expanded="false"
+                          aria-controls="accordion-content-tags"
+                        >
+                          Tags
+                        </button>
+                        <div>Tags</div>
+                      </header>
+                      <div
+                        class="app-subpage-content__sidebar-content"
+                        data-hook="accordionGroupItem__content"
+                        role="region"
+                        aria-hidden="true"
+                        aria-labelledby="accordion-header-tags"
+                      >
+                        <ul
+                          role="list"
+                          class="app-subpage-content__sidebar-tags"
+                        >
+                          <li>
+                            Topic:
+                            <ul>
+                              <li><a href="#">Economy</a></li>
+                              <li><a href="#">Energy</a></li>
+                              <li><a href="#">Domestic Trade</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            Type:
+                            <ul>
+                              <li><a href="#">Economy</a></li>
+                              <li><a href="#">Energy</a></li>
+                              <li><a href="#">Domestic Trade</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            Industry:
+                            <ul>
+                              <li><a href="#">Economy</a></li>
+                              <li><a href="#">Energy</a></li>
+                              <li><a href="#">Domestic Trade</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            Initiative:
+                            <ul>
+                              <li><a href="#">Economy</a></li>
+                              <li><a href="#">Energy</a></li>
+                              <li><a href="#">Domestic Trade</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            Program / Network:
+                            <ul>
+                              <li><a href="#">Economy</a></li>
+                              <li><a href="#">Energy</a></li>
+                              <li><a href="#">Domestic Trade</a></li>
+                            </ul>
+                          </li>
+                          <li>
+                            Audience:
+                            <ul>
+                              <li><a href="#">Economy</a></li>
+                              <li><a href="#">Energy</a></li>
+                              <li><a href="#">Domestic Trade</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+                    </section>
+                  </div>
+
+                  <div class="app-subpage-content__sidebar-cta-wrapper">
+                    <a href="#" class="btn btn-primary mt-4 mt-lg-0"
+                      ><span>Download The Report</span></a
+                    >
+                  </div>
+                </aside>
+              </div>
+
+              <div class="col-12 col-lg-7 col-xl-8">
+                <section class="app-subpage-content__summary">
+                  <div class="app-main__content app-main__content--1col">
+                    <div class="app-main__content-column">
+                      <div class="rich-text">
+                        <h2>Executive Summary</h2>
+                        <p>
+                          As the Toronto Region transitions to a post-pandemic
+                          reality, how do we keep the spotlight on essential
+                          workers and their needs? When WoodGreen and the
+                          Toronto Region Board of Trade (the Board) partnered on
+                          the
+                          <em>Housing a Generation of Essential Workers </em
+                          >report series, it had three goals: draw attention to
+                          the pressing need for affordable workforce housing,
+                          identify solutions that provide housing for essential
+                          workers, and encourage key partners to act on this
+                          urgent issue.
+                        </p>
+                        <h3>Key Takeaways:</h3>
+                        <ul>
+                          <li>
+                            Leverage agile frameworks to provide a robust
+                            synopsis for high level overviews.
+                          </li>
+                          <li>
+                            Iterative approaches to corporate strategy foster
+                            collaborative thinking to further the overall value
+                            proposition.
+                          </li>
+                          <li>
+                            Organically grow the holistic world view of
+                            disruptive innovation via workplace diversity and
+                            empowerment.
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <main-partial></main-partial>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer-partial></footer-partial>
+  </body>
+</html>

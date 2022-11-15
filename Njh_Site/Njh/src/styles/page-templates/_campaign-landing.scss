@@ -1,0 +1,43 @@
+.app-campaign-landing-header {
+  background-color: #3E1779;
+  position: relative;
+
+  &:before {
+
+    @include media-breakpoint-up(lg) {
+      border-color: transparent #5366F1 transparent transparent;
+      border-style: solid;
+      border-width: 0 630px 360px 0;
+      bottom: initial;
+      content: '';
+      height: 0;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+    }
+  }
+
+  &:after {
+    background-color: map_get($app-colors, "neutral--100");
+    bottom: 0;
+    content: '';
+    height: $spacer * 2.5;
+    left: 0;
+    position: absolute;
+    right: 0;
+
+    @include media-breakpoint-up(lg) {
+      height: $spacer * 5;
+    }
+  }
+
+  > section {
+    position: relative;
+    z-index: 1;
+
+    .app-main__content {
+      padding-bottom: 0;
+    }
+  }
+}

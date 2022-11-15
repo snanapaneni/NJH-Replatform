@@ -1,0 +1,108 @@
+.impact-stats {
+  @include global-component;
+}
+
+.impact-stats__headline {
+  @include global-component__headline;
+}
+
+.impact-stats__description {
+  @include global-component__description;
+  padding-bottom: $spacer * 3;
+}
+
+.impact-stats__cta-buttons {
+  text-align: center;
+
+  @include media-breakpoint-up(lg) {
+    text-align: left;
+  }
+}
+
+.impact-stats__stat {
+  align-items: center;
+  border-bottom: 1px solid map_get($app-colors, 'neutral-darker');
+  display: flex;
+  line-height: 1.25;
+  margin-bottom: $spacer;
+  padding: $spacer;
+
+  @include media-breakpoint-up(lg) {
+    border-bottom: 0;
+    display: block;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  &.impact-stats__stat--primary {
+    border-bottom: 0;
+    flex-direction: column;
+    padding: ($spacer * 2) 0;
+    text-align: center;
+
+    @include media-breakpoint-up(md) {
+      border: 0;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: $spacer * 2;
+      padding: ($spacer * 2) 0;
+    }
+  }
+}
+
+.impact-stats__stat-number {
+  color: map_get($app-colors, 'purple');
+  line-height: 1.6;
+  font-size: 2rem;
+  font-weight: 700;
+
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+
+  // Adjust if is primary stat
+  .impact-stats__stat--primary & {
+    color: map_get($app-colors, 'blue');
+    font-size: 4.5rem;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 6.75rem;
+    }
+  }
+}
+
+.impact-stats__stat-description {
+  color: map_get($app-colors, 'neutral--700');
+  font-size: .9rem;
+  font-weight: 600;
+  line-height: 1.55;
+  padding-left: $spacer * .5;
+
+  @include media-breakpoint-up(lg) {
+    display: block;
+  }
+
+  // Adjust if is primary stat
+  .impact-stats__stat--primary & {
+    font-size: 1.5rem;
+    padding-left: 0;
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.875rem;
+      line-height: 1.7;
+    }
+  }
+
+}
+
+
+// ============================================================================================
+// Embedded Component Overrides
+.impact-stats .basic-text-block {
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-top: 0;
+}
+

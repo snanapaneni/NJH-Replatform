@@ -1,0 +1,272 @@
+//Billing and payments invoice styles
+#invoices {
+
+    margin-top: map_get($spacers, 4);
+
+    //Filter
+    #filters {
+
+        .letter-filter__wrap {
+            display:none;
+
+            @include media-breakpoint-up(md) {
+                display:block
+            }
+
+        }
+
+        ul.list--letter-filter {
+            list-style:none;
+            margin: 0.3rem 0 1.75rem -0.5rem;
+            padding:0;
+
+            li {
+                display:inline-block;
+            }
+
+            button {
+                font-size:0.875rem;
+                padding:0.25rem 0.5rem;
+                background:none;
+
+                &[disabled] {
+                    color: map_get($app-colors, "neutral--300");
+                    font-weight: 400;
+                }
+
+                &:not([disabled]) {
+                    color: map_get($app-colors, "neutral--900");
+                    font-weight: 600;
+
+                    &:hover,
+                    &.is-active {
+                        color: map_get($app-colors, "neutral--100");
+                        background-color: map_get($app-colors, "neutral--700");
+                    }
+
+                    &:focus {
+                        text-decoration:underline;
+                        font-weight:600;
+                    }
+
+                    &.is-active:focus {
+                        text-decoration: none;
+                    }
+                }
+
+
+            }
+        }
+
+        .invoice-filters__label { 
+            text-transform:uppercase; 
+            font-size:0.875rem;
+            font-weight:bold;
+            padding-right:0.5rem;
+        }
+
+        select.filter__status--selected {
+            border:0;
+            border-bottom: 1px solid map_get($app-colors, "blue");
+            font-size:0.875rem;
+            border-radius:0;
+            text-transform: capitalize;
+            background-color: map_get($app-colors, "neutral--100");
+        }
+
+    }
+
+    //Showing Results
+    .app-portalpage-invoices__results-count {
+        text-align:left;
+        text-transform: uppercase;
+        font-size:0.875rem;
+        margin-top:$spacer;
+
+        @include media-breakpoint-up(md) {
+            margin-top:0;
+        } 
+    }
+    
+    .invoices-filters__wrapper {
+        text-align:left;
+        @include media-breakpoint-up(md) {
+            text-align:right;
+        }
+    }
+
+        //Invoice--table (md + up)
+    /* .app-portalpage-invoices__table-wrap {
+        display:none;
+
+        @include media-breakpoint-up(md) {
+            display:block
+        }
+    }    */
+    table.app-portalpage-invoices__table {
+        th.invoice__header--amount {  text-align:right; padding-right:20px; }
+        td.invoice__product {
+            max-width:278px;
+        }
+    }
+
+    .invoice_date { text-transform: capitalize; }
+
+    .invoice__status svg {
+        margin-right: $spacer *  .25;
+        margin-top: -4px;
+    }
+
+    .invoice__status span {
+        font-weight:400;
+    }
+
+    .invoice__status--paid {
+        color: map_get($app-colors, "green--dark");
+    }
+
+    .invoice__status--due {
+        color: map_get($app-colors, "red--error");
+    }
+
+    .invoice__amount {
+        font-weight:700;
+        text-align:right;
+        padding-right: map_get($spacers, 4);
+        color: map_get($app-colors, "neutral--700");
+    }
+
+    //Invoice--list (sm/mobile)
+    .app-portalpage-invoices__list-wrap {
+        display:block;
+
+        @include media-breakpoint-up(md) {
+            display:none
+        }
+    }
+    
+    //UL styles
+    .app-portalpage-invoices__list {
+        margin:1.5rem 0;
+        padding:0;
+        border: 1px solid map_get($app-colors, "neutral--200");
+        border-radius: $spacer * .5;
+        list-style:none;
+
+        li {
+
+            padding:1.25rem;
+            font-size:0.875rem;
+
+            &:nth-child(even)  {
+                background-color: map_get($app-colors, "purple--pale");
+            }
+        }
+
+
+        .invoice__line_item:not(:first-child) {
+            margin-top:0.625rem;
+        }
+
+        .invoice__label--mobile { 
+            font-size:0.75rem;
+            display:inline-block;
+            width:33%; 
+            font-weight: bold;
+            line-height: 26px;
+            text-transform: uppercase;
+            color: map_get($app-colors, "neutral--700");
+        }
+
+        .invoice__date-label {
+            text-transform: uppercase;
+        }
+
+        .is-flex {
+            display:flex;
+
+            .invoice__label--mobile {
+                flex: 0 0 33%;
+            }
+        }
+
+    }
+
+
+    //Button & link overrides
+    .btn--make-a-payment {
+        font-size:0.875rem;
+        padding:0.5rem 1rem;
+        width:100%;
+        display:block;
+        margin-top:1.2rem;
+        font-weight:900;
+
+        @include media-breakpoint-up(md) {  
+            margin-top:0;
+            width:auto;
+        }
+    }
+
+    .link--make-a-payment {
+        color: map_get($app-colors, "blue");
+        text-transform:uppercase;
+        
+        @media screen and (max-width:720px) {
+            width:100% !important;
+        }
+    }
+
+    
+    // Pagination
+    .pagination {
+        padding:0 0 1rem 0;
+        margin-top:0;
+        border-top: 0;
+
+        @include media-breakpoint-up(md) { 
+            padding:2rem 0;
+        }
+    }
+
+    .pagination__list { 
+        margin-top:$spacer * 2;
+        margin-bottom:$spacer * 2;
+    }
+
+    //No results
+    .member-invoices__no-results {
+        padding:2rem 0;
+
+        @include media-breakpoint-up(md) { 
+            padding:4rem 0;
+        }
+
+        p strong {
+            font-weight: 600;
+        }
+    }
+}
+
+
+//CTAs
+#invoices + .app-portalpage-invoices__ctas {
+    
+    a { 
+        display:block; 
+        width:100%;
+        margin-bottom: $spacer * 0.5;
+    }
+
+    @include media-breakpoint-up(md) { 
+        margin-top:2rem;
+
+        a { 
+            display:inline-block;
+            width:auto 
+         }
+        a:first-child { 
+            margin-right: $spacer * 0.5; 
+        }
+    }
+}

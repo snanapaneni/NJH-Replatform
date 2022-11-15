@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Resource Detail</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet"/>
+
+  </head>
+  <body>
+
+    <a href="#main" class="skip-to-content visually-hidden-focusable"
+      >Skip to content</a
+    >
+
+    <header-partial></header-partial>
+
+    <main class="app-main" id="main">
+      <div class="app-main__content app-main__content--1col py-0">
+        <div class="app-main__content-column">
+          <div class="breadcrumbs">
+            <nav aria-label="Breadcrumbs">
+              <ul role="list" class="breadcrumbs__list">
+                <li class="breadcrumbs__list-item"><a href="/">Home</a></li>
+                <li class="breadcrumbs__list-item">
+                  <a href="/initiatives">Page</a>
+                </li>
+                <li class="breadcrumbs__list-item is-current">
+                  <p>Current Page</p>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <section class="t-pale-orange">
+        <div class="app-main__content app-main__content--1col">
+          <div class="app-main__content-column">
+            <!--
+            DEV NOTES:
+            Add the has-image class to the component if an image is present
+             -->
+
+            <!-- Begin Sub Hero Banner -->
+            <div
+              class="hero-banner hero-banner--square has-image t-pale-orange"
+            >
+              <div class="hero-banner__text-content-wrapper">
+                <h1 class="hero-banner__headline">Form Builder</h1>
+              </div>
+            </div>
+            <!-- End Sub Hero Banner -->
+          </div>
+          <!-- /app-main__content-column -->
+        </div>
+        <!-- /.app-main__content -->
+      </section>
+
+      <div class="app-main__content app-main__content--1col">
+        <div class="app-main__content-column">
+          <div class="app-subpage-content">
+            <div class="row gx-0 gx-lg-5">
+              <div class="col-12 col-lg-5 col-xl-4">
+                <aside
+                  class="app-subpage-content__sidebar has-nav"
+                  data-hook="appSidebar"
+                >
+                  <div class="app-subpage-content__sidebar-content-wrapper">
+                    <div data-hook="sideNavWrapper">
+                      <nav
+                        class="app-subpage-content__side-nav"
+                        data-hook="sideNav"
+                      >
+                        <p class="app-subpage-content__side-nav-header">
+                          <a href="#">We're Ready Toronoto</a>
+
+                          <button
+                            id="side-nav__menu-trigger"
+                            aria-expanded="false"
+                            aria-controls="side-nav__menu"
+                            data-hook="sideNav__menuTrigger"
+                          >
+                            <span class="visually-hidden">Open sub menu</span>
+                          </button>
+                        </p>
+
+                        <ul
+                          role="list"
+                          id="side-nav__menu"
+                          aria-labelledby="side-nav__menu-trigger"
+                          aria-hidden="false"
+                          data-hook="sideNav__menu"
+                        >
+                          <!-- Dev Note: If sub items are present, add class and data-hook to the parent li like: -->
+                          <li class="is-accordion" data-hook="sideNavAccordion">
+                            <div>
+                              <a href="#">Business Districts</a>
+                              <!-- Dev Note: If sub items are present, add button element like: -->
+                              <button
+                                id="side-nav-button-UNIQUE-ID-1"
+                                aria-expanded="false"
+                                aria-controls="side-nav-content-UNIQUE-ID-1"
+                                data-hook="sideNavAccordion__trigger"
+                              >
+                                <span class="visually-hidden"
+                                  >Open sub menu</span
+                                >
+                              </button>
+                            </div>
+                            <!-- Dev Note: If sub items are present, they should live in a ul like: -->
+                            <ul
+                              role="list"
+                              id="side-nav-content-UNIQUE-ID-1"
+                              aria-labelledby="side-nav-button-UNIQUE-ID-1"
+                              aria-hidden="false"
+                              data-hook="sideNavAccordion__content"
+                            >
+                              <li>
+                                <a href="#">Services & Mixed Use</a>
+                              </li>
+                              <li>
+                                <a href="#" class="is-current"
+                                  >Goods Production & Distribution Sciences</a
+                                >
+                              </li>
+                              <li>
+                                <a href="#">Regional Centres</a>
+                              </li>
+                            </ul>
+                          </li>
+
+                          <li>
+                            <div>
+                              <a href="#" class="is-current">Pilot Zones</a>
+                            </div>
+                          </li>
+
+                          <li>
+                            <div>
+                              <a href="#">Leading Practice</a>
+                            </div>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+
+              <div class="col-12 col-lg-7 col-xl-8">
+                <main-partial></main-partial>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer-partial></footer-partial>
+  </body>
+</html>

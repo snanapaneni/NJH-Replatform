@@ -1,0 +1,29 @@
+.membership__return-url {
+    display:inline-block;
+    line-height: 1.65;
+    padding: 0.75rem 1.25rem;
+    vertical-align: middle;
+    text-align:center;
+
+    @include media-breakpoint-up(md) {
+        text-align:left;
+      }
+
+}
+
+.membership__card-mask > span, .membership__card-expiry-date > span {
+    color: map_get($app-colors, "neutral--700") !important;
+}
+
+.links--edit a, .links--edit .btn {
+    width:100%;
+
+    @include media-breakpoint-up(md) {
+        width: auto;
+      }
+}
+
+// Edit screens
+#moneris-frame-wrapper {
+    max-width:31.25rem
+}

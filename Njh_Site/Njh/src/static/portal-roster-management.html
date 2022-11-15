@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Portal Billing & Payment - Invoices</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <a href="#main" class="skip-to-content visually-hidden-focusable">Skip to content</a>
+
+  <header-partial></header-partial>
+
+
+  <main class="app-main" id="main">
+
+    <div class="app-portalpage-content">
+
+      <div class="app-main__content  app-main__content--1col">
+        <div class="app-main__content-column">
+
+          <div class="row gx-0 gx-lg-5">
+            <div class="col-12 col-lg-4">
+
+              <aside class="app-portalpage-content__sidebar" data-hook="appSidebar">
+
+                <div class="app-portalpage-content__sidebar-section">
+
+                  <div class="app-portalpage-content__sidebar-user-info">
+                    <p class="app-portalpage-content__sidebar-user-welcome">
+                      <span class="app-portalpage-content__sidebar-user-salutation">Welcome,</span> <span
+                        class="app-portalpage-content__sidebar-user-fullname">Joseph Smith</span> <span
+                        class="app-portalpage-content__sidebar-user-pronouns">(He/Him)</span>
+                    </p>
+                    <p class="app-portalpage-content__sidebar-user-organization">Acme Corp</p>
+                    <p class="app-portalpage-content__sidebar-user-title">Chief Financial Officer</p>
+                    <p class="app-portalpage-content__sidebar-user-membership-tier">Influencer</p>
+                    <hr>
+                    <a class="app-portalpage-content__sidebar-user-edit-profile-link" href="#">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen"
+                        class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path fill="currentColor"
+                          d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z">
+                        </path>
+                      </svg>
+                      <span>Edit my profile</span>
+                    </a>
+                  </div>
+
+                  <div data-hook="sideNavWrapper">
+                    <nav class="app-portalpage-content__sidebar-nav " data-hook="sideNav---portal">
+
+                      <ul role="list" id="side-nav__menu" aria-labelledby="app-header__utility-nav-portal-menu-trigger"
+                        aria-hidden="false" data-hook="sideNav__menu">
+
+                        <li>
+                          <div>
+                            <a href="#" class="is-current">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>My Dashboard</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="#">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Company Settings</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="#">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Profile & Account</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="#">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Billing & Payments</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="https://google.com">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Virtual Bot Cafe</span>
+                            </a>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </nav>
+                  </div>
+
+                </div>
+
+                <div class="app-portalpage-content__sidebar-section">
+                  <div class="app-portalpage-content__sidebar-contact-cta" data-hook="accordionGroupItem">
+                    <p class="app-portalpage-content__sidebar-contact-cta-header">
+                      <button data-hook="accordionGroupItem__title" id="accordion-header-portal-contact"
+                        aria-expanded="false" aria-controls="accordion-content-portal-contact"><span>Get in
+                          touch</span></button>
+                      <span>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-square-alt"
+                          class="svg-inline--fa fa-phone-square-alt fa-w-14" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="currentColor"
+                            d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-16.39 307.37l-15 65A15 15 0 0 1 354 416C194 416 64 286.29 64 126a15.7 15.7 0 0 1 11.63-14.61l65-15A18.23 18.23 0 0 1 144 96a16.27 16.27 0 0 1 13.79 9.09l30 70A17.9 17.9 0 0 1 189 181a17 17 0 0 1-5.5 11.61l-37.89 31a231.91 231.91 0 0 0 110.78 110.78l31-37.89A17 17 0 0 1 299 291a17.85 17.85 0 0 1 5.91 1.21l70 30A16.25 16.25 0 0 1 384 336a17.41 17.41 0 0 1-.39 3.37z">
+                          </path>
+                        </svg> <span>Get in touch</span>
+                        <span>Get in touch</span>
+                      </span>
+                    </p>
+                    <div id="accordion-content-portal-contact" class="accordion-content-portal-contact" role="region"
+                      aria-hidden="true" aria-labelledby="accordion-header-portal-contact"
+                      data-hook="accordionGroupItem__content">
+                      <div class="app-portalpage-content__sidebar-contact-cta-details">
+                        <p class="app-portalpage-content__sidebar-contact-cta-name">Sharon Smith</p>
+                        <p class="app-portalpage-content__sidebar-contact-cta-method">Email: <a
+                            href="mailto:ssmith@bot.com">ssmith@bot.com</a></p>
+                        <p class="app-portalpage-content__sidebar-contact-cta-method">Phone: 123-456-7890</p>
+                        <div class="pt-4">
+                          <a href="#" class="btn btn-secondary">Contact Us</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--
+                  <div class="app-portalpage-content__sidebar-section">
+                    <div class="app-portalpage__sidebar-membership-cta">
+                      <p class="app-portalpage__sidebar-membership-cta-header">Learn About Member Benefits</p>
+                      <a href="#" class="btn btn-primary">Become a Member</a>
+                    </div>
+                  </div>
+                  -->
+
+              </aside>
+
+            </div>
+
+            <div class="col-12 col-lg-8">
+
+
+              <div class="app-portalpage-content__primary" id="primary-content">
+                <div class="app-portalpage-content__primary-inner">
+
+                  <h1 class="app-portalpage-content__header">Roster Management</h1>
+
+                  <p>Eementum justo aliquam. A, aliquam, rhoncus, feugiat volutpat. Duis viverra iaculis arcu elementum
+                    justo aliquam. A, aliquam, rhoncus, feugiat volutpat.</p>
+
+
+                  <!-- seats assigned component goes here -->
+
+                  <!-- seats assigned component goes here -->
+
+                  <!-- Main section-->
+                  <div id="roster-management" class="roster-management" data-filter-api="/api/search/invoices/all"
+                    data-search-api="/api/search/invoices/all" data-search-page-size="@Model.Properties.PageSize"
+                    data-search-no-results-title="@noResultsTitle" data-search-no-results-message="@noResultsMessage"
+                    data-listing-type="invoices" data-react-hook="invoices">
+
+                    <!-- output -->
+
+                    <!-- search field -->
+                    <form id="filters">
+                      <div class="row app-portalpage__input-label">
+                        <div class="col-12">
+                          <label for="member-search" class="find-a-member__label">Find a member</label>
+                        </div>
+                      </div>
+                      <div class="row app-portalpage__input-field">
+                        <div class="col-12 col-lg-8">
+                          <input type="text" class="search-input search-input--find-a-member" name="member-search" />
+                          <button class="btn btn-form btn-form--roster">Search</button>
+                        </div>
+                        <div class="col-12 col-lg-4 text-right"><button
+                            class="btn btn-secondary btn-secondary--roster">Add User</button>
+                        </div>
+                      </div>
+                      <!-- /search field -->
+                      <div class="row app-portalpage__filter app-portalpage__filter--roster">
+                        <div class="col-12 col-lg-6">
+                          <div id="results-count"
+                            class="app-portalpage__results-count app-portalpage__results-count--roster" role="region"
+                            aria-live="polite">
+                            SHOWING RESULTS 1-15 OF 24
+                          </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+
+                          <!-- invoice filter -->
+                          <div class="filters__wrapper">
+                            <span class="filters__label">Filter by role</span>
+                            <select name="filter__status" id="filter__status" class="filter__status--selected"
+                              title="Filter roster members by role" aria-controls="results-count">
+                              <option value="all">All</option>
+                              <option value="active">Active Roster</option>
+                              <option value="inactive">Inactive Roster</option>
+                              <option value="admin">Account Admin</option>
+                            </select>
+                          </div>
+                          <!-- invoice filter -->
+
+                        </div>
+
+
+                      </div>
+                    </form>
+
+
+                    <div class="app-portalpage__table-wrap">
+                      <table class="app-portalpage__table app-portalpage__table--roster">
+                        <caption class="visually-hidden">Roster</caption>
+                        <tr class="roster__header--row">
+                          <th scope="col" class="roster__header--name">Name</th>
+                          <th scope="col" class="roster__header--title">Title</th>
+                          <th scope="col" class="roster__header--status">Roster Status</th>
+                          <th scope="col" class="roster__header--email">E-mail address</th>
+                          <th scope="col" class="roster__header--edit"><span class="visually-hidden">Edit</span>
+                          </th>
+                        </tr>
+                        <tr class="roster__body--row">
+                          <td class="roster__name">
+                            Adam Smith
+                            <span class="roster__account-holder">Account Holder</span>
+                          </td>
+                          <td class="roster__title">President</td>
+                          <td class="roster__status">Active</td>
+                          <td class="roster__email">asmith@acmecorp.com</td>
+                          <td class="roster__edit"><a href="#edit"><svg width="15" height="16" viewBox="0 0 15 16"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M8.4245 3.08838L11.5564 6.44062C11.6884 6.58184 11.6884 6.81226 11.5564 6.95349L3.97311 15.0702L0.75089 15.453C0.320335 15.5051 -0.0442485 15.1148 0.00436264 14.654L0.362001 11.2051L7.94533 3.08838C8.07728 2.94715 8.29255 2.94715 8.4245 3.08838ZM14.0495 2.23731L12.3551 0.423676C11.8273 -0.141225 10.9696 -0.141225 10.4384 0.423676L9.20922 1.7393C9.07728 1.88053 9.07728 2.11095 9.20922 2.25217L12.3412 5.60442C12.4731 5.74564 12.6884 5.74564 12.8203 5.60442L14.0495 4.28879C14.5773 3.72017 14.5773 2.80221 14.0495 2.23731Z"
+                                  fill="#757575" />
+                              </svg><span class="visually-hidden">Edit Adam Smith</span></a></td>
+                        </tr>
+                        <tr class="roster__body--row">
+                          <td class="roster__name">Arlene Hopper</td>
+                          <td class="roster__title">Chief Financial Officer</td>
+                          <td class="roster__status">Inactive</td>
+                          <td class="roster__email">mthompson@reasononeinc.com</td>
+                          <td class="roster__edit"><a href="#edit"><svg width="15" height="16" viewBox="0 0 15 16"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M8.4245 3.08838L11.5564 6.44062C11.6884 6.58184 11.6884 6.81226 11.5564 6.95349L3.97311 15.0702L0.75089 15.453C0.320335 15.5051 -0.0442485 15.1148 0.00436264 14.654L0.362001 11.2051L7.94533 3.08838C8.07728 2.94715 8.29255 2.94715 8.4245 3.08838ZM14.0495 2.23731L12.3551 0.423676C11.8273 -0.141225 10.9696 -0.141225 10.4384 0.423676L9.20922 1.7393C9.07728 1.88053 9.07728 2.11095 9.20922 2.25217L12.3412 5.60442C12.4731 5.74564 12.6884 5.74564 12.8203 5.60442L14.0495 4.28879C14.5773 3.72017 14.5773 2.80221 14.0495 2.23731Z"
+                                  fill="#757575" />
+                              </svg><span class="visually-hidden">Edit Adam Smith</span></a></td>
+                        </tr>
+                      </table>
+                    </div>
+
+
+                    <!-- mobile list layout -->
+                    <div class="app-portalpage__list-wrap app-portalpage__list-wrap--mobile">
+                      <ul class="app-portalpage__list">
+                        <!-- list item -->
+                        <li>
+                          <div class="list__edit-item">
+                            <a href="#edit"><svg width="15" height="16" viewBox="0 0 15 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                  d="M8.4245 3.08838L11.5564 6.44062C11.6884 6.58184 11.6884 6.81226 11.5564 6.95349L3.97311 15.0702L0.75089 15.453C0.320335 15.5051 -0.0442485 15.1148 0.00436264 14.654L0.362001 11.2051L7.94533 3.08838C8.07728 2.94715 8.29255 2.94715 8.4245 3.08838ZM14.0495 2.23731L12.3551 0.423676C11.8273 -0.141225 10.9696 -0.141225 10.4384 0.423676L9.20922 1.7393C9.07728 1.88053 9.07728 2.11095 9.20922 2.25217L12.3412 5.60442C12.4731 5.74564 12.6884 5.74564 12.8203 5.60442L14.0495 4.28879C14.5773 3.72017 14.5773 2.80221 14.0495 2.23731Z"
+                                  fill="#757575" />
+                              </svg><span class="visually-hidden">Edit Adam Smith</span></a>
+                          </div>
+                          <div class="list__account-holder">Account Holder</div>
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--name"
+                              id="list__label--name-123">Name</span>
+                            <span class="list__item list__item--name" aria-labelledby="list__label--name-123">Adam
+                              Smith</span>
+                          </div>
+
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--title"
+                              id="list__label--title-123">Title</span>
+                            <span class="list__item list__item--title"
+                              aria-labelledby="list__label--title-123">President</span>
+                          </div>
+
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--status"
+                              id="list__label--status-123">Roster Status</span>
+                            <span class="list__item list__item--status"
+                              aria-labelledby="list__label--status-123">Active</span>
+                          </div>
+
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--email"
+                              id="list__label--email-123">Email</span>
+                            <span class="list__item list__item--email"
+                              aria-labelledby="list__label--email-123">asmith@acmecorp.com</span>
+                          </div>
+                        </li>
+                        <!-- list item -->
+
+                        <!-- list item -->
+                        <li>
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--name"
+                              id="list__label--name-123">Name</span>
+                            <span class="list__item list__item--name" aria-labelledby="list__label--name-123">Jane
+                              Doe</span>
+                          </div>
+
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--title"
+                              id="list__label--title-123">Title</span>
+                            <span class="list__item list__item--title" aria-labelledby="list__label--title-123">Chief
+                              Financial
+                              Officer</span>
+                          </div>
+
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--status"
+                              id="list__label--status-123">Roster Status</span>
+                            <span class="list__item list__item--status"
+                              aria-labelledby="list__label--status-123">Inactive</span>
+                          </div>
+
+                          <div class="list__line-item is-flex">
+                            <span class="list__label list__label--mobile list__label--email"
+                              id="list__label--email-123">Email</span>
+                            <span class="list__item list__item--email"
+                              aria-labelledby="list__label--email-123">asmith@acmecorp.com</span>
+                          </div>
+                        </li>
+                        <!-- list item -->
+
+                      </ul>
+                    </div>
+                    <!-- end mobile list layout -->
+
+
+                    <!-- /output -->
+
+
+
+                    <!-- pagination -->
+
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer-partial></footer-partial>
+
+</body>
+
+</html>

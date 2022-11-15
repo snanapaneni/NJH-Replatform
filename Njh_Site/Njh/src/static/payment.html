@@ -1,0 +1,333 @@
+ <!DOCTYPE html>
+ <html lang="en">
+   <head>
+     <meta charset="utf-8" />
+     <title>Payment</title>
+     <meta content="width=device-width, initial-scale=1" name="viewport">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+
+   </head>
+   <body>
+
+    <a href="#main" class="skip-to-content visually-hidden-focusable">Skip to content</a>
+
+    <header-partial></header-partial>
+
+
+    <main class="app-main" id="main" style="background-color: #f9f8fb;">
+
+      <div style="margin: 0 auto; max-width: 860px;">
+
+        <div class="app-main__content  app-main__content--1col py-0">
+          <div class="app-main__content-column">
+
+            <div class="hero-banner">
+              <div class="hero-banner__text-content-wrapper">
+                <h1 class="hero-banner__headline">Order Review</h1>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="app-main__content  app-main__content--1col py-0 pb-5">
+          <div class="app-main__content-column">
+
+            <div style=" background-color:#fff; padding: 3rem;">
+
+              <form action="#">
+
+                <section class="pb-5">
+
+                  <header class="mb-2">
+                    <div class="row">
+                      <div class="col-12">
+                        <h2 class="ruled-content-header">Product Details</h2>
+                      </div>
+                    </div>
+                  </header>
+
+                  <div class="order-details__line-items">
+
+                    <div class="order-details__line-item  order-details__line-item--bold   row">
+                      <div class="col-6 col-md-8">
+                        <p class="order-details__line-item-name">
+                          Influencer Membership
+                        </p>
+                        <div class="order-details__line-item-description">
+                          <p>Billed Yearly</p>
+                          <p>Pre-authorized for auto-renewal</p>
+                        </div>
+                      </div>
+                      <div class="col-6 col-md-4">
+                        <p class="order-details__line-item-amount   text-end">
+                          $1,299 CAD
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="row my-3">
+                      <div class="col-12">
+                        <hr>
+                      </div>
+                    </div>
+
+                    <div class="order-details__line-item order-details__line-item--light   row">
+                      <div class="col-6 col-md-8">
+                        <p class="order-details__line-item-name">
+                          Promo code applied: BOT2022
+                        </p>
+                      </div>
+                      <div class="col-6 col-md-4">
+                        <p class="order-details__line-item-amount   text-end">
+                          -$200 CAD
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="row my-3">
+                      <div class="col-12">
+                        <hr>
+                      </div>
+                    </div>
+
+                    <div class="order-details__line-item  order-details__line-item--bold   row">
+                      <div class="col-6 col-md-8">
+                        <p class="order-details__line-item-name">
+                          Subtotal
+                        </p>
+                      </div>
+                      <div class="col-6 col-md-4">
+                        <p class="order-details__line-item-amount   text-end">
+                          $1,099 CAD
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="row my-3">
+                      <div class="col-12">
+                        <hr>
+                      </div>
+                    </div>
+
+                    <div class="order-details__line-item order-details__line-item--light   row">
+                      <div class="col-6 col-md-8">
+                        <p class="order-details__line-item-name">
+                          Taxes
+                        </p>
+                      </div>
+                      <div class="col-6 col-md-4">
+                        <p class="order-details__line-item-amount   text-end">
+                          $125 CAD
+                        </p>
+                      </div>
+                    </div>
+
+                    <div class="row my-3">
+                      <div class="col-12">
+                        <hr>
+                      </div>
+                    </div>
+
+
+                    <div class="order-details__line-item  order-details__line-item--total   row">
+                      <div class="col-6 col-md-8">
+                        <p class="order-details__line-item-name">
+                          Order Total
+                        </p>
+                      </div>
+                      <div class="col-6 col-md-4">
+                        <p class="order-details__line-item-amount   text-end">
+                          $1,379 CAD
+                        </p>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </section>
+
+
+                <section class="pb-5">
+
+                  <header class="mb-2">
+                    <div class="row">
+                      <div class="col-12">
+                        <h2 class="ruled-content-header">Membership Renewals</h2>
+                      </div>
+                    </div>
+                  </header>
+
+
+                  <div class="form-check   mb-3">
+                    <input class="form-check-input" type="checkbox" value="" id="unique-checkbox-id">
+                    <label class="form-check-label" for="unique-checkbox-id">
+                      Auto-renew my membership each year (you may change this at any time on your Billing & Payments page).
+                    </label>
+                  </div>
+                </section>
+
+
+                <section class="pb-5">
+
+                  <header class="mb-2">
+                    <div class="row">
+                      <div class="col-12">
+                        <h2 class="ruled-content-header">Discounts</h2>
+                      </div>
+                    </div>
+                  </header>
+
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <label for="promoCode" class="form-label">Promo Code</label>
+                      <input type="text" class="form-control" id="promoCode" placeholder="Enter promo code here">
+                    </div>
+                  </div>
+                </section>
+
+
+                <section class="pb-5">
+
+                  <header class="mb-2">
+                    <div class="row">
+                      <div class="col-12">
+                        <h2 class="ruled-content-header">Billing Address</h2>
+                        <p>Please enter the address related to your billing address.</p>
+                      </div>
+                    </div>
+                  </header>
+
+                  <div class="row">
+                    <div class="col-12 col-lg-8 mb-3">
+                      <label for="country" class="form-label is-required">Country</label>
+                      <select class="form-select" id="country">
+                        <option selected>Canada</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 col-lg-8 mb-3">
+                      <label for="address-line-1" class="form-label">Address Line 1</label>
+                      <input type="text" class="form-control" id="address-line-1">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 col-lg-8 mb-3">
+                      <label for="address-line-2" class="form-label">Address Line 2</label>
+                      <input type="text" class="form-control" id="address-line-2">
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 col-lg-4 mb-3">
+                      <label for="city" class="form-label is-required">City</label>
+                      <input type="text" class="form-control" id="city">
+                    </div>
+                    <div class="col-12 col-lg-4 mb-3">
+                      <label for="province" class="form-label is-required">Province/State</label>
+                      <select class="form-select" id="province">
+                        <option selected>ON</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 col-lg-4 mb-3">
+                      <label for="postal-code" class="form-label is-required">Postal Code/Zip</label>
+                      <input type="text" class="form-control" id="postal-code">
+                    </div>
+                  </div>
+
+                </section>
+
+
+                <section class="pb-5">
+
+                  <header class="mb-2">
+                    <div class="row">
+                      <div class="col-12">
+                        <h2 class="ruled-content-header">Payment</h2>
+                        <p>How would you like to pay?</p>
+                      </div>
+                    </div>
+                  </header>
+
+
+                  <div class="form-radio   mb-2">
+                    <input class="form-radio-input" type="radio" name="payment-method" value="invoice" id="payment-method__invoice" data-hook="paymentMethodRadio">
+                    <label class="form-radio-label" for="payment-method__invoice">
+                      Request an Invoice (to pay by cheque or EFT)
+                    </label>
+                  </div>
+
+                  <div class="form-radio   mb-2">
+                    <input class="form-radio-input" type="radio" name="payment-method" value="credit-card" id="payment-method__credit-card" data-hook="paymentMethodRadio">
+                    <label class="form-radio-label" for="payment-method__credit-card">
+                      Credit Card
+                    </label>
+                  </div>
+
+                  <div class="row" style="display: none;" data-hook="paymentMethodFields__creditCard">
+                    <div class="col-12 col-lg-8">
+                      <p>Your debit or credit card information will be kept encrypted and secure.</p>
+                      <div style="padding: 2rem; background-color: #cdcdcd;">
+                        <p><strong>Moneris Payment Form...</strong></p>
+                      </div>
+                    </div>
+                  </div>
+
+                </section>
+
+
+
+                <section class="pb-5">
+                  <div class="form-check   mb-2">
+                    <input class="form-check-input" type="checkbox" name="accept-terms" value="yes" id="accept-terms">
+                    <label class="form-check-label" for="accept-terms">
+                      By clicking Place Order you accept the <a href="#">terms and conditions</a> of Toronto Region Board of Trade.
+                    </label>
+                  </div>
+                </section>
+
+                <div class="row justify-content-start align-items-center">
+                  <div class="col-auto">
+                    <input type="submit" class="btn btn-form" value="Next">
+                  </div>
+                  <div class="col-auto">
+                    <a href="#">Go back</a>
+                  </div>
+                </div>
+
+              </form>
+
+            </div>
+
+
+          </div>
+        </div>
+
+
+
+        <main-partial></main-partial>
+
+      </div>
+    </main>
+
+
+    <footer-partial></footer-partial>
+
+  </body>
+</html>

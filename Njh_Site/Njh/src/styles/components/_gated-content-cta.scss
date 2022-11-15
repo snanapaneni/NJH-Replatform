@@ -1,0 +1,43 @@
+.gated-content-cta {
+  .gated-content-cta__inner-wrapper {
+    border: 1px solid map_get($app-colors, "gold");
+    border-radius: 10px;
+    margin-bottom: $spacer * 1.5;
+  }
+
+  .gated-content-cta__header {
+    border-bottom: 1px solid map_get($app-colors, "gold");
+    border-radius: 10px 10px 0px 0px;
+    background-color: map_get($app-colors, "orange--pale");
+    padding: $spacer * 1.25;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    @include media-breakpoint-up(lg) {
+      padding: $spacer * 2.125;
+    }
+
+    svg {
+      width: 25px;
+      height: 29px;
+      flex-shrink: 0;
+      margin-right: $spacer;
+    }
+  }
+
+  .gated-content-cta__content {
+    background-color: map_get($app-colors, "neutral--100");
+    border-radius: 0px 0px 10px 10px;
+    padding: ($spacer * 1.875) ($spacer * 1.25);
+    text-align: center;
+
+    @include media-breakpoint-up(lg) {
+      padding: ($spacer * 3.75) ($spacer * 6.25);
+    }
+
+    .btn {
+      margin-bottom: $spacer * 1.25;
+    }
+  }
+}

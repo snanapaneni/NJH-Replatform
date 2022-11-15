@@ -1,0 +1,18 @@
+// styles for multidoc selector
+.ktc-admin-ui {
+  .multidoc-row {
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .multidoc-col-6 {
+    display: inline-block;
+    width: 100%;
+
+    @include media-breakpoint-up(md) {
+      width: 50%;
+    }
+  }
+}

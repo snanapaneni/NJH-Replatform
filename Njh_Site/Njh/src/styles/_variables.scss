@@ -1,0 +1,110 @@
+/* Bootstrap Overrides
+=========================================================================== */
+// Color system
+
+/* prettier-ignore */
+$app-colors: (
+  "neutral--100": #FFFFFF,
+  "neutral--200": #f6f6f6,
+  "neutral--300": #cbcbcb,
+  "neutral--400": #C3C3C4,
+  "neutral--500": #99999d,
+  "neutral--600": #757575,
+  "neutral--700": #525252,
+  "neutral--800": #3d3d3d,
+  "neutral--850": #28262E,
+  "neutral--900": #28262E,
+
+  "blue": #4E60F4,
+  "blue--dark": #3645c9,
+  "blue--pale": #F6F7FE,
+
+  "orange": #FFC14A,
+  "orange--pale": #FEF6E4,
+
+  "green": #6EFF97,
+  "green--dark": #3E774E,
+  "green--pale": #F0FFF4,
+
+  "purple": #3F107C,
+  "purple--pale": #F9F8FB,
+  "purple--dark": #2D036B,
+
+  "red": #FF0000,
+  "red--error": #D70000,
+  "red--dark": #AF0F0F,
+  "red--light": #FDF2F2,
+
+  "gold": #8E641A,
+  "indigo": #3F107C,
+);
+
+// $theme-colors: (
+// "primary":    map_get($app-colors, 'neutral--850'),
+// "secondary":  $secondary,
+// "success":    $success,
+// "info":       $info,
+// "warning":    $warning,
+// "danger":     $danger,
+// "light":      $light,
+// "dark":       $dark
+// );
+
+// Options
+$enable-smooth-scroll: false;
+$enable-transitions: false;
+
+// Typography
+$font-family-sans-serif: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+
+$font-size-base: 1rem;
+
+$h1-font-size: $font-size-base * 2;
+$h2-font-size: $font-size-base * 1.3;
+$h3-font-size: $font-size-base * 1.1;
+$h4-font-size: $font-size-base;
+$h5-font-size: $font-size-base;
+$h6-font-size: $font-size-base;
+
+// Grid containers
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1440px,
+  xxl: 1500px,
+);
+
+// Grid columns
+$grid-columns: 12;
+$grid-gutter-width: 1.5rem;
+$grid-row-columns: 6;
+
+// Components
+$border-radius: 0;
+$border-radius-sm: 0;
+$border-radius-lg: 0;
+
+// Buttons
+$btn-border-radius: 0;
+$btn-border-radius-sm: 0;
+$btn-border-radius-lg: 0;
+
+// Forms
+$input-border-color: map_get($app-colors, "neutral--700");
+$form-check-input-border: 1px solid map_get($app-colors, "neutral--700");
+$error-color: map_get($app-colors, "red--error");
+$legend-font-size: inherit;
+
+// Modal
+$modal-backdrop-bg:           map_get($app-colors, 'neutral--850');
+$modal-backdrop-opacity:      .85;
+$modal-content-border-width:  0;
+
+
+/* Custom Variables
+=========================================================================== */
+$font-family-serif: "Eczar", serif;
+
+// Borders
+$border: rgba(map_get($app-colors, "neutral--850"), 0.2);

@@ -1,0 +1,315 @@
+
+// #roster-management { margin-top: 3rem; }
+
+.roster-directory__header {
+    padding-top: 2.5rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1.25rem;
+    padding-left: 1.25rem;
+    border-radius: 1rem;
+
+    @include media-breakpoint-up(md) {
+        padding-right: 2.5rem;
+        padding-bottom: 2.5rem;
+        padding-left: 2.5rem;
+    }
+}
+
+//find a member search area
+.find-a-member__label { display:block; }
+
+.search-input { 
+    padding: 0.75rem 1rem;
+    border-radius: 0;
+    border:1px solid map_get($app-colors, "neutral--700");
+    line-height: 1.65;
+    margin-bottom:1rem;
+    width:100%;
+    height:52px;
+
+    @include media-breakpoint-up(md) {
+        width:66%;
+        margin-bottom:0;
+        margin-right:0.5rem;
+    }
+    
+}
+
+.btn.btn-form.btn-form--roster { 
+    height:52px; 
+    width:100%;
+    
+    @include media-breakpoint-up(md) {
+        width:31%; 
+        margin-top: -3px;
+        padding: 0.75rem 1rem
+    }
+
+}
+.btn.btn-secondary.btn-secondary--roster { 
+    height:52px;
+    width:100%;
+    margin-top:2rem;
+
+    @include media-breakpoint-up(md) {
+        width: auto;
+        margin-top:0;
+        padding: 0.75rem 1rem
+    }
+
+}
+
+.app-portalpage__input-label label {
+    font-size: 1.125rem;
+    font-weight:600;
+    margin-bottom:0.5rem !important
+}
+
+.filters__wrapper { 
+    text-align:left;
+    
+    @include media-breakpoint-up(md) {
+        text-align:right;
+    } 
+}
+
+.filters__label { 
+    text-transform:uppercase; 
+    font-size:0.875rem;
+    font-weight:bold;
+    padding-right:0.5rem;
+}
+
+select.filter__status--selected {
+    border:0;
+    border-bottom: 1px solid map_get($app-colors, "blue");
+    font-size:0.875rem;
+    border-radius:0;
+    text-transform: capitalize;
+    background-color: map_get($app-colors, "neutral--100");
+}
+
+
+.app-portalpage__filter--roster {
+    margin-top: 2rem;
+
+    @include media-breakpoint-up(md) {
+        margin-top: 2.75rem;
+    } 
+    
+}
+
+//Showing Results
+.app-portalpage__results-count {
+    text-align:left;
+    text-transform: uppercase;
+    font-size:0.875rem;
+    margin-top:$spacer;
+
+    @media screen and (min-width:769px) {
+        margin-top:0;
+    } 
+}
+
+.app-portalpage__table-wrap {
+    margin-top:2rem;
+    margin-bottom:2.5rem !important;
+}
+
+.app-portalpage__table--roster {
+    border:0;
+    width:100%;
+    //table-layout: fixed;
+
+    .roster__header--row {
+        border-bottom: 1px solid map_get($app-colors, "neutral--600");
+    }
+
+    .roster__body--row {
+        border-bottom: 1px solid map_get($app-colors, "neutral--300");
+
+        &:last-child {
+            border-bottom: 1px solid map_get($app-colors, "neutral--600");
+        }
+    }
+    
+    tr:nth-child(even) {
+        background-color: map_get($app-colors, "neutral--100");
+    }
+
+    tr:hover {
+        background-color: map_get($app-colors, "purple--pale");
+    }
+
+    th {
+        padding:10px 16px;
+        text-align:left;
+    }
+
+    td {
+        padding: 2.75rem 1rem;
+        font-size:1rem
+    }
+
+    //special cell Styling
+    .roster__header--name {
+        padding-left:2rem;
+    }
+
+    .roster__header--email, .roster__email { 
+        padding-left:1rem;
+    }
+
+    .roster__name { 
+        position:relative;
+        font-size:18px;
+        font-weight:600;
+        padding-left:2rem;
+        min-width:33%;
+    }
+
+    .roster__account-holder { 
+        position:absolute;
+        top: 0;
+        left: 1.5rem;
+        background-color: map_get($app-colors, "indigo");
+        color: map_get($app-colors, "neutral--100");
+        padding:3px 10px;
+        font-size:14px;
+        font-weight:normal;
+    }
+
+    .roster__email { 
+        text-transform: lowercase; 
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+
+    .roster__edit { padding: 0; }
+    //.roster__edit a { padding:2.75rem 3rem; }
+    .roster__edit a:hover svg path {
+        fill: map_get($app-colors, "indigo");
+    }
+    
+}
+
+// Mobile styles
+.app-portalpage__list {
+    margin:2rem 0 !important;
+    padding:0;
+    list-style:none;
+
+    li {
+        position:relative;
+        padding:0 0 1.25rem 0;
+        font-size:0.875rem;
+        border-bottom: 1px solid map_get($app-colors, "neutral--300");
+
+        &:first-child {
+            border-top: 1px solid map_get($app-colors, "neutral--600");
+        }
+
+        &:last-child {
+            border-bottom: 1px solid map_get($app-colors, "neutral--600");
+        }
+    }
+
+    .list__edit-item {
+        position:absolute;
+        right: 0;
+        //padding: 1rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+    }
+
+    .list__line-item {
+        position: relative;
+        padding:1rem 0 0 0;
+
+        &:first-child {
+            padding-top:1.5rem
+        }
+    }
+
+    .list__label {
+        font-weight: bold;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .list__label, .list__item {
+        line-height: 26px;
+    }
+
+    .is-flex {
+        display:flex;
+
+        .list__label--mobile {
+            flex: 0 0 40%;
+        }
+    }
+
+    .list__account-holder { 
+        display: inline-block;
+        background-color: map_get($app-colors, "indigo");
+        color: map_get($app-colors, "neutral--100");
+        padding:3px 10px;
+        font-size: 14px;
+        //font-weight: 600;
+        line-height:1.5;
+    }
+
+    .list__item--email {
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+    }
+}
+
+// Pagination
+.roster-directory .pagination .pagination__list {
+    margin-bottom: 0;
+}
+
+.related-section {
+    margin-top:3rem; 
+
+    h2 {
+        color: map-get($app-colors, "gold");
+        font-size: 1rem;
+        font-family: $font-family-sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+
+        &::after {
+            content: "";
+            display:block;
+            width:100%;
+            margin-top:0.625rem;
+            margin-bottom:0.625rem;
+            border-bottom: 1px solid map-get($app-colors, "gold");
+        }
+    }
+
+    .roster-invoices__body p {
+        line-height:1.625;
+    }
+
+    .roster-invoices__body .btn.btn-secondary {
+        width:100%;
+
+        @include media-breakpoint-up(md) {
+            width: auto;
+        }
+    }
+}
+
+// FIX: https://reasonone.atlassian.net/browse/BOTWR-1973
+.radio__assign-privilege legend.is-required {
+    width: initial;
+}

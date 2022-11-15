@@ -1,0 +1,140 @@
+.partner-profile {
+  @include global-component;
+}
+
+.partner-profile__eyebrow {
+  @include global-component__eyebrow;
+  line-height:1.5;
+  @include media-breakpoint-up(md) {
+    line-height:1.9
+  }
+
+  & > *:after {
+    bottom: -12px;
+
+    @include media-breakpoint-up(md) {
+      bottom: -6px
+    }
+  }
+}
+
+.partner-profile__headline {
+  @include global-component__headline;
+  max-width: 900px;
+}
+
+.partner-profile__description {
+  @include global-component__description;
+  max-width: 900px;
+}
+
+.partner-profile__cards {
+  list-style-type: none;
+  margin: 0;
+  padding: ($spacer * 2) 0 0 0;
+  display: grid;
+  grid-template-columns: 100fr;
+  column-gap: $spacer;
+  row-gap: $spacer;
+
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 50fr 50fr;
+  }
+
+}
+
+.partner-profile__card {
+  display: flex;
+  flex-direction: column;
+}
+
+.partner-profile__card-inner {
+  background-color: #f9f9ff;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: $spacer * 2;
+
+  &:hover {
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+
+    a {
+      color: map_get($app-colors, "blue");
+      text-decoration: underline;
+    }
+  }
+}
+
+.partner-profile__card-text {
+  flex: 1;
+}
+
+.partner-profile__card-image-wrapper {
+  padding-top: $spacer;
+
+  img {
+    max-height: 30px;
+    max-width: 100%;
+  }
+}
+
+a.partner-profile__card-title {
+  @include global-card-title;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.partner-profile__card-description {
+  @include global-component__description;
+}
+
+
+// ================================================================================================
+// Overrides for when only one profile
+.partner-profile__cards.is-single {
+  @include media-breakpoint-up(md) {
+    grid-template-columns: 100fr;
+  }
+  .partner-profile__card-inner {
+    @include media-breakpoint-up(sm) {
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+  .partner-profile__card-image-wrapper {
+    @include media-breakpoint-up(sm) {
+      padding-top: 0;
+      text-align: right;
+      width: 35%;
+    }
+  }
+
+}
+
+
+// ================================================================================================
+// Overrides for 2 column
+.app-main__content--2col {
+  .partner-profile__cards:not(.is-single) {
+    @include media-breakpoint-up(md) {
+      grid-template-columns: 100fr;
+    }
+  }
+}
+
+// ============================================================================
+// Overrides pages with sidebar
+body.content-has-sidebar {
+  .partner-profile__cards:not(.is-single) {
+    @include media-breakpoint-up(md) {
+      grid-template-columns: 100fr;
+    }
+    @include media-breakpoint-up(xxl) {
+      grid-template-columns: 50fr 50fr;
+    }
+  }
+}

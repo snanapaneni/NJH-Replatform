@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Portal Billing & Payment - Invoices</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <a href="#main" class="skip-to-content visually-hidden-focusable">Skip to content</a>
+
+  <header-partial></header-partial>
+
+
+  <main class="app-main" id="main">
+
+    <div class="app-portalpage-content">
+
+      <div class="app-main__content  app-main__content--1col">
+        <div class="app-main__content-column">
+
+          <div class="row gx-0 gx-lg-5">
+            <div class="col-12 col-lg-4">
+
+              <aside class="app-portalpage-content__sidebar" data-hook="appSidebar">
+
+                <div class="app-portalpage-content__sidebar-section">
+
+                  <div class="app-portalpage-content__sidebar-user-info">
+                    <p class="app-portalpage-content__sidebar-user-welcome">
+                      <span class="app-portalpage-content__sidebar-user-salutation">Welcome,</span> <span
+                        class="app-portalpage-content__sidebar-user-fullname">Joseph Smith</span> <span
+                        class="app-portalpage-content__sidebar-user-pronouns">(He/Him)</span>
+                    </p>
+                    <p class="app-portalpage-content__sidebar-user-organization">Acme Corp</p>
+                    <p class="app-portalpage-content__sidebar-user-title">Chief Financial Officer</p>
+                    <p class="app-portalpage-content__sidebar-user-membership-tier">Influencer</p>
+                    <hr>
+                    <a class="app-portalpage-content__sidebar-user-edit-profile-link" href="#">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen"
+                        class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path fill="currentColor"
+                          d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z">
+                        </path>
+                      </svg>
+                      <span>Edit my profile</span>
+                    </a>
+                  </div>
+
+                  <div data-hook="sideNavWrapper">
+                    <nav class="app-portalpage-content__sidebar-nav " data-hook="sideNav---portal">
+
+                      <ul role="list" id="side-nav__menu" aria-labelledby="app-header__utility-nav-portal-menu-trigger"
+                        aria-hidden="false" data-hook="sideNav__menu">
+
+                        <li>
+                          <div>
+                            <a href="#" class="is-current">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>My Dashboard</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="#">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Company Settings</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="#">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Profile & Account</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="#">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Billing & Payments</span>
+                            </a>
+                          </div>
+                        </li>
+
+                        <li>
+                          <div>
+                            <a href="https://google.com">
+                              <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="th"
+                                class="svg-inline--fa fa-th fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512">
+                                <path fill="currentColor"
+                                  d="M149.333 56v80c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24V56c0-13.255 10.745-24 24-24h101.333c13.255 0 24 10.745 24 24zm181.334 240v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm32-240v80c0 13.255 10.745 24 24 24H488c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24zm-32 80V56c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.256 0 24.001-10.745 24.001-24zm-205.334 56H24c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24zM0 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H24c-13.255 0-24 10.745-24 24zm386.667-56H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zm0 160H488c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H386.667c-13.255 0-24 10.745-24 24v80c0 13.255 10.745 24 24 24zM181.333 376v80c0 13.255 10.745 24 24 24h101.333c13.255 0 24-10.745 24-24v-80c0-13.255-10.745-24-24-24H205.333c-13.255 0-24 10.745-24 24z">
+                                </path>
+                              </svg>
+                              <span>Virtual Bot Cafe</span>
+                            </a>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </nav>
+                  </div>
+
+                </div>
+
+                <div class="app-portalpage-content__sidebar-section">
+                  <div class="app-portalpage-content__sidebar-contact-cta" data-hook="accordionGroupItem">
+                    <p class="app-portalpage-content__sidebar-contact-cta-header">
+                      <button data-hook="accordionGroupItem__title" id="accordion-header-portal-contact"
+                        aria-expanded="false" aria-controls="accordion-content-portal-contact"><span>Get in
+                          touch</span></button>
+                      <span>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="phone-square-alt"
+                          class="svg-inline--fa fa-phone-square-alt fa-w-14" role="img"
+                          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                          <path fill="currentColor"
+                            d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48zm-16.39 307.37l-15 65A15 15 0 0 1 354 416C194 416 64 286.29 64 126a15.7 15.7 0 0 1 11.63-14.61l65-15A18.23 18.23 0 0 1 144 96a16.27 16.27 0 0 1 13.79 9.09l30 70A17.9 17.9 0 0 1 189 181a17 17 0 0 1-5.5 11.61l-37.89 31a231.91 231.91 0 0 0 110.78 110.78l31-37.89A17 17 0 0 1 299 291a17.85 17.85 0 0 1 5.91 1.21l70 30A16.25 16.25 0 0 1 384 336a17.41 17.41 0 0 1-.39 3.37z">
+                          </path>
+                        </svg> <span>Get in touch</span>
+                        <span>Get in touch</span>
+                      </span>
+                    </p>
+                    <div id="accordion-content-portal-contact" class="accordion-content-portal-contact" role="region"
+                      aria-hidden="true" aria-labelledby="accordion-header-portal-contact"
+                      data-hook="accordionGroupItem__content">
+                      <div class="app-portalpage-content__sidebar-contact-cta-details">
+                        <p class="app-portalpage-content__sidebar-contact-cta-name">Sharon Smith</p>
+                        <p class="app-portalpage-content__sidebar-contact-cta-method">Email: <a
+                            href="mailto:ssmith@bot.com">ssmith@bot.com</a></p>
+                        <p class="app-portalpage-content__sidebar-contact-cta-method">Phone: 123-456-7890</p>
+                        <div class="pt-4">
+                          <a href="#" class="btn btn-secondary">Contact Us</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!--
+                  <div class="app-portalpage-content__sidebar-section">
+                    <div class="app-portalpage__sidebar-membership-cta">
+                      <p class="app-portalpage__sidebar-membership-cta-header">Learn About Member Benefits</p>
+                      <a href="#" class="btn btn-primary">Become a Member</a>
+                    </div>
+                  </div>
+                  -->
+
+              </aside>
+
+            </div>
+
+            <div class="col-12 col-lg-8">
+
+
+              <div class="app-portalpage-content__primary" id="primary-content">
+                <div class="app-portalpage-content__primary-inner">
+
+                  <h1 class="app-portalpage-content__header">Billing &amp; Payment</h1>
+
+                  <p>Eementum justo aliquam. A, aliquam, rhoncus, feugiat volutpat. Duis viverra iaculis arcu elementum
+                    justo aliquam. A, aliquam, rhoncus, feugiat volutpat.</p>
+
+                  <!-- Main section-->
+                  <div id="invoices" class="invoice" data-filter-api="/api/search/invoices/all"
+                    data-search-api="/api/search/invoices/all" data-search-page-size="@Model.Properties.PageSize"
+                    data-search-no-results-title="@noResultsTitle" data-search-no-results-message="@noResultsMessage"
+                    data-listing-type="invoices" data-react-hook="invoices">
+
+                    <!-- output -->
+                    <div class="row app-portalpage-invoices__filter">
+                      <div class="col-12 col-lg-6">
+
+                        <!-- invoice filter -->
+                        <div class="invoices-filters__wrapper">
+                          <form id="filters">
+                            <span class="invoice-filters__label">Display</span>
+                            <select name="filter__status" id="filter__status" class="filter__status--selected"
+                              title="Filter invoices by status" aria-controls="invoices__results-count">
+                              <option value="all">All</option>
+                              <option value="due">Due</option>
+                              <option value="partial">Partial</option>
+                              <option value="paid">Paid</option>
+                            </select>
+                          </form>
+                        </div>
+                        <!-- invoice filter -->
+
+                      </div>
+                      <div class="col-12 col-lg-6">
+                        <div id="invoices__results-count" class="app-portalpage-invoices__results-count" role="region"
+                          aria-live="polite">
+                          SHOWING RESULTS 1-15 OF 24
+                        </div>
+                      </div>
+
+                    </div>
+
+
+                    <div class="app-portalpage-invoices__table-wrap">
+                      <table class="app-portalpage-invoices__table">
+                        <caption class="visually-hidden">Invoice list</caption>
+                        <tr>
+                          <th scope="col" class="invoice__header--date">Date</th>
+                          <th scope="col" class="invoice__header--invoice-number">Invoice</th>
+                          <th scope="col" class="invoice__header--product">Product</th>
+                          <th scope="col" class="invoice__header--amount">Amount</th>
+                          <th scope="col" class="invoice__header--status">Status</th>
+                          <th scope="col" class="invoice__header--action">Action</th>
+                        </tr>
+                        <tr>
+                          <td class="invoice__date">5 Jan 2022</td>
+                          <td class="invoice__link"><a href="#">54818</a></td>
+                          <td class="invoice__product">Business Crews</td>
+                          <td class="invoice__amount">$145.45</td>
+                          <td class="invoice__status">
+                            <!-- due icon -->
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M19.7749 15.2782C20.4158 16.3891 19.6113 17.7778 18.3313 17.7778H1.66855C0.386017 17.7778 -0.414747 16.387 0.224906 15.2782L8.55636 0.832813C9.19758 -0.278611 10.8036 -0.276597 11.4437 0.832813L19.7749 15.2782ZM10 12.2917C9.11789 12.2917 8.40279 13.0068 8.40279 13.8889C8.40279 14.771 9.11789 15.4861 10 15.4861C10.8821 15.4861 11.5972 14.771 11.5972 13.8889C11.5972 13.0068 10.8821 12.2917 10 12.2917ZM8.48359 6.55049L8.74116 11.2727C8.7532 11.4937 8.93591 11.6667 9.1572 11.6667H10.8428C11.0641 11.6667 11.2468 11.4937 11.2589 11.2727L11.5164 6.55049C11.5295 6.31181 11.3394 6.11111 11.1004 6.11111H8.89959C8.66057 6.11111 8.47056 6.31181 8.48359 6.55049Z"
+                                fill="#D70000" />
+                              <!-- due icon -->
+                            </svg>
+                            <span class="invoice__status--due">Due</span>
+                          </td>
+                          <td class="invoice__action"><a href="#" class="link--make-a-payment">Pay by EFT/cheque</a>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="invoice__date">15 Dec 2021</td>
+                          <td class="invoice__link"><a href="#">52818</a></td>
+                          <td class="invoice__product">Influencer Membership</td>
+                          <td class="invoice__amount">$999.99</td>
+                          <td class="invoice__status">
+                            <!-- paid icon -->
+
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M18 9C18 13.9706 13.9706 18 9 18C4.02942 18 0 13.9706 0 9C0 4.02942 4.02942 0 9 0C13.9706 0 18 4.02942 18 9ZM7.95898 13.7654L14.6364 7.08801C14.8631 6.86127 14.8631 6.49361 14.6364 6.26687L13.8153 5.44573C13.5885 5.21895 13.2209 5.21895 12.9941 5.44573L7.54839 10.8914L5.00592 8.34892C4.77918 8.12217 4.41152 8.12217 4.18475 8.34892L3.3636 9.17006C3.13686 9.3968 3.13686 9.76445 3.3636 9.9912L7.1378 13.7654C7.36458 13.9922 7.7322 13.9922 7.95898 13.7654Z"
+                                fill="#3E774E" />
+                            </svg>
+
+                            <!-- paid icon -->
+                            <span class="invoice__status--paid">Paid</span>
+                          </td>
+                          <td class="invoice__action">&nbsp;</td>
+                        </tr>
+                        <tr>
+                          <td class="invoice__date">5 Jan 2022</td>
+                          <td class="invoice__link"><a href="#">64818</a></td>
+                          <td class="invoice__product">TAP Program – Vaughan Cohort – Energy Sector</td>
+                          <td class="invoice__amount">$14500.45</td>
+                          <td class="invoice__status">Partially paid</td>
+                          <td class="invoice__action"><a href="#" class="btn--make-a-payment btn btn-secondary">Make a
+                              payment</a></td>
+                        </tr>
+                      </table>
+                    </div>
+
+
+                    <!-- mobile list layout -->
+                    <div class="app-portalpage-invoices__list-wrap">
+                      <ul class="app-portalpage-invoices__list">
+                        <li>
+                          <div class="invoice__line_item">
+                            <span class="invoice__label--mobile invoice__date-label"
+                              id="invoice__date-label-123">Date</span><span class="invoice_date"
+                              aria-labelledby="invoice__date-label-123">5 jan 2022</span>
+                          </div>
+
+                          <div class=" invoice__line_item">
+                            <span class="invoice__label--mobile invoice__number-label"
+                              id="invoice__number-label-123">Invoice</span><span class="invoice_number"
+                              aria-labelledby="invoice__number-label-123"><a href="#">548118</a></span>
+                          </div>
+
+                          <div class="invoice__line_item is-flex">
+                            <span class="invoice__label--mobile invoice__product-label"
+                              id="invoice__product-label-123">Program</span>
+                            <span class="invoice_product" aria-labelledby="invoice__product-label-123">TAP Program –
+                              Vaughan Cohort – Energy
+                              Sector</span>
+                          </div>
+
+                          <div class="invoice__line_item">
+                            <span class="invoice__label--mobile invoice__amount-label"
+                              id="invoice__amount-label-123">Amount</span>
+                            <span class="invoice__amount" aria-labelledby="invoice__amount-label-123">$145.25</span>
+                          </div>
+                          <div class="invoice__line_item">
+                            <span class="invoice__label--mobile invoice__status-label"
+                              id="invoice__status-label-123">Status</span>
+                            <span class="invoice__status">
+                              <span class="invoice__status--due" aria-labelledby="invoice__status-label-123">
+                                <!-- due icon -->
+                                <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    d="M19.7749 15.2782C20.4158 16.3891 19.6113 17.7778 18.3313 17.7778H1.66855C0.386017 17.7778 -0.414747 16.387 0.224906 15.2782L8.55636 0.832813C9.19758 -0.278611 10.8036 -0.276597 11.4437 0.832813L19.7749 15.2782ZM10 12.2917C9.11789 12.2917 8.40279 13.0068 8.40279 13.8889C8.40279 14.771 9.11789 15.4861 10 15.4861C10.8821 15.4861 11.5972 14.771 11.5972 13.8889C11.5972 13.0068 10.8821 12.2917 10 12.2917ZM8.48359 6.55049L8.74116 11.2727C8.7532 11.4937 8.93591 11.6667 9.1572 11.6667H10.8428C11.0641 11.6667 11.2468 11.4937 11.2589 11.2727L11.5164 6.55049C11.5295 6.31181 11.3394 6.11111 11.1004 6.11111H8.89959C8.66057 6.11111 8.47056 6.31181 8.48359 6.55049Z"
+                                    fill="#D70000" />
+                                  <!-- due icon -->
+                                </svg> Due
+                              </span>
+                          </div>
+                          <div class="invoice__line_item">
+                            <span class="invoice__action"><a href="#" class="btn--make-a-payment btn btn-secondary">Make
+                                a
+                                payment</a></span>
+                          </div>
+                        </li>
+
+
+                        <li>
+                          <div class="invoice__line_item">
+                            <span class="invoice__label--mobile invoice__date-label"
+                              id="invoice__date-label-123">Date</span><span class="invoice_date"
+                              aria-labelledby="invoice__date-label-123">5 jan 2022</span>
+                          </div>
+
+                          <div class=" invoice__line_item">
+                            <span class="invoice__label--mobile invoice__number-label"
+                              id="invoice__number-label-123">Invoice</span><span class="invoice_number"
+                              aria-labelledby="invoice__number-label-123"><a href="#">548118</a></span>
+                          </div>
+
+                          <div class="invoice__line_item is-flex">
+                            <span class="invoice__label--mobile invoice__product-label"
+                              id="invoice__product-label-123">Program</span>
+                            <span class="invoice_product" aria-labelledby="invoice__product-label-123">TAP Program –
+                              Vaughan Cohort – Energy
+                              Sector</span>
+                          </div>
+
+                          <div class="invoice__line_item">
+                            <span class="invoice__label--mobile invoice__amount-label"
+                              id="invoice__amount-label-123">Amount</span>
+                            <span class="invoice__amount" aria-labelledby="invoice__amount-label-123">$145.25</span>
+                          </div>
+                          <div class="invoice__line_item">
+                            <span class="invoice__label--mobile invoice__status-label"
+                              id="invoice__status-label-123">Status</span>
+                            <span class="invoice__status">
+                              <span class="invoice__status--paid" aria-labelledby="invoice__status-label-123">
+                                <!-- paid icon -->
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                  xmlns="http://www.w3.org/2000/svg">
+                                  <path
+                                    d="M18 9C18 13.9706 13.9706 18 9 18C4.02942 18 0 13.9706 0 9C0 4.02942 4.02942 0 9 0C13.9706 0 18 4.02942 18 9ZM7.95898 13.7654L14.6364 7.08801C14.8631 6.86127 14.8631 6.49361 14.6364 6.26687L13.8153 5.44573C13.5885 5.21895 13.2209 5.21895 12.9941 5.44573L7.54839 10.8914L5.00592 8.34892C4.77918 8.12217 4.41152 8.12217 4.18475 8.34892L3.3636 9.17006C3.13686 9.3968 3.13686 9.76445 3.3636 9.9912L7.1378 13.7654C7.36458 13.9922 7.7322 13.9922 7.95898 13.7654Z"
+                                    fill="#3E774E" />
+                                </svg>
+                                <!-- paid icon -->
+                                </svg> Paid
+                              </span>
+                          </div>
+                          <div class="invoice__line_item">
+                            <span class="invoice__action"><a href="#" class="btn--make-a-payment btn btn-secondary">Pay
+                                by
+                                EFT/cheque</a></span>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </div>
+                    <!-- end mobile list layout -->
+
+
+                    <!-- /output -->
+
+
+
+                    <!-- pagination -->
+
+                    <!-- CTA's -->
+                    <div class="app-portalpage-invoices__ctas">
+                      <a href="#" class="btn btn-primary">View Roster Invoices</a>
+                      <a href="#" class="btn btn-primary">Manage Membership renewals</a>
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+
+  <footer-partial></footer-partial>
+
+</body>
+
+</html>

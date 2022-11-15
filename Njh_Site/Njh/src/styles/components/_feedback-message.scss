@@ -1,0 +1,97 @@
+
+.feedback-message {
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  color: map_get($app-colors, "neutral--900");
+  font-family: $font-family-sans-serif;
+  margin-bottom: $spacer * 2;
+  padding: $spacer * 2;
+
+  &--small {
+    border:none;
+    display:inline-block;
+    padding: $spacer $spacer * 2;
+    margin-top: $spacer * 1.25;
+
+    .feedback-message__title {
+      padding-bottom:0 !important;
+      font-size:1rem;
+    }
+  }
+
+  .feedback-message__title {
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0;
+    padding-left: $spacer * 2;
+    padding-bottom: $spacer;
+  }
+
+  .feedback-message__description {
+    font-size: 1rem;
+    line-height: 1.5;
+
+    a {
+      color: inherit !important;
+    }
+  }
+
+  &.feedback-message--error {
+    border-color: map_get($app-colors, "red--error");
+    background-color: map_get($app-colors, "red--light");
+
+    .feedback-message__title {
+      background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' data-prefix='fas' data-icon='times-circle' class='svg-inline--fa fa-times-circle fa-w-16' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='#{encode_color( #D70000 )}' d='M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z'/%3E%3C/svg%3E");
+      color: map_get($app-colors, "red--error");
+    }
+
+    .feedback-message__description,
+    .feedback-message__description a {
+      color: map_get($app-colors, "red--error");
+    }
+  }
+
+  &.feedback-message--success {
+    border-color: map_get($app-colors, "green--dark");
+    background-color: map_get($app-colors, "green--pale");
+
+    .feedback-message__title {
+      background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' data-prefix='fas' data-icon='check-circle' class='svg-inline--fa fa-check-circle fa-w-16' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='#{encode_color( map_get($app-colors, 'green--dark') )}' d='M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z'/%3E%3C/svg%3E");
+      color: map_get($app-colors, "green--dark");
+    }
+
+    .feedback-message__description {
+    }
+  }
+
+  &.feedback-message--warning {
+    border-color: map_get($app-colors, "orange");
+    background-color: map_get($app-colors, "orange--pale");
+
+    .feedback-message__title {
+      background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' data-prefix='fas' data-icon='exclamation-circle' class='svg-inline--fa fa-exclamation-circle fa-w-16' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='#{encode_color( map_get($app-colors, 'gold') )}' d='M504 256c0 136.997-111.043 248-248 248S8 392.997 8 256C8 119.083 119.043 8 256 8s248 111.083 248 248zm-248 50c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346 7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z'/%3E%3C/svg%3E");
+      color: map_get($app-colors, "gold");
+    }
+
+    .feedback-message__description {
+    }
+  }
+
+  &.feedback-message--plain-text {
+    display:block;
+    border-color: transparent;
+    background-color: transparent;
+    padding: 0;
+
+    .feedback-message__title {
+      padding-left: 0 !important;
+      font-size: 0.875rem;
+      font-weight:normal;
+      color: map_get($app-colors, "neutral--850");
+    }
+  }
+}

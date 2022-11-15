@@ -1,0 +1,120 @@
+.portal-announcements  {
+  @include global-component;
+  display: none;
+  margin-bottom: $spacer * 4;
+  padding: 0 $spacer;
+
+  @include media-breakpoint-up(sm) {
+    padding: 0 $spacer;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding: 0;
+  }
+}
+
+.portal-announcements__headline {
+  @include global-component__headline--portal;
+  background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' data-icon='bullhorn' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'%3E%3Cpath fill='#{encode_color( map_get($app-colors, 'orange') )}' d='M576 240c0-23.63-12.95-44.04-32-55.12V32.01C544 23.26 537.02 0 512 0c-7.12 0-14.19 2.38-19.98 7.02l-85.03 68.03C364.28 109.19 310.66 128 256 128H64c-35.35 0-64 28.65-64 64v96c0 35.35 28.65 64 64 64h33.7c-1.39 10.48-2.18 21.14-2.18 32 0 39.77 9.26 77.35 25.56 110.94 5.19 10.69 16.52 17.06 28.4 17.06h74.28c26.05 0 41.69-29.84 25.9-50.56-16.4-21.52-26.15-48.36-26.15-77.44 0-11.11 1.62-21.79 4.41-32H256c54.66 0 108.28 18.81 150.98 52.95l85.03 68.03a32.023 32.023 0 0 0 19.98 7.02c24.92 0 32-22.78 32-32V295.13C563.05 284.04 576 263.63 576 240zm-96 141.42-33.05-26.44C392.95 311.78 325.12 288 256 288v-96c69.12 0 136.95-23.78 190.95-66.98L480 98.58v282.84z'/%3E%3C/svg%3E");
+  background-position: 0 2px;
+}
+
+.portal-announcements__item-image-wrapper {
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 75%;
+  position: relative;
+
+  @include media-breakpoint-up(lg) {
+  }
+}
+
+.portal-announcements__item-image {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+
+.portal-announcements__list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.portal-announcements__list-item {
+  background-color: map_get($app-colors, 'neutral--100');
+  border-radius: $spacer;
+  margin-bottom: $spacer * 2;
+  overflow: hidden;
+  position: relative;
+
+  .portal-announcements__list-close-button {
+    background-color: map_get($app-colors, 'neutral--100');
+    border: 0;
+    border-radius: 100%;
+    height: 39px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 39px;
+    z-index: 1;
+
+    @include media-breakpoint-up(lg) {
+      right: 25px;
+      top: 25px;
+    }
+
+    &:before,
+    &:after {
+      background-color: map_get($app-colors, 'neutral--850');
+      content: ' ';
+      height: 28px;
+      left: 19px;
+      position: absolute;
+      top: 5px;
+      width: 1px;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      background-color: map_get($app-colors, 'neutral--200');
+    }
+
+    &:focus {
+      outline: 2px solid transparent;
+      box-shadow: 0 0 0 3px map_get($app-colors, "blue"),
+                  0 0 0 5px map_get($app-colors, "neutral--100");
+    }
+
+  }
+
+}
+
+.portal-announcements__item-text {
+  padding: ($spacer * 1.5);
+
+  @include media-breakpoint-up(lg) {
+    padding: ($spacer * 2) ($spacer * 2.5);
+  }
+}
+.portal-announcements__item-title {
+  color: map_get($app-colors, 'purple--dark');
+  font-family: $font-family-serif;
+  font-size: 1.35rem;
+  line-height: 1.3;
+  margin-bottom: $spacer * .5;
+  padding-right: $spacer * 2;
+}
+

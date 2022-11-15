@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TRBOT</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+  </head>
+  <body>
+
+    <a href="#main" class="skip-to-content visually-hidden-focusable">Skip to content</a>
+
+    <!-- BOTWR-21, BOTWR-25 - Header -->
+    <header class="app-header" data-hook="appHeader">
+      <div
+        class="app-header__small-screen-nav-panel"
+        id="app-header__small-screen-nav-panel"
+        data-hook="appHeader__smallScreenNavPanel"
+      >
+        <div class="app-header__small-screen-nav-panel-header">
+          <button
+            class="app-header__small-screen-nav-panel-back-button"
+            data-hook="appHeader__smallScreenNavPanelBackButton"
+          >
+            Back to Main Menu
+          </button>
+          <button
+            class="app-header__small-screen-nav-panel-search-button"
+            data-hook="appHeader__smallScreenNavPanelSearchButton"
+          >
+            Search
+          </button>
+        </div>
+
+        <div class="app-header__small-screen-nav-panel-top">
+          <div>
+            <div
+              class="app-header__primary-nav-wrapper"
+              data-hook="appHeader__primaryNavWrapper"
+            ></div>
+          </div>
+          <div>
+            <div
+              class="app-header__utility-nav-wrapper"
+              data-hook="appHeader__utilityNavWrapper"
+            ></div>
+          </div>
+        </div>
+
+        <div class="app-header__primary-nav-cta">
+          <a href="#" class="btn btn-secondary">Member Sign-In</a>
+          <a href="#" class="btn btn-primary">Become a member</a>
+        </div>
+      </div>
+      <!-- /.app-header__small-screen-nav-panel -->
+
+      <div
+        class="app-header__utility-nav-wrapper"
+        data-hook="appHeader__utilityNavWrapper"
+      >
+        <nav
+          class="app-header__utility-nav"
+          data-hook="appHeader__utilityNav"
+          aria-label="Header Utility Navigation"
+        >
+          <ul role="list" class="app-header__utility-nav-list">
+            <li class="app-header__utility-nav-item">
+              <button>
+                Search
+                <svg
+                  width="12"
+                  height="12"
+                  viewBox="0 0 12 12"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.709085 7.865302l-.037186.047567h.444242c.143029 0 .27916.055852.37954.156232l2.347854 2.347854.000109.000108c.20749.209889.20749.549217-.002363.75907l-.666466.666454-.000109.00012c-.20744.209684-.546672.209804-.75661-.00012L8.070135 9.494648c-.10038-.10038-.156231-.236512-.156231-.37954v-.444243l-.047568.037186c-.826315.646077-1.865606 1.02997-2.996294 1.02997-2.689665 0-4.869008-2.179347-4.869008-4.869013S2.180376 0 4.870041 0c2.689666 0 4.869001 2.179342 4.869001 4.869008 0 1.130688-.38388 2.169979-1.029957 2.996294zM1.82618 4.869008c0 1.68363 1.362618 3.043861 3.043861 3.043861 1.683631 0 3.043862-1.362618 3.043862-3.04386 0-1.683631-1.362618-3.043862-3.043862-3.043862-1.68363 0-3.04386 1.362618-3.04386 3.043861z"
+                    fill="#28262E"
+                    fill-rule="nonzero"
+                  />
+                </svg>
+              </button>
+            </li>
+            <li class="app-header__utility-nav-item"><a href="#">News</a></li>
+            <li class="app-header__utility-nav-item"><a href="#">About</a></li>
+            <li class="app-header__utility-nav-item">
+              <a href="#">Contact</a>
+            </li>
+            <li class="app-header__utility-nav-item">
+              <a href="#"
+                >Sign In
+                <svg
+                  width="10"
+                  height="12"
+                  viewBox="0 0 10 12"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <g fill="#28262E" fill-rule="evenodd">
+                    <path
+                      d="M5.0001 6c1.65685 0 3-1.34315 3-3s-1.34315-3-3-3c-1.65686 0-3 1.34315-3 3s1.34314 3 3 3zM0 12c0-1.3261.526785-2.59787 1.46447-3.53555C2.40215 7.52677 3.67392 6.99999 5 6.99999c1.32608 0 2.59785.52678 3.53553 1.46446C9.47322 9.40214 10 10.6739 10 12H0z"
+                    />
+                  </g>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div
+        class="app-header__primary-banner"
+        data-hook="appHeader__primaryBanner"
+      >
+        <a href="/" class="app-header__logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 209.62 72.72">
+            <title>Toronto Regional Board of Trade logo</title>
+            <path
+              fill="#b8d9f2"
+              d="M85.08 25.64l-24.84-8.45v13.93l8.31 3.16 16.53-8.64z"
+            />
+            <path
+              fill="#00aae7"
+              d="M38.56 57.5l-4.35 2.44v12.78l17.48-10.24V48.97l-4.35-1.65v-21.1l-8.78-3.34V57.5z"
+            />
+            <path
+              fill="#8ac4eb"
+              d="M47.34 26.22V16.01l-8.78 3.49v3.38l8.78 3.34z"
+            />
+            <path
+              fill="#f7901e"
+              d="M60.24 17.19v-6.28l-12.9-4.02v9.12l4.35-1.72 8.55 2.9zM51.69 48.97l8.55 3.25v-21.1l-8.55-3.25v21.1z"
+            />
+            <path
+              fill="#73bbe8"
+              d="M51.69 14.29v13.58l8.55 3.25V17.19l-8.55-2.9z"
+            />
+            <path
+              fill="#00539b"
+              d="M47.34 26.22v21.1l4.35 1.65v-21.1l-4.35-1.65z"
+            />
+            <path
+              fill="#6682ba"
+              d="M51.69 27.87V14.29l-4.35 1.72v10.21l4.35 1.65z"
+            />
+            <path
+              fill="#fdc78a"
+              d="M67.18 0L47.34 6.89l12.9 4.02 18.88-7.48L67.18 0z"
+            />
+            <path
+              fill="#acd69b"
+              d="M0 8.1v.01l20.78 8 17.78-6.16L20 3.69 0 8.1z"
+            />
+            <path
+              fill="#39b54a"
+              d="M38.56 19.5V9.95l-17.78 6.17v51.33l13.43-7.51V21.22l4.35-1.72z"
+            />
+            <path
+              fill="#004e95"
+              d="M38.56 22.88l-4.35-1.65v38.71l4.35-2.44V22.88z"
+            />
+            <path fill="#5074b1" d="M38.56 22.88V19.5l-4.35 1.73 4.35 1.65z" />
+            <path
+              fill="#004e95"
+              d="M97.27 34.5H101c2.85 0 5.86.41 5.86 4 0 2.09-1.39 3.45-3.68 3.8l4.18 6.62h-2.14l-4-6.46H99v6.46h-1.73zM99 40.85h1.55c1.94 0 4.45 0 4.45-2.38 0-2.08-1.85-2.38-3.55-2.38H99zM116.98 34.5h9.24v1.59h-7.5v4.51h7v1.59h-7v5.12h7.87v1.58h-9.61V34.5zM148.82 47.92a11.62 11.62 0 01-5.51 1.34c-4.57 0-7.85-3-7.85-7.56s3.51-7.56 7.92-7.56a7.14 7.14 0 015.19 1.86l-1.31 1.34a5.57 5.57 0 00-4-1.65 6 6 0 10.17 12 8.78 8.78 0 003.65-.84v-4.42h-3.38v-1.58h5.13zM159.49 34.5h1.74v14.39h-1.74zM171.06 41.7a7.69 7.69 0 117.68 7.56 7.38 7.38 0 01-7.68-7.56m13.5 0a5.82 5.82 0 10-11.63 0 5.82 5.82 0 1011.63 0M196.25 34.5h2.2l8.52 11.95h.04V34.5h1.74v14.39h-2.2l-8.51-11.95h-.05v11.95h-1.74V34.5zM107.14 16.4h-4.67v12.57h-1.68V16.4h-4.66v-1.56h11.01v1.56zM110.65 21.91a7.38 7.38 0 1114.76 0 7.38 7.38 0 11-14.76 0m13 0a5.6 5.6 0 10-11.18 0 5.6 5.6 0 1011.18 0M130.46 14.84h3.61c2.73 0 5.63.4 5.63 3.9 0 2.05-1.34 3.39-3.53 3.73l4 6.5h-2.06l-3.83-6.34h-2.15V29h-1.68zm1.68 6.23h1.49c1.86 0 4.27 0 4.27-2.33 0-2-1.77-2.34-3.41-2.34h-2.35zM144.19 21.91a7.38 7.38 0 1114.76 0 7.38 7.38 0 11-14.76 0m13 0a5.59 5.59 0 10-11.17 0 5.59 5.59 0 1011.17 0M164 14.84h2.11l8.18 11.74h.04V14.84h1.68v14.13h-2.12l-8.18-11.73h-.04v11.73H164V14.84zM191.35 16.4h-4.67v12.57h-1.67V16.4h-4.67v-1.56h11.01v1.56zM194.86 21.91a7.38 7.38 0 1114.76 0 7.38 7.38 0 11-14.76 0m13 0a5.59 5.59 0 10-11.17 0 5.59 5.59 0 1011.17 0M155.51 58.53a4.4 4.4 0 11-4.4-4.37 4.37 4.37 0 014.4 4.37m-7.37 0a3 3 0 103-3 3 3 0 00-3 3M114 58.53a4.41 4.41 0 11-4.41-4.37 4.38 4.38 0 014.41 4.37m-7.38 0a3 3 0 103-3 3 3 0 00-3 3M97.25 54.36h3.24c1.26 0 2.55.58 2.55 2.09a1.85 1.85 0 01-1.45 1.83 2 2 0 011.8 2c0 1.81-1.57 2.37-3.15 2.37h-3zm1.48 3.39h1.35c1 0 1.48-.42 1.48-1s-.49-1.07-1.61-1.07h-1.22zm0 3.66h1.36c.76 0 1.82-.12 1.82-1.22 0-.86-.56-1.17-1.76-1.17h-1.42zM118.87 54.36h1.28l3.58 8.32H122l-.77-1.9h-3.61l-.75 1.9h-1.66zm1.88 5.15l-1.28-3.38-1.31 3.38zM125.43 54.37h2.88c1.6 0 3.11.51 3.11 2.38a2.13 2.13 0 01-1.93 2.25l2.21 3.67h-1.79L128 59.16h-1.1v3.52h-1.47zm2.63 3.52c.83 0 1.81-.07 1.81-1.15s-.92-1.11-1.68-1.11h-1.29v2.26zM133.59 54.36h3.28a4 4 0 014.23 4.16 4.19 4.19 0 01-4.41 4.16h-3.1zm2.59 7c1.85 0 3.37-.81 3.37-2.83s-1.31-2.82-3.13-2.82h-1.35v5.65zM157.68 54.37h5.37v1.33h-3.88v2.19h3.67v1.34h-3.67v3.45h-1.49v-8.31zM170.76 55.7h-2.55v-1.33h6.58v1.33h-2.55v6.98h-1.48V55.7zM176.56 54.37h2.89c1.6 0 3.11.51 3.11 2.38a2.13 2.13 0 01-1.93 2.25l2.21 3.67h-1.79l-1.93-3.52h-1.07v3.52h-1.49zm2.64 3.52c.83 0 1.81-.07 1.81-1.15s-.92-1.11-1.69-1.11h-1.27v2.26zM187.42 54.36h1.28l3.59 8.32h-1.7l-.77-1.9h-3.61l-.75 1.9h-1.66zm1.88 5.15l-1.3-3.38-1.3 3.38zM194 54.36h3.28a4 4 0 014.24 4.16 4.19 4.19 0 01-4.41 4.16H194zm2.59 7c1.86 0 3.37-.81 3.37-2.83s-1.31-2.82-3.12-2.82h-1.35v5.65zM203.66 54.37h5.51v1.33h-4.03v2.05h3.82v1.34h-3.82v2.26h4.24v1.33h-5.72v-8.31z"
+            />
+          </svg>
+        </a>
+
+        <div
+          class="app-header__primary-nav-wrapper"
+          data-hook="appHeader__primaryNavWrapper"
+        >
+          <nav
+            class="app-header__primary-nav"
+            data-hook="appHeader__primaryNav"
+            aria-label="Header Primary Navigation"
+          >
+            <ul role="list" class="app-header__primary-nav-list">
+              <li
+                class="app-header__primary-nav-item"
+                data-hook="appHeader__primaryNavItem"
+              >
+                <button
+                  aria-expanded="false"
+                  data-hook="appHeader__primaryNavItemPanelTrigger"
+                >
+                  Initiatives
+                </button>
+                <div
+                  class="app-header__primary-nav-item-panel"
+                  aria-hidden="true"
+                  data-hook="appHeader__primaryNavItemPanel"
+                >
+                  <div
+                    class="
+                      app-header__primary-nav-item-panel-content
+                      has-featured
+                    "
+                  >
+                    <div
+                      class="
+                        app-header__primary-nav-item-panel-content-column-wrapper
+                      "
+                    >
+                      <div
+                        class="
+                          app-header__primary-nav-item-panel-content-column
+                        "
+                      >
+                        <div
+                          class="
+                            app-header__primary-nav-item-panel-overview-link-wrapper
+                          "
+                        >
+                          <a href="#">Initiatives Overview</a>
+                        </div>
+                        <div class="app-header__primary-nav-item-panel-content-column-wrapper">
+                          <div
+                            class="row row-cols-1 row-cols-lg-3 gx-0 gx-lg-4"
+                          >
+                            <div class="col">
+                              <ul role="list">
+                                <li><a href="#">Ready For Opening</a></li>
+                                <li><a href="#">Initiatives One</a></li>
+                                <li><a href="#">Initiatives Two</a></li>
+                                <li><a href="#">Initiatives Three</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="
+                        app-header__primary-nav-item-panel-content-column-wrapper
+                      "
+                    >
+                      <div
+                        class="
+                          app-header__primary-nav-item-panel-content-column
+                        "
+                      >
+                        <div>
+                          <p
+                            class="
+                              app-header__primary-nav-item-panel-content-featured-header
+                            "
+                          >
+                            <a href="#">Ready for Re-Opening</a>
+                          </p>
+                          <p
+                            class="
+                              app-header__primary-nav-item-panel-content-featured-description
+                            "
+                          >
+                            Some short description here. Like one or two lines.
+                          </p>
+                        </div>
+                        <div>
+                          <div
+                            class="
+                              app-header__primary-nav-item-panel-content-featured-image
+                            "
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li
+                class="app-header__primary-nav-item"
+                data-hook="appHeader__primaryNavItem"
+              >
+                <button
+                  aria-expanded="false"
+                  data-hook="appHeader__primaryNavItemPanelTrigger"
+                >
+                  Programs & Networks
+                </button>
+                <div
+                  class="app-header__primary-nav-item-panel"
+                  aria-hidden="true"
+                  data-hook="appHeader__primaryNavItemPanel"
+                >
+                  <div class="app-header__primary-nav-item-panel-content">
+                    <div
+                      class="
+                        app-header__primary-nav-item-panel-content-column-wrapper
+                      "
+                    >
+                      <div
+                        class="
+                          app-header__primary-nav-item-panel-content-column
+                        "
+                      >
+                        <div
+                          class="
+                            app-header__primary-nav-item-panel-overview-link-wrapper
+                          "
+                        >
+                          <a href="#">Programs & Networks Overview</a>
+                        </div>
+                        <div class="app-header__primary-nav-item-panel-content-column-wrapper">
+                          <div
+                            class="row row-cols-1 row-cols-lg-3 gx-0 gx-lg-4"
+                          >
+                            <div class="col">
+                              <p
+                                class="
+                                  app-header__primary-nav-item-panel-link-list-header
+                                "
+                              >
+                                Programs
+                              </p>
+                              <ul
+                                role="list"
+                                class="
+                                  app-header__primary-nav-item-panel-link-list
+                                "
+                              >
+                                <li>
+                                  <a href="#"
+                                    >Trade Accelerator Program (TAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Market Activation Program (MAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Recovery Activation Program (RAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Growth Development Program (GDP)</a
+                                  >
+                                </li>
+                                <li><a href="#">Member-Only Program</a></li>
+                              </ul>
+                            </div>
+                            <div class="col">
+                              <p
+                                class="
+                                  app-header__primary-nav-item-panel-link-list-header
+                                "
+                              >
+                                Networks
+                              </p>
+                              <ul
+                                role="list"
+                                class="
+                                  app-header__primary-nav-item-panel-link-list
+                                "
+                              >
+                                <li>
+                                  <a href="#"
+                                    >Trade Accelerator Program (TAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Market Activation Program (MAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Recovery Activation Program (RAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Growth Development Program (GDP)</a
+                                  >
+                                </li>
+                                <li><a href="#">Member-Only Program</a></li>
+                              </ul>
+                            </div>
+                            <div class="col">
+                              <p
+                                class="
+                                  app-header__primary-nav-item-panel-link-list-header
+                                "
+                              >
+                                Member-Only
+                              </p>
+                              <ul
+                                role="list"
+                                class="
+                                  app-header__primary-nav-item-panel-link-list
+                                "
+                              >
+                                <li>
+                                  <a href="#"
+                                    >Trade Accelerator Program (TAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Market Activation Program (MAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Recovery Activation Program (RAP)</a
+                                  >
+                                </li>
+                                <li>
+                                  <a href="#"
+                                    >Growth Development Program (GDP)</a
+                                  >
+                                </li>
+                                <li><a href="#">Member-Only Program</a></li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li
+                class="app-header__primary-nav-item"
+                data-hook="appHeader__primaryNavItem"
+              >
+                <button
+                  aria-expanded="false"
+                  data-hook="appHeader__primaryNavItemPanelTrigger"
+                >
+                  Events
+                </button>
+                <div
+                  class="app-header__primary-nav-item-panel"
+                  aria-hidden="true"
+                  data-hook="appHeader__primaryNavItemPanel"
+                >
+                  <div class="app-header__primary-nav-item-panel-content"></div>
+                </div>
+              </li>
+
+              <li
+                class="app-header__primary-nav-item"
+                data-hook="appHeader__primaryNavItem"
+              >
+                <button
+                  aria-expanded="false"
+                  data-hook="appHeader__primaryNavItemPanelTrigger"
+                >
+                  Resources
+                </button>
+                <div
+                  class="app-header__primary-nav-item-panel"
+                  aria-hidden="true"
+                  data-hook="appHeader__primaryNavItemPanel"
+                >
+                  <div class="app-header__primary-nav-item-panel-content"></div>
+                </div>
+              </li>
+
+              <li
+                class="app-header__primary-nav-item"
+                data-hook="appHeader__primaryNavItem"
+              >
+                <button
+                  aria-expanded="false"
+                  data-hook="appHeader__primaryNavItemPanelTrigger"
+                >
+                  Membership
+                </button>
+                <div
+                  class="app-header__primary-nav-item-panel"
+                  aria-hidden="true"
+                  data-hook="appHeader__primaryNavItemPanel"
+                >
+                  <div class="app-header__primary-nav-item-panel-content"></div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="app-header__primary-nav-cta">
+          <a href="#" class="btn btn-secondary">Become a member</a>
+        </div>
+      </div>
+      <!-- /.app-header__primary-banner -->
+
+      <button
+        class="
+          app-header__small-screen-nav-panel-trigger
+          hamburger hamburger--collapse
+        "
+        data-hook="appHeader__smallScreenNavPanelTrigger"
+        aria-controls="app-header__small-screen-nav-panel"
+        aria-expanded="false"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner"></span>
+        </span>
+      </button>
+    </header>
+
+    <main class="app-main" id="main">
+      <div class="app-main__content app-main__content--1col py-0">
+        <div class="app-main__content-column">
+          <div class="breadcrumbs">
+            <nav aria-label="Breadcrumbs">
+              <ul role="list" class="breadcrumbs__list">
+                <li class="breadcrumbs__list-item"><a href="/">Home</a></li>
+                <li class="breadcrumbs__list-item">
+                  <a href="/resources">Resources</a>
+                </li>
+                <li class="breadcrumbs__list-item is-current">
+                  <p>Resource Library</p>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <section class="t-pale-orange">
+        <div class="app-main__content app-main__content--1col">
+          <div class="app-main__content-column">
+            <!-- BOTWR-35 - Resource Library Banner -->
+            <div class="resource-library-banner">
+              <div class="resource-library-banner-full">
+                <h1>Resource Library</h1>
+                <p>
+                  Capitalize on low hanging fruit to identify a ballpark value
+                  added activity to beta test. Override the digital divide with
+                  additional clickthroughs from DevOps.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="t-grey">
+        <div class="app-main__content app-main__content--1col">
+          <div class="app-main__content-column">
+            <!-- BOTWR-120 - Search bar and filters  -->
+            <div
+              id="listings"
+              class="search-filters"
+              data-filter-api="https://bot-lh.reasononeinc.com:44148/api/search/filters"
+              data-search-api="https://bot-lh.reasononeinc.com:44148/api/search/resources"
+              data-listing-type="resources"
+              data-react-hook="listings"
+              data-search-header="Find Your Resource"
+              data-search-description="Capitalize on low hanging fruit to identify a ballpark value added activity to beta test."
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- BOTWR-29 - Footer -->
+    <footer class="app-footer">
+      <div class="container overflow-hidden">
+        <div class="row gx-5 app-footer__main">
+          <div class="col-sm-12 col-lg-9 border-bottom">
+            <nav aria-label="Footer navigation">
+              <div class="row gx-5">
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                  <ul role="list" class="app-footer__primary-nav-list">
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">Initiatives</a>
+                    </li>
+                    <li><a href="/">Ready for Reopening</a></li>
+                  </ul>
+                  <ul role="list" class="app-footer__primary-nav-list">
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">Programs & Networks</a>
+                    </li>
+                    <li><a href="/">Trade Accelerator Program</a></li>
+                  </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                  <ul role="list" class="app-footer__primary-nav-list">
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">Resources</a>
+                    </li>
+                    <li><a href="/">Resource Library</a></li>
+                  </ul>
+                  <ul role="list" class="app-footer__primary-nav-list">
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">Membership</a>
+                    </li>
+                    <li><a href="/">Membership Options</a></li>
+                  </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                  <ul role="list" class="app-footer__primary-nav-list">
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">About</a>
+                    </li>
+                    <li><a href="/">World Trade Center Toronto</a></li>
+                  </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                  <ul role="list" class="app-footer__primary-nav-list">
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">Events</a>
+                    </li>
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">News</a>
+                    </li>
+                    <li class="e-top-level-item">
+                      <a href="/" class="e-arrow-link">Careers</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+          </div>
+
+          <div class="col-sm-12 col-lg-3">
+            <div class="row">
+              <div class="col-sm-12 col-md-6 col-lg-12">
+                <a href="/" class="app-footer__logo">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 209.62 72.72"
+                  >
+                    <title>Toronto Regional Board of Trade logo</title>
+                    <path
+                      fill="#b8d9f2"
+                      d="M85.08 25.64l-24.84-8.45v13.93l8.31 3.16 16.53-8.64z"
+                    />
+                    <path
+                      fill="#00aae7"
+                      d="M38.56 57.5l-4.35 2.44v12.78l17.48-10.24V48.97l-4.35-1.65v-21.1l-8.78-3.34V57.5z"
+                    />
+                    <path
+                      fill="#8ac4eb"
+                      d="M47.34 26.22V16.01l-8.78 3.49v3.38l8.78 3.34z"
+                    />
+                    <path
+                      fill="#f7901e"
+                      d="M60.24 17.19v-6.28l-12.9-4.02v9.12l4.35-1.72 8.55 2.9zM51.69 48.97l8.55 3.25v-21.1l-8.55-3.25v21.1z"
+                    />
+                    <path
+                      fill="#73bbe8"
+                      d="M51.69 14.29v13.58l8.55 3.25V17.19l-8.55-2.9z"
+                    />
+                    <path
+                      fill="#00539b"
+                      d="M47.34 26.22v21.1l4.35 1.65v-21.1l-4.35-1.65z"
+                    />
+                    <path
+                      fill="#6682ba"
+                      d="M51.69 27.87V14.29l-4.35 1.72v10.21l4.35 1.65z"
+                    />
+                    <path
+                      fill="#fdc78a"
+                      d="M67.18 0L47.34 6.89l12.9 4.02 18.88-7.48L67.18 0z"
+                    />
+                    <path
+                      fill="#acd69b"
+                      d="M0 8.1v.01l20.78 8 17.78-6.16L20 3.69 0 8.1z"
+                    />
+                    <path
+                      fill="#39b54a"
+                      d="M38.56 19.5V9.95l-17.78 6.17v51.33l13.43-7.51V21.22l4.35-1.72z"
+                    />
+                    <path
+                      fill="#004e95"
+                      d="M38.56 22.88l-4.35-1.65v38.71l4.35-2.44V22.88z"
+                    />
+                    <path
+                      fill="#5074b1"
+                      d="M38.56 22.88V19.5l-4.35 1.73 4.35 1.65z"
+                    />
+                    <path
+                      fill="#004e95"
+                      d="M97.27 34.5H101c2.85 0 5.86.41 5.86 4 0 2.09-1.39 3.45-3.68 3.8l4.18 6.62h-2.14l-4-6.46H99v6.46h-1.73zM99 40.85h1.55c1.94 0 4.45 0 4.45-2.38 0-2.08-1.85-2.38-3.55-2.38H99zM116.98 34.5h9.24v1.59h-7.5v4.51h7v1.59h-7v5.12h7.87v1.58h-9.61V34.5zM148.82 47.92a11.62 11.62 0 01-5.51 1.34c-4.57 0-7.85-3-7.85-7.56s3.51-7.56 7.92-7.56a7.14 7.14 0 015.19 1.86l-1.31 1.34a5.57 5.57 0 00-4-1.65 6 6 0 10.17 12 8.78 8.78 0 003.65-.84v-4.42h-3.38v-1.58h5.13zM159.49 34.5h1.74v14.39h-1.74zM171.06 41.7a7.69 7.69 0 117.68 7.56 7.38 7.38 0 01-7.68-7.56m13.5 0a5.82 5.82 0 10-11.63 0 5.82 5.82 0 1011.63 0M196.25 34.5h2.2l8.52 11.95h.04V34.5h1.74v14.39h-2.2l-8.51-11.95h-.05v11.95h-1.74V34.5zM107.14 16.4h-4.67v12.57h-1.68V16.4h-4.66v-1.56h11.01v1.56zM110.65 21.91a7.38 7.38 0 1114.76 0 7.38 7.38 0 11-14.76 0m13 0a5.6 5.6 0 10-11.18 0 5.6 5.6 0 1011.18 0M130.46 14.84h3.61c2.73 0 5.63.4 5.63 3.9 0 2.05-1.34 3.39-3.53 3.73l4 6.5h-2.06l-3.83-6.34h-2.15V29h-1.68zm1.68 6.23h1.49c1.86 0 4.27 0 4.27-2.33 0-2-1.77-2.34-3.41-2.34h-2.35zM144.19 21.91a7.38 7.38 0 1114.76 0 7.38 7.38 0 11-14.76 0m13 0a5.59 5.59 0 10-11.17 0 5.59 5.59 0 1011.17 0M164 14.84h2.11l8.18 11.74h.04V14.84h1.68v14.13h-2.12l-8.18-11.73h-.04v11.73H164V14.84zM191.35 16.4h-4.67v12.57h-1.67V16.4h-4.67v-1.56h11.01v1.56zM194.86 21.91a7.38 7.38 0 1114.76 0 7.38 7.38 0 11-14.76 0m13 0a5.59 5.59 0 10-11.17 0 5.59 5.59 0 1011.17 0M155.51 58.53a4.4 4.4 0 11-4.4-4.37 4.37 4.37 0 014.4 4.37m-7.37 0a3 3 0 103-3 3 3 0 00-3 3M114 58.53a4.41 4.41 0 11-4.41-4.37 4.38 4.38 0 014.41 4.37m-7.38 0a3 3 0 103-3 3 3 0 00-3 3M97.25 54.36h3.24c1.26 0 2.55.58 2.55 2.09a1.85 1.85 0 01-1.45 1.83 2 2 0 011.8 2c0 1.81-1.57 2.37-3.15 2.37h-3zm1.48 3.39h1.35c1 0 1.48-.42 1.48-1s-.49-1.07-1.61-1.07h-1.22zm0 3.66h1.36c.76 0 1.82-.12 1.82-1.22 0-.86-.56-1.17-1.76-1.17h-1.42zM118.87 54.36h1.28l3.58 8.32H122l-.77-1.9h-3.61l-.75 1.9h-1.66zm1.88 5.15l-1.28-3.38-1.31 3.38zM125.43 54.37h2.88c1.6 0 3.11.51 3.11 2.38a2.13 2.13 0 01-1.93 2.25l2.21 3.67h-1.79L128 59.16h-1.1v3.52h-1.47zm2.63 3.52c.83 0 1.81-.07 1.81-1.15s-.92-1.11-1.68-1.11h-1.29v2.26zM133.59 54.36h3.28a4 4 0 014.23 4.16 4.19 4.19 0 01-4.41 4.16h-3.1zm2.59 7c1.85 0 3.37-.81 3.37-2.83s-1.31-2.82-3.13-2.82h-1.35v5.65zM157.68 54.37h5.37v1.33h-3.88v2.19h3.67v1.34h-3.67v3.45h-1.49v-8.31zM170.76 55.7h-2.55v-1.33h6.58v1.33h-2.55v6.98h-1.48V55.7zM176.56 54.37h2.89c1.6 0 3.11.51 3.11 2.38a2.13 2.13 0 01-1.93 2.25l2.21 3.67h-1.79l-1.93-3.52h-1.07v3.52h-1.49zm2.64 3.52c.83 0 1.81-.07 1.81-1.15s-.92-1.11-1.69-1.11h-1.27v2.26zM187.42 54.36h1.28l3.59 8.32h-1.7l-.77-1.9h-3.61l-.75 1.9h-1.66zm1.88 5.15l-1.3-3.38-1.3 3.38zM194 54.36h3.28a4 4 0 014.24 4.16 4.19 4.19 0 01-4.41 4.16H194zm2.59 7c1.86 0 3.37-.81 3.37-2.83s-1.31-2.82-3.12-2.82h-1.35v5.65zM203.66 54.37h5.51v1.33h-4.03v2.05h3.82v1.34h-3.82v2.26h4.24v1.33h-5.72v-8.31z"
+                    />
+                  </svg>
+                </a>
+                <p>
+                  We foster powerful collaboration among business, government,
+                  thought leaders and community builders across the Toronto
+                  region.
+                </p>
+              </div>
+              <div class="col-sm-12 col-md-6 col-lg-12">
+                <div class="d-grid gap-2 col-12 mx-auto">
+                  <a href="/" class="btn btn-primary">Become a Member</a>
+                  <a href="/" class="btn btn-secondary">Sign In</a>
+                  <a href="/contact" class="btn btn-secondary">Contact us</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row app-footer__contact">
+          <div class="col-sm-12 col-md-9">
+            <div class="row">
+              <div
+                class="col-sm-12 col-md-6 col-lg-3 app-footer__contact-block"
+              >
+                <p class="fw-bold">Our Office:</p>
+                <p>
+                  First Canadian Place <br />
+                  77 Adelaide Street West, <br />
+                  Toronto. Ontario. <br />
+                  Canada M5X 1C1
+                </p>
+              </div>
+              <div
+                class="col-sm-12 col-md-6 col-lg-3 app-footer__contact-block"
+              >
+                <p><span class="fw-bold">Email:</span> contactus@bot.com</p>
+                <p><span class="fw-bold">Phone:</span> (416) 366.6811</p>
+                <p><span class="fw-bold">Fax:</span> (416) 366.2444</p>
+              </div>
+              <div
+                class="col-sm-12 col-md-6 col-lg-3 app-footer__contact-block"
+              >
+                <p class="fw-bold">Follow us:</p>
+                <ul role="list" class="app-footer__social-links-list">
+                  <li>
+                    <a href="www.facebook.com">
+                      <span class="visually-hidden">Facebook</span>
+                      <svg
+                        width="19"
+                        height="19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18.766 9.44c0-5.215-4.2-9.44-9.383-9.44C4.2 0 0 4.225 0 9.44c0 4.712 3.431 8.617 7.917 9.326v-6.597H5.533V9.44h2.384V7.36c0-2.366 1.4-3.672 3.544-3.672 1.027 0 2.1.184 2.1.184v2.322h-1.183c-1.165 0-1.529.728-1.529 1.474V9.44h2.602l-.416 2.729H10.85v6.597c4.486-.709 7.917-4.614 7.917-9.326z"
+                          fill="#28262E"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="www.twitter.com">
+                      <span class="visually-hidden">Twitter</span>
+                      <svg
+                        width="21"
+                        height="19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18.404 0H2.957C1.795 0 .851.9.851 2.01v14.745c0 1.11.944 2.011 2.106 2.011h15.447c1.163 0 2.107-.9 2.107-2.01V2.01C20.51.9 19.567 0 18.404 0zm-2.146 6.652c.01.117.01.239.01.356 0 3.632-2.897 7.816-8.19 7.816a8.436 8.436 0 01-4.418-1.231c.232.025.456.033.693.033a5.948 5.948 0 003.572-1.173c-1.264-.025-2.326-.816-2.69-1.905.443.062.843.062 1.299-.05C5.217 10.241 4.23 9.135 4.23 7.8v-.034c.382.205.83.331 1.299.348a2.792 2.792 0 01-.942-.99c-.224-.4-.34-.845-.34-1.297 0-.511.141-.98.391-1.387 1.418 1.667 3.546 2.756 5.933 2.874-.408-1.864 1.053-3.377 2.809-3.377.83 0 1.575.331 2.102.868a5.806 5.806 0 001.825-.662 2.767 2.767 0 01-1.264 1.512 5.943 5.943 0 001.66-.427 5.913 5.913 0 01-1.445 1.424z"
+                          fill="#28262E"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="www.linkedin.com">
+                      <span class="visually-hidden">LinkedIn</span>
+                      <svg
+                        width="21"
+                        height="19"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M18.851 0H1.996c-.773 0-1.4.607-1.4 1.353v16.06c0 .746.627 1.353 1.4 1.353H18.85c.772 0 1.404-.607 1.404-1.353V1.353C20.255.607 19.623 0 18.851 0zM6.537 16.085H3.624V7.13h2.918v8.956h-.005zM5.081 5.906c-.935 0-1.69-.724-1.69-1.612 0-.888.755-1.613 1.69-1.613.93 0 1.689.725 1.689 1.613 0 .892-.755 1.612-1.69 1.612zm12.379 10.18h-2.914v-4.357c0-1.04-.022-2.375-1.514-2.375-1.518 0-1.75 1.13-1.75 2.3v4.431H8.366V7.13h2.796v1.224h.04c.39-.704 1.342-1.446 2.76-1.446 2.948 0 3.497 1.856 3.497 4.269v4.91z"
+                          fill="#28262E"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="www.vimeo.com">
+                      <span class="visually-hidden">Vimeo</span>
+                      <svg
+                        width="24"
+                        height="24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M21.429 0H2.57A2.572 2.572 0 000 2.572v18.857A2.572 2.572 0 002.571 24H21.43A2.572 2.572 0 0024 21.43V2.572A2.572 2.572 0 0021.429 0zm-.868 8.014c-.075 1.666-1.243 3.954-3.498 6.852-2.33 3.027-4.302 4.543-5.915 4.543-1.002 0-1.843-.921-2.534-2.764-1.35-4.945-1.923-7.843-3.037-7.843-.129 0-.579.268-1.345.809L3.43 8.57c1.976-1.735 3.862-3.664 5.04-3.77 1.335-.13 2.154.781 2.465 2.737 1.098 6.942 1.586 7.992 3.579 4.848.717-1.136 1.103-1.993 1.151-2.588.182-1.757-1.371-1.639-2.421-1.189.84-2.759 2.453-4.098 4.827-4.023 1.762.053 2.593 1.2 2.49 3.428z"
+                          fill="#28262E"
+                        />
+                      </svg>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row app-footer__sponsors">
+          <div class="col-sml-12 col-md-9">
+            <p class="fw-bold">Our principal sponsors:</p>
+            <div class="app-footer__sponsors-logos">
+              <a href="www.scotiabank.com"
+                ><img
+                  src="../images/logos/gray-Scotiabank.png"
+                  alt="Scotiabank"
+              /></a>
+              <a href="www.ryerson.ca"
+                ><img
+                  src="../images/logos/gray-Ryerson.png"
+                  alt="Ryerson University"
+              /></a>
+              <a href="www.globeandmail.com"
+                ><img
+                  src="../images/logos/gray-the-globe-and-mail.png"
+                  alt="The Globe and Mail"
+              /></a>
+              <a href="www.aircanada.ca"
+                ><img
+                  src="../images/logos/gray-Air_Canada.png"
+                  alt="Air Canada"
+              /></a>
+              <a href="www.accenture.com"
+                ><img src="../images/logos/gray-Accenture.png" alt="Accenture"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div class="row app-footer__utility">
+          <div class="col-sm-12 col-lg-8">
+            <nav aria-label="Footer utility menu">
+              <ul role="list" class="app-footer__utility-nav-list">
+                <li><a href="/">Accessibility</a></li>
+                <li><a href="/">SiteMap</a></li>
+                <li><a href="/">CASL</a></li>
+                <li><a href="/">Privacy Policy</a></li>
+                <li><a href="/">Terms of Use</a></li>
+                <li><a href="/">Media Kit</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-small-12 col-lg-4 app-footer__copyright">
+            <p>Copyright 2021 By Toronto Region Board Of Trade</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../../wwwroot/dist/app.js"></script>
+    <!-- Only render this script on pages that need React listings -->
+    <script src="../../wwwroot/dist/react.js"></script>
+  </body>
+</html>

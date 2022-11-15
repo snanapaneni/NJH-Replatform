@@ -1,0 +1,27 @@
+// Loader from https://dev.to/afif/i-made-100-css-loaders-for-your-next-project-4eje
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: $spacer * 2.25;
+  padding-bottom: $spacer * 2.25;
+  background-color: map-get($app-colors, "neutral--100");
+}
+
+.loader__spinner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, map-get($app-colors, "blue"));
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
+  animation: s3 1s infinite linear;
+  margin-bottom: 1rem;
+}
+
+@keyframes s3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
