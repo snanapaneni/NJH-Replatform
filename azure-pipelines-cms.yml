@@ -43,10 +43,6 @@ steps:
     displayName: "NuGet restore"
     inputs:
       restoreSolution: "$(cmsSolution)"
-      feedsToUse: config
-      nugetConfigPath: NuGet.config
-      externalFeedCredentials: "reason-one-feed"
-      restoreDirectory: '..\packages\'
 
   - task: VSBuild@1
     inputs:
