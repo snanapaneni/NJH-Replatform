@@ -43,10 +43,9 @@ steps:
     displayName: "NuGet restore"
     inputs:
       restoreSolution: "**/Njh_Admin.sln"
-      feedsToUse: config
-      nugetConfigPath: NuGet.config
-      externalFeedCredentials: "reason-one-feed"
-      restoreDirectory: '..\..\packages\'
+      vstsFeed: '9862828a-08dd-4db5-b6f9-33a15e8e2697'
+      restoreDirectory: '..\packages'
+
 
   - task: VSBuild@1
     inputs:
