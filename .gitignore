@@ -363,6 +363,8 @@ MigrationBackup/
 !**/CMS/CMSAdminControls/Debug/
 !**/CMS/CMSModules/System/Debug/
 !**/CMS/CMSVirtualFiles/
+!**/CMS/App_Data/CMSModules/SmartSearch/_StopWords
+!**/CMS/App_Data/CMSModules/SmartSearch/_Synonyms
 **/CMS/MeridianCreditUnion/*
 **/CMS/App_Data/CIRepository/repository.config
 **/CMS/App_Data/CMSModules/DeviceProfiles/logFiftyOne.txt

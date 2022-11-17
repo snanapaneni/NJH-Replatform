@@ -47,6 +47,8 @@ steps:
     inputs:
       command: restore
       projects: "**/Njh.csproj"
+      vstsFeed: "9862828a-08dd-4db5-b6f9-33a15e8e2697"
+      restoreDirectory: '..\packages'
 
   - task: DotNetCoreCLI@2
     displayName: Build
