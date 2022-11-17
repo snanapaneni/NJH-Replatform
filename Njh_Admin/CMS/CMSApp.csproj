@@ -14,7 +14,8 @@
     <RootNamespace>CMSApp</RootNamespace>
     <AssemblyName>CMSApp</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
-    <FileUpgradeFlags></FileUpgradeFlags>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
     <UpgradeBackupLocation />
     <UseIISExpress>false</UseIISExpress>
     <TargetFrameworkProfile />
@@ -23,7 +24,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <OldToolsVersion>4.0</OldToolsVersion>
     <Use64BitIISExpress />
   </PropertyGroup>
@@ -3048,6 +3050,8 @@
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Web.QA.config" />
+    <Content Include="Web.Stage.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CMSAdminControls\UI\SmartTip.ascx.cs">
@@ -14384,16 +14388,19 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>51872</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl></IISUrl>
+          <IISUrl>
+          </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl></CustomServerUrl>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <PropertyGroup></PropertyGroup>
+  <PropertyGroup>
+  </PropertyGroup>
   <PropertyGroup>
     <PostBuildEvent>xcopy "$(ProjectDir)..\Lib\*" "$(TargetDir)" /y /r
 </PostBuildEvent>
