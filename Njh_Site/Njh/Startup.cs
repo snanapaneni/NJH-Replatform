@@ -66,6 +66,9 @@ public class Startup
             // features.UseScheduler();
             //features.UsePageRouting();
         });
+
+        // Enables upport for the administration and live site applications
+        // to be hosted on separate domains.
         kenticoServiceCollection.SetAdminCookiesSameSiteNone();
         if (Environment.IsDevelopment())
         {
