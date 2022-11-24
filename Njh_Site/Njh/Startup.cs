@@ -65,8 +65,8 @@ public class Startup
             // features.UseCampaignLogger();
             // features.UseScheduler();
             //features.UsePageRouting();
-        }).SetAdminCookiesSameSiteNone();
-
+        });
+        kenticoServiceCollection.SetAdminCookiesSameSiteNone();
         if (Environment.IsDevelopment())
         {
             // By default, Xperience sends cookies using SameSite=Lax. If the administration and live site applications
