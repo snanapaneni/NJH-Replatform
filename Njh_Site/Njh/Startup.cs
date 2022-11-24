@@ -65,15 +65,15 @@ public class Startup
             // features.UseCampaignLogger();
             // features.UseScheduler();
             //features.UsePageRouting();
-        });
+        }).SetAdminCookiesSameSiteNone();
 
-            if (Environment.IsDevelopment())
-            {
-                // By default, Xperience sends cookies using SameSite=Lax. If the administration and live site applications
-                // are hosted on separate domains, this ensures cookies are set with SameSite=None and Secure. The configuration
-                // only applies when communicating with the Xperience administration via preview links. Both applications also need 
-                // to use a secure connection (HTTPS) to ensure cookies are not rejected by the client.
-                kenticoServiceCollection.SetAdminCookiesSameSiteNone();
+        if (Environment.IsDevelopment())
+        {
+            // By default, Xperience sends cookies using SameSite=Lax. If the administration and live site applications
+            // are hosted on separate domains, this ensures cookies are set with SameSite=None and Secure. The configuration
+            // only applies when communicating with the Xperience administration via preview links. Both applications also need 
+            // to use a secure connection (HTTPS) to ensure cookies are not rejected by the client.
+            kenticoServiceCollection.SetAdminCookiesSameSiteNone();
 
             // By default, Xperience requires a secure connection (HTTPS) if administration and live site applications
             // are hosted on separate domains. This configuration simplifies the initial setup of the development
