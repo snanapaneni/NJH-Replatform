@@ -46,14 +46,14 @@ steps:
     displayName: Restore
     inputs:
       command: restore
-      projects: "**/Njh.csproj"
+      projects: "**/Njh.Mvc.csproj"
       vstsFeed: "9862828a-08dd-4db5-b6f9-33a15e8e2697"
       restoreDirectory: '..\packages'
 
   - task: DotNetCoreCLI@2
     displayName: Build
     inputs:
-      projects: "**/Njh.csproj"
+      projects: "**/Njh.Mvc.csproj"
       arguments: "--configuration $(BuildConfiguration) --no-restore "
 
   - task: DotNetCoreCLI@2
@@ -61,7 +61,7 @@ steps:
     inputs:
       command: publish
       publishWebProjects: false
-      projects: "**/Njh.csproj"
+      projects: "**/Njh.Mvc.csproj"
       arguments: "--configuration $(BuildConfiguration) --no-restore --no-build --output $(Build.ArtifactStagingDirectory)"
 
   - task: PublishBuildArtifacts@1
