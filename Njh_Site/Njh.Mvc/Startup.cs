@@ -1,6 +1,6 @@
 // Copyright (c) NJH. All rights reserved.
 
-namespace Njh;
+namespace Njh.Mvc;
 
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;

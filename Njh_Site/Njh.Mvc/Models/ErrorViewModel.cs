@@ -1,6 +1,6 @@
 // Copyright (c) NJH. All rights reserved.
 
-namespace Njh.Models;
+namespace Njh.Mvc.Models;
 
 /// <summary>
 /// Defines the error view model.

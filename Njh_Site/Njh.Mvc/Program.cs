@@ -1,6 +1,6 @@
 // Copyright (c) NJH. All rights reserved.
 
-namespace Njh;
+namespace Njh.Mvc;
 
 using Autofac.Extensions.DependencyInjection;
 

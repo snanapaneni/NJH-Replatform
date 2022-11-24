@@ -1,10 +1,10 @@
 ﻿// Copyright (c) NJH. All rights reserved.
 
-namespace Njh.Controllers;
+namespace Njh.Mvc.Controllers;
 
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Njh.Models;
+using Njh.Mvc.Models;
 
 /// <summary>
 /// Implements the controller that page requests.
