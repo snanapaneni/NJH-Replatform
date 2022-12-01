@@ -1,4 +1,13 @@
-﻿@using Microsoft.Extensions.Configuration
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using Microsoft.Extensions.Configuration
+
+@{
+
+    var editMode =
+                this.Context.Kentico().PageBuilder().EditMode;
+}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +29,10 @@
     <link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="preload" as="style" href="/dist/app.css" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="stylesheet" href="/dist/app.css" /></noscript>
     <script asp-cache-mappings="@AssetsFileInfo.HashedFiles" src="/dist/app.js" defer></script>
-    @*<page-builder-styles />*@
+    @if (editMode)
+    {
+        <page-builder-styles />
+    }
     @RenderSection("styles", required: false)
 </head>
 <body>
