@@ -12,6 +12,8 @@
 		<AssemblyOriginatorKeyFile>..\..\ReasonOne.snk</AssemblyOriginatorKeyFile>
 
 		<Authors>NJH</Authors>
+
+		<IsPublishable>False</IsPublishable>
 	</PropertyGroup>
 
 	<ItemGroup>
