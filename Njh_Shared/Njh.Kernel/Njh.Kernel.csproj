@@ -15,11 +15,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <Compile Remove="Kentico\Models\PageTypes\PageType_BasePageType.generated.cs" />
-	  <Compile Remove="Kentico\Models\PageTypes\PageType_Page.generated.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.83" />
 		<PackageReference Include="Kentico.Xperience.Libraries" Version="13.0.83" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">

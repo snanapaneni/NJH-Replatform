@@ -64,7 +64,7 @@ public class Startup
             // features.UseEmailTracking();
             // features.UseCampaignLogger();
             // features.UseScheduler();
-            //features.UsePageRouting();
+            features.UsePageRouting();
         });
 
         // Enables upport for the administration and live site applications
@@ -123,7 +123,7 @@ public class Startup
 
         app.UseKentico();
 
-        app.UseRouting();
+        //app.UseRouting();
 
         app.UseCookiePolicy();
 
@@ -134,7 +134,7 @@ public class Startup
         // app.UseAuthorization();
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapHealthChecks("/health/live");
+            //endpoints.MapHealthChecks("/health/live");
 
             endpoints.Kentico().MapRoutes();
 

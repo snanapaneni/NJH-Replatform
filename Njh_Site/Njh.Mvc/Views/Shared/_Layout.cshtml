@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Configuration
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -14,7 +15,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Njh.styles.css" asp-append-version="true" />
-    <page-builder-styles />
+
+    @*Dynamically added hashed files*@
+    <link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="preload" as="style" href="/dist/app.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="stylesheet" href="/dist/app.css" /></noscript>
+    <script asp-cache-mappings="@AssetsFileInfo.HashedFiles" src="/dist/app.js" defer></script>
+    @*<page-builder-styles />*@
+    @RenderSection("styles", required: false)
 </head>
 <body>
     <header>

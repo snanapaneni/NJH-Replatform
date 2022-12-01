@@ -21,6 +21,12 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis" Version="4.4.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -34,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Njh_Shared\Njh.Kernel\Njh.Kernel.csproj" />
+    <ProjectReference Include="..\Njh.Mvc.SourceGenerators\Njh.Mvc.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
   <ItemGroup>
     <AdditionalFiles Include="stylecop.json">
@@ -42,5 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\Kentico\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Start\" />
+    <Folder Include="Models\PageTemplateProperties\" />
   </ItemGroup>
 </Project>
