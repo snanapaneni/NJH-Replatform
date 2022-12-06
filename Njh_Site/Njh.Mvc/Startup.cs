@@ -2,6 +2,7 @@
 
 namespace Njh.Mvc;
 
+using Autofac;
 using Kentico.Content.Web.Mvc;
 using Kentico.Content.Web.Mvc.Routing;
 using Kentico.PageBuilder.Web.Mvc;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using ReasonOne.KenticoXperience;
+using ReasonOne.KenticoXperience.DependencyInjection;
 
 /// <summary>
 /// Configures the application startup.
@@ -89,6 +91,9 @@ public class Startup
 
         // services.AddAuthorization();
         services.AddControllersWithViews();
+        services
+               .AddRazorPages()
+               .AddRazorRuntimeCompilation();
 
         services.AddKenticoExtensions();
 
@@ -143,5 +148,23 @@ public class Startup
                 await context.Response.WriteAsync("The site has not been configured yet.");
             });
         });
+    }
+
+    /// <summary>
+    /// Configures the Autofac container.
+    /// </summary>
+    /// <param name="builder">
+    /// The container builder.
+    /// </param>
+    /// <remarks>
+    /// This method is automatic called by the startup pipeline.
+    /// </remarks>
+    public void ConfigureContainer(ContainerBuilder builder)
+    {
+        builder.RegisterAssemblies(
+            "RO",
+            "Njh",
+            "CMSApp");
+
     }
 }

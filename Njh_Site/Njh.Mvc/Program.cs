@@ -17,7 +17,7 @@ public static class Program
     /// </param>
     public static void Main(string[] args)
     {
-        CreateHostBuilder(args)
+        CreateHostBuilder(args)            
             .Build()
             .Run();
     }
@@ -36,7 +36,6 @@ public static class Program
     {
         return Host
             .CreateDefaultBuilder(args)
-
             .UseServiceProviderFactory(new AutofacServiceProviderFactory())
             .ConfigureWebHostDefaults(webBuilder =>
             {
