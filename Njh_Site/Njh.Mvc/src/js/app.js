@@ -64,13 +64,13 @@ let App = (window.App = {});
 App.appHeader                  = App__appHeader;
 App.appSidebar                 = App__appSidebar;
 // Components
-App.accordion                  = App__accordion;
-App.formBuilder                = App__formBuilder;
+//App.accordion                  = App__accordion;
+//App.formBuilder                = App__formBuilder;
 //App.globalAlert                = App__globalAlert;
-App.newsletterSignup           = App__newsletterSignup;
-App.formCountryProvinceSelects = App__formCountryProvinceSelects;
-App.routing                    = App__routing;
-App.video                      = App__video;
+//App.newsletterSignup           = App__newsletterSignup;
+//App.formCountryProvinceSelects = App__formCountryProvinceSelects;
+//App.routing                    = App__routing;
+//App.video                      = App__video;
 
 App.mediaQueries = {
     lg: 'screen and (min-width: 992px)',
@@ -140,11 +140,11 @@ App.init = function () {
     App.appHeader.init();
     App.appSidebar.init();
     // Components
-    App.accordion.init();
-    App.formBuilder.init();
-    App.newsletterSignup.init();
-    App.formCountryProvinceSelects.init();
-    App.video.init();
+    //App.accordion.init();
+    //App.formBuilder.init();
+    //App.newsletterSignup.init();
+    //App.formCountryProvinceSelects.init();
+    //App.video.init();
 }
 
 
@@ -198,12 +198,8 @@ window.addEventListener('load', function (event) {
 
     reframe('iframe[src*="youtube"], iframe[src*="vimeo"]');
 
-    shortAndSweet('[data-hook=portalProfileHeadlineFieldWrapper] textarea', {
-        counterClassName: 'app-portalpage-content__counter',
-    });
-
     /*
-     * Keyboard ahortcuts
+     * Keyboard shortcuts
      * =========================================================================== */
     document.onkeydown = function (e) {
         e = e || window.event;

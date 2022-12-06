@@ -12,6 +12,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let plugins = [];
 
+/* TURN OFF STATIC GEN
 const staticConfig = require("../../static/components/_config.js");
 // Generate static partial plugin entries
 staticConfig.templates.forEach(template => {
@@ -65,7 +66,7 @@ staticConfig.templates.forEach(template => {
   // Push onto main plugins array
   plugins.push(new HtmlWebpackPartialsPlugin(templatePartials));
 });
-
+*/
 // Add plugins to main plugins array
 plugins.push(
   new MiniCssExtractPlugin({
