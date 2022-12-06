@@ -21,9 +21,7 @@
     <link rel="manifest" href="/manifest.webmanifest" asp-append-version="true">
 
     <title>@ViewData["Title"] - Njh</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Njh.styles.css" asp-append-version="true" />
+
 
     @*Dynamically added hashed files*@
     <link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="preload" as="style" href="/dist/app.css" onload="this.onload=null;this.rel='stylesheet'" />

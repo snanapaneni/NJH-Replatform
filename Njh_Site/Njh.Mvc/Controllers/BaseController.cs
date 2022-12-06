@@ -1,6 +1,6 @@
-﻿// Copyright (c) Toronto Region Board of Trade. All rights reserved.
+﻿// Copyright (c) NJH. All rights reserved.
 
-namespace Bot.Mvc.Controllers
+namespace Njh.Mvc.Controllers
 {
     using System;
     using Kentico.Content.Web.Mvc;

@@ -37,6 +37,7 @@
     <PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.83" />
     <PackageReference Include="ReasonOne.KenticoXperience" Version="0.1.9" />
     <PackageReference Include="ReasonOne.KenticoXperience.TagHelpers" Version="0.1.1" />
+    <PackageReference Include="ReasonOne.KenticoXperience.DependencyInjection" Version="0.1.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Njh_Shared\Njh.Kernel\Njh.Kernel.csproj" />
