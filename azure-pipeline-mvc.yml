@@ -8,7 +8,7 @@ trigger:
   branches:
     include:
       - develop
-      - initial-setup
+
   paths:
     include:
       - Njh_Site
