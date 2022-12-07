@@ -1,0 +1,145 @@
+.newsletter-signup {
+  @include global-component;
+  display: flex;
+  flex-direction: column;
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  @include media-breakpoint-up(lg) {
+    border: 1px solid map-get($app-colors, 'neutral--900');
+  }
+}
+
+.newsletter-signup__text-column {
+  border-bottom: 1px solid map-get($app-colors, 'neutral--900');
+  margin-bottom: $spacer;
+  max-width: 100%;
+  min-width: 100%;
+
+  @include media-breakpoint-up(xl) {
+    border-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 25%;
+    min-width: 25%;
+    padding-right: $spacer * 2;
+  }
+}
+
+.newsletter-signup__form-column {
+  flex: 1;
+
+  @include media-breakpoint-up(xl) {
+    border-left: 1px solid map-get($app-colors, 'neutral--900');
+    padding-left: $spacer * 3;
+  }
+}
+
+.newsletter-signup__image-column {
+  // display: none;
+
+  @include media-breakpoint-up(md) {
+    display: flex;
+    flex-direction: column;
+    max-width: 40%;
+    min-width: 40%;
+    padding-left: $spacer * 3;
+  }
+
+  @include media-breakpoint-up(xl) {
+    max-width: 25%;
+    min-width: 25%;
+  }
+
+}
+
+
+
+
+
+.newsletter-signup__headline {
+  @include global-component__headline;
+  color: map-get($app-colors, 'purple');
+}
+
+.newsletter-signup__description {
+  @include global-component__description;
+
+  p {
+    font-size: .9rem;
+  }
+}
+
+
+.newsletter-signup__image-wrapper {
+  flex: 1;
+  position: relative;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.newsletter-signup__recaptcha-wrapper {
+  margin-bottom: $spacer;
+}
+
+
+.newsletter-signup__submit-section-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include media-breakpoint-up(sm) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .btn {
+    margin-bottom: $spacer;
+    padding-left: $spacer * 3;
+    padding-right: $spacer * 3;
+    min-width: 100%;
+
+    @include media-breakpoint-up(xs) {
+    }
+
+    @include media-breakpoint-up(sm) {
+      min-width: initial;
+    }
+  }
+
+}
+
+// ============================================================================
+// Overrides pages with sidebar
+body.content-has-sidebar {
+
+  .newsletter-signup__text-column {
+    @include media-breakpoint-up(xxl) {
+      max-width: 30%;
+      min-width: 30%;
+    }
+  }
+
+  .newsletter-signup__form-column {
+  }
+
+  .app-subpage-content {
+    .newsletter-signup__image-column {
+      @include media-breakpoint-up(lg) {
+        display: none;
+      }
+    }
+  }
+  
+
+}

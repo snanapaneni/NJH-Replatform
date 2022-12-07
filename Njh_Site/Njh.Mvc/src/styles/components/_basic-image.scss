@@ -1,0 +1,56 @@
+.basic-image {
+  @include global-component;
+  text-align: center;
+}
+
+.basic-image__image-wrapper {
+  img {
+    @include media-breakpoint-up(lg) {
+      max-width: 80%;
+    }
+  }
+
+  figcaption {
+    font-size: 0.8rem;
+    padding-top: $spacer;
+    text-align: center;
+
+    p {
+      max-width: 100%;
+    }
+  }
+}
+
+.basic-image__headline {
+  @include global-component__headline;
+}
+
+.basic-image__description {
+  @include global-component__description;
+  color: map_get($app-colors, 'neutral--800');
+}
+
+.basic-image__cta-buttons {
+  @include global-component__cta-buttons;
+}
+
+.basic-image__cta-link-wrapper {
+}
+
+a.basic-image__cta-link {
+  @include global-component__cta-link;
+}
+
+// ============================================================================
+// Overrides for 2 column
+.app-main__content--2col {
+  .basic-image {
+    .basic-image__image-wrapper {
+      img {
+        @include media-breakpoint-up(lg) {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}

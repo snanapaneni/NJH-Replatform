@@ -1,0 +1,55 @@
+.external-link-icon {
+  background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'blue') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
+  background-size: 12px;
+  content: '';
+  display: inline-block;
+  height: 12px;
+  margin-left: 0.5rem;
+  margin-right: 0.25rem;
+  width: 12px;
+}
+
+.e-arrow-link {
+  font-family: $font-family-serif;
+  font-weight: 400;
+  cursor: pointer;
+  text-decoration: none;
+  color: map_get($app-colors, "neutral--850");
+
+  &::after {
+    background-image: url("data:image/svg+xml,%3Csvg width='11' height='11' fill='#{encode_color( map_get($app-colors, 'blue') )}' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m4.677.737.545-.56a.576.576 0 0 1 .832 0l4.773 4.895c.23.237.23.62 0 .854l-4.773 4.896a.576.576 0 0 1-.832 0l-.545-.559a.616.616 0 0 1 .01-.864l2.958-2.891H.59A.596.596 0 0 1 0 5.903v-.806c0-.335.263-.605.59-.605h7.055L4.687 1.601a.612.612 0 0 1-.01-.864Z' /%3E%3C/svg%3E");
+    background-size: cover;
+    content: "";
+    display: inline-block;
+    height: 11px;
+    margin-left: 0.4rem;
+    margin-right: 0.2rem;
+    width: 11px;
+  }
+  // NR: don't delete, commenting out for a test
+  // &:after {
+  //   content: '';
+  //   position: absolute;
+  //   right: -14px;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   width: 9px;
+  //   height: 9px;
+  //   background-image: url("data:image/svg+xml,%3Csvg width='9' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.827.603l.446-.458a.472.472 0 01.68 0L8.858 4.15a.502.502 0 010 .698L4.953 8.855a.472.472 0 01-.68 0l-.446-.458a.504.504 0 01.008-.707l2.42-2.366H.482A.487.487 0 010 4.83v-.66c0-.274.215-.494.482-.494h5.773L3.835 1.31a.5.5 0 01-.008-.707z' fill='%235162f4'/%3E%3C/svg%3E");
+  //   background-repeat: no-repeat;
+  //   background-position: center center;
+  //   background-size: 9px;
+  //  }
+
+  &:hover,
+  &:focus {
+    color: map_get($app-colors, "blue");
+    text-decoration: underline;
+  }
+
+  &.is-external-link {
+    &::after {
+      display: none;
+    }
+  }
+}

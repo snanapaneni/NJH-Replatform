@@ -1,0 +1,60 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>latest</LangVersion>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+		<EnableNETAnalyzers>True</EnableNETAnalyzers>
+		<UserSecretsId>aspnet-Njh-0595DB29-24E8-4F87-8D4E-5A6E9FED24ED</UserSecretsId>
+
+		<SignAssembly>True</SignAssembly>
+		<AssemblyOriginatorKeyFile>..\..\ReasonOne.snk</AssemblyOriginatorKeyFile>
+
+		<Authors>NJH</Authors>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="appsettings.Development.json.template" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="6.0.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis" Version="4.4.0" />
+		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.4.0" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="ReasonOne" Version="0.1.9" />
+		<PackageReference Include="ReasonOne.AspNetCore" Version="0.1.9" />
+		<PackageReference Include="ReasonOne.AspNetCore.TagHelpers" Version="0.1.9" />
+		<PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.83" />
+		<PackageReference Include="ReasonOne.KenticoXperience" Version="0.1.9" />
+		<PackageReference Include="ReasonOne.KenticoXperience.TagHelpers" Version="0.1.1" />
+		<PackageReference Include="ReasonOne.KenticoXperience.DependencyInjection" Version="0.1.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\..\Njh_Shared\Njh.Kernel\Njh.Kernel.csproj" />
+		<ProjectReference Include="..\Njh.Mvc.SourceGenerators\Njh.Mvc.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+	</ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="stylecop.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</AdditionalFiles>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="wwwroot\Kentico\readme.txt" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="App_Start\" />
+		<Folder Include="Models\PageTemplateProperties\" />
+	</ItemGroup>
+</Project>

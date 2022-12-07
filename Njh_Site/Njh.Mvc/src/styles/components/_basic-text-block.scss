@@ -1,0 +1,27 @@
+.basic-text-block {
+  @include global-component;
+}
+
+.basic-text-block__eyebrow {
+  @include global-component__eyebrow;
+
+}
+
+.basic-text-block__headline {
+  @include global-component__headline;
+}
+
+.basic-text-block__description {
+  @include global-component__description;
+}
+
+.basic-text-block__cta-buttons {
+  @include global-component__cta-buttons;
+}
+
+.basic-text-block__cta-link-wrapper {
+}
+
+a.basic-text-block__cta-link {
+  @include global-component__cta-link;
+}

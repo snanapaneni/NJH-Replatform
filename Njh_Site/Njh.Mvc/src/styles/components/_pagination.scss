@@ -1,0 +1,157 @@
+.pagination {
+  border-top: 1px solid rgba(map-get($app-colors, 'neutral--800'), .6);
+  margin-top: $spacer;
+  padding: ($spacer * 2) 0 ($spacer * 4) 0;
+
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.pagination__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  align-self: center;
+}
+
+.pagination__list-item {
+  display: none;
+  font-size: .9rem;
+  font-weight: 600;
+  margin-left: $spacer * 0.5;
+  margin-right: $spacer * 0.5;
+
+  &:first-child,
+  &:last-child {
+    display: block;
+  }
+
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+
+  a {
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: 5px;
+    color: map_get($app-colors, "blue");
+    display: flex;
+    justify-content: center;
+    padding: ($spacer * .75) ($spacer * .625);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @include media-breakpoint-up(md) {
+      padding: ($spacer * .5) $spacer;
+    }
+
+    &:hover {
+      background-color: map_get($app-colors, "neutral--800");
+      color: map_get($app-colors, "neutral--100");
+      cursor: pointer;
+    }
+  }
+
+  &.is-current {
+    a {
+      background-color: map_get($app-colors, "blue");
+      color: map_get($app-colors, "neutral--100");
+      font-weight: 600;
+
+      &:hover {
+        background-color: map_get($app-colors, "blue");
+        color: map_get($app-colors, "neutral--100");
+        cursor: default;
+      }
+    }
+  }
+
+  &.is-previous {
+    margin: 0;
+
+    @include media-breakpoint-up(md) {
+      margin-right: $spacer;
+    }
+
+    a {
+      display: flex;
+      align-items: baseline;
+      // padding-left: 1rem;
+      // background-position: 6% 50%;
+      // background-image: url("data:image/svg+xml,%3Csvg width='5' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.133 4.65 3.799.645a.426.426 0 0 1 .64 0l.428.467a.528.528 0 0 1 .001.699L1.962 5l2.906 3.19a.528.528 0 0 1 0 .698l-.428.467a.426.426 0 0 1-.64 0L.132 5.35a.528.528 0 0 1 0-.7Z' fill='#{encode_color( map_get($app-colors, 'blue') )}' /%3E%3C/svg%3E");
+
+      &:before {
+        content:'';
+        background-image: url("data:image/svg+xml,%3Csvg width='5' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.133 4.65 3.799.645a.426.426 0 0 1 .64 0l.428.467a.528.528 0 0 1 .001.699L1.962 5l2.906 3.19a.528.528 0 0 1 0 .698l-.428.467a.426.426 0 0 1-.64 0L.132 5.35a.528.528 0 0 1 0-.7Z' fill='#{encode_color( map_get($app-colors, 'blue') )}' /%3E%3C/svg%3E");
+        background-size: 5px;
+        height: 10px;
+        width: 5px;
+        margin-right: $spacer * .5;
+      }
+
+      &:hover {
+        &:before {
+          background-image: url("data:image/svg+xml,%3Csvg width='5' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.133 4.65 3.799.645a.426.426 0 0 1 .64 0l.428.467a.528.528 0 0 1 .001.699L1.962 5l2.906 3.19a.528.528 0 0 1 0 .698l-.428.467a.426.426 0 0 1-.64 0L.132 5.35a.528.528 0 0 1 0-.7Z' fill='#{encode_color( map_get($app-colors, 'neutral--100') )}' /%3E%3C/svg%3E");
+        }
+      }
+
+      &[aria-disabled="true"] {
+        color: map_get($app-colors, "neutral--600");
+
+        &:before {
+          background-image: url("data:image/svg+xml,%3Csvg width='5' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M.133 4.65 3.799.645a.426.426 0 0 1 .64 0l.428.467a.528.528 0 0 1 .001.699L1.962 5l2.906 3.19a.528.528 0 0 1 0 .698l-.428.467a.426.426 0 0 1-.64 0L.132 5.35a.528.528 0 0 1 0-.7Z' fill='#{encode_color( map_get($app-colors, 'neutral--600') )}' /%3E%3C/svg%3E");
+        }
+
+        &:hover {
+          background-color: transparent;
+          color: map_get($app-colors, "neutral--600");
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  &.is-next {
+    margin-left: $spacer;
+    margin-right: 0;
+
+    a {
+      display: flex;
+      align-items: baseline;
+
+      &:after {
+        content:'';
+        background-image: url("data:image/svg+xml,%3Csvg width='5' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.867 5.35 1.201 9.355a.426.426 0 0 1-.64 0l-.428-.467a.528.528 0 0 1-.001-.699L3.038 5 .132 1.81a.528.528 0 0 1 0-.698L.56.645a.426.426 0 0 1 .64 0L4.868 4.65a.528.528 0 0 1 0 .7Z' fill='#{encode_color( map_get($app-colors, 'blue') )}'/%3E%3C/svg%3E");
+        background-size: 5px;
+        height: 10px;
+        width: 5px;
+        margin-left: $spacer * .5;
+      }
+
+      &:hover {
+        &:after {
+          background-image: url("data:image/svg+xml,%3Csvg width='5' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.867 5.35 1.201 9.355a.426.426 0 0 1-.64 0l-.428-.467a.528.528 0 0 1-.001-.699L3.038 5 .132 1.81a.528.528 0 0 1 0-.698L.56.645a.426.426 0 0 1 .64 0L4.868 4.65a.528.528 0 0 1 0 .7Z' fill='#{encode_color( map_get($app-colors, 'neutral--100') )}' /%3E%3C/svg%3E");
+        }
+      }
+
+      &[aria-disabled="true"] {
+        color: map_get($app-colors, "neutral--600");
+
+        &:after {
+          background-image: url("data:image/svg+xml,%3Csvg width='5' height='10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.867 5.35 1.201 9.355a.426.426 0 0 1-.64 0l-.428-.467a.528.528 0 0 1-.001-.699L3.038 5 .132 1.81a.528.528 0 0 1 0-.698L.56.645a.426.426 0 0 1 .64 0L4.868 4.65a.528.528 0 0 1 0 .7Z' fill='#{encode_color( map_get($app-colors, 'neutral--600') )}' /%3E%3C/svg%3E");
+        }
+
+
+        &:hover {
+          background-color: transparent;
+          color: map_get($app-colors, "neutral--600");
+          cursor: default;
+        }
+      }
+    }
+  }
+
+}

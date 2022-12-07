@@ -1,0 +1,73 @@
+# MVC site pipeline
+
+pool:
+  name: Azure Pipelines
+  vmImage: "windows-latest"
+
+trigger:
+  branches:
+    include:
+      - develop
+
+  paths:
+    include:
+      - Njh_Site
+      - Njh_Shared
+
+steps:
+  - task: UseNode@1
+    displayName: "Use Node"
+    inputs:
+      version: "18.12.1"
+      checkLatest: true
+
+  - task: Npm@1
+    displayName: "npm install"
+    inputs:
+      workingDir: "Njh_Site/Njh.Mvc/src"
+      verbose: true
+    enabled: true
+
+  - task: Npm@1
+    displayName: "npm build-hashed"
+    inputs:
+      command: custom
+      workingDir: "Njh_Site/Njh.Mvc/src"
+      verbose: true
+      customCommand: "run build-hashed"
+    enabled: true
+
+  - task: UseDotNet@2
+    displayName: "Use .NET Core sdk"
+    inputs:
+      packageType: "sdk"
+      version: "6.0.x"
+
+  - task: DotNetCoreCLI@2
+    displayName: Restore
+    inputs:
+      command: restore
+      projects: "**/Njh.sln"
+      vstsFeed: "9862828a-08dd-4db5-b6f9-33a15e8e2697"
+      restoreDirectory: '..\packages'
+
+  - task: DotNetCoreCLI@2
+    displayName: Build
+    inputs:
+      projects: "**/Njh.sln"
+      arguments: "--configuration $(BuildConfiguration) --no-restore "
+
+  - task: DotNetCoreCLI@2
+    displayName: Publish
+    inputs:
+      command: publish
+      publishWebProjects: false
+      projects: "**/Njh.sln"
+      arguments: "--configuration $(BuildConfiguration) --no-restore --no-build --output $(Build.ArtifactStagingDirectory)"
+
+  - task: PublishBuildArtifacts@1
+    displayName: Publish Artifacts
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "drop"
+      publishLocation: "Container"

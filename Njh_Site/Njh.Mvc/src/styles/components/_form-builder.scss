@@ -1,0 +1,16 @@
+.form-builder {
+  @include global-component;
+}
+
+.form-builder__eyebrow {
+  @include global-component__eyebrow;
+}
+
+.form-builder__headline {
+  margin-bottom: $spacer * 1.375;
+}
+
+.form-builder__body {
+  margin-bottom: $spacer * 2 !important;
+}
+
