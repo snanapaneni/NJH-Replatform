@@ -1,6 +1,6 @@
 h1,
 .like-h1 {
-  font-family: $font-family-serif;
+  font-family: $font-family-headings;
   font-weight: 600;
   line-height: 1.3;
   font-size: 2rem;
@@ -12,7 +12,7 @@ h1,
 
 h2,
 .like-h2 {
-  font-family: $font-family-serif;
+  font-family: $font-family-headings;
   font-weight: 500;
   font-size: 1.625rem;
   line-height: 1.3;
@@ -24,7 +24,7 @@ h2,
 
 h3,
 .like-h3 {
-  font-family: $font-family-serif;
+  font-family: $font-family-headings;
   font-weight: 500;
   font-size: 1.25rem;
   line-height: 1.3;
@@ -36,7 +36,7 @@ h3,
 
 h4,
 .like-h4 {
-  font-family: $font-family-serif;
+  font-family: $font-family-sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.3;

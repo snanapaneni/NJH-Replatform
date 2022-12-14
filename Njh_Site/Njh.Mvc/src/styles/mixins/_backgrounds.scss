@@ -1,0 +1,12 @@
+@mixin make-backgrounds($backgrounds) {
+  @each $key, $var in $backgrounds {
+    .bg-#{$key} {
+      background-color: $var;
+      color: color-contrast($var);
+
+      a:not(.btn):not(:disabled) {
+        color: color-contrast($var);
+      }
+    }
+  }
+}

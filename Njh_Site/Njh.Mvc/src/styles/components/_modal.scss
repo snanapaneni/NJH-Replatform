@@ -10,7 +10,7 @@
 
 .modal-content {
   background-color: map-get($app-colors, "neutral--100");
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   overflow: hidden;
   padding: 0;
   position: relative;
@@ -19,7 +19,6 @@
     padding: $spacer * 2.5;
   }
 }
-
 
 .modal__header {
   background-color: map-get($app-colors, "orange--pale");
@@ -42,16 +41,9 @@
 
   .btn-close {
     position: absolute;
-    right: $spacer * .75;
-    top: $spacer * .75;
+    right: $spacer * 0.75;
+    top: $spacer * 0.75;
   }
-}
-
-.modal__header-eyebrow {
-  color: map_get($app-colors, "neutral--700");
-  font-size: .9rem;
-  font-weight: 700;
-  text-transform: uppercase;
 }
 
 .modal__header-title {
@@ -86,7 +78,6 @@
     font-size: 1.65rem;
     padding-top: $spacer * 3;
   }
-
 }
 
 .modal__body-event-summary {
@@ -96,8 +87,8 @@
   padding-bottom: $spacer * 1.5;
 
   span {
-    margin-right: $spacer * .5;
-    padding-right: $spacer * .8;
+    margin-right: $spacer * 0.5;
+    padding-right: $spacer * 0.8;
     border-right: 1px solid map_get($app-colors, "neutral--800");
 
     &:first-child {

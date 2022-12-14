@@ -30,8 +30,8 @@
 // @import "~bootstrap/scss/alert";
 // @import "~bootstrap/scss/badge";
 // @import "~bootstrap/scss/breadcrumb";
-// @import "~bootstrap/scss/button-group";
-@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/button-group";
+// @import "~bootstrap/scss/buttons";
 @import "~bootstrap/scss/card";
 // @import "~bootstrap/scss/carousel";
 @import "~bootstrap/scss/close";
@@ -51,10 +51,12 @@
 // @import "~bootstrap/scss/tooltip";
 // @import "~bootstrap/scss/transitions";
 
-@import './breakpoint-helper';
-
+// This should be turned off on prod.
+@import "./breakpoint-helper";
 
 @import "./mixins/globals";
+@import "./mixins/backgrounds";
+@import "./mixins/buttons";
 
 @import "./forms";
 @import "./themes";
@@ -66,11 +68,10 @@
 @import "./animations";
 
 // Elements
-// @import "./elements/headings";
+@import "./elements/backgrounds";
+@import "./elements/buttons";
+@import "./elements/headings";
 // @import "./elements/links";
-// @import "./elements/buttons";
-// @import "./elements/icons";
-// @import "./elements/horizontal-rule";
 
 // Components
 // @import "./components/accordion";
@@ -91,9 +92,7 @@
 // @import "./components/search";
 // @import "./components/search-filters";
 
-
 // Page Templates
-
 
 // Print styles
 @import "./print";

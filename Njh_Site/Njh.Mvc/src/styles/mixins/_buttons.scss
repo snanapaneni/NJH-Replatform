@@ -1,0 +1,54 @@
+@mixin make-buttons($buttons) {
+  @each $key, $var in $buttons {
+    .btn,
+    a.btn,
+    button,
+    button.btn,
+    input.btn {
+      &.btn-#{$key} {
+        background-color: map_get($var, "default");
+        border-color: map_get($var, "default");
+        color: map_get($var, "color");
+
+        &:not(:disabled):not(.disabled):hover,
+        &:not(:disabled):not(.disabled):active {
+          background-color: map_get($var, "hover");
+          border-color: map_get($var, "hover");
+          color: map_get($var, "hover-color");
+        }
+
+        &:not(:disabled):not(.disabled):focus {
+          box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
+            0 0 0 6px map_get($var, "focus-ring");
+        }
+      }
+    }
+  }
+}
+
+@mixin make-outline-buttons($buttons) {
+  @each $key, $var in $buttons {
+    .btn,
+    a.btn,
+    button,
+    button.btn,
+    input.btn {
+      &.btn-#{$key}-outline {
+        background-color: transparent;
+        color: map_get($var, "default");
+        border-color: map_get($var, "default");
+
+        &:not(:disabled):not(.disabled):hover,
+        &:not(:disabled):not(.disabled):active {
+          border-color: map_get($var, "hover");
+          color: map_get($var, "hover");
+        }
+
+        &:not(:disabled):not(.disabled):focus {
+          box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
+            0 0 0 6px map_get($var, "focus-ring");
+        }
+      }
+    }
+  }
+}
