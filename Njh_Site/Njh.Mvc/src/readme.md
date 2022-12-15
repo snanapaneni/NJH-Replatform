@@ -93,3 +93,35 @@ h6 {
 
 
 You can learn more about PurgeCSS here https://github.com/FullHuman/purgecss-docs
+
+
+## Creating New Features Process
+
+1. Create new branch under `feature/NJHK13-{number}`
+
+2. Create appropriate HTML files:
+
+	- For templates:
+		- Create new HTML file, or copy `index.html` in `./static/`
+		- Add ticket number in a comment at the top of the html file.
+		- Add new template object to `./static/components/_config.js`
+	    ```
+	    {
+		    templateFilename: "template",
+		    header: "app-header",
+		    footer: "app-footer",
+		    main_components: [
+			    // add components here.
+		    ],
+	    },
+	    ```
+
+	- For components:
+		- Create new HTML file in `./static/components`
+		- Add ticket number in a comment at the top of the html file.
+		- Add component to existing template, or create a new template.
+
+3. Restart webpack
+	- Note: You will need to restart webpack anytime you add new files OR adjust the config file.
+
+4. Static files write to `../wwwroot/dist`
