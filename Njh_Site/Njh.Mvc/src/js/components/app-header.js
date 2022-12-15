@@ -7,8 +7,8 @@ const App__appHeader = {
   utilityNav: null,
   primaryNav: null,
 
-  portalNavTrigger: null,
-  portalNav: null,
+  // portalNavTrigger: null,
+  // portalNav: null,
 
   // Cache some elements for easier targeting
   largeScreenUtilityNavWrapper: null,
@@ -21,7 +21,7 @@ const App__appHeader = {
   smallScreenNavPanelCloseTrigger: false,
 
   init: function () {
-
+		console.log('appHeader.init')
     App.appHeader.element = document.querySelector('[data-hook=appHeader]');
 
     App.appHeader.largeScreenUtilityNavWrapper = document.querySelector('[data-hook=appHeader] > [data-hook=appHeader__utilityNavWrapper]');
@@ -31,7 +31,7 @@ const App__appHeader = {
     App.appHeader.smallScreenPrimaryNavWrapper = document.querySelector('[data-hook=appHeader__smallScreenNavPanel] [data-hook=appHeader__primaryNavWrapper]');
 
     if ( document.querySelector('[data-hook=appHeader__primaryNav]')  &&  document.querySelector('[data-hook=appHeader__utilityNav]') ) {
-
+			console.log('appHeader.init passed')
       App.appHeader.utilityNav = document.querySelector('[data-hook=appHeader__utilityNav]').cloneNode(true),
       App.appHeader.primaryNav = document.querySelector('[data-hook=appHeader__primaryNav]').cloneNode(true),
 
@@ -45,20 +45,43 @@ const App__appHeader = {
         false
       );
 
-      let portalNavTrigger = document.querySelector('[data-hook=appHeader__utilityNavPortalMenuTrigger]');
-      if ( portalNavTrigger ) {
-        App.appHeader.portalNavTrigger = portalNavTrigger.cloneNode(true);
-      }
+      // let portalNavTrigger = document.querySelector('[data-hook=appHeader__utilityNavPortalMenuTrigger]');
+      // if ( portalNavTrigger ) {
+      //   App.appHeader.portalNavTrigger = portalNavTrigger.cloneNode(true);
+      // }
 
-      let portalNav = document.querySelector('[data-hook=appHeader__utilityNavPortalMenu]');
-      if ( portalNav ) {
-        App.appHeader.portalNav = portalNav.cloneNode(true);
-      }
+      // let portalNav = document.querySelector('[data-hook=appHeader__utilityNavPortalMenu]');
+      // if ( portalNav ) {
+      //   App.appHeader.portalNav = portalNav.cloneNode(true);
+      // }
 
       /* Setup click handlers
        * These are setup as delegated event listeners on appHeader since we are
        * rebuilding these navs as needed for small/large screens.
        * =========================================================================== */
+
+			 /* Click handler for: appHeader__globalSearchPanelTrigger
+       * Toggles "I want to..." panel
+       * =========================================================================== */
+      App.appHeader.element.addEventListener('click', (e) => {
+        if ( !e.target.matches('[data-hook=appHeader__wantTo]') ) {
+
+					// Check for and close wantTo
+					if ( App.appHeader.element && App.appHeader.element.querySelector( "[data-hook=appHeader__wantToWrapper].is-open" ) ) {
+						App.appHeader.wantTo__close();
+					}
+
+          return false;
+        }
+        e.preventDefault();
+
+        let appHeader__wantToWrapper = App.appHeader.element.querySelector('[data-hook=appHeader__wantToWrapper]');
+        if ( appHeader__wantToWrapper.getAttribute('aria-hidden') == 'true' ) {
+          App.appHeader.wantTo__open();
+        } else {
+          App.appHeader.wantTo__close();
+        }
+      });
 
       /* Click handler for: appHeader__globalSearchPanelTrigger
        * Toggles global search panel
@@ -117,7 +140,12 @@ const App__appHeader = {
        * Toggles Subnav panel
        * =========================================================================== */
       App.appHeader.element.addEventListener('click', (e) => {
+				console.log('click detected');
         if ( !e.target.matches('[data-hook=appHeader__primaryNavItemPanelTrigger]') ) {
+					console.log('click failed');
+					if (App.appHeader.element && App.appHeader.element.querySelector("[data-hook=appHeader__primaryNavItem].is-open")) {
+      			App.appHeader.primaryNavItemPanel__close(App.appHeader.element.querySelector("[data-hook=appHeader__primaryNavItem].is-open"));
+    			}
           return false;
         }
         e.preventDefault();
@@ -129,8 +157,8 @@ const App__appHeader = {
           App.appHeader.primaryNavItemPanel__open(primaryNavItem);
         }
 
-        App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelSearchButton]').style.display = "none";
-        App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelBackButton]').style.display = "inline";
+        //App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelSearchButton]').style.display = "none";
+        //App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelBackButton]').style.display = "inline";
       });
 
       /* Click handler for: appHeader__smallScreenNavPanelBackButton
@@ -173,11 +201,11 @@ const App__appHeader = {
       //   });
       // });
 
-      if ( App.mediaQueries.isLargeUp ) {
-        App.appHeader.largeScreenNav__build( App.appHeader.smallScreenNav__destroy );
-      } else {
-        App.appHeader.smallScreenNav__build( App.appHeader.largeScreenNav__destroy );
-      }
+      // if ( App.mediaQueries.isLargeUp ) {
+      //   App.appHeader.largeScreenNav__build( App.appHeader.smallScreenNav__destroy );
+      // } else {
+      //   App.appHeader.smallScreenNav__build( App.appHeader.largeScreenNav__destroy );
+      // }
 
     }
 
@@ -261,13 +289,13 @@ const App__appHeader = {
     App.appHeader.smallScreenUtilityNavWrapper.appendChild( App.appHeader.utilityNav );
     App.appHeader.smallScreenPrimaryNavWrapper.appendChild( App.appHeader.primaryNav );
 
-    if ( App.appHeader.portalNavTrigger ) {
-      App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenPortalMenuWrapper]').appendChild(App.appHeader.portalNavTrigger);
-    }
+    // if ( App.appHeader.portalNavTrigger ) {
+    //   App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenPortalMenuWrapper]').appendChild(App.appHeader.portalNavTrigger);
+    // }
 
-    if ( App.appHeader.portalNav ) {
-      App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenPortalMenuWrapper]').appendChild(App.appHeader.portalNav);
-    }
+    // if ( App.appHeader.portalNav ) {
+    //   App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenPortalMenuWrapper]').appendChild(App.appHeader.portalNav);
+    // }
 
     let selectors = [];
 
@@ -443,7 +471,7 @@ const App__appHeader = {
   },
 
   primaryNavItemPanel__open: function ( primaryNavItem ) {
-    // console.log('App.appHeader.primaryNavItemPanel__open()');
+    console.log('App.appHeader.primaryNavItemPanel__open()');
 
     // Check for and close other open panel
     let openPanel = App.appHeader.element.querySelector('[data-hook=appHeader__primaryNavItem].is-open');
@@ -468,7 +496,7 @@ const App__appHeader = {
     ];
     App.appHeader.element.querySelectorAll(selectors.join()).forEach((item) => item.setAttribute('tabindex', '-1'));
 
-    if ( App.mediaQueries.isLargeUp ) {
+    
       document.querySelector('[data-hook=appOverlay]').classList.add('is-active');
 
       // ALLOW focus on this item and it's sub elements
@@ -480,24 +508,7 @@ const App__appHeader = {
         }
       );
       App.appHeader.focusTrap.activate();
-    } else {
-      App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelHeader]').classList.add('is-back-to-main');
-
-      // ALLOW focus on...
-      primaryNavItem.querySelectorAll('[data-hook=appHeader__primaryNavItemPanel] a').forEach((item) => item.removeAttribute('tabindex'));
-      selectors = [
-        '[data-hook=appHeader__smallScreenNavPanelCloseTrigger]',
-        '[data-hook=appHeader__smallScreenNavPanelBackButton]',
-        '[data-hook=appHeader__primaryNavCta] a',
-      ];
-      App.appHeader.element.querySelectorAll(selectors.join()).forEach((item) => item.removeAttribute('tabindex'));
-
-      App.appHeader.focusTrap = App.utils.focusTrap.createFocusTrap('[data-hook=appHeader]', {
-          initialFocus: App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelBackButton]'),
-        }
-      );
-      App.appHeader.focusTrap.activate();
-    }
+    
   },
 
   primaryNavItemPanel__close: function ( primaryNavItem ) {
@@ -518,7 +529,7 @@ const App__appHeader = {
 
     let selectors = [];
 
-    if ( App.mediaQueries.isLargeUp ) {
+    //if ( App.mediaQueries.isLargeUp ) {
       selectors = [
         '[data-hook=appHeader] a',
         '[data-hook=appHeader] button',
@@ -526,19 +537,19 @@ const App__appHeader = {
       App.appHeader.element.querySelectorAll(selectors.join()).forEach((item) => item.removeAttribute('tabindex'));
 
       document.querySelector('[data-hook=appOverlay]').classList.remove('is-active');
-    } else {
-      App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelHeader]').classList.remove('is-back-to-main');
+    // } else {
+    //   App.appHeader.element.querySelector('[data-hook=appHeader__smallScreenNavPanelHeader]').classList.remove('is-back-to-main');
 
-      // PREVENT focus on...
-      selectors = [
-        '[data-hook=appHeader] a',
-        '[data-hook=appHeader] button',
-      ];
-      App.appHeader.element.querySelectorAll(selectors.join()).forEach((item) => item.setAttribute('tabindex', '-1'));
+    //   // PREVENT focus on...
+    //   selectors = [
+    //     '[data-hook=appHeader] a',
+    //     '[data-hook=appHeader] button',
+    //   ];
+    //   App.appHeader.element.querySelectorAll(selectors.join()).forEach((item) => item.setAttribute('tabindex', '-1'));
 
-      // Allow focus on...
-      App.appHeader.smallScreenNavPanel__initFocusables();
-    }
+    //   // Allow focus on...
+    //   App.appHeader.smallScreenNavPanel__initFocusables();
+    // }
 
     if ( App.appHeader.focusTrap ) {
       App.appHeader.focusTrap.deactivate();
@@ -644,6 +655,18 @@ const App__appHeader = {
       window.location.href = `${landingUrl}?keyword=${paramValue}`;
     }
   },
+
+	wantTo__open: function () {
+		let appHeader__wantToWrapper = document.querySelector('[data-hook=appHeader] [data-hook=appHeader__wantToWrapper]');
+		appHeader__wantToWrapper.setAttribute('aria-hidden', false);
+		appHeader__wantToWrapper.classList.add('is-open');
+	},
+
+	wantTo__close: function () {
+		let appHeader__wantToWrapper = document.querySelector('[data-hook=appHeader] [data-hook=appHeader__wantToWrapper]');
+		appHeader__wantToWrapper.setAttribute('aria-hidden', true);
+		appHeader__wantToWrapper.classList.remove('is-open');
+	}
 }
 
 export default App__appHeader;

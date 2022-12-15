@@ -32,3 +32,19 @@
     }
   }
 }
+
+@mixin global-focus-ring {
+  box-shadow: 0 0 0 3px var(--neutral--100), 0 0 0 6px var(--blue--700);
+}
+
+@mixin global-separator {
+  content: "";
+  display: block;
+  height: 1rem;
+  width: 1px;
+  background-color: var(--neutral--400);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  translate: 0 -50%;
+}

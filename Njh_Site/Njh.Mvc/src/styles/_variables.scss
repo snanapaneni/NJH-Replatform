@@ -29,6 +29,9 @@ $app-colors: (
   "red--500": #a71d1b,
 );
 
+$primary: map_get($app-colors, "blue--700");
+$secondary: map_get($app-colors, "orange--900");
+
 // Approved Backgrounds
 $backgrounds: (
   // "neutral--300": map_get($app-colors, "neutral--300"),
@@ -53,6 +56,8 @@ $enable-transitions: false;
 // Typography
 $font-family-sans-serif: "Open Sans", "Segoe UI", Tahoma, sans-serif;
 $font-family-headings: "Roboto", Arial, Helvetica, sans-serif;
+
+$body-color: map_get($app-colors, "neutral--900");
 
 $font-size-base: 1rem;
 

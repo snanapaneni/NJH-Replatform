@@ -58,8 +58,8 @@
 @import "./mixins/backgrounds";
 @import "./mixins/buttons";
 
+@import "./global";
 @import "./forms";
-@import "./themes";
 
 @import "./app-header";
 @import "./app-main";
@@ -71,6 +71,7 @@
 @import "./elements/backgrounds";
 @import "./elements/buttons";
 @import "./elements/headings";
+@import "./elements/icons";
 // @import "./elements/links";
 
 // Components
