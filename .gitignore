@@ -399,6 +399,22 @@ node_modules
 #VSCODE
 **.vscode/
 
+# Ignore files that MacOSX might add when viewing files. 
+**/*.DS_Store 
+.*.code-workspace
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.html
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.js
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.css
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.png
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.jpg
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.svg
+
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/wwwroot/dist/.*.html
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/wwwroot/dist/.*.js
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/wwwroot/dist/.*.css
+#End MacOSX ignores
+
+
 #Media
 [Nn][Jj][Hh]_Admin/CMS/[Nn][Jj][Hh]/media/*
 

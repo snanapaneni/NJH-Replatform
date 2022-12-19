@@ -44,7 +44,7 @@
 // @import "~bootstrap/scss/navbar";
 // @import "~bootstrap/scss/pagination";
 // @import "~bootstrap/scss/popover";
-@import "~bootstrap/scss/progress";
+// @import "~bootstrap/scss/progress";
 // @import "~bootstrap/scss/spinners";
 @import "~bootstrap/scss/tables";
 // @import "~bootstrap/scss/toasts";
@@ -64,6 +64,7 @@
 @import "./app-header";
 @import "./app-main";
 @import "./app-footer";
+@import "./layers"; // controls z-index of main elements
 
 @import "./animations";
 

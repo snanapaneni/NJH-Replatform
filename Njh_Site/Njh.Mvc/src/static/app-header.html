@@ -1,375 +1,653 @@
 <!-- NJHK13-292 : Utility & Main Navigation - Desktop --->
-<!-- https://reasonone.atlassian.net/jira/software/c/projects/TST/boards/180?modal=detail&selectedIssue=NJHK13-292 -->
+<!-- https://reasonone.atlassian.net/browse/NJHK13-292 -->
+
+<!-- NJHK13-283 : Utility & Main Navigation - Mobile --->
+<!-- https://reasonone.atlassian.net/browse/NJHK13-283 -->
 
 <header class="app-header" data-hook="appHeader">
-  <div class="app-header__wrapper container">
-    <div class="app-header__logo">
-      <a href="/"><img src="../images/logo.png" /></a>
+  <!-- START DESKTOP -->
+  <div
+    class="app-header__large-screen-nav-panel"
+    data-hook="appHeader__largeScreenNavPanel">
+    <div class="container">
+      <!-- Logo -->
+      <div class="app-header__logo">
+        <a href="/" aria-label="Go to home">
+          <img src="../images/logo.png" alt="National Jewish Health" />
+        </a>
+      </div>
+
+      <!-- Utility Nav -->
+      <nav
+        class="app-header__utility-nav"
+        data-hook="appHeader__utilityNav"
+        aria-label="Header Utility Navigation">
+        <ul role="list">
+          <li>
+            <a href="#">COVID-19 Care</a>
+          </li>
+          <li>
+            <a href="#">About Us</a>
+          </li>
+          <li>
+            <a href="#">Patient Portal</a>
+          </li>
+          <li>
+            <a href="#">Careers</a>
+          </li>
+          <li>
+            <a href="#">Professionals</a>
+          </li>
+          <li>
+            <a href="tel:+18772255654"><strong>877-CALL NJH</strong></a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Quick Nav -->
+      <nav
+        class="app-header__quick-nav"
+        data-hook="appHeader__quickNav"
+        aria-label="Header Quick Navigation and Search">
+        <ul role="list" class="app-header__quick-nav-list">
+          <li>
+            <a href="#" class="btn btn-sm btn-orange--900">
+              Make an Appointment
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="btn btn-sm btn-blue--700">Donate</a>
+          </li>
+
+          <li class="app-header__quick-nav-search">
+            <button
+              class="app-header__search app-header__circle-button btn"
+              data-hook="appHeader__search"
+              aria-expanded="false"
+              aria-controls="appHeader__searchForm"
+              aria-label="Search this website">
+              <svg
+                class="app-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512">
+                <path
+                  fill="inheret"
+                  d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
+              </svg>
+            </button>
+
+            <!-- Search will eventually load here -->
+            <search-partial></search-partial>
+          </li>
+        </ul>
+      </nav>
     </div>
 
-    <!-- Utility Nav-->
-    <nav
-      class="app-header__utility-nav"
-      data-hook="appHeader__utilityNav"
-      aria-label="Header Utility Navigation">
-      <ul role="list">
-        <li>
-          <a href="#">COVID-19 Care</a>
-        </li>
-        <li>
-          <a href="#">About Us</a>
-        </li>
-        <li>
-          <a href="#">Patient Portal</a>
-        </li>
-        <li>
-          <a href="#">Careers</a>
-        </li>
-        <li>
-          <a href="#">Professionals</a>
-        </li>
-        <li class="hide-separator">
-          <a href="tel:+18772255654"><strong>877-CALL NJH</strong></a>
-        </li>
-        <li class="hide-separator">
-          <a href="#" class="ms-2 btn btn-sm btn-blue--700">Donate</a>
-        </li>
-      </ul>
-    </nav>
+    <!-- Primary Nav-->
 
     <nav
-      class="app-header__quick-nav"
-      data-hook="appHeader__quickNav"
-      aria-label="Header Quick Navigation and Search">
-      <ul role="list" class="app-header__quick-nav-list">
-        <li>
-          <a href="#" class="btn btn-sm btn-round btn-orange--900">
-            <span class="d-none d-md-inline">Make an</span> Appointment
-          </a>
-        </li>
-
-        <li class="app-header__want-to">
-          <button
-            data-hook="appHeader__wantTo"
-            aria-expanded="false"
-            aria-controls="appHeader__wantToWrapper">
-            I want to...
-          </button>
-          <div
-            class="app-header__want-to-wrapper"
-            data-hook="appHeader__wantToWrapper"
-            aria-hidden="true"
-            id="appHeader__wantToWrapper">
-            <ul role="list">
-              <li>
-                <a href="#">Find a Doctor</a>
-              </li>
-              <li>
-                <a href="#">Access Patient Portal</a>
-              </li>
-              <li>
-                <a href="#">Ask a question</a>
-              </li>
-              <li>
-                <a href="#">Pay my bill</a>
-              </li>
-              <li>
-                <a href="#">Refer a patient</a>
-              </li>
-              <li>
-                <a href="#">See Event Calendar</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="app-header__quick-nav-search">
-          <button
-            class="app-header__search"
-            data-hook="appHeader__search"
-            aria-expanded="false"
-            aria-controls="appHeader__searchForm">
-            <svg
-              class="app-icon"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512">
-              <path
-                fill="inheret"
-                d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
-            </svg>
-            <span class="visually-hidden">Search this website</span>
-          </button>
-          <form id="appHeader__searchForm" aria-hidden="true"></form>
-        </li>
-      </ul>
-    </nav>
-  </div>
-  <!-- Main Nav-->
-  <div
-    class="app-header__primary-nav-wrapper"
-    data-hook="appHeader__primaryNavWrapper">
-    <nav
-      class="app-header__primary-nav container"
+      class="app-header__primary-nav"
       data-hook="appHeader__primaryNav"
       aria-label="Header Primary Navigation">
-      <ul
-        role="list"
-        class="app-header__primary-nav-list"
-        data-hook="appHeader__primaryNavList">
-        <!-- Single top level item -- START-->
-        <li
-          class="app-header__primary-nav-item"
-          data-hook="appHeader__primaryNavItem">
-          <button
-            aria-expanded="false"
-            data-hook="appHeader__primaryNavItemPanelTrigger">
-            Conditions We<br />
-            Treat
-          </button>
+      <div class="container">
+        <ul role="list" class="app-header__primary-nav-list">
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Conditions We<br />
+              Treat
+            </button>
 
-          <div
-            class="app-header__primary-nav-item-panel"
-            aria-hidden="true"
-            data-hook="appHeader__primaryNavItemPanel">
-            <div class="app-header__primary-nav-item-panel-row">
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">Find a Condition by Name</a></li>
-                  <li><a href="#">Adult Conditions</a></li>
-                  <li><a href="#">Pediatric Conditions</a></li>
-                </ul>
-              </div>
-              <!-- Sub level column -- END -->
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <div class="app-header__primary-nav-item-panel-row">
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">Find a Condition by Name</a></li>
+                    <li><a href="#">Adult Conditions</a></li>
+                    <li><a href="#">Pediatric Conditions</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
 
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">Health & Wellness Information</a></li>
-                  <li><a href="#">Treatment Programs</a></li>
-                  <li><a href="#">Coronavirus (COVID-19)</a></li>
-                </ul>
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">Health & Wellness Information</a></li>
+                    <li><a href="#">Treatment Programs</a></li>
+                    <li><a href="#">Coronavirus (COVID-19)</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
               </div>
-              <!-- Sub level column -- END -->
+
+              <a class="app-header__primary-nav-item-more" href="#">
+                More Conditions We Treat
+              </a>
             </div>
+          </li>
+          <!-- Single top level item -- END-->
 
-            <a class="app-header__primary-nav-item-more" href="#">
-              More Conditions We Treat
-            </a>
-          </div>
-        </li>
-        <!-- Single top level item -- END-->
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              data-hook="appHeader__primaryNavItemPanelTrigger"
+              aria-expanded="false">
+              Find a<br />
+              Doctor
+            </button>
 
-        <!-- Single top level item -- START-->
-        <li
-          class="app-header__primary-nav-item"
-          data-hook="appHeader__primaryNavItem">
-          <button
-            aria-expanded="false"
-            data-hook="appHeader__primaryNavItemPanelTrigger">
-            Find a<br />
-            Doctor
-          </button>
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <div class="app-header__primary-nav-item-panel-row">
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
 
-          <div
-            class="app-header__primary-nav-item-panel"
-            aria-hidden="true"
-            data-hook="appHeader__primaryNavItemPanel">
-            <div class="app-header__primary-nav-item-panel-row">
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
               </div>
-              <!-- Sub level column -- END -->
 
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
-              </div>
-              <!-- Sub level column -- END -->
+              <a class="app-header__primary-nav-item-more" href="#">
+                Another link
+              </a>
             </div>
+          </li>
+          <!-- Single top level item -- END-->
 
-            <a class="app-header__primary-nav-item-more" href="#">
-              Another link
-            </a>
-          </div>
-        </li>
-        <!-- Single top level item -- END-->
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Patients &<br />
+              Visitors
+            </button>
 
-        <!-- Single top level item -- START-->
-        <li
-          class="app-header__primary-nav-item"
-          data-hook="appHeader__primaryNavItem">
-          <button
-            aria-expanded="false"
-            data-hook="appHeader__primaryNavItemPanelTrigger">
-            Patients &<br />
-            Visitors
-          </button>
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <div class="app-header__primary-nav-item-panel-row">
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
 
-          <div
-            class="app-header__primary-nav-item-panel"
-            aria-hidden="true"
-            data-hook="appHeader__primaryNavItemPanel">
-            <div class="app-header__primary-nav-item-panel-row">
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
               </div>
-              <!-- Sub level column -- END -->
 
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
-              </div>
-              <!-- Sub level column -- END -->
+              <a class="app-header__primary-nav-item-more" href="#">
+                More from Top Level Navigation
+              </a>
             </div>
+          </li>
+          <!-- Single top level item -- END-->
 
-            <a class="app-header__primary-nav-item-more" href="#">
-              More from Top Level Navigation
-            </a>
-          </div>
-        </li>
-        <!-- Single top level item -- END-->
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item is-current"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Education &<br />
+              Wellness
+            </button>
 
-        <!-- Single top level item -- START-->
-        <li
-          class="app-header__primary-nav-item is-current"
-          data-hook="appHeader__primaryNavItem">
-          <button
-            aria-expanded="false"
-            data-hook="appHeader__primaryNavItemPanelTrigger">
-            Education &<br />
-            Wellness
-          </button>
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <div class="app-header__primary-nav-item-panel-row">
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
 
-          <div
-            class="app-header__primary-nav-item-panel"
-            aria-hidden="true"
-            data-hook="appHeader__primaryNavItemPanel">
-            <div class="app-header__primary-nav-item-panel-row">
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
               </div>
-              <!-- Sub level column -- END -->
 
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
-              </div>
-              <!-- Sub level column -- END -->
+              <a class="app-header__primary-nav-item-more" href="#">
+                More from Top Level Navigation
+              </a>
             </div>
+          </li>
+          <!-- Single top level item -- END-->
 
-            <a class="app-header__primary-nav-item-more" href="#">
-              More from Top Level Navigation
-            </a>
-          </div>
-        </li>
-        <!-- Single top level item -- END-->
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Clinical Trials<br />
+              & Research
+            </button>
 
-        <!-- Single top level item -- START-->
-        <li
-          class="app-header__primary-nav-item"
-          data-hook="appHeader__primaryNavItem">
-          <button
-            aria-expanded="false"
-            data-hook="appHeader__primaryNavItemPanelTrigger">
-            Clinical Trials<br />
-            & Research
-          </button>
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <div class="app-header__primary-nav-item-panel-row">
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
 
-          <div
-            class="app-header__primary-nav-item-panel"
-            aria-hidden="true"
-            data-hook="appHeader__primaryNavItemPanel">
-            <div class="app-header__primary-nav-item-panel-row">
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
               </div>
-              <!-- Sub level column -- END -->
 
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
-              </div>
-              <!-- Sub level column -- END -->
+              <a class="app-header__primary-nav-item-more" href="#">
+                More from Top Level Navigation
+              </a>
             </div>
+          </li>
+          <!-- Single top level item -- END-->
 
-            <a class="app-header__primary-nav-item-more" href="#">
-              More from Top Level Navigation
-            </a>
-          </div>
-        </li>
-        <!-- Single top level item -- END-->
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Ways to<br />
+              Give
+            </button>
 
-        <!-- Single top level item -- START-->
-        <li
-          class="app-header__primary-nav-item"
-          data-hook="appHeader__primaryNavItem">
-          <button
-            aria-expanded="false"
-            data-hook="appHeader__primaryNavItemPanelTrigger">
-            Ways to<br />
-            Give
-          </button>
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <div class="app-header__primary-nav-item-panel-row">
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
 
-          <div
-            class="app-header__primary-nav-item-panel"
-            aria-hidden="true"
-            data-hook="appHeader__primaryNavItemPanel">
-            <div class="app-header__primary-nav-item-panel-row">
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
+                <!-- Sub level column -- START -->
+                <div class="app-header__primary-nav-item-panel-column">
+                  <ul role="list">
+                    <li><a href="#">A link</a></li>
+                    <li><a href="#">A link</a></li>
+                  </ul>
+                </div>
+                <!-- Sub level column -- END -->
               </div>
-              <!-- Sub level column -- END -->
 
-              <!-- Sub level column -- START -->
-              <div class="app-header__primary-nav-item-panel-column">
-                <ul role="list">
-                  <li><a href="#">A link</a></li>
-                  <li><a href="#">A link</a></li>
-                </ul>
-              </div>
-              <!-- Sub level column -- END -->
+              <a class="app-header__primary-nav-item-more" href="#">
+                More from Top Level Navigation
+              </a>
             </div>
-
-            <a class="app-header__primary-nav-item-more" href="#">
-              More from Top Level Navigation
-            </a>
-          </div>
-        </li>
-        <!-- Single top level item -- END-->
-      </ul>
+          </li>
+          <!-- Single top level item -- END-->
+        </ul>
+      </div>
     </nav>
   </div>
+  <!-- END DESKTOP -->
+
+  <!-- START MOBILE -->
+  <div
+    id="app-header__small-screen-nav-panel"
+    class="app-header__small-screen-nav-panel container"
+    data-hook="appHeader__smallScreenNavPanel">
+    <!-- MOBILE HEAD PANEL -->
+    <div
+      class="app-header__small-screen-nav-panel-header"
+      data-hook="appHeader__smallScreenNavPanelHeader">
+      <!-- NAV TOGGLE -->
+      <button
+        class="app-header__small-screen-nav-panel-trigger btn app-header__circle-button"
+        data-hook="appHeader__smallScreenNavPanelTrigger"
+        aria-controls="appHeader__smallScreenNavPanelDrawer"
+        aria-expanded="false"
+        aria-label="Toggle Navigation">
+        <svg
+          class="app-icon"
+          data-hook="appHeader__smallScreenNavPanelTriggerOpen"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512">
+          <path
+            d="M0 88C0 74.75 10.75 64 24 64H424C437.3 64 448 74.75 448 88C448 101.3 437.3 112 424 112H24C10.75 112 0 101.3 0 88zM0 248C0 234.7 10.75 224 24 224H424C437.3 224 448 234.7 448 248C448 261.3 437.3 272 424 272H24C10.75 272 0 261.3 0 248zM424 432H24C10.75 432 0 421.3 0 408C0 394.7 10.75 384 24 384H424C437.3 384 448 394.7 448 408C448 421.3 437.3 432 424 432z" />
+        </svg>
+
+        <svg
+          class="app-icon d-none"
+          data-hook="appHeader__smallScreenNavPanelTriggerClose"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 320 512">
+          <path
+            d="M312.1 375c9.369 9.369 9.369 24.57 0 33.94s-24.57 9.369-33.94 0L160 289.9l-119 119c-9.369 9.369-24.57 9.369-33.94 0s-9.369-24.57 0-33.94L126.1 256L7.027 136.1c-9.369-9.369-9.369-24.57 0-33.94s24.57-9.369 33.94 0L160 222.1l119-119c9.369-9.369 24.57-9.369 33.94 0s9.369 24.57 0 33.94L193.9 256L312.1 375z" />
+        </svg>
+      </button>
+      <!-- LOGO -->
+      <div class="app-header__logo" data-hook="appHeader__logo">
+        <a href="/" aria-label="Go to home">
+          <img src="../images/logo.png" alt="National Jewish Health" />
+        </a>
+      </div>
+
+      <div class="app-header__small-screen-nav-panel-header-buttons">
+        <!-- PHONE -->
+        <a
+          href="tel:+18772255654"
+          class="app-header__phone-number btn app-header__circle-button"
+          data-hook="appHeader__smallScreenNavPanelPhoneNumber"
+          aria-label="877-CALL NJH">
+          <svg
+            class="app-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512">
+            <path
+              d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+          </svg>
+        </a>
+
+        <!-- SEARCH TRIGGER -->
+        <button
+          class="app-header__small-screen-nav-panel-search-button btn app-header__circle-button"
+          data-hook="appHeader__smallScreenNavPanelSearchButton"
+          aria-label="Search this website">
+          <svg
+            class="app-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512">
+            <path
+              fill="inheret"
+              d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- MOBILE DRAWER -->
+    <div
+      id="appHeader__smallScreenNavPanelDrawer"
+      class="app-header__small-screen-nav-panel-drawer container"
+      data-hook="appHeader__smallScreenNavPanelDrawer"
+      aria-hidden="true">
+      <!-- Search will eventually load here -->
+      <search-partial></search-partial>
+
+      <nav
+        class="app-header__primary-nav"
+        data-hook="appHeader__primaryNav"
+        aria-label="Header Primary Navigation">
+        <ul role="list" class="app-header__primary-nav-list">
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Conditions We Treat
+            </button>
+
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <ul role="list">
+                <li><a href="#">Find a Condition by Name</a></li>
+                <li><a href="#">Adult Conditions</a></li>
+                <li><a href="#">Pediatric Conditions</a></li>
+                <li><a href="#">Health & Wellness Information</a></li>
+                <li><a href="#">Treatment Programs</a></li>
+                <li><a href="#">Coronavirus (COVID-19)</a></li>
+              </ul>
+
+              <a class="app-header__primary-nav-item-more" href="#">
+                More Conditions We Treat
+              </a>
+            </div>
+          </li>
+          <!-- Single top level item -- END-->
+
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Find a Doctor
+            </button>
+
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <ul role="list">
+                <li><a href="#">Find a Condition by Name</a></li>
+                <li><a href="#">Adult Conditions</a></li>
+                <li><a href="#">Pediatric Conditions</a></li>
+                <li><a href="#">Health & Wellness Information</a></li>
+                <li><a href="#">Treatment Programs</a></li>
+                <li><a href="#">Coronavirus (COVID-19)</a></li>
+              </ul>
+
+              <a class="app-header__primary-nav-item-more" href="#">
+                More Conditions We Treat
+              </a>
+            </div>
+          </li>
+          <!-- Single top level item -- END-->
+
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Patients & Visitors
+            </button>
+
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <ul role="list">
+                <li><a href="#">Find a Condition by Name</a></li>
+                <li><a href="#">Adult Conditions</a></li>
+                <li><a href="#">Pediatric Conditions</a></li>
+                <li><a href="#">Health & Wellness Information</a></li>
+                <li><a href="#">Treatment Programs</a></li>
+                <li><a href="#">Coronavirus (COVID-19)</a></li>
+              </ul>
+
+              <a class="app-header__primary-nav-item-more" href="#">
+                More Conditions We Treat
+              </a>
+            </div>
+          </li>
+          <!-- Single top level item -- END-->
+
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Education & Wellness
+            </button>
+
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <ul role="list">
+                <li><a href="#">Find a Condition by Name</a></li>
+                <li><a href="#">Adult Conditions</a></li>
+                <li><a href="#">Pediatric Conditions</a></li>
+                <li><a href="#">Health & Wellness Information</a></li>
+                <li><a href="#">Treatment Programs</a></li>
+                <li><a href="#">Coronavirus (COVID-19)</a></li>
+              </ul>
+
+              <a class="app-header__primary-nav-item-more" href="#">
+                More Conditions We Treat
+              </a>
+            </div>
+          </li>
+          <!-- Single top level item -- END-->
+
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Clinical Trials & Research
+            </button>
+
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <ul role="list">
+                <li><a href="#">Find a Condition by Name</a></li>
+                <li><a href="#">Adult Conditions</a></li>
+                <li><a href="#">Pediatric Conditions</a></li>
+                <li><a href="#">Health & Wellness Information</a></li>
+                <li><a href="#">Treatment Programs</a></li>
+                <li><a href="#">Coronavirus (COVID-19)</a></li>
+              </ul>
+
+              <a class="app-header__primary-nav-item-more" href="#">
+                More Conditions We Treat
+              </a>
+            </div>
+          </li>
+          <!-- Single top level item -- END-->
+
+          <!-- Single top level item -- START-->
+          <li
+            class="app-header__primary-nav-item"
+            data-hook="appHeader__primaryNavItem">
+            <button
+              aria-expanded="false"
+              data-hook="appHeader__primaryNavItemPanelTrigger">
+              Ways to Give
+            </button>
+
+            <div
+              class="app-header__primary-nav-item-panel"
+              data-hook="appHeader__primaryNavItemPanel"
+              aria-hidden="true">
+              <ul role="list">
+                <li><a href="#">Find a Condition by Name</a></li>
+                <li><a href="#">Adult Conditions</a></li>
+                <li><a href="#">Pediatric Conditions</a></li>
+                <li><a href="#">Health & Wellness Information</a></li>
+                <li><a href="#">Treatment Programs</a></li>
+                <li><a href="#">Coronavirus (COVID-19)</a></li>
+              </ul>
+
+              <a class="app-header__primary-nav-item-more" href="#">
+                More Conditions We Treat
+              </a>
+            </div>
+          </li>
+          <!-- Single top level item -- END-->
+        </ul>
+      </nav>
+
+      <nav
+        class="app-header__utility-nav"
+        data-hook="appHeader__utilityNav"
+        aria-label="Header Utility Navigation">
+        <ul role="list">
+          <li>
+            <a href="#">COVID-19 Care</a>
+          </li>
+          <li>
+            <a href="#">About Us</a>
+          </li>
+          <li>
+            <a href="#">Patient Portal</a>
+          </li>
+          <li>
+            <a href="#">Careers</a>
+          </li>
+          <li>
+            <a href="#">Professionals</a>
+          </li>
+          <li>
+            <a href="tel:+18772255654"><strong>877-CALL NJH</strong></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!-- END MOBILE -->
 </header>

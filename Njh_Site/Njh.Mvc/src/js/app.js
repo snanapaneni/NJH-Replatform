@@ -71,8 +71,113 @@ App.appSidebar = App__appSidebar;
 //App.video                      = App__video;
 
 App.mediaQueries = {
+  is: function (breakpoint, callback) {
+    if (breakpoint.matches) {
+      callback();
+    }
+  },
+  breakpoints: new Map(),
+
+  isXS: false,
+  isSM: false,
+  isMD: false,
+  isLG: false,
+  isXL: false,
+  isXXL: false,
+
   lg: "screen and (min-width: 992px)",
   isLargeUp: "",
+
+  init: function () {
+    //console.log("breakpoints, and go.");
+    // Set all breakpoints.
+    this.breakpoints.set("xs", {
+      screen: "screen and (min-width: 0px)",
+      condition: "isXS",
+    });
+    this.breakpoints.set("sm", {
+      screen: "screen and (min-width: 576px)",
+      condition: "isSM",
+    });
+    this.breakpoints.set("md", {
+      screen: "screen and (min-width: 768px)",
+      condition: "isMD",
+    });
+    this.breakpoints.set("lg", {
+      screen: "screen and (min-width: 992px)",
+      condition: "isLG",
+    });
+    this.breakpoints.set("xl", {
+      screen: "screen and (min-width: 1200px)",
+      condition: "isXL",
+    });
+    this.breakpoints.set("xxl", {
+      screen: "screen and (min-width: 1400px)",
+      condition: "isXXL",
+    });
+
+    this.breakpoints.forEach((value, key) => {
+      const matchMedia = window.matchMedia(value.screen);
+      //console.log(`Init Processing ${key}`);
+      this.processLogic(matchMedia, key, value);
+
+      matchMedia.addEventListener("change", () => {
+        //console.log(`Listener Processing ${key}`);
+        this.processLogic(matchMedia, key, value);
+      });
+    });
+  },
+
+  processLogic: function (matchMedia, key, value) {
+    if (!matchMedia.matches) {
+      //console.log(`${key}: fail`);
+      this.resetCondition(value.condition);
+    } else {
+      //console.log(`${key}: pass`);
+      this.matchesCondition(value.condition);
+      this.processScreen(key);
+    }
+
+    console.log(this);
+  },
+
+  resetCondition: function (condition) {
+    this[condition] = false;
+  },
+  matchesCondition: function (condition) {
+    this[condition] = true;
+  },
+
+  processScreen: function (breakpoint) {
+    switch (breakpoint) {
+      case "xs":
+        break;
+
+      case "sm":
+        break;
+
+      case "md":
+        // App.appHeader.smallScreenNav__build(
+        //   App.appHeader.largeScreenNav__destroy
+        // );
+        break;
+
+      case "lg":
+        // App.appHeader.largeScreenNav__build(
+        //   App.appHeader.smallScreenNav__destroy
+        // );
+        break;
+
+      case "xl":
+        break;
+
+      case "xxl":
+        break;
+
+      default:
+        break;
+    }
+  },
 };
 
 App.modal = {};
@@ -193,9 +298,11 @@ App.utils.urlToolkit = App__urlToolkit;
 // Global App component initialization
 App.init = function () {
   console.log("App Init");
+  // App.mediaQueries.init();
   // App.globalAlert.init();
   App.appHeader.init();
-  App.appSidebar.init();
+
+  // App.appSidebar.init();
   // Components
   //App.accordion.init();
   //App.formBuilder.init();
@@ -204,51 +311,22 @@ App.init = function () {
   //App.video.init();
 };
 
+/**
 // Setup media query and listener for large screens
 const mediaQueryList__lg = window.matchMedia(App.mediaQueries.lg);
 // Call listener function explicitly at run time
 // App.mediaQueries.isLargeUp = mediaQueryList__lg.matches ? true : false;
 // Attach listener function to listen in on state changes
-mediaQueryList__lg.addListener((mediaQuery__lg) => {
+App.mediaQueryList__lg.addEventListener("change", (mediaQuery__lg) => {
+  console.log("watching media query");
   // Screen is Large or greater
   if (mediaQueryList__lg.matches) {
-    App.mediaQueries.isLargeUp = true;
-    // App.utils.closeOverlayPanels();
-    // App.appHeader.largeScreenNav__build(App.appHeader.smallScreenNav__destroy);
-
-    if (App.appSidebar.sideNav) {
-      App.appSidebar.buildLargeScreenSideNav(
-        App.appSidebar.destroySmallScreenSideNav
-      );
-    }
-
-    // Open sidebar accordions (NOTE: these are different than the sideNavAccordion items as they have different rules!)
-    document
-      .querySelectorAll("[data-hook=appSidebar] [data-hook=accordionGroupItem]")
-      .forEach(function (accordionGroupItem) {
-        App.accordion.open(accordionGroupItem);
-      });
-
     // Screen is less than Large
   } else {
-    App.mediaQueries.isLargeUp = false;
-    // App.utils.closeOverlayPanels();
-    // App.appHeader.smallScreenNav__build(App.appHeader.largeScreenNav__destroy);
-
-    if (App.appSidebar.sideNav) {
-      App.appSidebar.buildSmallScreenSideNav(
-        App.appSidebar.destroyLargeScreenSideNav
-      );
-    }
-
-    // Close sidebar accordions
-    document
-      .querySelectorAll("[data-hook=sideNav] [data-hook=sideNavAccordion]")
-      .forEach(function (sideNavAccordion) {
-        App.appSidebar.closeAccordion(sideNavAccordion);
-      });
   }
 });
+
+**/
 
 window.addEventListener("load", function (event) {
   App.init();

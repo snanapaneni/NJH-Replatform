@@ -12,9 +12,11 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    @include media-breakpoint-up(md) {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+    }
 
     .hide-separator {
       a::after {
@@ -24,13 +26,15 @@
   }
 }
 
-.app-header__wrapper {
+// Using grid so that tab focus order selects the logo/home link first, than the utility nav.
+.app-header__large-screen-nav-panel > .container {
   display: grid;
   grid-template-areas:
     "utility utility"
     "logo quick";
   grid-template-columns: 150px 1fr;
   grid-template-rows: repeat(2, auto);
+  row-gap: 1rem;
   justify-items: end;
   align-items: center;
   grid-template-columns: 300px 1fr;
@@ -157,141 +161,255 @@
 // SEARCH
 // ========================================================================
 
-.app-header__search {
+a.btn.app-header__circle-button,
+button.btn.app-header__circle-button {
   appearance: none;
   padding: 0;
-  font-size: 1.25rem;
-  margin-left: 1rem;
+  font-size: 1.5rem;
   border-radius: 100px;
   height: 40px;
   width: 40px;
-  line-height: 1;
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: center;
+  color: var(--blue--700);
+  svg {
+    fill: var(--blue--700);
+  }
   &:focus {
     @include global-focus-ring;
   }
 }
 
-// PRIMARY NAVIGATION
+// PRIMARY NAVIGATION DESKTOP
 // ========================================================================
 
-.app-header__primary-nav-wrapper {
-  z-index: 1200;
-  background-color: var(--blue--700);
-  width: 100%;
-  color: white;
-  padding-top: 0.5rem;
-  border-bottom: 3px solid var(--orange--500);
-}
-
-.app-header__primary-nav-list {
-  align-items: stretch;
-
-  > li {
-    flex-basis: 16.666666%;
-  }
-}
-
-.app-header__primary-nav-item {
-  position: relative;
-
-  &:focus-within {
-    z-index: 100;
-  }
-
-  &::after {
-    @include global-separator;
-    opacity: 0.5;
-  }
-
-  button {
-    color: var(--neutral--100);
+.app-header__large-screen-nav-panel {
+  display: none;
+  @include media-breakpoint-up(md) {
     display: block;
-    font-size: 1.25rem;
-    line-height: 1;
-    word-wrap: normal;
-    white-space: normal;
-    width: auto;
-    padding: 1rem;
-    margin: 0;
-    border-radius: 0;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
-    height: 100%;
+  }
+  .app-header__primary-nav {
+    z-index: 1200;
+    background-color: var(--blue--700);
     width: 100%;
-    text-align: center;
+    color: white;
+    padding-top: 0.5rem;
+    border-bottom: 3px solid var(--orange--500);
+  }
 
-    &:focus,
-    &:hover {
-      background-color: var(--blue--600);
-    }
+  .app-header__primary-nav-list {
+    align-items: stretch;
 
-    &:focus {
-      @include global-focus-ring;
+    > li {
+      flex-basis: 16.666666%;
     }
   }
 
-  .app-header__primary-nav-item-panel {
-    display: none;
-    position: absolute;
-    background: var(--neutral--100);
-    top: calc(100% + 3px);
-    padding: 1rem;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    width: 600px;
-    &-row {
-      display: grid;
-      grid-template-columns: repeat(2, auto);
-      margin-bottom: 2rem;
+  .app-header__primary-nav-item {
+    position: relative;
+
+    &:focus-within {
+      z-index: 100;
     }
 
-    ul {
-      flex-direction: column;
-      li:not(:last-child) {
-        margin-bottom: 0.5rem;
+    &::after {
+      @include global-separator;
+      opacity: 0.5;
+    }
+
+    button {
+      color: var(--neutral--100);
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1;
+      word-wrap: normal;
+      white-space: normal;
+      width: auto;
+      padding: 1rem;
+      margin: 0;
+      border-radius: 0;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+
+      &:focus,
+      &:hover {
+        background-color: var(--blue--600);
+      }
+
+      // &:focus {
+      //   @include global-focus-ring;
+      // }
+    }
+
+    .app-header__primary-nav-item-panel {
+      display: none;
+      position: absolute;
+      background: var(--neutral--100);
+      top: calc(100% + 3px);
+      padding: 1rem;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      width: 600px;
+      &-row {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        margin-bottom: 2rem;
+      }
+
+      ul {
+        flex-direction: column;
+        li:not(:last-child) {
+          margin-bottom: 0.5rem;
+        }
+      }
+      a {
+        color: var(--blue--700);
+        font-size: 1.125rem;
+      }
+
+      > a {
+        font-weight: bold;
+        border-bottom: 2px solid var(--orange--500);
       }
     }
-    a {
-      color: var(--blue--700);
-      font-size: 1.125rem;
+
+    &.is-current {
+      button {
+        background-color: var(--blue--900);
+        color: var(--neutral--100);
+      }
     }
 
-    > a {
-      font-weight: bold;
-      border-bottom: 2px solid var(--orange--500);
-    }
-  }
+    &.is-open {
+      &:after {
+        display: none;
+      }
 
-  &.is-current {
-    button {
-      background-color: var(--blue--900);
-      color: var(--neutral--100);
-    }
-  }
+      button {
+        background-color: var(--orange--500);
+        color: var(--neutral--900);
+      }
 
-  &.is-open {
-    &:after {
+      .app-header__primary-nav-item-panel {
+        display: block;
+      }
+    }
+
+    // Last and second child swap the menu to the other side.
+    &:nth-last-child(1),
+    &:nth-last-child(2),
+    &:nth-last-child(3) {
+      .app-header__primary-nav-item-panel {
+        right: 0;
+      }
+    }
+
+    &:last-child::after {
       display: none;
     }
-
-    button {
-      background-color: var(--orange--500);
-      color: var(--neutral--900);
-    }
-
-    .app-header__primary-nav-item-panel {
-      display: block;
-    }
   }
+}
 
-  // Last and second child swap the menu to the other side.
-  &:nth-last-child(1),
-  &:nth-last-child(2) {
-    .app-header__primary-nav-item-panel {
-      right: 0;
-    }
-  }
+// MOBILE OVERRIDES
+// ========================================================================
 
-  &:last-child::after {
+.app-header__small-screen-nav-panel {
+  display: block;
+
+  @include media-breakpoint-up(md) {
     display: none;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 1rem;
+  }
+
+  .app-header__logo {
+    flex-grow: 1;
+    img {
+      width: 180px;
+    }
+  }
+
+  &-drawer {
+    display: none;
+  }
+
+  .app-header__primary-nav {
+    &-list {
+      // padding: 0 2rem;
+    }
+    &-item {
+      padding: 0.5rem 0;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--neutral--300);
+
+      > button {
+        display: block;
+        padding: 0 0 0 2rem;
+        margin: 0;
+        width: 100%;
+        text-align: left;
+        font-size: 1.25rem;
+        color: var(--blue--900);
+        font-weight: bold;
+        position: relative;
+
+        &::before {
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 7px 0 7px 9px;
+          border-color: transparent transparent transparent var(--blue--700);
+          position: absolute;
+          top: 50%;
+          left: 0.5rem;
+          translate: 0 -50%;
+        }
+        &:focus {
+          @include global-focus-ring;
+        }
+      }
+
+      a {
+        display: block;
+        font-size: 1.125rem;
+        padding: 0.5rem 1rem;
+        color: var(--blue--700);
+      }
+
+      ul {
+        padding-left: 1rem;
+      }
+
+      &-panel {
+        display: none;
+      }
+
+      &.is-open {
+        .app-header__primary-nav-item-panel {
+          display: block;
+        }
+        > button::before {
+          rotate: 90deg;
+        }
+      }
+    }
+  }
+}
+
+// User opened the header panel
+.app-header__small-screen-nav-panel.is-open {
+  .app-header__small-screen-nav-panel-drawer {
+    display: block;
   }
 }
