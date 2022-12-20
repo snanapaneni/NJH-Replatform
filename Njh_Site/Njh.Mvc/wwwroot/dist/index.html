@@ -9,7 +9,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap"
       rel="stylesheet" />
-  <script defer src="app.a420170bf2b572a65662.js"></script><link href="app.385e7d9fd061710adc35.css" rel="stylesheet"></head>
+  <script defer src="app.faa43087361da26afed8.js"></script><link href="app.d8f7e3ea2ac011a44edc.css" rel="stylesheet"></head>
 
   <body>
     <a href="#main" class="skip-to-content visually-hidden-focusable">
@@ -94,9 +94,6 @@
                   d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
               </svg>
             </button>
-
-            <!-- Search will eventually load here -->
-            <search-partial></search-partial>
           </li>
         </ul>
       </nav>
@@ -372,11 +369,11 @@
   <!-- START MOBILE -->
   <div
     id="app-header__small-screen-nav-panel"
-    class="app-header__small-screen-nav-panel container"
+    class="app-header__small-screen-nav-panel"
     data-hook="appHeader__smallScreenNavPanel">
     <!-- MOBILE HEAD PANEL -->
     <div
-      class="app-header__small-screen-nav-panel-header"
+      class="app-header__small-screen-nav-panel-header container"
       data-hook="appHeader__smallScreenNavPanelHeader">
       <!-- NAV TOGGLE -->
       <button
@@ -446,226 +443,305 @@
     <!-- MOBILE DRAWER -->
     <div
       id="appHeader__smallScreenNavPanelDrawer"
-      class="app-header__small-screen-nav-panel-drawer container"
+      class="app-header__small-screen-nav-panel-drawer"
       data-hook="appHeader__smallScreenNavPanelDrawer"
       aria-hidden="true">
-      <!-- Search will eventually load here -->
-      <search-partial></search-partial>
+      <div class="container">
+        <!-- Quick Nav -->
+        <nav
+          class="app-header__quick-nav"
+          data-hook="appHeader__quickNav"
+          aria-label="Header Quick Navigation and Search">
+          <ul role="list" class="app-header__quick-nav-list">
+            <li>
+              <a href="#" class="btn btn-sm btn-orange--900">
+                Make Appointment
+              </a>
+            </li>
 
+            <li>
+              <a href="#" class="btn btn-sm btn-blue--700">Donate</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- NJHK13-388 Left Rail Navigation for Mobile -->
+      <!-- Only used on pages with a side rail navigation -->
+      <!-- This uses primary-nav hooks/classes to reduce the amount of JS/CSS needed. -->
       <nav
-        class="app-header__primary-nav"
+        class="app-header__primary-nav app-header__page-nav"
         data-hook="appHeader__primaryNav"
-        aria-label="Header Primary Navigation">
-        <ul role="list" class="app-header__primary-nav-list">
-          <!-- Single top level item -- START-->
-          <li
-            class="app-header__primary-nav-item"
-            data-hook="appHeader__primaryNavItem">
-            <button
-              aria-expanded="false"
-              data-hook="appHeader__primaryNavItemPanelTrigger">
-              Conditions We Treat
-            </button>
+        aria-label="Current Page Navigation">
+        <div class="container">
+          <ul role="list" class="app-header__primary-nav-list">
+            <!-- Single top level item -- START-->
+            <li
+              class="app-header__primary-nav-item"
+              data-hook="appHeader__primaryNavItem">
+              <button
+                aria-expanded="false"
+                data-hook="appHeader__primaryNavItemPanelTrigger">
+                Page Name
+              </button>
 
-            <div
-              class="app-header__primary-nav-item-panel"
-              data-hook="appHeader__primaryNavItemPanel"
-              aria-hidden="true">
-              <ul role="list">
-                <li><a href="#">Find a Condition by Name</a></li>
-                <li><a href="#">Adult Conditions</a></li>
-                <li><a href="#">Pediatric Conditions</a></li>
-                <li><a href="#">Health & Wellness Information</a></li>
-                <li><a href="#">Treatment Programs</a></li>
-                <li><a href="#">Coronavirus (COVID-19)</a></li>
-              </ul>
-
-              <a class="app-header__primary-nav-item-more" href="#">
-                More Conditions We Treat
-              </a>
-            </div>
-          </li>
-          <!-- Single top level item -- END-->
-
-          <!-- Single top level item -- START-->
-          <li
-            class="app-header__primary-nav-item"
-            data-hook="appHeader__primaryNavItem">
-            <button
-              aria-expanded="false"
-              data-hook="appHeader__primaryNavItemPanelTrigger">
-              Find a Doctor
-            </button>
-
-            <div
-              class="app-header__primary-nav-item-panel"
-              data-hook="appHeader__primaryNavItemPanel"
-              aria-hidden="true">
-              <ul role="list">
-                <li><a href="#">Find a Condition by Name</a></li>
-                <li><a href="#">Adult Conditions</a></li>
-                <li><a href="#">Pediatric Conditions</a></li>
-                <li><a href="#">Health & Wellness Information</a></li>
-                <li><a href="#">Treatment Programs</a></li>
-                <li><a href="#">Coronavirus (COVID-19)</a></li>
-              </ul>
-
-              <a class="app-header__primary-nav-item-more" href="#">
-                More Conditions We Treat
-              </a>
-            </div>
-          </li>
-          <!-- Single top level item -- END-->
-
-          <!-- Single top level item -- START-->
-          <li
-            class="app-header__primary-nav-item"
-            data-hook="appHeader__primaryNavItem">
-            <button
-              aria-expanded="false"
-              data-hook="appHeader__primaryNavItemPanelTrigger">
-              Patients & Visitors
-            </button>
-
-            <div
-              class="app-header__primary-nav-item-panel"
-              data-hook="appHeader__primaryNavItemPanel"
-              aria-hidden="true">
-              <ul role="list">
-                <li><a href="#">Find a Condition by Name</a></li>
-                <li><a href="#">Adult Conditions</a></li>
-                <li><a href="#">Pediatric Conditions</a></li>
-                <li><a href="#">Health & Wellness Information</a></li>
-                <li><a href="#">Treatment Programs</a></li>
-                <li><a href="#">Coronavirus (COVID-19)</a></li>
-              </ul>
-
-              <a class="app-header__primary-nav-item-more" href="#">
-                More Conditions We Treat
-              </a>
-            </div>
-          </li>
-          <!-- Single top level item -- END-->
-
-          <!-- Single top level item -- START-->
-          <li
-            class="app-header__primary-nav-item"
-            data-hook="appHeader__primaryNavItem">
-            <button
-              aria-expanded="false"
-              data-hook="appHeader__primaryNavItemPanelTrigger">
-              Education & Wellness
-            </button>
-
-            <div
-              class="app-header__primary-nav-item-panel"
-              data-hook="appHeader__primaryNavItemPanel"
-              aria-hidden="true">
-              <ul role="list">
-                <li><a href="#">Find a Condition by Name</a></li>
-                <li><a href="#">Adult Conditions</a></li>
-                <li><a href="#">Pediatric Conditions</a></li>
-                <li><a href="#">Health & Wellness Information</a></li>
-                <li><a href="#">Treatment Programs</a></li>
-                <li><a href="#">Coronavirus (COVID-19)</a></li>
-              </ul>
-
-              <a class="app-header__primary-nav-item-more" href="#">
-                More Conditions We Treat
-              </a>
-            </div>
-          </li>
-          <!-- Single top level item -- END-->
-
-          <!-- Single top level item -- START-->
-          <li
-            class="app-header__primary-nav-item"
-            data-hook="appHeader__primaryNavItem">
-            <button
-              aria-expanded="false"
-              data-hook="appHeader__primaryNavItemPanelTrigger">
-              Clinical Trials & Research
-            </button>
-
-            <div
-              class="app-header__primary-nav-item-panel"
-              data-hook="appHeader__primaryNavItemPanel"
-              aria-hidden="true">
-              <ul role="list">
-                <li><a href="#">Find a Condition by Name</a></li>
-                <li><a href="#">Adult Conditions</a></li>
-                <li><a href="#">Pediatric Conditions</a></li>
-                <li><a href="#">Health & Wellness Information</a></li>
-                <li><a href="#">Treatment Programs</a></li>
-                <li><a href="#">Coronavirus (COVID-19)</a></li>
-              </ul>
-
-              <a class="app-header__primary-nav-item-more" href="#">
-                More Conditions We Treat
-              </a>
-            </div>
-          </li>
-          <!-- Single top level item -- END-->
-
-          <!-- Single top level item -- START-->
-          <li
-            class="app-header__primary-nav-item"
-            data-hook="appHeader__primaryNavItem">
-            <button
-              aria-expanded="false"
-              data-hook="appHeader__primaryNavItemPanelTrigger">
-              Ways to Give
-            </button>
-
-            <div
-              class="app-header__primary-nav-item-panel"
-              data-hook="appHeader__primaryNavItemPanel"
-              aria-hidden="true">
-              <ul role="list">
-                <li><a href="#">Find a Condition by Name</a></li>
-                <li><a href="#">Adult Conditions</a></li>
-                <li><a href="#">Pediatric Conditions</a></li>
-                <li><a href="#">Health & Wellness Information</a></li>
-                <li><a href="#">Treatment Programs</a></li>
-                <li><a href="#">Coronavirus (COVID-19)</a></li>
-              </ul>
-
-              <a class="app-header__primary-nav-item-more" href="#">
-                More Conditions We Treat
-              </a>
-            </div>
-          </li>
-          <!-- Single top level item -- END-->
-        </ul>
+              <div
+                class="app-header__primary-nav-item-panel"
+                data-hook="appHeader__primaryNavItemPanel"
+                aria-hidden="true">
+                <ul role="list">
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
       </nav>
 
-      <nav
-        class="app-header__utility-nav"
-        data-hook="appHeader__utilityNav"
-        aria-label="Header Utility Navigation">
-        <ul role="list">
-          <li>
-            <a href="#">COVID-19 Care</a>
-          </li>
-          <li>
-            <a href="#">About Us</a>
-          </li>
-          <li>
-            <a href="#">Patient Portal</a>
-          </li>
-          <li>
-            <a href="#">Careers</a>
-          </li>
-          <li>
-            <a href="#">Professionals</a>
-          </li>
-          <li>
-            <a href="tel:+18772255654"><strong>877-CALL NJH</strong></a>
-          </li>
-        </ul>
-      </nav>
+      <div class="container">
+        <!-- Primary nav -->
+        <nav
+          class="app-header__primary-nav"
+          data-hook="appHeader__primaryNav"
+          aria-label="Header Primary Navigation">
+          <ul role="list" class="app-header__primary-nav-list">
+            <!-- Single top level item -- START-->
+            <li
+              class="app-header__primary-nav-item"
+              data-hook="appHeader__primaryNavItem">
+              <button
+                aria-expanded="false"
+                data-hook="appHeader__primaryNavItemPanelTrigger">
+                Conditions We Treat
+              </button>
+
+              <div
+                class="app-header__primary-nav-item-panel"
+                data-hook="appHeader__primaryNavItemPanel"
+                aria-hidden="true">
+                <ul role="list">
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                </ul>
+
+                <a class="app-header__primary-nav-item-more" href="#">
+                  More Conditions We Treat
+                </a>
+              </div>
+            </li>
+            <!-- Single top level item -- END-->
+
+            <!-- Single top level item -- START-->
+            <li
+              class="app-header__primary-nav-item"
+              data-hook="appHeader__primaryNavItem">
+              <button
+                aria-expanded="false"
+                data-hook="appHeader__primaryNavItemPanelTrigger">
+                Find a Doctor
+              </button>
+
+              <div
+                class="app-header__primary-nav-item-panel"
+                data-hook="appHeader__primaryNavItemPanel"
+                aria-hidden="true">
+                <ul role="list">
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                </ul>
+
+                <a class="app-header__primary-nav-item-more" href="#">
+                  More Conditions We Treat
+                </a>
+              </div>
+            </li>
+            <!-- Single top level item -- END-->
+
+            <!-- Single top level item -- START-->
+            <li
+              class="app-header__primary-nav-item"
+              data-hook="appHeader__primaryNavItem">
+              <button
+                aria-expanded="false"
+                data-hook="appHeader__primaryNavItemPanelTrigger">
+                Patients & Visitors
+              </button>
+
+              <div
+                class="app-header__primary-nav-item-panel"
+                data-hook="appHeader__primaryNavItemPanel"
+                aria-hidden="true">
+                <ul role="list">
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                </ul>
+
+                <a class="app-header__primary-nav-item-more" href="#">
+                  More Conditions We Treat
+                </a>
+              </div>
+            </li>
+            <!-- Single top level item -- END-->
+
+            <!-- Single top level item -- START-->
+            <li
+              class="app-header__primary-nav-item"
+              data-hook="appHeader__primaryNavItem">
+              <button
+                aria-expanded="false"
+                data-hook="appHeader__primaryNavItemPanelTrigger">
+                Education & Wellness
+              </button>
+
+              <div
+                class="app-header__primary-nav-item-panel"
+                data-hook="appHeader__primaryNavItemPanel"
+                aria-hidden="true">
+                <ul role="list">
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                </ul>
+
+                <a class="app-header__primary-nav-item-more" href="#">
+                  More Conditions We Treat
+                </a>
+              </div>
+            </li>
+            <!-- Single top level item -- END-->
+
+            <!-- Single top level item -- START-->
+            <li
+              class="app-header__primary-nav-item"
+              data-hook="appHeader__primaryNavItem">
+              <button
+                aria-expanded="false"
+                data-hook="appHeader__primaryNavItemPanelTrigger">
+                Clinical Trials & Research
+              </button>
+
+              <div
+                class="app-header__primary-nav-item-panel"
+                data-hook="appHeader__primaryNavItemPanel"
+                aria-hidden="true">
+                <ul role="list">
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                </ul>
+
+                <a class="app-header__primary-nav-item-more" href="#">
+                  More Conditions We Treat
+                </a>
+              </div>
+            </li>
+            <!-- Single top level item -- END-->
+
+            <!-- Single top level item -- START-->
+            <li
+              class="app-header__primary-nav-item"
+              data-hook="appHeader__primaryNavItem">
+              <button
+                aria-expanded="false"
+                data-hook="appHeader__primaryNavItemPanelTrigger">
+                Ways to Give
+              </button>
+
+              <div
+                class="app-header__primary-nav-item-panel"
+                data-hook="appHeader__primaryNavItemPanel"
+                aria-hidden="true">
+                <ul role="list">
+                  <li><a href="#">Find a Condition by Name</a></li>
+                  <li><a href="#">Adult Conditions</a></li>
+                  <li><a href="#">Pediatric Conditions</a></li>
+                  <li><a href="#">Health & Wellness Information</a></li>
+                  <li><a href="#">Treatment Programs</a></li>
+                  <li><a href="#">Coronavirus (COVID-19)</a></li>
+                </ul>
+
+                <a class="app-header__primary-nav-item-more" href="#">
+                  More Conditions We Treat
+                </a>
+              </div>
+            </li>
+            <!-- Single top level item -- END-->
+          </ul>
+        </nav>
+
+        <!-- Utility nav -->
+        <nav
+          class="app-header__utility-nav"
+          data-hook="appHeader__utilityNav"
+          aria-label="Header Utility Navigation">
+          <ul role="list">
+            <li>
+              <a href="#">COVID-19 Care</a>
+            </li>
+            <li>
+              <a href="#">About Us</a>
+            </li>
+            <li>
+              <a href="#">Patient Portal</a>
+            </li>
+            <li>
+              <a href="#">Careers</a>
+            </li>
+            <li>
+              <a href="#">Professionals</a>
+            </li>
+            <li>
+              <a href="tel:+18772255654"><strong>877-CALL NJH</strong></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </div>
+
+  <!-- Search will eventually load here ... Maybe. This is not concrete atm. -->
+  <search-partial></search-partial>
 
   <!-- END MOBILE -->
 </header>

@@ -34,18 +34,25 @@
     "logo quick";
   grid-template-columns: 150px 1fr;
   grid-template-rows: repeat(2, auto);
-  row-gap: 1rem;
+  column-gap: 1rem;
   justify-items: end;
   align-items: center;
   grid-template-columns: 300px 1fr;
-  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 // LOGO
 // ========================================================================
 
 .app-header__logo {
-  grid-area: logo;
+  flex-grow: 1;
+
+  @include media-breakpoint-up(md) {
+    grid-area: logo;
+    justify-self: start;
+  }
+
   a {
     display: block;
     outline: transparent;
@@ -54,21 +61,36 @@
       box-shadow: 0 0 0 3px var(--neutral--100), 0 0 0 6px var(--blue--700);
     }
   }
+
+  img {
+    width: 150px;
+    @include media-breakpoint-up(md) {
+      width: 250px;
+    }
+
+    @include media-breakpoint-up(lg) {
+      width: 300px;
+    }
+  }
 }
 
 // UTILITY NAVIGATION
 // ========================================================================
 
 .app-header__utility-nav {
-  padding-top: 1rem;
-  grid-area: utility;
+  @include media-breakpoint-up(md) {
+    grid-area: utility;
+  }
 
   a:not(.btn) {
+    display: block;
     padding: 0.5rem;
-    display: inline-block;
     position: relative;
-    &::after {
-      @include global-separator;
+    @include media-breakpoint-up(md) {
+      display: inline-block;
+      &::after {
+        @include global-separator;
+      }
     }
   }
 
@@ -90,10 +112,37 @@
   align-self: center;
   display: inline-flex;
   align-items: center;
-
+  width: 100%;
+  margin-bottom: 1rem;
+  @include media-breakpoint-up(md) {
+    width: auto;
+    margin-bottom: 0;
+  }
   ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     gap: 0.5rem;
-    align-items: stretch;
+    width: 100%;
+  }
+
+  li {
+    flex-basis: 50%;
+    @include media-breakpoint-up(md) {
+      flex-basis: auto;
+    }
+  }
+
+  a.btn.btn-sm {
+    display: block;
+    width: 100%;
+    text-align: center;
+    // Dropping down to not mess with default btn styles on md and up.
+    @include media-breakpoint-down(md) {
+      // reduce padding to leave run for longish text.
+      padding-left: 0.125rem;
+      padding-right: 0.125rem;
+    }
   }
 }
 
@@ -185,6 +234,7 @@ button.btn.app-header__circle-button {
 // ========================================================================
 
 .app-header__large-screen-nav-panel {
+  --border-height: 5px;
   display: none;
   @include media-breakpoint-up(md) {
     display: block;
@@ -194,8 +244,8 @@ button.btn.app-header__circle-button {
     background-color: var(--blue--700);
     width: 100%;
     color: white;
-    padding-top: 0.5rem;
-    border-bottom: 3px solid var(--orange--500);
+    padding-top: 0.25rem;
+    border-bottom: var(--border-height) solid var(--orange--500);
   }
 
   .app-header__primary-nav-list {
@@ -221,12 +271,12 @@ button.btn.app-header__circle-button {
     button {
       color: var(--neutral--100);
       display: block;
-      font-size: 1.25rem;
+      font-size: 0.9rem;
       line-height: 1;
       word-wrap: normal;
       white-space: normal;
       width: auto;
-      padding: 1rem;
+      padding: 0.75rem 0.25rem;
       margin: 0;
       border-radius: 0;
       height: 100%;
@@ -238,16 +288,20 @@ button.btn.app-header__circle-button {
         background-color: var(--blue--600);
       }
 
-      // &:focus {
-      //   @include global-focus-ring;
-      // }
+      @include media-breakpoint-up(lg) {
+        font-size: 1.125rem;
+        padding: 0.75rem 0.5rem;
+      }
+      @include media-breakpoint-up(xl) {
+        font-size: 1.25rem;
+      }
     }
 
     .app-header__primary-nav-item-panel {
       display: none;
       position: absolute;
       background: var(--neutral--100);
-      top: calc(100% + 3px);
+      top: calc(100% + var(--border-height));
       padding: 1rem;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
       width: 600px;
@@ -296,10 +350,17 @@ button.btn.app-header__circle-button {
       }
     }
 
+    // Middle children center the panel
+    &:nth-last-child(3),
+    &:nth-last-child(4) {
+      .app-header__primary-nav-item-panel {
+        right: 50%;
+        translate: 50% 0;
+      }
+    }
     // Last and second child swap the menu to the other side.
     &:nth-last-child(1),
-    &:nth-last-child(2),
-    &:nth-last-child(3) {
+    &:nth-last-child(2) {
       .app-header__primary-nav-item-panel {
         right: 0;
       }
@@ -316,6 +377,7 @@ button.btn.app-header__circle-button {
 
 .app-header__small-screen-nav-panel {
   display: block;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 
   @include media-breakpoint-up(md) {
     display: none;
@@ -327,16 +389,9 @@ button.btn.app-header__circle-button {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     gap: 1rem;
-  }
-
-  .app-header__logo {
-    flex-grow: 1;
-    img {
-      width: 180px;
-    }
   }
 
   &-drawer {
@@ -344,9 +399,7 @@ button.btn.app-header__circle-button {
   }
 
   .app-header__primary-nav {
-    &-list {
-      // padding: 0 2rem;
-    }
+    margin-bottom: 1rem;
     &-item {
       padding: 0.5rem 0;
       margin-bottom: 0.5rem;
@@ -358,18 +411,20 @@ button.btn.app-header__circle-button {
         margin: 0;
         width: 100%;
         text-align: left;
-        font-size: 1.25rem;
-        color: var(--blue--900);
+        font-size: 1.125rem;
+        color: var(--blue--700);
         font-weight: bold;
         position: relative;
 
         &::before {
+          --dropdown-arrow-color: var(--blue--700);
           content: "";
           width: 0;
           height: 0;
           border-style: solid;
           border-width: 7px 0 7px 9px;
-          border-color: transparent transparent transparent var(--blue--700);
+          border-color: transparent transparent transparent
+            var(--dropdown-arrow-color);
           position: absolute;
           top: 50%;
           left: 0.5rem;
@@ -382,7 +437,7 @@ button.btn.app-header__circle-button {
 
       a {
         display: block;
-        font-size: 1.125rem;
+        font-size: 1rem;
         padding: 0.5rem 1rem;
         color: var(--blue--700);
       }
@@ -399,17 +454,66 @@ button.btn.app-header__circle-button {
         .app-header__primary-nav-item-panel {
           display: block;
         }
-        > button::before {
-          rotate: 90deg;
+        > button {
+          color: white;
+          background: var(--blue--700);
+          &::before {
+            --dropdown-arrow-color: var(--neutral--100);
+            rotate: 90deg;
+          }
         }
       }
     }
   }
-}
 
-// User opened the header panel
-.app-header__small-screen-nav-panel.is-open {
-  .app-header__small-screen-nav-panel-drawer {
-    display: block;
+  .app-header__page-nav {
+    background-color: var(--orange--500);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+    &.has-open-panel {
+      background-color: var(--orange--100);
+    }
+    .app-header__primary-nav-item {
+      border-bottom: none;
+      margin: 0;
+      padding: 0;
+      a {
+        color: var(--neutral--900);
+      }
+      > button {
+        color: var(--neutral--900);
+        &::before {
+          --dropdown-arrow-color: var(--neutral--900);
+        }
+      }
+
+      &.is-open {
+        > button {
+          color: var(--neutral--900);
+          background: transparent;
+          &::before {
+            --dropdown-arrow-color: var(--neutral--900);
+          }
+        }
+      }
+    }
+  }
+
+  // User opened the header panel
+  &.is-open {
+    position: fixed;
+    inset: 0;
+    background-color: var(--neutral--100);
+    height: 100vh;
+    width: 100vw;
+    .app-header__small-screen-nav-panel-drawer {
+      display: block;
+      height: calc(100vh - var(--header-height));
+      background: var(--neutral--100);
+      overflow-y: auto;
+      padding-top: 1rem;
+      padding-bottom: 3rem;
+    }
   }
 }

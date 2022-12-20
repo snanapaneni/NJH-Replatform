@@ -194,7 +194,7 @@ const App__appHeader = {
 		// Reset all top level nav items
     this.element.querySelectorAll('[data-hook=appHeader__primaryNavItem]').forEach((item) => item.classList.remove('is-open'));
 
-    // document.querySelector('body').classList.add('remove-scrollbar');
+    document.querySelector('body').classList.add('remove-scrollbar');
   
     this.focusTrap = App.utils.focusTrap.createFocusTrap('[data-hook=appHeader]');
     this.focusTrap.activate();
@@ -222,7 +222,7 @@ const App__appHeader = {
 		// Reset all top level nav items
     this.element.querySelectorAll('[data-hook=appHeader__primaryNavItem]').forEach((item) => item.classList.remove('is-open'));
 
-		// document.querySelector('body').classList.remove('remove-scrollbar');
+		document.querySelector('body').classList.remove('remove-scrollbar');
 
 		// Close the panel
 		this.smallScreenNavPanel.classList.remove('is-open');
@@ -248,6 +248,12 @@ const App__appHeader = {
     primaryNavItemPanel.setAttribute('aria-hidden', 'false');
 
     primaryNavItem.classList.add('is-open');
+
+
+		let parentNavElement = primaryNavItem.parentElement.closest('nav');
+		parentNavElement.classList.add('has-open-panel');
+
+		console.log(parentNavElement);
 
     let selectors = [];
 
@@ -284,6 +290,9 @@ const App__appHeader = {
 
       primaryNavItemPanelTrigger.setAttribute('aria-expanded', 'false');
       primaryNavItemPanel.setAttribute('aria-hidden', 'true');
+
+			let parentNavElement = primaryNavItem.parentElement.closest('nav');
+		parentNavElement.classList.remove('has-open-panel');
     }
 
     let selectors = [];

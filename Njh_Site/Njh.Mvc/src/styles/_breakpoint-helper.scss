@@ -1,16 +1,17 @@
 body {
   //Enable breakpoint indicators for debugging
   &:after {
-    background-color: red;
     bottom: 0;
     left: 0;
-    content: "";
-    color: #d4d4d4;
     position: fixed;
     white-space: nowrap;
     padding: 1rem;
     z-index: 10000;
     border-top-right-radius: 1rem;
+
+    content: "--XS";
+    background-color: red;
+    color: black;
 
     @include media-breakpoint-up(sm) {
       content: "--SM";
@@ -21,6 +22,7 @@ body {
       background-color: rgba(yellow, 0.75);
     }
     @include media-breakpoint-up(lg) {
+      color: white;
       content: "--LG";
       background-color: rgba(green, 0.75);
     }
