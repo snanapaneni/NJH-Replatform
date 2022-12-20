@@ -18,7 +18,8 @@ a.skip-to-content {
   text-decoration: underline;
   top: 0;
   width: 100%;
-
+  &:focus {
+  }
   &:hover {
     color: var(--neutral--100);
     text-decoration: none;
