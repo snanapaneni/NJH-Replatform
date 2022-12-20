@@ -1,0 +1,71 @@
+.subpage {
+  padding-top: 0px;
+}
+
+// LEFT RAIL VARIATION
+//=============================================
+.subpage__left-rail {
+  padding-top: 1rem;
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content";
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @include media-breakpoint-up(md) {
+    padding-top: 2rem;
+
+    grid-template-areas:
+      "header header"
+      "aside content";
+    grid-template-columns: 33% 1fr;
+    &:has(.subpage__cta) {
+      grid-template-areas:
+        "header header cta"
+        "aside content content";
+      grid-template-columns: 33% auto auto;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 25% 1fr;
+    &:has(.subpage__cta) {
+      grid-template-columns: 25% auto auto;
+    }
+  }
+}
+
+// COMPONENTS
+//=============================================
+.subpage__header {
+  grid-area: header;
+  align-self: center;
+}
+
+.subpage__cta {
+  grid-area: cta;
+  display: none;
+  text-align: end;
+  @include media-breakpoint-up(md) {
+    display: block;
+    justify-self: end;
+  }
+  .btn {
+    margin-bottom: 1rem;
+  }
+}
+
+.subpage__content {
+  grid-area: content;
+}
+
+.subpage__aside {
+  grid-area: aside;
+  display: none;
+
+  @include media-breakpoint-up(md) {
+    display: block;
+    border-right: 1px solid var(--neutral--300);
+  }
+}

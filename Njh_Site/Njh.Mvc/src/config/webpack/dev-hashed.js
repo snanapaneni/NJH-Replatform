@@ -50,7 +50,7 @@ staticConfig.templates.forEach((template) => {
             "../../static/components/" + component + ".html"
           ),
           priority: "low",
-          location: "main-partial",
+          location: template.main_insert,
         });
       }
     } catch (err) {

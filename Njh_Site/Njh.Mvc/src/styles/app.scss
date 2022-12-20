@@ -68,6 +68,9 @@
 
 @import "./animations";
 
+// Templates
+@import "./templates/subpage";
+
 // Elements
 @import "./elements/backgrounds";
 @import "./elements/buttons";
@@ -76,6 +79,8 @@
 // @import "./elements/links";
 
 // Components
+
+@import "./components/separated-list";
 // @import "./components/accordion";
 // @import "./components/basic-image";
 // @import "./components/basic-text-block";
