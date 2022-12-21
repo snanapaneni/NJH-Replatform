@@ -20,7 +20,7 @@ exports.templates = [
     ],
   },
   {
-    templateFilename: "template-subpage-left-rail",
+    templateFilename: "subpage__left-rail",
     header: "app-header",
     footer: "app-footer",
     main_insert: "article",

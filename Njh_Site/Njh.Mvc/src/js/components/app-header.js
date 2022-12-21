@@ -70,61 +70,7 @@ const App__appHeader = {
         }
       });
 
-      /* Click handler for: appHeader__globalSearchPanelTrigger
-       * Toggles global search panel
-       * =========================================================================== */
-      document.addEventListener("click", (e) => {
-        if (
-          !e.target.matches(
-            "[data-hook=appHeader__globalSearchPanelTrigger], [data-hook=appHeader__smallScreenNavPanelSearchButton]"
-          )
-        ) {
-          return false;
-        }
-        e.preventDefault();
-
-        let appHeader__globalSearchPanel = this.element.querySelector(
-          "[data-hook=appHeader__globalSearchPanel]"
-        );
-        if (
-          appHeader__globalSearchPanel.getAttribute("aria-hidden") == "true"
-        ) {
-          this.globalSearchPanel__open();
-        } else {
-          this.globalSearchPanel__close();
-        }
-      });
-
-      /* Click handler for: appHeader__globalSearchPanelCloseButton
-       * Toggles global search panel
-       * =========================================================================== */
-      document.addEventListener("click", (e) => {
-        if (
-          !e.target.matches(
-            "[data-hook=appHeader__globalSearchPanelCloseButton]"
-          )
-        ) {
-          return false;
-        }
-        e.preventDefault();
-
-        this.globalSearchPanel__close();
-      });
-
-      /* Submit handler for: appHeader__globalSearchHeaderForm
-       * REdirects to proper search results url
-       * =========================================================================== */
-      document.addEventListener("submit", (e) => {
-        if (
-          !e.target.matches("[data-hook=appHeader__globalSearchHeaderForm]")
-        ) {
-          return false;
-        }
-        e.preventDefault();
-
-        this.globalSearch__submit();
-      });
-
+      
       /* Click handler for: appHeader__primaryNavItemPanelTrigger
        * Toggles Subnav panel
        * =========================================================================== */

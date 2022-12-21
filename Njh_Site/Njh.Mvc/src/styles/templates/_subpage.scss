@@ -58,6 +58,9 @@
 
 .subpage__content {
   grid-area: content;
+  .component:not(:last-child) {
+    margin-bottom: 1rem;
+  }
 }
 
 .subpage__aside {
