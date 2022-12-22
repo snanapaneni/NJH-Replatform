@@ -1,0 +1,37 @@
+.widget-zone {
+  &.has-margin {
+    margin-bottom: 1.5rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 2.5rem;
+    }
+  }
+  &.has-padding .col {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+
+    @include media-breakpoint-up(md) {
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+
+  .row {
+    align-items: stretch;
+  }
+}
+
+// If they choose a colored background in a left rail lets add some padding.
+.subpage__left-rail .subpage__content .widget-zone.bg:not(.bg-neutral--100) {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+// .has-padding {
+//   padding-top: 1.5rem;
+//   padding-bottom: 1.5rem;
+
+//   @include media-breakpoint-up(md) {
+//     padding-top: 2.5rem;
+//     padding-bottom: 2.5rem;
+//   }
+// }

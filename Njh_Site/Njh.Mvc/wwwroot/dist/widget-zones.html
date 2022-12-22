@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Subpage Template - No Rail</title>
+    <title>Widget zone examples</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -741,7 +741,7 @@
 
 
     <main class="app-main subpage" id="main">
-      <article class="subpage__no-rail">
+      <article>
         <!-- SUBPAGE COMPONENTS LOAD HERE-->
       <div class="subpage__header-cta-wrapper container">
   <!-- Header -->
@@ -759,81 +759,301 @@
     </ul>
   </section>
 </div>
-<!-- Content -->
-<section class="subpage__content">
-  <!-- Optional Sections -->
-  <p class="reviewer-note container">
-    <em>
-      This information was reviewed and approved by
-      <a href="#">Anthony Gerber, MD, PhD</a> (June 2022).
-    </em>
-  </p>
-
-  <div class="page-blurb container">
-    <img alt="Placeholder image" src="https://picsum.photos/400/300" />
-    <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo culpa
-      laudantium doloremque quae architecto rerum labore aperiam accusantium
-      delectus hic voluptatibus doloribus veniam, vitae corrupti. Voluptate
-      atque dolor in deleniti!
-    </p>
-  </div>
-
-  <div class="rich-text">
-    <div class="container">
+<!-- NJHK13-278 One Column - Full Width -->
+<div class="widget-zone bg bg-neutral--100 has-padding">
+  <div class="row row-cols-1 gx-0">
+    <div class="col">
+      <h2>1 Column - Full Width</h2>
+      <ul>
+        <li>Theme: false</li>
+        <li>Padding: false</li>
+        <li>Margin: true</li>
+      </ul>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita
-        laboriosam, omnis, fugit soluta deserunt doloremque obcaecati eius
-        laudantium distinctio quidem assumenda nulla odit ipsum accusantium
-        praesentium consequuntur repudiandae nobis illo.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+        dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores aut
+        sint consequuntur placeat tenetur provident voluptatibus perferendis
+        possimus, nisi voluptatem ut excepturi!
       </p>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores nisi
-        quas consequatur recusandae at dolorum quo soluta! Sapiente, voluptate
-        ut! Ducimus repellendus ea nulla consectetur aut voluptate quasi sed
-        illum!
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id totam
+        corrupti nemo consequatur? <a href="#">Optio maiores</a> veritatis
+        explicabo quas officiis labore numquam, dolores ipsam. Suscipit
+        accusantium quaerat mollitia voluptatem quae.
       </p>
     </div>
   </div>
+</div>
 
-  <!-- example of a widget zone -->
-  <div class="widget-zone bg bg-orange--100 has-padding">
-    <div class="container">
-      <div class="row row-cols-1 row-cols-md-2">
-        <div class="col">
-          <h2>Widget zone - 2 column 50/50</h2>
-          <ul>
-            <li>Theme: bg-orange--100</li>
-            <li>Padding: false</li>
-            <li>Margin: false</li>
-          </ul>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-            earum, dolorem <a href="#">asperiores rem porro</a>, tempore vitae
-            maiores aut sint consequuntur placeat tenetur provident voluptatibus
-            perferendis possimus, nisi voluptatem ut excepturi!
-          </p>
-        </div>
-        <div class="col">
-          <h2>Widget zone</h2>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-            earum, dolorem <a href="#">asperiores rem porro</a>, tempore vitae
-            maiores aut sint consequuntur placeat tenetur provident voluptatibus
-            perferendis possimus, nisi voluptatem ut excepturi!
-          </p>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id
-            totam corrupti nemo consequatur?
-            <a href="#">Optio maiores</a> veritatis explicabo quas officiis
-            labore numquam, dolores ipsam. Suscipit accusantium quaerat mollitia
-            voluptatem quae.
-          </p>
-        </div>
+<!-- NJHK13-278 One Column - Container -->
+<div class="widget-zone bg bg-neutral--100 has-margin">
+  <div class="container">
+    <div class="row row-cols-1">
+      <div class="col">
+        <h2>1 Column - Contained</h2>
+        <ul>
+          <li>Theme: false</li>
+          <li>Padding: false</li>
+          <li>Margin: true</li>
+        </ul>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id
+          totam corrupti nemo consequatur?
+          <a href="#">Optio maiores</a> veritatis explicabo quas officiis labore
+          numquam, dolores ipsam. Suscipit accusantium quaerat mollitia
+          voluptatem quae.
+        </p>
       </div>
     </div>
   </div>
-</section>
+</div>
+
+<!-- Custom Color Implementation-->
+<div
+  class="widget-zone bg has-padding"
+  style="--has-background: #a00796; --has-color: #ffffff">
+  <div class="container">
+    <div class="row row-cols-1">
+      <div class="col">
+        <h2>1 Column - Custom Theme</h2>
+        <ul>
+          <li>Theme: custom</li>
+          <li>Padding: true</li>
+          <li>Margin: false</li>
+        </ul>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id
+          totam corrupti nemo consequatur?
+          <a href="#">Optio maiores</a> veritatis explicabo quas officiis labore
+          numquam, dolores ipsam. Suscipit accusantium quaerat mollitia
+          voluptatem quae.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NJHK13-276 - Two Columns - 50/50 -->
+<div class="widget-zone bg bg-orange--100 has-padding has-margin">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+      <div class="col">
+        <h2>Widget zone - 2 column 50/50</h2>
+        <ul>
+          <li>Theme: bg-orange--100</li>
+          <li>Padding: true</li>
+          <li>Margin: true</li>
+        </ul>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+      </div>
+      <div class="col bg bg-blue--900">
+        <h2>.bg-blue--900 column override</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id
+          totam corrupti nemo consequatur?
+          <a href="#">Optio maiores</a> veritatis explicabo quas officiis labore
+          numquam, dolores ipsam. Suscipit accusantium quaerat mollitia
+          voluptatem quae.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NJHK13-300 - Two Columns - 75/25 -->
+<div class="widget-zone bg bg-orange--900 has-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-9">
+        <h2>Widget zone - 2 column 75/25</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id
+          totam corrupti nemo consequatur?
+          <a href="#">Optio maiores</a> veritatis explicabo quas officiis labore
+          numquam, dolores ipsam. Suscipit accusantium quaerat mollitia
+          voluptatem quae.
+        </p>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id
+          totam corrupti nemo consequatur?
+          <a href="#">Optio maiores</a> veritatis explicabo quas officiis labore
+          numquam, dolores ipsam. Suscipit accusantium quaerat mollitia
+          voluptatem quae.
+        </p>
+      </div>
+      <div class="col col-md-3">
+        <ul>
+          <li>Theme: bg-orange--900</li>
+          <li>Padding: true</li>
+          <li>Margin: false</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NJHK13-298 - Two Columns - 67/33 -->
+<div class="widget-zone bg bg-purple--100 has-padding has-margin">
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-8">
+        <h2>Widget zone - 2 column 67/33</h2>
+        <ul>
+          <li>Theme: bg-purple--100</li>
+          <li>Padding: true</li>
+          <li>Margin: true</li>
+        </ul>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis id
+          totam corrupti nemo consequatur?
+          <a href="#">Optio maiores</a> veritatis explicabo quas officiis labore
+          numquam, dolores ipsam. Suscipit accusantium quaerat mollitia
+          voluptatem quae.
+        </p>
+      </div>
+      <div class="col col-md-4">
+        <img alt="Placeholder image" src="https://picsum.photos/400/300" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NJHK13-294 - Three Columns -->
+<div class="widget-zone bg bg-blue--100 has-padding">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-3">
+      <div class="col">
+        <h2>Widget zone - 3 column</h2>
+        <ul>
+          <li>Theme: bg-blue--100</li>
+          <li>Padding: true</li>
+          <li>Margin: false</li>
+        </ul>
+      </div>
+      <div class="col bg" style="--has-background: #a00796; --has-color: white">
+        <h2>Custom Colored Column</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+      </div>
+      <div class="col">
+        <h2>Widget zone</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NJHK13-335 - Four Columns -->
+<div class="widget-zone bg bg-blue--100 has-padding has-margin">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-4">
+      <div class="col">
+        <h2>4 columns</h2>
+        <ul>
+          <li>Theme: bg-blue--900</li>
+          <li>Padding: true</li>
+          <li>Margin: true</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h2>Widget zone</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+      </div>
+      <div class="col">
+        <h2>Widget zone</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+      </div>
+      <div class="col">
+        <h2>Widget zone</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque earum,
+          dolorem <a href="#">asperiores rem porro</a>, tempore vitae maiores
+          aut sint consequuntur placeat tenetur provident voluptatibus
+          perferendis possimus, nisi voluptatem ut excepturi!
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 </article>
     </main>
 
