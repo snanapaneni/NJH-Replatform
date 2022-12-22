@@ -24,11 +24,13 @@ exports.templates = [
     header: "app-header",
     footer: "app-footer",
     main_insert: "article",
-    main_components: [
-      "subpage-header",
-      "subpage-cta",
-      "subpage-content",
-      "subpage-aside",
-    ],
+    main_components: ["subpage-header", "subpage-content", "subpage-aside"],
+  },
+  {
+    templateFilename: "subpage__no-rail",
+    header: "app-header",
+    footer: "app-footer",
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-content"],
   },
 ];
