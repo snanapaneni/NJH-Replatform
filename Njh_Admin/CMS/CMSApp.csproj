@@ -2977,6 +2977,7 @@
     <Content Include="CMSWebParts\Viewers\DateTime_files\DateTime.js" />
     <Content Include="CMSWebParts\Widgets\WidgetActions.ascx" />
     <Content Include="Global.asax" />
+    <Content Include="NJH\FormControls\MultipleChoiceListBoxes.ascx" />
     <Content Include="ObjectTranslationRESTService.svc" />
     <Content Include="DocumentRESTService.svc" />
     <Content Include="Default.aspx" />
@@ -13258,6 +13259,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="NJH\FormControls\MultipleChoiceListBoxes.ascx.cs">
+      <DependentUpon>MultipleChoiceListBoxes.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NJH\FormControls\MultipleChoiceListBoxes.ascx.designer.cs">
+      <DependentUpon>MultipleChoiceListBoxes.ascx</DependentUpon>
     </Compile>
     <Compile Include="Old_App_Code\CMSModules\Automation\AutomationFunctions.cs" />
     <Compile Include="Old_App_Code\CMSModules\CMS\LiveTileModelProviders\SystemLiveTileModelProvider.cs" />
