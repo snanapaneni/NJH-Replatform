@@ -1,0 +1,50 @@
+﻿@model Njh.Mvc.Models.FormComponents.CustomTableItemSelector
+
+@{
+  string ID = Guid.NewGuid().ToString();
+}
+<style>
+  .select2-container--open {
+    z-index: 10300;
+  }
+</style>
+
+@if (Model.Properties.Multiple)
+{
+  @Html.ListBoxFor(m => m.Value,
+                    Model.Items,
+                    new Dictionary<string, object>() { { "id", ID },
+                    { "multiple", "multiple" }, { "style", "width:85%" } });
+}
+else
+{
+  @Html.DropDownListFor(m => m.Value, Model.Items, new Dictionary<string, object>() { { "id", ID }, { "style", "width:85%" } });
+}
+ <script>
+  $(document).ready(function() {
+
+    var $rootEl = $('#@ID');
+    $rootEl.select2();
+    var modelVals = "@Model.GetValue()";
+    var selected = modelVals.split('|');
+
+    if(selected.length){
+      $rootEl.val(null);
+      $.each(selected, function(i,e){
+        var $element = $("#@ID option[value='" + e + "']");
+        $element.prop("selected", true).detach();
+        $rootEl.append($element);
+        $rootEl.trigger("change");
+      });
+    }
+
+    $('#@ID').on("select2:select", function (evt) {
+      var element = evt.params.data.element;
+      var $element = $(element);
+      $element.detach();
+      $(this).append($element);
+      $(this).trigger("change");
+    });
+
+  });
+</script>

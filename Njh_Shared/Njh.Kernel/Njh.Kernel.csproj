@@ -19,6 +19,7 @@
 	<ItemGroup>
 		<PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.83" />
 		<PackageReference Include="Kentico.Xperience.Libraries" Version="13.0.83" />
+		<PackageReference Include="ReasonOne.Extensions" Version="0.2.1" />
 		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
