@@ -428,6 +428,7 @@ node_modules
 # Connection Strings
 [Cc]onnection[Ss]trings.config
 
-
-
+# Misc dot files
+.DS_Store
+._.DS_Store
 
