@@ -1,3 +1,5 @@
+/*! purgecss start ignore */
+
 /* Adjust global button styles
 =========================================================================== */
 .btn,
@@ -6,13 +8,16 @@ button,
 button.btn,
 input.btn {
   border: 1px solid transparent;
+  display: inline-block;
   font-size: 1rem;
   font-weight: 600;
   line-height: 1.65;
-  padding: .75rem 2.3rem;
+  padding: 0.75rem 2rem;
   position: relative;
   text-decoration: none;
-  text-transform: uppercase;
+  //text-transform: uppercase;
+  border-radius: 0.5rem;
+  cursor: pointer;
 
   &:focus {
     outline: 3px solid transparent;
@@ -27,296 +32,79 @@ input.btn {
   .external-link-icon {
     margin-right: 0 !important;
   }
-}
 
-.btn-primary,
-a.btn.btn-primary,
-button.btn.btn-primary,
-input.btn.btn-primary {
-  font-family: $font-family-sans-serif;
-  background-color: map_get($app-colors, "blue");
-  border-color: map_get($app-colors, "blue");
-  color: map_get($app-colors, "neutral--100");
-
-  .external-link-icon {
-    background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'neutral--100') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
+  &.btn-default {
+    padding: 0.75rem 2rem;
+    border-radius: 0.5rem;
+  }
+  &.btn-sm {
+    padding: 0.5rem 1.75rem;
+    font-size: 0.8rem;
+    border-radius: 0.25rem;
+  }
+  &.btn-lg {
+    padding: 1rem 2.25rem;
+    font-size: 1.5rem;
+    border-radius: 0.65rem;
   }
 
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: map_get($app-colors, "blue--dark");
-    border-color: map_get($app-colors, "blue--dark");
-    color: map_get($app-colors, "neutral--100");
-
-    .external-link-icon {
-      background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'neutral--100') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-    }
+  &.btn-round {
+    border-radius: 100px;
   }
 
-  &:not(:disabled):not(.disabled):focus {
-    background-color: map_get($app-colors, "blue--dark");
-    border-color: map_get($app-colors, "blue--dark");
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-                0 0 0 6px map_get($app-colors, "blue--dark");
-
-    .external-link-icon {
-      background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'neutral--100') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-    }
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
   }
 }
 
-.btn-secondary,
-a.btn.btn-secondary,
-button.btn.btn-secondary,
-input.btn.btn-secondary {
-  font-family: $font-family-sans-serif;
-  background-color: transparent;
-  border-color: map_get($app-colors, "blue");
-  color: map_get($app-colors, "blue");
+// Approved Buttons
+$buttons: (
+  "neutral--900": (
+    default: map_get($app-colors, "neutral--900"),
+    hover: map_get($app-colors, "neutral--700"),
+    focus-ring: map_get($app-colors, "neutral--900"),
+    color: map_get($app-colors, "neutral--100"),
+    hover-color: map_get($app-colors, "neutral--100"),
+  ),
+  "neutral--300": (
+    default: map_get($app-colors, "neutral--300"),
+    hover: map_get($app-colors, "neutral--500"),
+    focus-ring: map_get($app-colors, "neutral--300"),
+    color: map_get($app-colors, "neutral--900"),
+    hover-color: map_get($app-colors, "neutral--100"),
+  ),
+  "neutral--100": (
+    default: map_get($app-colors, "neutral--100"),
+    hover: map_get($app-colors, "neutral--300"),
+    focus-ring: map_get($app-colors, "neutral--100"),
+    color: map_get($app-colors, "neutral--900"),
+    hover-color: map_get($app-colors, "neutral--900"),
+  ),
+  "blue--700": (
+    default: map_get($app-colors, "blue--700"),
+    hover: map_get($app-colors, "blue--900"),
+    focus-ring: map_get($app-colors, "blue--900"),
+    color: map_get($app-colors, "neutral--100"),
+    hover-color: map_get($app-colors, "neutral--100"),
+  ),
+  "orange--900": (
+    default: map_get($app-colors, "orange--900"),
+    hover: map_get($app-colors, "orange--500"),
+    focus-ring: map_get($app-colors, "orange--500"),
+    color: map_get($app-colors, "neutral--100"),
+    hover-color: map_get($app-colors, "neutral--900"),
+  ),
+  "purple--500": (
+    default: map_get($app-colors, "purple--500"),
+    hover: lighten(map_get($app-colors, "purple--500"), 10),
+    focus-ring: map_get($app-colors, "purple--500"),
+    color: map_get($app-colors, "neutral--100"),
+    hover-color: map_get($app-colors, "neutral--100"),
+  ),
+);
 
-  .external-link-icon {
-    background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'blue') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-  }
+@include make-buttons($buttons);
+@include make-outline-buttons($buttons);
 
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: transparent;
-    border-color: map_get($app-colors, "blue--dark");
-    color: map_get($app-colors, "blue--dark");
-
-    .external-link-icon {
-      background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'blue--dark') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-    }
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    background-color: map_get($app-colors, "blue--dark");
-    border-color: map_get($app-colors, "blue--dark");
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-                0 0 0 6px map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--100");
-
-    .external-link-icon {
-      background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'blue--dark') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-    }
-  }
-}
-
-.btn-secondary-white,
-a.btn.btn-secondary-white,
-button.btn.btn-secondary-white,
-input.btn.btn-secondary-white {
-  font-family: $font-family-sans-serif;
-  background-color: transparent;
-  border-color: map_get($app-colors, "neutral--100");
-  color: map_get($app-colors, "neutral--100");
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: map_get($app-colors, "neutral--100");
-    border-color: map_get($app-colors, "neutral--100");
-    color: map_get($app-colors, "blue");
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    background-color: map_get($app-colors, "neutral--100");
-    border-color: map_get($app-colors, "neutral--100");
-    box-shadow: 0 0 0 3px map_get($app-colors, "blue"),
-                0 0 0 6px map_get($app-colors, "neutral--100");
-    color: map_get($app-colors, "blue");
-  }
-}
-
-.btn-hollow-white,
-a.btn.btn-hollow-white,
-button.btn.btn-hollow-white,
-input.btn.btn-hollow-white {
-  font-family: $font-family-sans-serif;
-  background-color: transparent;
-  border-color: map_get($app-colors, "neutral--100");
-  color: map_get($app-colors, "neutral--100");
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: map_get($app-colors, "neutral--850");
-    border-color: map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--100");
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    background-color: map_get($app-colors, "neutral--850");
-    border-color: map_get($app-colors, "neutral--850");
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-                0 0 0 6px map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--100");
-  }
-}
-
-.btn-hero,
-a.btn.btn-hero,
-button.btn.btn-hero,
-input.btn.btn-hero {
-  font-family: $font-family-sans-serif;
-  background-color: map_get($app-colors, "orange");
-  border-color: map_get($app-colors, "orange");
-  color: map_get($app-colors, "neutral--850");
-
-  .external-link-icon {
-    background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'neutral--850') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-  }
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: map_get($app-colors, "neutral--850");
-    border-color: map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--100");
-
-    .external-link-icon {
-      background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'neutral--100') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-    }
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    background-color: map_get($app-colors, "orange");
-    border-color: map_get($app-colors, "orange");
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-               0 0 0 6px map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--850");
-
-    .external-link-icon {
-      background-image: url("data:image/svg+xml,%3Csvg fill='#{encode_color( map_get($app-colors, 'neutral--850') )}' width='12' height='12' viewBox='0 0 12 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.4 1.4V.6c-.1-.3.2-.6.5-.6l6.8.1c.3 0 .6.3.6.6l.1 6.8c0 .3-.3.6-.6.6L10 8c-.3 0-.6-.2-.6-.6V3.3L4.7 8.1c-.2.2-.6.2-.8 0l-.6-.5c-.3-.3-.3-.7 0-.9l4.8-4.8L4 2c-.4 0-.6-.3-.6-.6Z'/%3E%3Cpath d='M2 2v7.3h9.4v1.1c0 .5-.4.9-.9.9H.6c-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.5V.7C0 .6.1.4.1.3.3.1.4 0 .6 0H2v2Z'/%3E%3C/svg%3E") !important;
-    }
-  }
-}
-
-.btn-form,
-a.btn.btn-form,
-button.btn.btn-form,
-input.btn.btn-form {
-  font-family: $font-family-sans-serif;
-  background-color: map_get($app-colors, "purple");
-  border-color: map_get($app-colors, "purple");
-  color: map_get($app-colors, "neutral--100");
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: map_get($app-colors, "neutral--850");
-    border-color: map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--100");
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    background-color: map_get($app-colors, "neutral--850");
-    border-color: map_get($app-colors, "neutral--850");
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-                0 0 0 6px map_get($app-colors, "neutral--850");
-  }
-}
-
-.btn-form-hollow,
-a.btn.btn-form-hollow,
-button.btn.btn-form-hollow,
-input.btn.btn-form-hollow {
-  font-family: $font-family-sans-serif;
-  background-color: transparent;
-  border-color: map_get($app-colors, "purple");
-  color: map_get($app-colors, "purple");
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-color: map_get($app-colors, "neutral--850");
-    border-color: map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--100");
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    background-color: map_get($app-colors, "neutral--850");
-    border-color: map_get($app-colors, "neutral--850");
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-                0 0 0 6px map_get($app-colors, "neutral--850");
-    color: map_get($app-colors, "neutral--100");
-  }
-}
-
-.btn.has-icon {
-  align-items: center;
-  display: inline-flex;
-  justify-content: center;
-  white-space: nowrap;
-
-  span {
-  }
-
-  svg {
-    margin-left: .5rem;
-    width: 16px;
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    svg {
-      path {
-        fill: map_get($app-colors, "neutral--100");
-      }
-    }
-  }
-}
-
-
-/* Other special-purpose button styles
-=========================================================================== */
-
-button.print-button {
-  background-color: transparent;
-  background-image: url("data:image/svg+xml, %3Csvg alt='' width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7.5V1.667h10V7.5M5 15H3.334a1.667 1.667 0 0 1-1.667-1.667V9.167A1.667 1.667 0 0 1 3.334 7.5h13.333a1.667 1.667 0 0 1 1.667 1.667v4.166A1.666 1.666 0 0 1 16.667 15H15' stroke='#{encode_color( map_get($app-colors, 'blue') )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M15 11.667H5v6.666h10v-6.666Z' stroke='#{encode_color( map_get($app-colors, 'blue') )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-  background-position: 6px 50%;
-  background-repeat: no-repeat;
-  background-size: 20px;
-  padding: $spacer * .5;
-  padding-left: $spacer * 2;
-  text-transform: none;
-  white-space: nowrap;
-
-  span {
-    color: map_get($app-colors, "blue");
-    text-decoration: underline;
-  }
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    background-image: url("data:image/svg+xml, %3Csvg alt='' width='20' height='20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7.5V1.667h10V7.5M5 15H3.334a1.667 1.667 0 0 1-1.667-1.667V9.167A1.667 1.667 0 0 1 3.334 7.5h13.333a1.667 1.667 0 0 1 1.667 1.667v4.166A1.666 1.666 0 0 1 16.667 15H15' stroke='#{encode_color( map_get($app-colors, 'neutral--850') )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M15 11.667H5v6.666h10v-6.666Z' stroke='#{encode_color( map_get($app-colors, 'neutral--850') )}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
-    span {
-      color: map_get($app-colors, "neutral--850");
-      text-decoration: none;
-    }
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-                0 0 0 6px map_get($app-colors, "neutral--850");
-  }
-
-}
-
-
-button.go-back-link-button {
-  background-color: transparent;
-  color: map_get($app-colors, "blue");
-  font-weight: 400;
-  padding: 0;
-  text-decoration: underline;
-  text-transform: none;
-
-  &:not(:disabled):not(.disabled):hover,
-  &:not(:disabled):not(.disabled):active {
-    text-decoration: none;
-  }
-
-  &:not(:disabled):not(.disabled):focus {
-    box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
-                0 0 0 6px map_get($app-colors, "neutral--850");
-  }
-}
-// When go back button immediately follows a .btn add some left margin to separate the two
-.btn + button.go-back-link-button {
-  margin-left: $spacer;
-}
+/*! purgecss end ignore */

@@ -2,7 +2,6 @@
   @include global-component;
 }
 
-
 .video__transcript-toggle {
   margin: ($spacer * 1.25) 0;
   text-align: right;
@@ -10,7 +9,6 @@
   button {
     color: map_get($app-colors, "blue");
     background-color: map_get($app-colors, "neutral--100");
-    //background-image: url("../images/transcript.svg");
     background-position: 14% 50%;
     background-size: auto;
     background-repeat: no-repeat;
@@ -35,7 +33,6 @@
   }
 }
 
-
 // ============================================================================
 // Overrides for when in 1 column layout
 .app-main__content--1col {
@@ -46,8 +43,6 @@
     }
   }
 }
-
-
 
 // ============================================================================
 // Embedded Component Overrides

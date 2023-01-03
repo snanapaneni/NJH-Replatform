@@ -12,10 +12,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let plugins = [];
 
-/* TURN OFF STATIC GEN
 const staticConfig = require("../../static/components/_config.js");
 // Generate static partial plugin entries
-staticConfig.templates.forEach(template => {
+staticConfig.templates.forEach((template) => {
   // Setup template
   plugins.push(
     new HtmlWebpackPlugin({
@@ -37,21 +36,25 @@ staticConfig.templates.forEach(template => {
   });
 
   // Add Main content components
-  template.main_components.forEach(component => {
-    let componentFilepath = path.resolve(__dirname, '../../static/components/' + component + '.html')
+  template.main_components.forEach((component) => {
+    let componentFilepath = path.resolve(
+      __dirname,
+      "../../static/components/" + component + ".html"
+    );
     try {
-      if ( fs.existsSync( componentFilepath ) ) {
-        templatePartials.push(
-          {
-            template_filename: template.templateFilename + '.html',
-            path: path.resolve(__dirname, '../../static/components/' + component + '.html'),
-            priority: 'low',
-            location: 'main-partial'
-          }
-        );
+      if (fs.existsSync(componentFilepath)) {
+        templatePartials.push({
+          template_filename: template.templateFilename + ".html",
+          path: path.resolve(
+            __dirname,
+            "../../static/components/" + component + ".html"
+          ),
+          priority: "low",
+          location: "main-partial",
+        });
       }
-    } catch( err ) {
-      console.error( err )
+    } catch (err) {
+      console.error(err);
     }
   });
 
@@ -66,13 +69,13 @@ staticConfig.templates.forEach(template => {
   // Push onto main plugins array
   plugins.push(new HtmlWebpackPartialsPlugin(templatePartials));
 });
-*/
+
 // Add plugins to main plugins array
 plugins.push(
   new MiniCssExtractPlugin({
     // filename: "[contenthash].css",
     filename: (pathData) => {
-      return '[name].[contenthash].css';
+      return "[name].[contenthash].css";
     },
     // chunkFilename: "[id].css",
   })
@@ -97,7 +100,7 @@ module.exports = {
   mode: "development",
 
   stats: {
-    children: true
+    children: true,
   },
 
   watch: true,
@@ -111,7 +114,7 @@ module.exports = {
   output: {
     // filename: "[name].[contenthash].js",
     filename: (pathData) => {
-      return '[name].[contenthash].js';
+      return "[name].[contenthash].js";
     },
     path: path.resolve(__dirname, appConfig.WEBPACK_DIST_PATH),
     clean: true,

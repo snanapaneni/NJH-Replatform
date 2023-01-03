@@ -1,0 +1,7 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSameLine": true,
+  "endOfLine": "lf",
+  "single-attribute-per-line": true
+}

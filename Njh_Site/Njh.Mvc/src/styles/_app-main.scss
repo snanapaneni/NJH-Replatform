@@ -1,5 +1,4 @@
 .app-main {
-
   *:last-child {
     margin-bottom: 0;
   }
@@ -7,16 +6,15 @@
   /* app-main default link focus style
   =========================================================================== */
   a {
-    border-radius: .05rem;
-    color: map_get($app-colors, 'blue');
+    border-radius: 0.05rem;
+    //color: map_get($app-colors, "blue");
     text-decoration: underline;
 
     &:focus {
       outline: 2px solid transparent;
-      outline-offset: 6px;
-      box-shadow:
-        0 0 0 2px map_get($app-colors, 'neutral--100'),
-        0 0 0 4px map_get($app-colors, 'blue');
+      outline-offset: 4px;
+      box-shadow: 0 0 0 2px map_get($app-colors, "neutral--100"),
+        0 0 0 4px map_get($app-colors, "blue--700");
     }
 
     &:hover {
@@ -27,14 +25,12 @@
   > section {
     position: relative;
   }
-
 }
 
 ::selection {
-  background: map_get($app-colors, "orange");
-  color: map_get($app-colors, "neutral--850");
+  //background: map_get($app-colors, "orange");
+  //color: map_get($app-colors, "neutral--850");
 }
-
 
 .app-main__content {
   display: flex;
@@ -53,9 +49,7 @@
   @include media-breakpoint-up(xl) {
     padding: $spacer * 2.5;
   }
-
 }
-
 
 .app-main__content-column {
   display: flex;
@@ -72,59 +66,6 @@
   }
 }
 
-.ruled-content-header {
-  border-bottom: 2px solid map_get($app-colors, "neutral--900");
-  color: map_get($app-colors, "neutral--900");
-  font-family: $font-family-sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: $spacer * .5 !important;
-  padding-bottom: $spacer * .5;
-  text-transform: uppercase;
+.app-main__component {
+  @include global-component;
 }
-
-.print-button {
-  align-items: center;
-  background-color: transparent;
-  display: flex;
-  padding: 0;
-  text-transform: none;
-
-  span {
-    color: map_get($app-colors, "blue");
-    // padding-left: $spacer * .5;
-    text-decoration: underline;
-  }
-}
-
-
-
-body.is-portal {
-  .app-main {
-    background-color: #110028;
-    padding-top: $spacer * 2;
-
-    @include media-breakpoint-up(lg) {
-      padding-top: 0;
-    }
-  }
-}
-
-body.is-invoice {
-  .app-main {
-    background-color: #F9F8FB;
-  }
-}
-
-// .app-main.app-main--invoice {
-//   background-color: #F9F8FB;
-// }
-
-// .app-main.app-main--portal {
-//   background-color: #110028;
-//   padding-top: $spacer * 2;
-
-//   @include media-breakpoint-up(lg) {
-//     padding-top: 0;
-//   }
-// }

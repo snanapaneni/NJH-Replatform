@@ -2,52 +2,48 @@
 =========================================================================== */
 // Color system
 
-/* prettier-ignore */
 $app-colors: (
-  "neutral--100": #FFFFFF,
-  "neutral--200": #f6f6f6,
-  "neutral--300": #cbcbcb,
-  "neutral--400": #C3C3C4,
-  "neutral--500": #99999d,
-  "neutral--600": #757575,
-  "neutral--700": #525252,
-  "neutral--800": #3d3d3d,
-  "neutral--850": #28262E,
-  "neutral--900": #28262E,
+  "neutral--900": #191919,
+  "neutral--700": #303030,
+  "neutral--500": #5e5e5e,
+  "neutral--400": #a4a7a9,
+  "neutral--300": #dadddf,
+  "neutral--200": #f3f3f3,
+  "neutral--100": #ffffff,
 
-  "blue": #4E60F4,
-  "blue--dark": #3645c9,
-  "blue--pale": #F6F7FE,
+  "blue--900": #00263f,
+  "blue--800": #003399,
+  "blue--700": #03559e,
+  "blue--600": #007cc2,
+  "blue--100": #edf4fa,
 
-  "orange": #FFC14A,
-  "orange--pale": #FEF6E4,
+  "orange--900": #c45500,
+  "orange--500": #f68a33,
+  "orange--100": #fde1c1,
 
-  "green": #6EFF97,
-  "green--dark": #3E774E,
-  "green--pale": #F0FFF4,
+  "purple--500": #773064,
+  "purple--100": #d7bfce,
 
-  "purple": #3F107C,
-  "purple--pale": #F9F8FB,
-  "purple--dark": #2D036B,
+  "green--500": #038038,
 
-  "red": #FF0000,
-  "red--error": #D70000,
-  "red--dark": #AF0F0F,
-  "red--light": #FDF2F2,
+  "red--500": #a71d1b,
+);
 
-  "gold": #8E641A,
-  "indigo": #3F107C,
+// Approved Backgrounds
+$backgrounds: (
+  // "neutral--300": map_get($app-colors, "neutral--300"),
+  // "neutral--300": map_get($app-colors, "neutral--300"),
 );
 
 // $theme-colors: (
-// "primary":    map_get($app-colors, 'neutral--850'),
-// "secondary":  $secondary,
-// "success":    $success,
-// "info":       $info,
-// "warning":    $warning,
-// "danger":     $danger,
-// "light":      $light,
-// "dark":       $dark
+//   "primary": map_get($app-colors, "blue--700"),
+//   "secondary": map_get($app-colors, "orange--900"),
+//   "success": map_get($app-colors, "green--500"),
+//   "info": map_get($app-colors, "orange--100"),
+//   "warning": map_get($app-colors, "orange--500"),
+//   "danger": map_get($app-colors, "red--500"),
+//   "light": map_get($app-colors, "neutral--300"),
+//   "dark": map_get($app-colors, "neutral--700"),
 // );
 
 // Options
@@ -56,6 +52,7 @@ $enable-transitions: false;
 
 // Typography
 $font-family-sans-serif: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+$font-family-headings: "Roboto", Arial, Helvetica, sans-serif;
 
 $font-size-base: 1rem;
 
@@ -97,14 +94,13 @@ $error-color: map_get($app-colors, "red--error");
 $legend-font-size: inherit;
 
 // Modal
-$modal-backdrop-bg:           map_get($app-colors, 'neutral--850');
-$modal-backdrop-opacity:      .85;
-$modal-content-border-width:  0;
-
+$modal-backdrop-bg: map_get($app-colors, "neutral--700");
+$modal-backdrop-opacity: 0.85;
+$modal-content-border-width: 0;
 
 /* Custom Variables
 =========================================================================== */
 $font-family-serif: "Eczar", serif;
 
 // Borders
-$border: rgba(map_get($app-colors, "neutral--850"), 0.2);
+$border: rgba(map_get($app-colors, "neutral--700"), 0.2);
