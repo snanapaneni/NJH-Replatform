@@ -60,16 +60,33 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Subscript',		element: 'sub' },
 	{ name: 'Superscript',		element: 'sup' },
 
-	{ name: 'Marker',			element: 'span', attributes: { 'class': 'marker' } },
+	{ name: 'Button - White', element: 'button', attributes: { 'class': 'btn-neutral--100' } },
+	{ name: 'Button - White', element: 'button', attributes: { 'class': 'btn-neutral--100-outline' } },
 
-	{ name: 'Big',				element: 'big' },
-	{ name: 'Small',			element: 'small' },
-	{ name: 'Typewriter',		element: 'tt' },
+	{ name: 'Button - Grey', element: 'button', attributes: { 'class': 'btn-neutral--300' } },
+	{ name: 'Button - Grey', element: 'button', attributes: { 'class': 'btn-neutral--300-outline' } },
 
-	{ name: 'Computer Code',	element: 'code' },
-	{ name: 'Keyboard Phrase',	element: 'kbd' },
-	{ name: 'Sample Text',		element: 'samp' },
-	{ name: 'Variable',			element: 'var' },
+	{ name: 'Button - Black', element: 'button', attributes: { 'class': 'btn-neutral--900' } },
+	{ name: 'Button - Black', element: 'button', attributes: { 'class': 'btn-neutral--900-outline' } },
+
+	{ name: 'Button - Blue', element: 'button', attributes: { 'class': 'btn-blue--700' } },
+	{ name: 'Button - Blue', element: 'button', attributes: { 'class': 'btn-blue--700-outline' } },
+
+	{ name: 'Button - Orange', element: 'button', attributes: { 'class': 'btn-orange--900' } },
+	{ name: 'Button - Orange', element: 'button', attributes: { 'class': 'btn-orange--900-outline' } },
+
+	{ name: 'Button - Purple', element: 'button', attributes: { 'class': 'btn-purple--500' } },
+	{ name: 'Button - Purple', element: 'button', attributes: { 'class': 'btn-purple--500-outline' } },
+
+
+	//{ name: 'Big',				element: 'big' },
+	//{ name: 'Small',			element: 'small' },
+	//{ name: 'Typewriter',		element: 'tt' },
+
+	//{ name: 'Computer Code',	element: 'code' },
+	//{ name: 'Keyboard Phrase',	element: 'kbd' },
+	//{ name: 'Sample Text',		element: 'samp' },
+	//{ name: 'Variable',			element: 'var' },
 
 	{ name: 'Deleted Text',		element: 'del' },
 	{ name: 'Inserted Text',	element: 'ins' },
@@ -77,8 +94,8 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Cited Work',		element: 'cite' },
 	{ name: 'Inline Quotation',	element: 'q' },
 
-	{ name: 'Language: RTL',	element: 'span', attributes: { 'dir': 'rtl' } },
-	{ name: 'Language: LTR',	element: 'span', attributes: { 'dir': 'ltr' } },
+	//{ name: 'Language: RTL',	element: 'span', attributes: { 'dir': 'rtl' } },
+	//{ name: 'Language: LTR',	element: 'span', attributes: { 'dir': 'ltr' } },
 
 	/* Object styles */
 

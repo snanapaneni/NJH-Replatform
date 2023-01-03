@@ -15,12 +15,13 @@ CKEDITOR.editorConfig = function( config ) {
     [
         [sourceName, '-'],
         ['Undo', 'Redo', '-'],
-        ['Bold', 'Italic', 'Underline', 'TextColor', '-'],
+        ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-'],
         ['Styles'],
-        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', '-'],
+        ['Bold', 'Italic', 'FontSize', '-'],
+        ['NumberedList', 'BulletedList', 'Outdent', 'Indent', 'Blockquote', '-'],
         ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-'],
-        ['InsertLink', 'Unlink', '-'],
-        ['InsertImageOrMedia', 'QuicklyInsertImage', 'Table', 'InsertMacro', '-'],
+        ['InsertLink', 'Unlink', 'Anchor', '-'],
+        ['InsertImageOrMedia', 'QuicklyInsertImage', 'Table', 'HorizontalRule', 'InsertMacro', '-'],
         ['Maximize']
     ];
 
