@@ -11,9 +11,11 @@ using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 using ReasonOne.KenticoXperience;
 using ReasonOne.KenticoXperience.DependencyInjection;
-
+using ReasonOne.KenticoXperience.Services;
+using Njh.Mvc.Components.Sections.OneColumn;
 /// <summary>
 /// Configures the application startup.
 /// </summary>
@@ -58,7 +60,8 @@ public class Startup
             features.UsePageBuilder(
                 new PageBuilderOptions()
                 {
-                    // TODO: Set up the page builder options
+                    DefaultSectionIdentifier = OneColumnSectionViewComponent.Identifier,
+                    RegisterDefaultSection = false,
                 });
 
             // features.UseActivityTracking();
@@ -97,6 +100,10 @@ public class Startup
                .AddRazorRuntimeCompilation();
 
         services.AddKenticoExtensions();
+
+        // Registers the view component error visibility
+        // based on Edit Mode from Kentico
+        services.AddScoped<IViewComponentErrorVisibility, EditModeViewComponentErrorVisibility>();
 
         services.AddHealthChecks();
     }

@@ -1,12 +1,13 @@
-﻿using Kentico.PageBuilder.Web.Mvc;
-using Microsoft.AspNetCore.Mvc;
-using Njh.Kernel.Models;
-using Njh.Kernel.Services;
-using Njh.Mvc.Models.SectionsViewModels;
-using Njh.Kernel.Services;
+﻿
+
 namespace Njh.Mvc.Components.Sections.TwoColumn7525
 {
-    public class TwoColumn7525SectionViewComponent : ViewComponent
+    using Kentico.PageBuilder.Web.Mvc;
+    using Microsoft.AspNetCore.Mvc;
+    using Njh.Kernel.Services;
+    using Njh.Mvc.Models.SectionsViewModels;
+    using ReasonOne.AspNetCore.Mvc.ViewComponents;
+    public class TwoColumn7525SectionViewComponent : SafeViewComponent<TwoColumn7525SectionViewComponent>
     {
         /// <summary>
         /// The section identifier.
@@ -14,42 +15,40 @@ namespace Njh.Mvc.Components.Sections.TwoColumn7525
         public const string Identifier =
             "Njh.TwoColumn7525Section";
 
-        private readonly ICacheService cacheService;
-        private readonly ContextConfig context;
+
         private readonly ISectionThemeService sectionThemeService;
 
         public TwoColumn7525SectionViewComponent(
-            ICacheService cacheService,
-            ContextConfig context,
-            ISectionThemeService sectionThemeService)
+                     ISectionThemeService sectionThemeService,
+            ILogger<TwoColumn7525SectionViewComponent> logger,
+            IViewComponentErrorVisibility viewComponentErrorVisibility)
+            : base(logger, viewComponentErrorVisibility)
         {
-            this.cacheService = cacheService ??
-                throw new ArgumentNullException(nameof(cacheService));
-
-            this.context = context ??
-                throw new ArgumentNullException(nameof(context));
 
             this.sectionThemeService = sectionThemeService ??
-                throw new ArgumentNullException(nameof(context));
+                throw new ArgumentNullException(nameof(sectionThemeService));
         }
-        
+
         public IViewComponentResult Invoke(ComponentViewModel<TwoColumn7525SectionProperties> sectionProperties)
         {
-            var prop = sectionProperties?.Properties;
-            var model = new TwoColumn7525SectionViewModel();
+            return
+                      this.TryInvoke((vc) =>
+                      {
+                          var secProps = sectionProperties?.Properties;
+                          var model = new TwoColumn7525SectionViewModel();
 
-            if (Guid.TryParse(prop.ThemeGuid, out var themeGuid))
-            {
+                          if (Guid.TryParse(secProps?.ThemeGuid, out Guid themeGuid))
+                          {
+                              var themeItem = this.sectionThemeService.GetThemesItemByGuid(themeGuid);
 
-                var themeItem = sectionThemeService.GetThemesItemByGuid(themeGuid);
-                // Cache the item coming from the table
+                              model.HasPadding = secProps.HasPadding;
+                              model.CssClass = themeItem?.CssClass ?? string.Empty;
+                              model.BackgroundColor = themeItem?.BackgroundColor ?? string.Empty;
+                              model.Color = themeItem?.TextColor ?? string.Empty;
+                          }
 
-                model.HasPadding = prop.HasPadding;
-                model.CssClass = themeItem?.CssClass;
-                model.BackgroundColor = themeItem?.BackgroundColor;
-                model.Color = themeItem?.TextColor;
-            }
-            return View("~/Views/Shared/Sections/_TwoColumn7525Section.cshtml", model);
+                          return vc.View("~/Views/Shared/Sections/_TwoColumn7525Section.cshtml", model);
+                      });
         }
     }
 }

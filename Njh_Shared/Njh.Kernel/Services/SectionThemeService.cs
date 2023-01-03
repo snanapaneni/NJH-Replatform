@@ -68,6 +68,11 @@ namespace Njh.Kernel.Services
             return result;
             
         }
+
+        /// <summary>
+        /// Returns all Section Color Themes table items straight from the database (no cache).
+        /// </summary>
+        /// <returns></returns>
     public IEnumerable<CustomTable_SectionColorThemesItem> GetThemesItems()
     {
         return CustomTableItemProvider

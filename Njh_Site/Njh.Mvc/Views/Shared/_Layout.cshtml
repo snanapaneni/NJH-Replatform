@@ -5,7 +5,7 @@
 @{
 
     var editMode =
-                this.Context.Kentico().PageBuilder().EditMode;
+                        this.Context.Kentico().PageBuilder().EditMode;
 }
 
 <!DOCTYPE html>
@@ -63,12 +63,15 @@
             &copy; 2022 - Njh
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
 
     @await RenderSectionAsync("Scripts", required: false)
+    @if (editMode)
+    {
+        <page-builder-scripts />
+        <script src="~/Content/FormComponents/select2.full.min.js"></script>
 
-    <page-builder-scripts />
+    }
+
 </body>
 </html>
