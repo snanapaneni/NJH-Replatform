@@ -9,12 +9,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section Styles {
-    <page-builder-styles />
-}
-
 @{
-    // Sets the page title to the Title field (default: Document name) of the current page
+    // Set the page title to the Title field (default: Document name) of the current page
     var docName = Model.Page.DocumentName;
     var pageTitle = Model.Page.GetStringValue("Title", "");
     if (string.IsNullOrEmpty(pageTitle))
@@ -29,6 +25,8 @@
 
     var pageBlurb = Model.Page.GetStringValue("PageBlurb", "");
     var pageContent = Model.Page.GetStringValue("PageContent", "");
+
+    // TODO additional page content fields
 }
 
 <!-- Page template layout -->
@@ -117,7 +115,3 @@
 
 </article>
 <!-- end Page template layout -->
-
-@section Scripts {
-    <page-builder-scripts />
-}
