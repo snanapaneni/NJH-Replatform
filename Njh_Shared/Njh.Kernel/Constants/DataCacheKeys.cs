@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Njh.Kernel.Constants
+﻿namespace Njh.Kernel.Constants
 {
     /// <summary>
     /// Cache keys for caching resulting data, used to enforce consistent cache name scheme.
@@ -17,7 +11,7 @@ namespace Njh.Kernel.Constants
         public const string DataSetByPathByType = "{0}|bypath|{1}|pagetype|{2}";
 
         /// <summary>
-        /// _UniqueName_|bypath|_alias path_|pagetype|_page type code name_.
+        /// _UniqueName_|byid|_alias path_|pagetype|_page type code name_.
         /// </summary>
         public const string DataSetByIdByType = "{0}|byid|{1}|pagetype|{2}";
 
