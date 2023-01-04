@@ -51,6 +51,7 @@ staticConfig.templates.forEach((template) => {
           ),
           priority: "low",
           location: template.main_insert,
+          // options: template.options !== undefined ? template.options : "",
         });
       }
     } catch (err) {

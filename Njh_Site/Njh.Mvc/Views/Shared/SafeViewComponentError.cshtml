@@ -1,0 +1,15 @@
+@model ReasonOne.AspNetCore.Mvc.ViewComponents.ComponentErrorViewModel
+
+@if (Model.Visible)
+{
+    <div class="feedback-message feedback-message--error" tabindex="-1" data-hook="feedbackMessage">
+
+        <p class="feedback-message__title">
+            Component Error
+        </p>
+
+        <div class="feedback-message__description">
+            <p>There is an error in the @Model.ComponentName component. Please contact an administrator and ask them to review the Event Log.</p>
+        </div>
+    </div>
+}
