@@ -17,20 +17,23 @@
     ViewBag.Title = Model.Page.DocumentName;
 }
 
-@if (Model.Properties.ShowTitle)
-{
-    <h1>@Model.Page.DocumentName</h1>
-}
+<main class="app-main" id="main">
+    @if (Model.Properties.ShowTitle)
+    {
+        <h1>@Model.Page.DocumentName</h1>
+    }
 
-<div>
     <div>
-        @* Renders editable areas using the editable-area Tag Helper *@
-        <editable-area area-identifier="top" />
+        <div>
+            @* Renders editable areas using the editable-area Tag Helper *@
+            <editable-area area-identifier="top" />
+        </div>
+        <div style="background-color: #eeeeee">
+            <editable-area area-identifier="bottom" />
+        </div>
     </div>
-    <div style="background-color: #eeeeee">
-        <editable-area area-identifier="bottom" />
-    </div>
-</div>
+
+</main>
 
 @section Scripts {
     

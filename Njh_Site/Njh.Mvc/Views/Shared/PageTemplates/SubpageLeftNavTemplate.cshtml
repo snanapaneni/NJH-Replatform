@@ -30,88 +30,92 @@
 }
 
 <!-- Page template layout -->
-<article class="subpage__left-rail container">
-    <!-- Page title and right-rail CTAs -->
-    <div class="subpage__header-cta-wrapper container">
-        <!-- Header -->
-    @if (Model.Properties.ShowTitle)
-    {
-        <header class="subpage__header">
-            <h1>@pageTitle</h1>
-        </header>
-    }
+<main class="app-main subpage" id="main">
 
-      <!-- Right rail CTAs - Optional -->
-      <section class="subpage__cta">
-        <!-- Removes itself on mobile -->
-        @* TODO CTA from page content *@
-        <a href="#" class="btn btn-blue--700">Make an Appointment</a>
-        <ul class="separated-list" role="list">
-          <li><a href="">Ask a Question</a></li>
-          <li><a href="">Find a Doctor</a></li>
-        </ul>
-      </section>
-    </div>
-    <!-- end Page title and right-rail CTAs -->
-
-    <!-- Content -->
-    <section class="subpage__content">
-        @* TODO render content from page type fields, if any, above widget zones *@
-
-        @* TODO Reviewer note from page content, if any *@
-        @if (!string.IsNullOrEmpty(pageReviewer))
+    <article class="subpage__left-rail container">
+        <!-- Page title and right-rail CTAs -->
+        <div class="subpage__header-cta-wrapper container">
+            <!-- Header -->
+        @if (Model.Properties.ShowTitle)
         {
-            <p class="reviewer-note container">
-                <em>
-                This information was reviewed and approved by
-                    <a href="#">@pageReviewer</a> (@lastReviewDate).
-                </em>
-            </p>
+            <header class="subpage__header">
+                <h1>@pageTitle</h1>
+            </header>
         }
 
-        @* Page Blurb from page content, if any *@
-        @if (!string.IsNullOrEmpty(pageBlurb))
-        {
-            <div class="page-blurb container">
-                @Html.Raw(pageBlurb)
-            </div>
-        }
+          <!-- Right rail CTAs - Optional -->
+          <section class="subpage__cta">
+            <!-- Removes itself on mobile -->
+            @* TODO CTA from page content *@
+            <a href="#" class="btn btn-blue--700">Make an Appointment</a>
+            <ul class="separated-list" role="list">
+              <li><a href="">Ask a Question</a></li>
+              <li><a href="">Find a Doctor</a></li>
+            </ul>
+          </section>
+        </div>
+        <!-- end Page title and right-rail CTAs -->
 
-        @* rich text from Page Content field, if any *@
-        @if (!string.IsNullOrEmpty(pageContent))
-        {
-            <div class="rich-text">
-                <div class="container">
-                    @Html.Raw(pageContent)
+        <!-- Content -->
+        <section class="subpage__content">
+            @* TODO render content from page type fields, if any, above widget zones *@
+
+            @* TODO Reviewer note from page content, if any *@
+            @if (!string.IsNullOrEmpty(pageReviewer))
+            {
+                <p class="reviewer-note container">
+                    <em>
+                    This information was reviewed and approved by
+                        <a href="#">@pageReviewer</a> (@lastReviewDate).
+                    </em>
+                </p>
+            }
+
+            @* Page Blurb from page content, if any *@
+            @if (!string.IsNullOrEmpty(pageBlurb))
+            {
+                <div class="page-blurb container">
+                    @Html.Raw(pageBlurb)
                 </div>
+            }
+
+            @* rich text from Page Content field, if any *@
+            @if (!string.IsNullOrEmpty(pageContent))
+            {
+                <div class="rich-text">
+                    <div class="container">
+                        @Html.Raw(pageContent)
+                    </div>
+                </div>
+            }
+
+            <!-- Widget zone(s) after content from page fields -->
+            <div>
+                @* Renders editable areas using the editable-area Tag Helper *@
+                <editable-area area-identifier="top" />
             </div>
-        }
+            @* no 2nd widget zone in content column in this template 
+            <div style="background-color: #eeeeee">
+                <editable-area area-identifier="bottom" />
+            </div>
+            *@
 
-        <!-- Widget zone(s) after content from page fields -->
-        <div>
-            @* Renders editable areas using the editable-area Tag Helper *@
-            <editable-area area-identifier="top" />
-        </div>
-        @* no 2nd widget zone in content column in this template 
-        <div style="background-color: #eeeeee">
-            <editable-area area-identifier="bottom" />
-        </div>
-        *@
+        </section>
+        <!-- end Content -->
 
-    </section>
-    <!-- end Content -->
+        <!-- Left nav -->
+        <aside class="subpage__aside">
+          <!-- Removes itself on mobile -->
+          <h2><a href="#">Left nav parent</a></h2>
+          <!-- NJHK13-388 Left Rail Nav - Will go here -->
+          <ul>
+              <li><a href="#">Left nav link #1</a></li>
+              <li><a href="#">Left nav link #2</a></li>
+          </ul>
+        </aside>
+        <!-- end Left nav -->
 
-    <!-- Left nav -->
-    <aside class="subpage__aside">
-      <!-- Removes itself on mobile -->
-      <h2><a href="#">Left nav parent</a></h2>
-      <!-- NJHK13-388 Left Rail Nav - Will go here -->
-      <ul>
-          <li><a href="#">Left nav link #1</a></li>
-          <li><a href="#">Left nav link #2</a></li>
-      </ul>
-    </aside>
-    <!-- end Left nav -->
+    </article>
 
-</article>
+</main>
 <!-- end Page template layout -->

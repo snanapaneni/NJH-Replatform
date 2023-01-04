@@ -72,12 +72,10 @@
         <!-- END MOBILE -->
     </header>
 
-    <main class="app-main" id="main">
-        @* TODO article container wrapper here, or generate with body depending on page type / template?
-        <article class="container" style="min-height: 100vh">(content goes here)</article>
-        *@
-        @RenderBody()
-    </main>
+    @* NOTE: each page template must render a <main> tag as its outermost container, e.g.
+        <main class="app-main class1 class2" id="main">
+    *@
+    @RenderBody()
 
     <footer class="app-footer">
         @* TODO replace below with Footer component *@
