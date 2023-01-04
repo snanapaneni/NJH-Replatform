@@ -8,6 +8,8 @@ button,
 button.btn,
 input.btn {
   border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--nuetral--900);
   display: inline-block;
   font-size: 1rem;
   font-weight: 600;
@@ -38,7 +40,7 @@ input.btn {
     border-radius: 0.5rem;
   }
   &.btn-sm {
-    padding: 0.5rem 1.75rem;
+    padding: 0.5rem 1.5rem;
     font-size: 0.8rem;
     border-radius: 0.25rem;
   }
@@ -61,46 +63,46 @@ input.btn {
 // Approved Buttons
 $buttons: (
   "neutral--900": (
-    default: map_get($app-colors, "neutral--900"),
-    hover: map_get($app-colors, "neutral--700"),
-    focus-ring: map_get($app-colors, "neutral--900"),
-    color: map_get($app-colors, "neutral--100"),
-    hover-color: map_get($app-colors, "neutral--100"),
+    default: var(--neutral--900),
+    hover: var(--neutral--700),
+    focus-ring: var(--neutral--900),
+    color: var(--neutral--100),
+    hover-color: var(--neutral--100),
   ),
   "neutral--300": (
-    default: map_get($app-colors, "neutral--300"),
-    hover: map_get($app-colors, "neutral--500"),
-    focus-ring: map_get($app-colors, "neutral--300"),
-    color: map_get($app-colors, "neutral--900"),
-    hover-color: map_get($app-colors, "neutral--100"),
+    default: var(--neutral--300),
+    hover: var(--neutral--500),
+    focus-ring: var(--neutral--300),
+    color: var(--neutral--900),
+    hover-color: var(--neutral--100),
   ),
   "neutral--100": (
-    default: map_get($app-colors, "neutral--100"),
-    hover: map_get($app-colors, "neutral--300"),
-    focus-ring: map_get($app-colors, "neutral--100"),
-    color: map_get($app-colors, "neutral--900"),
-    hover-color: map_get($app-colors, "neutral--900"),
+    default: var(--neutral--100),
+    hover: var(--neutral--300),
+    focus-ring: var(--neutral--100),
+    color: var(--neutral--900),
+    hover-color: var(--neutral--900),
   ),
   "blue--700": (
-    default: map_get($app-colors, "blue--700"),
-    hover: map_get($app-colors, "blue--900"),
-    focus-ring: map_get($app-colors, "blue--900"),
-    color: map_get($app-colors, "neutral--100"),
-    hover-color: map_get($app-colors, "neutral--100"),
+    default: var(--blue--700),
+    hover: var(--blue--900),
+    focus-ring: var(--blue--900),
+    color: var(--neutral--100),
+    hover-color: var(--neutral--100),
   ),
   "orange--900": (
-    default: map_get($app-colors, "orange--900"),
-    hover: map_get($app-colors, "orange--500"),
-    focus-ring: map_get($app-colors, "orange--500"),
-    color: map_get($app-colors, "neutral--100"),
-    hover-color: map_get($app-colors, "neutral--900"),
+    default: var(--orange--900),
+    hover: var(--orange--500),
+    focus-ring: var(--orange--500),
+    color: var(--neutral--100),
+    hover-color: var(--neutral--900),
   ),
   "purple--500": (
-    default: map_get($app-colors, "purple--500"),
-    hover: lighten(map_get($app-colors, "purple--500"), 10),
-    focus-ring: map_get($app-colors, "purple--500"),
-    color: map_get($app-colors, "neutral--100"),
-    hover-color: map_get($app-colors, "neutral--100"),
+    default: var(--purple--500),
+    hover: var(--purple--100),
+    focus-ring: var(--purple--500),
+    color: var(--neutral--100),
+    hover-color: var(--neutral--900),
   ),
 );
 

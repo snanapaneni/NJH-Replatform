@@ -1,7 +1,7 @@
 # Webpack Front-End Build System for Bootstrap 5
 
 ## GETTING STARTED
-1. Use Node version `14.17.0`
+1. Use Node version `18.12.1`
 2. Install dependencies with `npm i`
 3. Set the `WEBPACK_DIST_PATH` in `config/config.json`. _Note this path is relative to the `config/webpack` directory._
 4. Run application with one of the following npm scripts:

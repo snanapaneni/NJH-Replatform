@@ -1,0 +1,20 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Njh.Mvc.Models.SectionProperties
+@using Kentico.Content.Web.Mvc
+@using Njh.Mvc.Models.SectionsViewModels
+
+@model TwoColumn7525SectionViewModel
+
+
+<section class="widget-zone bg @Model.GetThemeCssClass() @Model.GetPaddingCssClass() has-margin" style="@Model.GetBackgroundColor() @Model.GetTextColor()">
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-9">
+                <widget-zone allowed-widgets="AllowedComponents.ALL" id="first"></widget-zone>
+            </div>
+            <div class="col col-md-3">
+                <widget-zone allowed-widgets="AllowedComponents.ALL" id="second"></widget-zone>
+            </div>
+        </div>
+    </div>>
+</section>

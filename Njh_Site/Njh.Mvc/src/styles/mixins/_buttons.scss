@@ -18,7 +18,7 @@
         }
 
         &:not(:disabled):not(.disabled):focus {
-          box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
+          box-shadow: 0 0 0 3px var(--neutral--100),
             0 0 0 6px map_get($var, "focus-ring");
         }
       }
@@ -45,7 +45,7 @@
         }
 
         &:not(:disabled):not(.disabled):focus {
-          box-shadow: 0 0 0 3px map_get($app-colors, "neutral--100"),
+          box-shadow: 0 0 0 3px var(--neutral--100),
             0 0 0 6px map_get($var, "focus-ring");
         }
       }

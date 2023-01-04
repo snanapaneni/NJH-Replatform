@@ -1,4 +1,5 @@
 .app-main {
+  z-index: 1000;
   *:last-child {
     margin-bottom: 0;
   }
@@ -8,7 +9,7 @@
   a {
     border-radius: 0.05rem;
     //color: map_get($app-colors, "blue");
-    text-decoration: underline;
+    text-decoration: none;
 
     &:focus {
       outline: 2px solid transparent;
@@ -17,8 +18,8 @@
         0 0 0 4px map_get($app-colors, "blue--700");
     }
 
-    &:hover {
-      text-decoration: none;
+    &:not(.btn):hover {
+      text-decoration: underline;
     }
   }
 
@@ -28,8 +29,8 @@
 }
 
 ::selection {
-  //background: map_get($app-colors, "orange");
-  //color: map_get($app-colors, "neutral--850");
+  background: var(--orange--100);
+  color: var(--neutral--900);
 }
 
 .app-main__content {

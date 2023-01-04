@@ -1,0 +1,26 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Njh.Mvc.Models.SectionProperties
+@using Kentico.Content.Web.Mvc
+@using Njh.Mvc.Models.SectionsViewModels
+
+@model FourColumnSectionViewModel
+
+
+<section class="widget-zone bg @Model.GetThemeCssClass() @Model.GetPaddingCssClass() has-margin" style="@Model.GetBackgroundColor() @Model.GetTextColor()">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-4">
+            <div class="col">
+                <widget-zone allowed-widgets="AllowedComponents.ALL" id="first"></widget-zone>
+            </div>
+            <div class="col">
+                <widget-zone allowed-widgets="AllowedComponents.ALL" id="second"></widget-zone>
+            </div>
+            <div class="col">
+                <widget-zone allowed-widgets="AllowedComponents.ALL" id="third"></widget-zone>
+            </div>
+            <div class="col">
+                <widget-zone allowed-widgets="AllowedComponents.ALL" id="fourth"></widget-zone>
+            </div>
+        </div>
+    </div>
+</section>

@@ -3,12 +3,17 @@ exports.templates = [
     templateFilename: "index",
     header: "app-header",
     footer: "app-footer",
+    main_insert: "main",
     main_components: [],
+    options: {
+      h1: "Index",
+    },
   },
   {
     templateFilename: "elements",
     header: "app-header",
     footer: "app-footer",
+    main_insert: "main",
     main_components: [
       "elements--typography",
       "elements--table",
@@ -16,5 +21,38 @@ exports.templates = [
       "elements--backgrounds",
       "elements--colors",
     ],
+    options: {
+      h1: "Elements",
+    },
+  },
+  {
+    templateFilename: "subpage__left-rail",
+    header: "app-header",
+    footer: "app-footer",
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-content", "subpage-aside"],
+    options: {
+      h1: "Subpage Left Rail",
+    },
+  },
+  {
+    templateFilename: "subpage__no-rail",
+    header: "app-header",
+    footer: "app-footer",
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-content"],
+    options: {
+      h1: "Subpage No Rail",
+    },
+  },
+  {
+    templateFilename: "widget-zones",
+    header: "app-header",
+    footer: "app-footer",
+    main_insert: "article",
+    main_components: ["subpage-header", "widget-zone"],
+    options: {
+      h1: "Widget Zone Examples",
+    },
   },
 ];
