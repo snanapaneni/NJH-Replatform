@@ -14,13 +14,20 @@
 }
 
 @{
-    // Sets the page title to the name of the current page
-    ViewBag.Title = Model.Page.DocumentName;
+    // Sets the page title to the Title field (default: Document name) of the current page
+    var docName = Model.Page.DocumentName;
+    var pageTitle = Model.Page.GetStringValue("Title", "");
+    if (string.IsNullOrEmpty(pageTitle))
+    {
+        pageTitle = docName;
+    }
+    // TODO further logic for ViewBag?
+    ViewBag.Title = pageTitle;
 }
 
 @if (Model.Properties.ShowTitle)
 {
-    <h1>@Model.Page.DocumentName</h1>
+    <h1>@pageTitle</h1>
 }
 
 <div>
