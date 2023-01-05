@@ -12,7 +12,7 @@ import "../styles/app.scss";
 // import Alert from 'bootstrap/js/dist/alert'
 // import Button from 'bootstrap/js/dist/button'
 // import Carousel from 'bootstrap/js/dist/carousel'
-// import Collapse from 'bootstrap/js/dist/collapse'
+import Collapse from "bootstrap/js/dist/collapse";
 // import Dropdown from 'bootstrap/js/dist/dropdown'
 import Modal from "bootstrap/js/dist/modal";
 // import Modal from 'bootstrap/js/dist/offcanvas'

@@ -38,7 +38,7 @@
 // @import "~bootstrap/scss/dropdown";
 @import "~bootstrap/scss/forms";
 @import "~bootstrap/scss/images";
-// @import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/modal";
 // @import "~bootstrap/scss/nav";
 // @import "~bootstrap/scss/navbar";
@@ -49,7 +49,7 @@
 @import "~bootstrap/scss/tables";
 // @import "~bootstrap/scss/toasts";
 // @import "~bootstrap/scss/tooltip";
-// @import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/transitions";
 
 // This should be turned off on prod.
 @import "./breakpoint-helper";

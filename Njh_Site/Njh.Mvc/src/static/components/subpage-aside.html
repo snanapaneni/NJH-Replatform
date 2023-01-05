@@ -1,6 +1,67 @@
-<!-- Aside -->
+<!-- Aside / DOES NOT load on mobile -->
 <aside class="subpage__aside">
-  <!-- Removes itself on mobile -->
-  <h2>Aside</h2>
-  <!-- NJHK13-388 Left Rail Nav - Will go here -->
+  <!-- NJHK13-388 Left Rail Nav -->
+
+  <!-- Maybe the parent is just a heading link?-->
+  <h2 class="parent"><a href="#">Parent Page</a></h2>
+  <nav class="aside-nav" aria-label="Sibling Pages">
+    <ul role="list" class="list-group list-group-flush">
+      <!-- Single Depth -->
+      <li class="list-group-item" id="asideNavItem_0">
+        <a href="#">Sibling</a>
+      </li>
+
+      <!-- Multi-level Items-->
+
+      <!-- default open item -->
+      <li class="list-group-item is-self" id="asideNavItem_1">
+        <a href="#" aria-current="true">Self</a>
+      </li>
+
+      <!-- default closed item -->
+      <li class="list-group-item has-children" id="asideNavItem_123456">
+        <button
+          type="button"
+          class="list-group-item-trigger"
+          id="asideNavItem_123456_label"
+          aria-label="Toggle sub menu"
+          data-bs-toggle="collapse"
+          aria-expanded="false"
+          data-bs-target="#asideNavItem_123456_children"
+          aria-controls="asideNavItem_123456_children">
+          +
+        </button>
+        <a href="#">Sibling</a>
+        <ul
+          class="collapse"
+          id="asideNavItem_123456_children"
+          aria-hidden="true"
+          aria-labeledby="asideNavItem_123456_label">
+          <li lass="list-group-item"><a href="#">Nephew</a></li>
+          <li class="aside-nav-item has-children" id="asideNavItem_98765">
+            <button
+              type="button"
+              class="list-group-item-trigger"
+              aria-label="Toggle sub menu"
+              data-bs-toggle="collapse"
+              aria-expanded="false"
+              data-bs-target="#asideNavItem_98765_children"
+              aria-controls="asideNavItem_98765_children"
+              id="asideNavItem_98765_label">
+              +
+            </button>
+            <a href="#">Niece</a>
+            <ul
+              class="collapse"
+              id="asideNavItem_98765_children"
+              aria-hidden="true"
+              aria-labeledby="asideNavItem_98765_label">
+              <li><a href="#">Nephew Once Removed</a></li>
+              <li><a href="#">Niece Once Removed</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
 </aside>
