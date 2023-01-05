@@ -98,8 +98,11 @@
     @await RenderSectionAsync("Scripts", required: false)
     @if (editMode)
     {
+        <link href="/Content/InlineEditors/froala-editor-styles.css" rel="stylesheet" />
+
         <page-builder-scripts />
         <script src="~/Content/FormComponents/select2.full.min.js"></script>
+        <script src="/Content/InlineEditors/froala-configuration.js"></script>
 
     }
 
