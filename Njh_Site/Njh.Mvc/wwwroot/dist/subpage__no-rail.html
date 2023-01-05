@@ -11,7 +11,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap"
       rel="stylesheet" />
-  <script defer src="app.8c726f66b7bd6472963d.js"></script><link href="app.8f7949c9d1b966781ab2.css" rel="stylesheet"></head>
+  <script defer src="app.8c726f66b7bd6472963d.js"></script><link href="app.6e8de6a6739dff50284e.css" rel="stylesheet"></head>
 
   <body>
     <a href="#main" class="skip-to-content visually-hidden-focusable">
@@ -838,6 +838,12 @@
     </main>
 
     <!-- NJHK13-285 Main Footer -->
+
+<!-- Note: I have not added rel="noopener" on external links since the vulnerability was patched in modern broweser back in (as late as) 2018.  However, some analytics tools and Lighthouse still look for it, so add it if you feel it necessary. -->
+<!-- Reference: https://bugs.chromium.org/p/chromium/issues/detail?id=898942 -->
+<!-- Reference: https://bugs.webkit.org/show_bug.cgi?id=155166 -->
+<!-- Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=1222516 -->
+
 <footer class="app-footer">
   <!-- FOOTER CONTENT -->
   <section class="app-footer__content">
@@ -969,9 +975,7 @@
         <div class="app-footer__contact-subscribe col-md-4 text-md-end">
           <p><strong>Keep in Touch</strong></p>
           <!-- FUTURE IMPLEMENTATION == NJHK13-415 -->
-          <button class="btn btn-neutral--100-outline">
-            Newsletter Signup
-          </button>
+          <button class="btn btn-orange--900">Newsletter Signup</button>
         </div>
       </div>
 
@@ -980,11 +984,6 @@
       <!-- BEST HOSPITAL / COPYRIGHT / ADDRESS-->
       <div class="row align-items-center justify-content-between gy-4">
         <div class="app-footer__contact-best-hospital col-lg-3">
-          <!-- Note: I have not added rel="noopener noreferrer" since the vulnerability was patched in modern broweser back in 2018.  However, some analytics tools and Lighthouse still look for it, so add it if you feel it necessary. -->
-          <!-- Reference: https://bugs.chromium.org/p/chromium/issues/detail?id=898942 -->
-          <!-- Reference: https://bugs.webkit.org/show_bug.cgi?id=155166 -->
-          <!-- Reference: https://bugzilla.mozilla.org/show_bug.cgi?id=1222516 -->
-
           <a href="#" target="_blank">
             <!-- Images height and width should repesent they're actual dimensions -->
             <img
@@ -993,7 +992,7 @@
               height="200"
               loading="lazy" />
           </a>
-          <!-- <a href="#" target="_blank">
+          <a href="#" target="_blank">
             <img
               src="../images/best-hospital.png"
               width="200"
@@ -1006,10 +1005,11 @@
               width="200"
               height="200"
               loading="lazy" />
-          </a> -->
+          </a>
         </div>
         <div class="app-footer__contact-copyright col-lg-9 text-lg-end">
           <ul
+            role="list"
             class="separated-list flex-wrap justify-content-lg-end mb-3 gap-0">
             <li>
               <a href="#">
@@ -1040,6 +1040,7 @@
     </div>
   </section>
 
+  <!-- SUPPORTED LANGUAGES -->
   <section class="app-footer__languages">
     <div class="container">
       <p class="visually-hidden">Supported languages</p>
@@ -1068,6 +1069,7 @@
   </section>
 </footer>
 
+<!-- This is where modals will eventually render -->
 <div class="app-overlay" data-hook="appOverlay"></div>
 
   </body>

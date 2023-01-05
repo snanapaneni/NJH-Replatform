@@ -1,16 +1,9 @@
 .app-footer {
   color: white;
-  a {
+  a:not(.btn) {
     color: white;
     @include global-reverse-anchor-decoration;
   }
-  // // Reset
-  // ul,
-  // ol {
-  //   list-style: none;
-  //   margin: 0;
-  //   padding: 0;
-  // }
 
   &__content,
   &__contact {
