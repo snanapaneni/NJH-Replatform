@@ -1,0 +1,35 @@
+﻿@model HeaderDto
+<header class="app-header" data-hook="appHeader">
+    <!-- START DESKTOP -->
+    <div class="app-header__large-screen-nav-panel" data-hook="appHeader__largeScreenNavPanel">
+        <div class="container">
+            <!-- Logo -->
+            @* TODO update link and logo image as req'd' *@
+            <div class="app-header__logo">
+                <a href="/home" aria-label="Go to home page">
+                    <img src="@Model.Logo" alt="@Model.LogoAltText" />
+                    @*<img src="../images/logo.png" alt="National Jewish Health" />*@
+                </a>
+            </div>
+
+            <!-- Utility Nav -->
+            @* TODO insert Utility Nav here *@
+            <vc:utility-nav></vc:utility-nav>
+
+            <!-- Quick Nav -->
+            @* TODO insert Quick Nav here including site Search elements *@
+        </div>
+
+        <!-- Primary Nav-->
+        @* TODO insert Primary Nav here for Desktop *@
+        <vc:main-nav></vc:main-nav>
+    </div>
+    <!-- END DESKTOP -->
+    <!-- START MOBILE -->
+    <div id="app-header__small-screen-nav-panel"
+         class="app-header__small-screen-nav-panel"
+         data-hook="appHeader__smallScreenNavPanel">
+        @* TODO insert Mobile header components here *@
+    </div>
+    <!-- END MOBILE -->
+</header>
