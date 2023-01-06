@@ -4,11 +4,10 @@
      aria-label="Header Primary Navigation">
     <div class="container">
         <ul role="list" class="app-header__primary-nav-list">
-
             @foreach (var link in Model)
             {
                 <!-- Single top level item -- START-->
-                <li class='app-header__primary-nav-item is-current (@link.IsOnPath ? "is-current" : "")'
+                <li class="app-header__primary-nav-item"
                     data-hook="appHeader__primaryNavItem">
                     <button aria-expanded="false"
                             data-hook="appHeader__primaryNavItemPanelTrigger">
@@ -18,24 +17,15 @@
                     <div class="app-header__primary-nav-item-panel"
                          data-hook="appHeader__primaryNavItemPanel"
                          aria-hidden="true">
-                        <div class="app-header__primary-nav-item-panel-row">
-                            @if (link.Children.Any())
+                        <ul role="list">
+                            @foreach (var folder in link.Children)
                             {
-                                foreach (var folder in link.Children)
+                                foreach (var subLink in folder.Children)
                                 {
-                                    <!-- Sub level column -- START -->
-                                    <div class="app-header__primary-nav-item-panel-column">
-                                        <ul role="list">
-                                            @foreach (var subLink in folder.Children)
-                                            {
-                                                <li><a href="@subLink.Link">@subLink.DisplayTitle</a></li>
-                                            }
-                                        </ul>
-                                    </div>
-                                    <!-- Sub level column -- END -->
+                                    <li><a href="@subLink.Link">@subLink.DisplayTitle</a></li>
                                 }
                             }
-                        </div>
+                        </ul>
                         
                         @if (link.CTAItem != null)
                         {

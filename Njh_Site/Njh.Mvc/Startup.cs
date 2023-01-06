@@ -10,8 +10,10 @@ using Kentico.Web.Mvc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 using ReasonOne.KenticoXperience;
 using ReasonOne.KenticoXperience.DependencyInjection;
+using ReasonOne.KenticoXperience.Services;
 
 /// <summary>
 /// Configures the application startup.
@@ -96,6 +98,10 @@ public class Startup
                .AddRazorRuntimeCompilation();
 
         services.AddKenticoExtensions();
+
+        // Registers the view component error visibility
+        // based on Edit Mode from Kentico
+        services.AddScoped<IViewComponentErrorVisibility, EditModeViewComponentErrorVisibility>();
 
         services.AddHealthChecks();
     }

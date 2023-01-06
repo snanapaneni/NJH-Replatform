@@ -5,18 +5,21 @@
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using ReasonOne.AspNetCore.Mvc.ViewComponents;
+    using Njh.Mvc.Models;
+    using Njh.Kernel.Extensions;
 
     /// <summary>
     /// Implements the Primary Navigation view component.
     /// </summary>
-    public class MainNavViewComponent
-        : SafeViewComponent<MainNavViewComponent>
+    public class QuickNavViewComponent
+        : SafeViewComponent<QuickNavViewComponent>
     {
         private readonly INavigationService navigationService;
+        private readonly ISettingsKeyRepository settingsKeyRepository;
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="MainNavViewComponent"/> class.
+        /// <see cref="QuickNavViewComponent"/> class.
         /// </summary>
         /// <param name="logger">
         /// The logger.
@@ -27,14 +30,17 @@
         /// <param name="navigationService">
         /// The navigation service.
         /// </param>
-        public MainNavViewComponent(
-            ILogger<MainNavViewComponent> logger,
+        public QuickNavViewComponent(
+            ILogger<QuickNavViewComponent> logger,
             IViewComponentErrorVisibility viewComponentErrorVisibility,
-            INavigationService navigationService)
+            INavigationService navigationService,
+            ISettingsKeyRepository settingsKeyRepository)
             : base(logger, viewComponentErrorVisibility)
         {
             this.navigationService = navigationService ??
                                      throw new ArgumentNullException(nameof(navigationService));
+
+            this.settingsKeyRepository = settingsKeyRepository;
         }
 
         /// <summary>
@@ -48,12 +54,19 @@
             return
                 this.TryInvoke((vc) =>
                 {
-                    var navItems = vc.navigationService.GetPrimaryNav();
+                    QuickNavDto model = new ()
+                    {
+                        MakeAnAppointmentUri = settingsKeyRepository.GetMakeAnAppointmentPage(),
+                        MakeAnAppointmentText = settingsKeyRepository.GetMakeAnAppointmentText(),
+                        GlobalSearchUrl = settingsKeyRepository.GetGlobalSearchPage(),
+                        DonateUri = settingsKeyRepository.GetGlobalDonatePage(),
+                        DonateText = settingsKeyRepository.GetGlobalDonateText(),
+                    };
 
                     return vc.View(
-                        isMobile ? "~/Views/Shared/Navigation/_MobileMainNav.cshtml" :
-                        "~/Views/Shared/Navigation/_MainNav.cshtml",
-                        navItems);
+                        isMobile ? "~/Views/Shared/Navigation/_MobileQuickNav.cshtml" :
+                        "~/Views/Shared/Navigation/_QuickNav.cshtml",
+                        model);
                 });
         }
     }

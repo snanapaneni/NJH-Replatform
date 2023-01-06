@@ -1,4 +1,7 @@
-﻿namespace Njh.Mvc.ViewComponents.Navigation
+﻿using Njh.Kernel.Extensions;
+using Njh.Mvc.Models;
+
+namespace Njh.Mvc.ViewComponents.Navigation
 {
     using System;
     using Njh.Kernel.Services;
@@ -17,6 +20,7 @@
         private readonly INavigationService navigationService;
 
         private readonly IPageDataContextRetriever dataRetriever;
+        private readonly ISettingsKeyRepository settingsKeyRepository;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -38,7 +42,8 @@
             INavigationService navigationService,
             IPageDataContextRetriever dataRetriever,
             ILogger<UtilityNavViewComponent> logger,
-            IViewComponentErrorVisibility viewComponentErrorVisibility)
+            IViewComponentErrorVisibility viewComponentErrorVisibility,
+            ISettingsKeyRepository settingsKeyRepository)
             : base(logger, viewComponentErrorVisibility)
         {
             this.navigationService = navigationService ??
@@ -46,6 +51,8 @@
 
             this.dataRetriever = dataRetriever ??
                 throw new ArgumentNullException(nameof(dataRetriever));
+
+            this.settingsKeyRepository = settingsKeyRepository;
         }
 
         /// <summary>
@@ -54,7 +61,7 @@
         /// <returns>
         /// The view component result.
         /// </returns>
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(bool isMobile = false)
         {
             return this.TryInvoke(vc =>
             {
@@ -67,9 +74,17 @@
                     vc.navigationService.SetActiveItem(currentPage, navItems);
                 }
 
+                var model = new UtilityNavDto()
+                {
+                    Links = navItems,
+                    PhoneNumber = settingsKeyRepository.GetGlobalPhoneNumber(),
+                    PhoneNumberText = settingsKeyRepository.GetGlobalPhoneNumberText()
+                };
+
                 return vc.View(
+                    isMobile ? "~/Views/Shared/Navigation/_MobileUtilityNav.cshtml" :
                     "~/Views/Shared/Navigation/_UtilityNav.cshtml",
-                    navItems);
+                    model);
             });
         }
     }

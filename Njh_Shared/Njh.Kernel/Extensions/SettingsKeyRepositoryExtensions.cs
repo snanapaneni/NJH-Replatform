@@ -13,8 +13,6 @@ namespace Njh.Kernel.Extensions
     /// </summary>
     public static class SettingsKeyRepositoryExtensions
     {
-
-
         /// <summary>
         /// Returns the primary navigation page path.
         /// </summary>
@@ -93,11 +91,11 @@ namespace Njh.Kernel.Extensions
                 .GetValue<string>("NJHHeaderLogoAltText");
         }
 
-        public static Guid GetMakeAnAppointmentPage(
+        public static string GetMakeAnAppointmentPage(
             this ISettingsKeyRepository settingsKeyRepository)
         {
             return settingsKeyRepository
-                .GetValue<Guid>("NJHMakeAnAppointmentPage");
+                .GetValue<string>("NJHMakeAnAppointmentPage");
         }
 
         public static string GetMakeAnAppointmentText(
@@ -107,18 +105,18 @@ namespace Njh.Kernel.Extensions
                 .GetValue<string>("NJHMakeAnAppointmentText");
         }
 
-        public static Guid GetGlobalSearchPage(
+        public static string GetGlobalSearchPage(
             this ISettingsKeyRepository settingsKeyRepository)
         {
             return settingsKeyRepository
-                .GetValue<Guid>("NJHGlobalSearchPage");
+                .GetValue<string>("NJHGlobalSearchPage");
         }
 
-        public static Guid GetGlobalDonatePage(
+        public static string GetGlobalDonatePage(
             this ISettingsKeyRepository settingsKeyRepository)
         {
             return settingsKeyRepository
-                .GetValue<Guid>("NJHGlobalDonatePage");
+                .GetValue<string>("NJHGlobalDonatePage");
         }
 
         public static string GetGlobalDonateText(

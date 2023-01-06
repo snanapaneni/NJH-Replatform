@@ -1,4 +1,5 @@
-﻿using Njh.Kernel.Extensions;
+﻿using CMS.DocumentEngine.Routing;
+using Njh.Kernel.Models.DTOs;
 
 namespace Njh.Mvc.ViewComponents.Master
 {
@@ -10,6 +11,8 @@ namespace Njh.Mvc.ViewComponents.Master
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using ReasonOne.AspNetCore.Mvc.ViewComponents;
+    using Njh.Kernel.Extensions;
+    using Kentico.Content.Web.Mvc;
 
     /// <summary>
     /// Implements the Header view component.
@@ -19,6 +22,8 @@ namespace Njh.Mvc.ViewComponents.Master
     {
         private readonly IPageService pageService;
         private readonly ISettingsKeyRepository settingsKeyRepository;
+        private readonly INavigationService navigationService;
+        private readonly IPageDataContextRetriever dataRetriever;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -40,6 +45,8 @@ namespace Njh.Mvc.ViewComponents.Master
             IPageService pageService,
             ISettingsKeyRepository settingsKeyRepository,
             ILogger<HeaderViewComponent> logger,
+            INavigationService navigationService,
+            IPageDataContextRetriever dataRetriever,
             IViewComponentErrorVisibility viewComponentErrorVisibility)
             : base(logger, viewComponentErrorVisibility)
         {
@@ -49,6 +56,9 @@ namespace Njh.Mvc.ViewComponents.Master
 
             this.settingsKeyRepository = settingsKeyRepository ??
                 throw new ArgumentNullException(nameof(settingsKeyRepository));
+
+            this.navigationService = navigationService;
+            this.dataRetriever = dataRetriever;
         }
 
         /// <summary>
@@ -57,43 +67,30 @@ namespace Njh.Mvc.ViewComponents.Master
         /// <returns>
         /// The view component result.
         /// </returns>
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(bool isMobile = false)
         {
             return
                 this.TryInvoke((vc) =>
                 {
-                    
-
-                    var documentGuids = new Guid[]
-                    {
-                        settingsKeyRepository.GetMakeAnAppointmentPage(),
-                        settingsKeyRepository.GetGlobalSearchPage(),
-                        settingsKeyRepository.GetGlobalDonatePage()
-                    };
-
-                    // Uses a single query to get the 3 pages
-                    var pageLinks = vc.pageService
-                        .GetDocuments(
-                            true,
-                            documentGuids)
-                        .Select(p => (p.NodeGUID, new Uri(DocumentURLProvider.GetAbsoluteUrl(p))));
 
                     HeaderDto headerModel = new ()
                     {
                         Logo = settingsKeyRepository.GetHeaderLogo(),
                         LogoAltText = settingsKeyRepository.GetHeaderLogoAltText(),
-                        MakeAnAppointmentUri = pageLinks.Where(p => p.NodeGUID == settingsKeyRepository.GetMakeAnAppointmentPage()).Select(p => p.Item2).FirstOrDefault(),
-                        MakeAnAppointmentText = settingsKeyRepository.GetMakeAnAppointmentText(),
-                        GlobalSearchUrl = pageLinks.Where(p => p.NodeGUID == settingsKeyRepository.GetGlobalSearchPage()).Select(p => p.Item2).FirstOrDefault(),
-                        DonateUri = pageLinks.Where(p => p.NodeGUID == settingsKeyRepository.GetGlobalDonatePage()).Select(p => p.Item2).FirstOrDefault(),
-                        DonateText = settingsKeyRepository.GetGlobalDonateText(),
+                        GlobalSearchUrl = settingsKeyRepository.GetGlobalSearchPage(),
                         PhoneNumber = settingsKeyRepository.GetGlobalPhoneNumber(),
                         PhoneNumberText = settingsKeyRepository.GetGlobalPhoneNumberText()
                     };
 
+                    var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
+                    headerModel.CurrentTree = new NavItem()
+                    {
+                        DisplayTitle = currentPage.GetValue("Title",currentPage.DocumentName),
+                        //Link = currentPage.NodeAliasPath,
+                        Children = navigationService.GetSectionNavigation(currentPage).ToList(),
+                    };
 
-
-                    return vc.View("~/Views/Shared/Master/_Header.cshtml", headerModel);
+                    return vc.View(isMobile ? "~/Views/Shared/Master/_MobileHeader.cshtml" : "~/Views/Shared/Master/_Header.cshtml", headerModel);
                 });
         }
     }
