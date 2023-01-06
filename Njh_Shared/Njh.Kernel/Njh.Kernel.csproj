@@ -31,7 +31,4 @@
 			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
 		</AdditionalFiles>
 	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="Kentico\Models\PageTypes\" />
-	</ItemGroup>
 </Project>
