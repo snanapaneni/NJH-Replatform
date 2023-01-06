@@ -32,10 +32,12 @@
             this TreeNode treeNode,
             IPageTypeService pageTypeService)
         {
-            return
-                pageTypeService != null
-                    ? pageTypeService.GetPageTypeName(treeNode)
-                    : string.Empty;
+            throw new NotImplementedException();
+
+            //return
+            //    pageTypeService != null
+            //        ? pageTypeService.GetPageTypeName(treeNode)
+            //        : string.Empty;
         }
 
         /// <summary>
@@ -153,19 +155,21 @@
         public static string GetOpenGraphImage(
             this TreeNode page)
         {
-            var mainImage =
-                ValidationHelper.GetString(
-                    page.GetValue("MainImage"),
-                    string.Empty);
+            throw new NotImplementedException();
 
-            return
-                page != null &&
-                page.Site != null &&
-                !string.IsNullOrWhiteSpace(mainImage)
-                    ? DocumentURLProvider.GetAbsoluteUrl(
-                        mainImage,
-                        new SiteInfoIdentifier(page.Site.SiteID))
-                    : string.Empty;
+            //var mainImage =
+            //    ValidationHelper.GetString(
+            //        page.GetValue("MainImage"),
+            //        string.Empty);
+
+            //return
+            //    page != null &&
+            //    page.Site != null &&
+            //    !string.IsNullOrWhiteSpace(mainImage)
+            //        ? DocumentURLProvider.GetAbsoluteUrl(
+            //            mainImage,
+            //            new SiteInfoIdentifier(page.Site.SiteID))
+            //        : string.Empty;
         }
 
         /// <summary>
@@ -180,31 +184,33 @@
         public static string GetTwitterCardImage(
             this TreeNode page)
         {
-            var thumbnailImage =
-                ValidationHelper.GetString(
-                    page.GetValue("ThumbnailImage"),
-                    string.Empty);
+            throw new NotImplementedException();
 
-            var mainImage =
-                ValidationHelper.GetString(
-                    page.GetValue("MainImage"),
-                    string.Empty);
+            //var thumbnailImage =
+            //    ValidationHelper.GetString(
+            //        page.GetValue("ThumbnailImage"),
+            //        string.Empty);
 
-            var winnerImage =
-                string.IsNullOrWhiteSpace(thumbnailImage)
-                    ? mainImage
-                    : thumbnailImage;
+            //var mainImage =
+            //    ValidationHelper.GetString(
+            //        page.GetValue("MainImage"),
+            //        string.Empty);
 
-            var absoluteImageUrl =
-                page != null &&
-                page.Site != null &&
-                !string.IsNullOrWhiteSpace(winnerImage)
-                    ? DocumentURLProvider.GetAbsoluteUrl(
-                        winnerImage,
-                        new SiteInfoIdentifier(page.Site.SiteID))
-                    : string.Empty;
+            //var winnerImage =
+            //    string.IsNullOrWhiteSpace(thumbnailImage)
+            //        ? mainImage
+            //        : thumbnailImage;
 
-            return absoluteImageUrl;
+            //var absoluteImageUrl =
+            //    page != null &&
+            //    page.Site != null &&
+            //    !string.IsNullOrWhiteSpace(winnerImage)
+            //        ? DocumentURLProvider.GetAbsoluteUrl(
+            //            winnerImage,
+            //            new SiteInfoIdentifier(page.Site.SiteID))
+            //        : string.Empty;
+
+            //return absoluteImageUrl;
         }
 
         /// <summary>
