@@ -8,7 +8,7 @@
             @foreach (var link in Model)
             {
                 <!-- Single top level item -- START-->
-                <li class='app-header__primary-nav-item is-current (@link.IsOnPath ? "is-current" : "")'
+                <li class="app-header__primary-nav-item@(link.IsOnPath ? " is-current" : "")"
                     data-hook="appHeader__primaryNavItem">
                     <button aria-expanded="false"
                             data-hook="appHeader__primaryNavItemPanelTrigger">
