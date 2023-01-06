@@ -37,41 +37,11 @@
     @RenderSection("styles", required: false)
 </head>
 <body>
-    <a href="#main" class="skip-to-content visually-hidden-focusable">
-        Skip to content
-    </a>
-    <header class="app-header" data-hook="appHeader">
-        <!-- START DESKTOP -->
-        <div class="app-header__large-screen-nav-panel" data-hook="appHeader__largeScreenNavPanel">
-            <div class="container">
-                <!-- Logo -->
-                @* TODO update link and logo image as req'd' *@
-                <div class="app-header__logo">
-                    <a href="/home" aria-label="Go to home page">
-                        <img src="../images/logo.png" alt="National Jewish Health" />
-                    </a>
-                </div>
-
-                <!-- Utility Nav -->
-                @* TODO insert Utility Nav here *@
-
-                <!-- Quick Nav -->
-                @* TODO insert Quick Nav here including site Search elements *@
-            </div>
-
-            <!-- Primary Nav-->
-            @* TODO insert Primary Nav here for Desktop *@
-        </div>
-        <!-- END DESKTOP -->
-        <!-- START MOBILE -->
-        <div id="app-header__small-screen-nav-panel"
-             class="app-header__small-screen-nav-panel"
-             data-hook="appHeader__smallScreenNavPanel">
-            @* TODO insert Mobile header components here *@
-        </div>
-        <!-- END MOBILE -->
-    </header>
-
+<a href="#main" class="skip-to-content visually-hidden-focusable">
+    Skip to content
+</a>
+    <vc:header></vc:header>
+    
     <main class="app-main" id="main">
         @* TODO article container wrapper here, or generate with body depending on page type / template?
         <article class="container" style="min-height: 100vh">(content goes here)</article>

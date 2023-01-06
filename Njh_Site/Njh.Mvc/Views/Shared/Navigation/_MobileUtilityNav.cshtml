@@ -1,0 +1,21 @@
+﻿@model UtilityNavDto
+<nav class="app-header__utility-nav"
+     data-hook="appHeader__utilityNav"
+     aria-label="Header Utility Navigation">
+    <div class="container">
+        <ul role="list">
+            @foreach (var link in Model.Links)
+            {
+                <li>
+                    <a href="@link.Link">@link.DisplayTitle</a>
+                </li>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.PhoneNumber) && !string.IsNullOrWhiteSpace(Model.PhoneNumberText))
+            {
+                <li>
+                    <a href="tel:@Model.PhoneNumber"><strong>@Model.PhoneNumberText</strong></a>
+                </li>
+            }
+        </ul>
+    </div>
+</nav>

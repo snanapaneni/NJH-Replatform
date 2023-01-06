@@ -1,0 +1,26 @@
+﻿@model QuickNavDto
+@if (!string.IsNullOrWhiteSpace(Model.DonateUri) || !string.IsNullOrWhiteSpace(Model.MakeAnAppointmentUri))
+{
+    <nav class="app-header__quick-nav"
+         data-hook="appHeader__quickNav"
+         aria-label="Header Quick Navigation and Search">
+        <div class="container">
+            <ul role="list" class="app-header__quick-nav-list">
+                @if (!string.IsNullOrWhiteSpace(Model.MakeAnAppointmentText) && !string.IsNullOrWhiteSpace(Model.MakeAnAppointmentUri))
+                {
+                    <li>
+                        <a href="@Model.MakeAnAppointmentUri" class="btn btn-sm btn-orange--900">
+                            @Model.MakeAnAppointmentText
+                        </a>
+                    </li>
+                }
+                @if (!string.IsNullOrWhiteSpace(Model.DonateText) && !string.IsNullOrWhiteSpace(Model.DonateUri))
+                {
+                    <li>
+                        <a href="@Model.DonateUri" class="btn btn-sm btn-blue--700">@Model.DonateText</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+}
