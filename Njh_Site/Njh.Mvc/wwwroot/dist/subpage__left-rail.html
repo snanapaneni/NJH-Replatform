@@ -11,7 +11,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&display=swap"
       rel="stylesheet" />
-  <script defer src="app.f6e0a53f26ec6ae0d06f.js"></script><link href="app.9f9ace35ead306c1131c.css" rel="stylesheet"></head>
+  <script defer src="app.f6e0a53f26ec6ae0d06f.js"></script><link href="app.37a197f137d8737eda25.css" rel="stylesheet"></head>
 
   <body>
     <a href="#main" class="skip-to-content visually-hidden-focusable">
@@ -766,14 +766,14 @@
     Skip Navigation
   </a>
 
-  <nav class="aside-nav" aria-label="Sibling Pages">
-    <ul role="list" class="list-group list-group-flush">
+  <nav class="subpage__aside-nav" aria-label="Sibling Pages">
+    <ul role="list" class="subpage__aside-nav-list">
       <!-- Single Item for the parent page.  this is to let the user know all the navigation is based around the parent page. -->
-      <li class="list-group-item">
+      <li class="subpage__aside-nav-item subpage__aside-nav-parent">
         <h2 class="parent"><a href="#">Parent Page</a></h2>
-        <ul class="list-group list-group-flush">
+        <ul class="subpage__aside-nav-list">
           <!-- Single Depth -->
-          <li class="list-group-item" id="asideNavItem_00000">
+          <li class="subpage__aside-nav-item" id="asideNavItem_00000">
             <a href="#">Sibling</a>
           </li>
 
@@ -781,76 +781,86 @@
 
           <!-- Current page - default open IF has children-->
           <li
-            class="list-group-item is-self has-children"
+            class="subpage__aside-nav-item has-children is-self"
             id="asideNavItem_65432">
-            <button
-              type="button"
-              class="list-group-item-trigger"
-              id="asideNavItem_65432_label"
-              aria-label="Toggle sub menu"
-              data-bs-toggle="collapse"
-              aria-expanded="true"
-              data-bs-target="#asideNavItem_65432_children"
-              aria-controls="asideNavItem_65432_children">
-              +
-            </button>
-            <a href="#" aria-current="true">Self</a>
+            <div class="subpage__aside-nav-dropdown">
+              <button
+                type="button"
+                class="subpage__aside-nav-trigger"
+                id="asideNavItem_65432_label"
+                aria-label="Toggle sub menu"
+                data-bs-toggle="collapse"
+                aria-expanded="true"
+                data-bs-target="#asideNavItem_65432_children"
+                aria-controls="asideNavItem_65432_children">
+                <span class="app-icon icon-dropdown"></span>
+              </button>
+              <a href="#" aria-current="true">Self</a>
+            </div>
             <ul
-              class="list-group list-group-flush collapse show"
+              class="subpage__aside-nav-list collapse show"
               id="asideNavItem_65432_children"
               aria-hidden="false"
               aria-labeledby="asideNavItem_65432_label">
-              <li class="list-group-item"><a href="#">Child</a></li>
-              <li class="list-group-item"><a href="#">Child</a></li>
+              <li class="subpage__aside-nav-item"><a href="#">Child</a></li>
+              <li class="subpage__aside-nav-item"><a href="#">Child</a></li>
             </ul>
           </li>
 
           <!-- Siblings with children and grand children - default closed  -->
-          <li class="list-group-item has-children" id="asideNavItem_123456">
-            <button
-              type="button"
-              class="list-group-item-trigger"
-              id="asideNavItem_123456_label"
-              aria-label="Toggle sub menu"
-              data-bs-toggle="collapse"
-              aria-expanded="false"
-              data-bs-target="#asideNavItem_123456_children"
-              aria-controls="asideNavItem_123456_children">
-              +
-            </button>
-            <a href="#">Sibling</a>
+          <li
+            class="subpage__aside-nav-item has-children"
+            id="asideNavItem_123456">
+            <div class="subpage__aside-nav-dropdown">
+              <button
+                type="button"
+                class="subpage__aside-nav-trigger"
+                id="asideNavItem_123456_label"
+                aria-label="Toggle sub menu"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
+                data-bs-target="#asideNavItem_123456_children"
+                aria-controls="asideNavItem_123456_children">
+                <span class="app-icon icon-dropdown"></span>
+              </button>
+              <a href="#">Sibling</a>
+            </div>
 
             <!-- Sibling's children -->
             <ul
-              class="list-group list-group-flush collapse"
+              class="subpage__aside-nav-list collapse"
               id="asideNavItem_123456_children"
               aria-hidden="true"
               aria-labeledby="asideNavItem_123456_label">
-              <li class="list-group-item"><a href="#">Nephew</a></li>
-              <li class="list-group-item has-children" id="asideNavItem_98765">
-                <button
-                  type="button"
-                  class="list-group-item-trigger"
-                  aria-label="Toggle sub menu"
-                  data-bs-toggle="collapse"
-                  aria-expanded="false"
-                  data-bs-target="#asideNavItem_98765_children"
-                  aria-controls="asideNavItem_98765_children"
-                  id="asideNavItem_98765_label">
-                  +
-                </button>
-                <a href="#">Niece</a>
+              <li class="subpage__aside-nav-item"><a href="#">Nephew</a></li>
+              <li
+                class="subpage__aside-nav-item has-children"
+                id="asideNavItem_98765">
+                <div class="subpage__aside-nav-dropdown">
+                  <button
+                    type="button"
+                    class="subpage__aside-nav-trigger"
+                    aria-label="Toggle sub menu"
+                    data-bs-toggle="collapse"
+                    aria-expanded="false"
+                    data-bs-target="#asideNavItem_98765_children"
+                    aria-controls="asideNavItem_98765_children"
+                    id="asideNavItem_98765_label">
+                    <span class="app-icon icon-dropdown"></span>
+                  </button>
+                  <a href="#">Niece</a>
+                </div>
 
                 <!-- Sibling's grand children -->
                 <ul
-                  class="list-group list-group-flush collapse"
+                  class="subpage__aside-nav-list collapse"
                   id="asideNavItem_98765_children"
                   aria-hidden="true"
                   aria-labeledby="asideNavItem_98765_label">
-                  <li class="list-group-item">
+                  <li class="subpage__aside-nav-item">
                     <a href="#">Nephew Once Removed</a>
                   </li>
-                  <li class="list-group-item">
+                  <li class="subpage__aside-nav-item">
                     <a href="#">Niece Once Removed</a>
                   </li>
                 </ul>
