@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Njh.Kernel.Constants
+﻿namespace Njh.Kernel.Constants
 {
     /// <summary>
     /// Contains kentico dummy cache dependency keys.
@@ -53,7 +47,7 @@ namespace Njh.Kernel.Constants
         public const string PageSiteNodePathChildren = "node|{0}|{1}|childnodes";
 
         /// <summary>
-        /// _object type_|_node guid_.
+        /// _object type_|all.
         /// </summary>
         public const string ObjectAll = "{0}|all";
 

@@ -1,5 +1,6 @@
 // Copyright (c) NJH. All rights reserved.
 
+
 namespace Njh.Mvc;
 
 using Autofac;
@@ -14,7 +15,7 @@ using ReasonOne.AspNetCore.Mvc.ViewComponents;
 using ReasonOne.KenticoXperience;
 using ReasonOne.KenticoXperience.DependencyInjection;
 using ReasonOne.KenticoXperience.Services;
-
+using Njh.Mvc.Components.Sections.OneColumn;
 /// <summary>
 /// Configures the application startup.
 /// </summary>
@@ -59,7 +60,8 @@ public class Startup
             features.UsePageBuilder(
                 new PageBuilderOptions()
                 {
-                    // TODO: Set up the page builder options
+                    DefaultSectionIdentifier = OneColumnSectionViewComponent.Identifier,
+                    RegisterDefaultSection = false,
                 });
 
             // features.UseActivityTracking();

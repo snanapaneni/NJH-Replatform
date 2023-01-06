@@ -44,7 +44,7 @@
 // @import "~bootstrap/scss/navbar";
 // @import "~bootstrap/scss/pagination";
 // @import "~bootstrap/scss/popover";
-@import "~bootstrap/scss/progress";
+// @import "~bootstrap/scss/progress";
 // @import "~bootstrap/scss/spinners";
 @import "~bootstrap/scss/tables";
 // @import "~bootstrap/scss/toasts";
@@ -58,22 +58,32 @@
 @import "./mixins/backgrounds";
 @import "./mixins/buttons";
 
+@import "./global";
 @import "./forms";
-@import "./themes";
 
 @import "./app-header";
 @import "./app-main";
 @import "./app-footer";
+@import "./layers"; // controls z-index of main elements
 
 @import "./animations";
+
+// Templates
+@import "./templates/subpage";
 
 // Elements
 @import "./elements/backgrounds";
 @import "./elements/buttons";
 @import "./elements/headings";
+@import "./elements/icons";
 // @import "./elements/links";
 
 // Components
+@import "./components/page-blurb";
+@import "./components/separated-list";
+@import "./components/tabs";
+@import "./components/widget-zone";
+
 // @import "./components/accordion";
 // @import "./components/basic-image";
 // @import "./components/basic-text-block";

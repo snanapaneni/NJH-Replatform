@@ -15,6 +15,18 @@ $backgrounds: (
   "purple--500": map-get($app-colors, "purple--500"),
   "purple--100": map-get($app-colors, "purple--100"),
 );
+.bg {
+  --has-background: var(--neutral--100);
+  --has-color: var(--nuetral--900);
+
+  background: var(--has-background);
+  color: var(--has-color);
+  a:not(.btn):not(:disabled) {
+    color: var(--has-color);
+    text-decoration: underline;
+  }
+}
 
 @include make-backgrounds($backgrounds);
+
 /*! purgecss end ignore */

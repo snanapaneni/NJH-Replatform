@@ -1,4 +1,6 @@
-﻿namespace Njh.Kernel.Models
+﻿// Copyright (c) Njh. All rights reserved.
+
+namespace Njh.Kernel.Models
 {
     public class AppCacheConfig
         : IConfig

@@ -1,8 +1,11 @@
-﻿using CMS.DocumentEngine;
-using Njh.Kernel.Models;
+﻿// Copyright (c) Njh. All rights reserved.
 
 namespace Njh.Kernel.Services
 {
+    using System;
+    using Njh.Kernel.Models;
+    using CMS.DocumentEngine;
+
     public interface ICacheService
     {
         T Get<T>(

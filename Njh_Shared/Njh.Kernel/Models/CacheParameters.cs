@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Copyright (c) Njh. All rights reserved.
 
 namespace Njh.Kernel.Models
 {
+    using System.Collections.Generic;
+
     public class CacheParameters
     {
         private List<string> cacheDependencies;

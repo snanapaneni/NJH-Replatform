@@ -27,6 +27,7 @@ module.exports = {
     //       /^is-/,
     //       /^t-/,
     //       /^will-/,
+    // 			 /^hide-/,
     //     ],
     //     deep: [
     //       /animate$/,

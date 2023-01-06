@@ -1,16 +1,13 @@
-﻿namespace Njh.Kernel.Repositories
+﻿
+
+namespace Njh.Kernel.Repositories
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using Njh.Kernel.Models;
     using CMS.CustomTables;
     using CMS.DataEngine;
     using Njh.Kernel.Models;
     using ReasonOne.Extensions;
-
     public class CustomTableRepository
-        : ICustomTableRepository
+       : ICustomTableRepository
     {
         private readonly ContextConfig context;
 
@@ -83,7 +80,7 @@
         {
             var query = CustomTableItemProvider
                 .GetItems<T>()
-                .OnSite(string.IsNullOrWhiteSpace(siteName) ? this.context.Site?.SiteName : siteName);
+                .OnSite(siteName.ReplaceIfEmpty(this.context.Site?.SiteName));
 
             if (columnNames != null && columnNames.Any())
             {

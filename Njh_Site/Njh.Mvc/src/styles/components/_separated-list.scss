@@ -1,0 +1,21 @@
+.separated-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  a {
+    position: relative;
+    padding: 0.5rem;
+    text-decoration: none;
+    &::after {
+      @include global-separator;
+    }
+  }
+
+  li:last-child {
+    a::after {
+      display: none;
+    }
+  }
+}

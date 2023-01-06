@@ -1,11 +1,13 @@
-﻿namespace Njh.Kernel.Services
+﻿// Copyright (c) Njh. All rights reserved.
+
+namespace Njh.Kernel.Services
 {
     using System;
     using System.Linq;
+    using Njh.Kernel.Definitions;
+    using Njh.Kernel.Models;
     using CMS.DocumentEngine;
     using CMS.Helpers;
-    using Njh.Kernel.Models;
-    using Njh.Kernel.Definitions;
 
     public class CacheService
          : ServiceBase, ICacheService
