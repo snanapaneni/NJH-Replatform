@@ -80,7 +80,7 @@
             },
             callback: function (cmd, val) {
                 this.html.insert(
-                    '<button class="' + val + '">' + this.clean.html(this.html.getSelected(), ['p'], [], false) + '<button>'
+                    '<button class="' + val + '">' + this.clean.html(this.html.getSelected(), ['p'], [], false) + '</button>'
                 );
                 this.undo.saveStep();
             },
@@ -104,6 +104,7 @@
         enter: "FroalaEditor.ENTER_BR",
         paragraphFormat: {
             N: "Normal",
+            H1: "Heading 1",
             H2: "Heading 2",
             H3: "Heading 3",
             H4: "Heading 4",
