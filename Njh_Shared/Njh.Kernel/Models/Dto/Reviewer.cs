@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Njh.Kernel.Models.Dto
 {
-    internal class Reviewer
+    public class Reviewer
     {
+        public string Name { get; set; }
+        public string Url { get; set; }
     }
 }

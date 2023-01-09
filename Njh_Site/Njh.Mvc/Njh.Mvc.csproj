@@ -33,11 +33,11 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="ReasonOne" Version="0.1.9" />
-		<PackageReference Include="ReasonOne.AspNetCore" Version="0.1.9" />
-		<PackageReference Include="ReasonOne.AspNetCore.TagHelpers" Version="0.1.9" />
+		<PackageReference Include="ReasonOne" Version="0.1.11" />
+		<PackageReference Include="ReasonOne.AspNetCore" Version="0.1.11" />
+		<PackageReference Include="ReasonOne.AspNetCore.TagHelpers" Version="0.1.11" />
 		<PackageReference Include="Kentico.Xperience.AspNetCore.WebApp" Version="13.0.83" />
-		<PackageReference Include="ReasonOne.KenticoXperience" Version="0.1.9" />
+		<PackageReference Include="ReasonOne.KenticoXperience" Version="0.1.14" />
 		<PackageReference Include="ReasonOne.KenticoXperience.TagHelpers" Version="0.1.1" />
 		<PackageReference Include="ReasonOne.KenticoXperience.DependencyInjection" Version="0.1.1" />
 	</ItemGroup>

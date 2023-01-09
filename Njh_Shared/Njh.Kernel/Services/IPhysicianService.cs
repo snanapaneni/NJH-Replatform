@@ -5,8 +5,8 @@ namespace Njh.Kernel.Services
 {
     public interface IPhysicianService
     {
-        PageType_Physician GetPhysicianItemByGuid(Guid physicianGuid, bool cached=true);
+        IEnumerable<PageType_Physician> GetPhysiciansByGuids(bool cached = true, bool published = true, params Guid[] physiciansGuids);
 
-        IEnumerable<PageType_Physician> GetPhysician();
+        IEnumerable<PageType_Physician> GetPhysicians();
     }
 }
