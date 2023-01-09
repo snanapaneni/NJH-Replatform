@@ -1,0 +1,35 @@
+﻿@model HeaderDto
+<header class="app-header" data-hook="appHeader">
+    <!-- START DESKTOP -->
+    <div class="app-header__large-screen-nav-panel"
+         data-hook="appHeader__largeScreenNavPanel">
+        <div class="container">
+            <!-- Logo -->
+            <div class="app-header__logo">
+                <a href="/" aria-label="Go to home">
+                    <img src="@Model.Logo" alt="@Model.LogoAltText" />
+                </a>
+            </div>
+
+            <!-- Utility Nav -->
+            <vc:utility-nav></vc:utility-nav>
+            
+
+            <!-- Quick Nav -->
+            <vc:quick-nav></vc:quick-nav>
+            
+        </div>
+
+        <!-- Primary Nav-->
+        <vc:main-nav></vc:main-nav>
+        
+    </div>
+    <!-- END DESKTOP -->
+<!-- START MOBILE -->
+    <vc:header is-mobile="true"></vc:header>
+    
+    <!-- Search will eventually load here ... Maybe. This is not concrete atm. -->
+    <search-partial></search-partial>
+
+    <!-- END MOBILE -->
+</header>
