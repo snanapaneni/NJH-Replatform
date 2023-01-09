@@ -80,7 +80,7 @@ namespace Njh.Kernel.Repositories
         {
             var query = CustomTableItemProvider
                 .GetItems<T>()
-                .OnSite(siteName.ReplaceIfEmpty(this.context.Site?.SiteName));
+                .OnSite(string.IsNullOrWhiteSpace(siteName) ? this.context.Site?.SiteName : siteName);
 
             if (columnNames != null && columnNames.Any())
             {
