@@ -101,7 +101,6 @@
         listAdvancedTypes: false,
         quickInsertTags: [],
         pastePlain: true,
-        enter: "FroalaEditor.ENTER_BR",
         paragraphFormat: {
             N: "Normal",
             H1: "Heading 1",
