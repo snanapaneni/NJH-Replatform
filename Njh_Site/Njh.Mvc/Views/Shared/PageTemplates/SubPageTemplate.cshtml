@@ -10,6 +10,7 @@
     bool HasPrimaryCta = !string.IsNullOrWhiteSpace(currentPage.CtaTitle) && !string.IsNullOrWhiteSpace(currentPage.CtaUrl);
     bool HasSecondCta = !string.IsNullOrWhiteSpace(currentPage.Cta2Title) && !string.IsNullOrWhiteSpace(currentPage.Cta2Url);
     bool HasThirdCta = !string.IsNullOrWhiteSpace(currentPage.Cta3Title) && !string.IsNullOrWhiteSpace(currentPage.Cta3Url);
+
 }
 
 
@@ -47,16 +48,8 @@
 <!-- Content -->
 <section class="subpage__content">
   <!-- Optional Sections -->
-            @if (!string.IsNullOrEmpty(@currentPage.ReviewedBy))
-            {
-                <p class="reviewer-note container">
-                    <em>
-                    This information was reviewed and approved by
-                    <a href="#">@currentPage.ReviewedBy</a> (@currentPage.ReviewedDate.ToShortDateString()).
-                    </em>
-                </p>
-            }
-
+      <!-- Reviewers -->
+      <vc:reviewers></vc:reviewers>
               <div class="page-blurb container">
     @if (!string.IsNullOrEmpty(@currentPage.PageBlurb))
             {

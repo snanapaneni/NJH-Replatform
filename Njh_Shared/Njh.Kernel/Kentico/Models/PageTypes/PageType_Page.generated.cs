@@ -16,973 +16,975 @@ using CMS.Base;
 using CMS.Helpers;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
-using CMS.Helpers;
-using Njh.Kernel.Kentico.Models.PageTypes;
+using Njh.Kernel.Kentico.Models.PageTypes
+;
 
 [assembly: RegisterDocumentType(PageType_Page.CLASS_NAME, typeof(PageType_Page))]
 
 namespace Njh.Kernel.Kentico.Models.PageTypes
+
 {
-    /// <summary>
-    /// Represents a content item of type PageType_Page.
-    /// </summary>
-    public partial class PageType_Page : TreeNode
-    {
-        #region "Constants and variables"
+	/// <summary>
+	/// Represents a content item of type PageType_Page.
+	/// </summary>
+	public partial class PageType_Page : TreeNode
+	{
+		#region "Constants and variables"
 
-        /// <summary>
-        /// The name of the data class.
-        /// </summary>
-        public const string CLASS_NAME = "NJH.PageType_Page";
-
-
-        /// <summary>
-        /// The instance of the class that provides extended API for working with PageType_Page fields.
-        /// </summary>
-        private readonly PageType_PageFields mFields;
-
-        #endregion
+		/// <summary>
+		/// The name of the data class.
+		/// </summary>
+		public const string CLASS_NAME = "NJH.PageType_Page";
 
 
-        #region "Properties"
+		/// <summary>
+		/// The instance of the class that provides extended API for working with PageType_Page fields.
+		/// </summary>
+		private readonly PageType_PageFields mFields;
 
-        /// <summary>
-        /// PageType_PageID.
-        /// </summary>
-        [DatabaseIDField]
-        public int PageType_PageID
-        {
-            get
-            {
-                return ValidationHelper.GetInteger(GetValue("PageType_PageID"), 0);
-            }
-            set
-            {
-                SetValue("PageType_PageID", value);
-            }
-        }
+		#endregion
 
 
-        /// <summary>
-        /// Page Name.
-        /// </summary>
-        [DatabaseField]
-        public string PageName
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("PageName"), @"");
-            }
-            set
-            {
-                SetValue("PageName", value);
-            }
-        }
+		#region "Properties"
+
+		/// <summary>
+		/// PageType_PageID.
+		/// </summary>
+		[DatabaseIDField]
+		public int PageType_PageID
+		{
+			get
+			{
+				return ValidationHelper.GetInteger(GetValue("PageType_PageID"), 0);
+			}
+			set
+			{
+				SetValue("PageType_PageID", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Page Title.
-        /// </summary>
-        [DatabaseField]
-        public string Title
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("Title"), @"");
-            }
-            set
-            {
-                SetValue("Title", value);
-            }
-        }
+		/// <summary>
+		/// Page Name.
+		/// </summary>
+		[DatabaseField]
+		public string PageName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PageName"), @"");
+			}
+			set
+			{
+				SetValue("PageName", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Categories.
-        /// </summary>
-        public string Categories1
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("Categories"), @"");
-            }
-            set
-            {
-                SetValue("Categories", value);
-            }
-        }
+		/// <summary>
+		/// Page Title.
+		/// </summary>
+		[DatabaseField]
+		public string Title
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Title"), @"");
+			}
+			set
+			{
+				SetValue("Title", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
-        /// </summary>
-        [DatabaseField]
-        public bool FeaturedOnHomePage
-        {
-            get
-            {
-                return ValidationHelper.GetBoolean(GetValue("FeaturedOnHomePage"), false);
-            }
-            set
-            {
-                SetValue("FeaturedOnHomePage", value);
-            }
-        }
+		/// <summary>
+		/// Categories.
+		/// </summary>
+		public string Categories1
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Categories"), @"");
+			}
+			set
+			{
+				SetValue("Categories", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Page Blurb.
-        /// </summary>
-        [DatabaseField]
-        public string PageBlurb
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("PageBlurb"), @"");
-            }
-            set
-            {
-                SetValue("PageBlurb", value);
-            }
-        }
+		/// <summary>
+		/// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
+		/// </summary>
+		[DatabaseField]
+		public bool FeaturedOnHomePage
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("FeaturedOnHomePage"), false);
+			}
+			set
+			{
+				SetValue("FeaturedOnHomePage", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Page Content.
-        /// </summary>
-        [DatabaseField]
-        public string PageContent
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("PageContent"), @"");
-            }
-            set
-            {
-                SetValue("PageContent", value);
-            }
-        }
+		/// <summary>
+		/// Page Blurb.
+		/// </summary>
+		[DatabaseField]
+		public string PageBlurb
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PageBlurb"), @"");
+			}
+			set
+			{
+				SetValue("PageBlurb", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Page Image (888x507).
-        /// </summary>
-        [DatabaseField]
-        public string PageImage
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("PageImage"), @"");
-            }
-            set
-            {
-                SetValue("PageImage", value);
-            }
-        }
+		/// <summary>
+		/// Page Content.
+		/// </summary>
+		[DatabaseField]
+		public string PageContent
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PageContent"), @"");
+			}
+			set
+			{
+				SetValue("PageContent", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Page Image Alt Text.
-        /// </summary>
-        [DatabaseField]
-        public string PageImageAltText
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("PageImageAltText"), @"");
-            }
-            set
-            {
-                SetValue("PageImageAltText", value);
-            }
-        }
+		/// <summary>
+		/// Page Image (888x507).
+		/// </summary>
+		[DatabaseField]
+		public string PageImage
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PageImage"), @"");
+			}
+			set
+			{
+				SetValue("PageImage", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Short Description/Summary.
-        /// </summary>
-        [DatabaseField]
-        public string Summary
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("Summary"), @"");
-            }
-            set
-            {
-                SetValue("Summary", value);
-            }
-        }
+		/// <summary>
+		/// Page Image Alt Text.
+		/// </summary>
+		[DatabaseField]
+		public string PageImageAltText
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PageImageAltText"), @"");
+			}
+			set
+			{
+				SetValue("PageImageAltText", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Call To Action (CTA) Title.
-        /// </summary>
-        [DatabaseField]
-        {
-            get
-            {
+		/// <summary>
+		/// Short Description/Summary.
+		/// </summary>
+		[DatabaseField]
+		public string Summary
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Summary"), @"");
+			}
+			set
+			{
+				SetValue("Summary", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Call To Action (CTA) Title.
+		/// </summary>
+		[DatabaseField]
+		public string CtaTitle
+		{
+			get
+			{
 				return ValidationHelper.GetString(GetValue("CtaTitle"), @"");
-            }
-            set
-            {
+			}
+			set
+			{
 				SetValue("CtaTitle", value);
-            }
-        }
+			}
+		}
 
 
-        /// <summary>
-        /// CTA Link URL.
-        /// </summary>
-        [DatabaseField]
+		/// <summary>
+		/// CTA Link URL.
+		/// </summary>
+		[DatabaseField]
 		public string CtaUrl
-        {
-            get
-            {
+		{
+			get
+			{
 				return ValidationHelper.GetString(GetValue("CtaUrl"), @"");
-            }
-            set
-            {
+			}
+			set
+			{
 				SetValue("CtaUrl", value);
-            }
-        }
+			}
+		}
 
 
-        /// <summary>
-        /// CTA no.2 Title.
-        /// </summary>
-        [DatabaseField]
+		/// <summary>
+		/// CTA no.2 Title.
+		/// </summary>
+		[DatabaseField]
 		public string Cta2Title
-        {
-            get
-            {
+		{
+			get
+			{
 				return ValidationHelper.GetString(GetValue("Cta2Title"), @"");
-            }
-            set
-            {
+			}
+			set
+			{
 				SetValue("Cta2Title", value);
-            }
-        }
+			}
+		}
 
 
-        /// <summary>
-        /// CTA no.2 URL.
-        /// </summary>
-        [DatabaseField]
+		/// <summary>
+		/// CTA no.2 URL.
+		/// </summary>
+		[DatabaseField]
 		public string Cta2Url
-        {
-            get
-            {
+		{
+			get
+			{
 				return ValidationHelper.GetString(GetValue("Cta2Url"), @"");
-            }
-            set
-            {
+			}
+			set
+			{
 				SetValue("Cta2Url", value);
-            }
-        }
+			}
+		}
 
 
-        /// <summary>
-        /// CTA no.3 Title.
-        /// </summary>
-        [DatabaseField]
+		/// <summary>
+		/// CTA no.3 Title.
+		/// </summary>
+		[DatabaseField]
 		public string Cta3Title
-        {
-            get
-            {
+		{
+			get
+			{
 				return ValidationHelper.GetString(GetValue("Cta3Title"), @"");
-            }
-            set
-            {
+			}
+			set
+			{
 				SetValue("Cta3Title", value);
-            }
-        }
+			}
+		}
 
 
-        /// <summary>
-        /// CTA no.3 URL.
-        /// </summary>
-        [DatabaseField]
+		/// <summary>
+		/// CTA no.3 URL.
+		/// </summary>
+		[DatabaseField]
 		public string Cta3Url
-        {
-            get
-            {
+		{
+			get
+			{
 				return ValidationHelper.GetString(GetValue("Cta3Url"), @"");
-            }
-            set
-            {
+			}
+			set
+			{
 				SetValue("Cta3Url", value);
-            }
-        }
+			}
+		}
 
 
-        /// <summary>
-        /// Check this box if you do not want the link in a test directory to link.
-        /// </summary>
-        [DatabaseField]
-        public bool Hide_URL
-        {
-            get
-            {
-                return ValidationHelper.GetBoolean(GetValue("Hide_URL"), false);
-            }
-            set
-            {
-                SetValue("Hide_URL", value);
-            }
-        }
+		/// <summary>
+		/// Check this box if you do not want the link in a test directory to link.
+		/// </summary>
+		[DatabaseField]
+		public bool Hide_URL
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("Hide_URL"), false);
+			}
+			set
+			{
+				SetValue("Hide_URL", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Reviewed Date.
-        /// </summary>
-        [DatabaseField]
-        public DateTime ReviewedDate
-        {
-            get
-            {
-                return ValidationHelper.GetDateTime(GetValue("ReviewedDate"), DateTimeHelper.ZERO_TIME);
-            }
-            set
-            {
-                SetValue("ReviewedDate", value);
-            }
-        }
+		/// <summary>
+		/// Reviewed Date.
+		/// </summary>
+		[DatabaseField]
+		public DateTime ReviewedDate
+		{
+			get
+			{
+				return ValidationHelper.GetDateTime(GetValue("ReviewedDate"), DateTimeHelper.ZERO_TIME);
+			}
+			set
+			{
+				SetValue("ReviewedDate", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Reviewed By.
-        /// </summary>
-        [DatabaseField]
-        public string ReviewedBy
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("ReviewedBy"), @"");
-            }
-            set
-            {
-                SetValue("ReviewedBy", value);
-            }
-        }
+		/// <summary>
+		/// Reviewed By.
+		/// </summary>
+		[DatabaseField]
+		public string ReviewedBy
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("ReviewedBy"), @"");
+			}
+			set
+			{
+				SetValue("ReviewedBy", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Reviewer List (new).
-        /// </summary>
-        [DatabaseField]
-        public string ReviewerListGUID
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("ReviewerListGUID"), @"");
-            }
-            set
-            {
-                SetValue("ReviewerListGUID", value);
-            }
-        }
+		/// <summary>
+		/// Drag to select from listed NJH - Physicians.
+		/// </summary>
+		[DatabaseField]
+		public string ReviewerListGUID
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("ReviewerListGUID"), @"");
+			}
+			set
+			{
+				SetValue("ReviewerListGUID", value);
+			}
+		}
 
 
-        /// <summary>
-        /// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
-        /// </summary>
-        [DatabaseField]
-        public string ReviewerListText
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("ReviewerListText"), @"");
-            }
-            set
-            {
-                SetValue("ReviewerListText", value);
-            }
-        }
+		/// <summary>
+		/// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
+		/// </summary>
+		[DatabaseField]
+		public string ReviewerListText
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("ReviewerListText"), @"");
+			}
+			set
+			{
+				SetValue("ReviewerListText", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Open link in new window?.
-        /// </summary>
-        [DatabaseField]
-        public bool ReviewerListTextURLTarget
-        {
-            get
-            {
-                return ValidationHelper.GetBoolean(GetValue("ReviewerListTextURLTarget"), true);
-            }
-            set
-            {
-                SetValue("ReviewerListTextURLTarget", value);
-            }
-        }
+		/// <summary>
+		/// Open link in new window?.
+		/// </summary>
+		[DatabaseField]
+		public bool ReviewerListTextURLTarget
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("ReviewerListTextURLTarget"), true);
+			}
+			set
+			{
+				SetValue("ReviewerListTextURLTarget", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Alternative List URL.
-        /// </summary>
-        [DatabaseField]
-        public string ReviewerListTextURL
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("ReviewerListTextURL"), @"");
-            }
-            set
-            {
-                SetValue("ReviewerListTextURL", value);
-            }
-        }
+		/// <summary>
+		/// Alternative List URL.
+		/// </summary>
+		[DatabaseField]
+		public string ReviewerListTextURL
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("ReviewerListTextURL"), @"");
+			}
+			set
+			{
+				SetValue("ReviewerListTextURL", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Content Contact.
-        /// </summary>
-        [DatabaseField]
-        public string Document_Reviewer
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("Document_Reviewer"), @"");
-            }
-            set
-            {
-                SetValue("Document_Reviewer", value);
-            }
-        }
+		/// <summary>
+		/// Content Contact.
+		/// </summary>
+		[DatabaseField]
+		public string Document_Reviewer
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Document_Reviewer"), @"");
+			}
+			set
+			{
+				SetValue("Document_Reviewer", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Review Comments.
-        /// </summary>
-        [DatabaseField]
-        public string Review_Comments
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("Review_Comments"), @"");
-            }
-            set
-            {
-                SetValue("Review_Comments", value);
-            }
-        }
+		/// <summary>
+		/// Review Comments.
+		/// </summary>
+		[DatabaseField]
+		public string Review_Comments
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Review_Comments"), @"");
+			}
+			set
+			{
+				SetValue("Review_Comments", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Last Review Date.
-        /// </summary>
-        [DatabaseField]
-        public DateTime Last_review_date
-        {
-            get
-            {
-                return ValidationHelper.GetDateTime(GetValue("Last_review_date"), DateTimeHelper.ZERO_TIME);
-            }
-            set
-            {
-                SetValue("Last_review_date", value);
-            }
-        }
+		/// <summary>
+		/// Last Review Date.
+		/// </summary>
+		[DatabaseField]
+		public DateTime Last_review_date
+		{
+			get
+			{
+				return ValidationHelper.GetDateTime(GetValue("Last_review_date"), DateTimeHelper.ZERO_TIME);
+			}
+			set
+			{
+				SetValue("Last_review_date", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Featured this in site search results.
-        /// </summary>
-        [DatabaseField]
-        public bool IsFeaturedInSearchResults
-        {
-            get
-            {
-                return ValidationHelper.GetBoolean(GetValue("IsFeaturedInSearchResults"), false);
-            }
-            set
-            {
-                SetValue("IsFeaturedInSearchResults", value);
-            }
-        }
+		/// <summary>
+		/// Featured this in site search results.
+		/// </summary>
+		[DatabaseField]
+		public bool IsFeaturedInSearchResults
+		{
+			get
+			{
+				return ValidationHelper.GetBoolean(GetValue("IsFeaturedInSearchResults"), false);
+			}
+			set
+			{
+				SetValue("IsFeaturedInSearchResults", value);
+			}
+		}
 
 
-        /// <summary>
-        /// Gets an object that provides extended API for working with PageType_Page fields.
-        /// </summary>
-        [RegisterProperty]
-        public PageType_PageFields Fields
-        {
-            get
-            {
-                return mFields;
-            }
-        }
+		/// <summary>
+		/// Gets an object that provides extended API for working with PageType_Page fields.
+		/// </summary>
+		[RegisterProperty]
+		public PageType_PageFields Fields
+		{
+			get
+			{
+				return mFields;
+			}
+		}
 
 
-        /// <summary>
-        /// Provides extended API for working with PageType_Page fields.
-        /// </summary>
-        [RegisterAllProperties]
-        public partial class PageType_PageFields : AbstractHierarchicalObject<PageType_PageFields>
-        {
-            /// <summary>
-            /// The content item of type PageType_Page that is a target of the extended API.
-            /// </summary>
-            private readonly PageType_Page mInstance;
+		/// <summary>
+		/// Provides extended API for working with PageType_Page fields.
+		/// </summary>
+		[RegisterAllProperties]
+		public partial class PageType_PageFields : AbstractHierarchicalObject<PageType_PageFields>
+		{
+			/// <summary>
+			/// The content item of type PageType_Page that is a target of the extended API.
+			/// </summary>
+			private readonly PageType_Page mInstance;
 
 
-            /// <summary>
-            /// Initializes a new instance of the <see cref="PageType_PageFields" /> class with the specified content item of type PageType_Page.
-            /// </summary>
-            /// <param name="instance">The content item of type PageType_Page that is a target of the extended API.</param>
-            public PageType_PageFields(PageType_Page instance)
-            {
-                mInstance = instance;
-            }
+			/// <summary>
+			/// Initializes a new instance of the <see cref="PageType_PageFields" /> class with the specified content item of type PageType_Page.
+			/// </summary>
+			/// <param name="instance">The content item of type PageType_Page that is a target of the extended API.</param>
+			public PageType_PageFields(PageType_Page instance)
+			{
+				mInstance = instance;
+			}
 
 
-            /// <summary>
-            /// PageType_PageID.
-            /// </summary>
-            public int ID
-            {
-                get
-                {
-                    return mInstance.PageType_PageID;
-                }
-                set
-                {
-                    mInstance.PageType_PageID = value;
-                }
-            }
+			/// <summary>
+			/// PageType_PageID.
+			/// </summary>
+			public int ID
+			{
+				get
+				{
+					return mInstance.PageType_PageID;
+				}
+				set
+				{
+					mInstance.PageType_PageID = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Page Name.
-            /// </summary>
-            public string PageName
-            {
-                get
-                {
-                    return mInstance.PageName;
-                }
-                set
-                {
-                    mInstance.PageName = value;
-                }
-            }
+			/// <summary>
+			/// Page Name.
+			/// </summary>
+			public string PageName
+			{
+				get
+				{
+					return mInstance.PageName;
+				}
+				set
+				{
+					mInstance.PageName = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Page Title.
-            /// </summary>
-            public string Title
-            {
-                get
-                {
-                    return mInstance.Title;
-                }
-                set
-                {
-                    mInstance.Title = value;
-                }
-            }
+			/// <summary>
+			/// Page Title.
+			/// </summary>
+			public string Title
+			{
+				get
+				{
+					return mInstance.Title;
+				}
+				set
+				{
+					mInstance.Title = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Categories.
-            /// </summary>
-            public string Categories
-            {
-                get
-                {
-                    return mInstance.Categories1;
-                }
-                set
-                {
-                    mInstance.Categories1 = value;
-                }
-            }
+			/// <summary>
+			/// Categories.
+			/// </summary>
+			public string Categories
+			{
+				get
+				{
+					return mInstance.Categories1;
+				}
+				set
+				{
+					mInstance.Categories1 = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
-            /// </summary>
-            public bool FeaturedOnHomePage
-            {
-                get
-                {
-                    return mInstance.FeaturedOnHomePage;
-                }
-                set
-                {
-                    mInstance.FeaturedOnHomePage = value;
-                }
-            }
+			/// <summary>
+			/// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
+			/// </summary>
+			public bool FeaturedOnHomePage
+			{
+				get
+				{
+					return mInstance.FeaturedOnHomePage;
+				}
+				set
+				{
+					mInstance.FeaturedOnHomePage = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Page Blurb.
-            /// </summary>
-            public string PageBlurb
-            {
-                get
-                {
-                    return mInstance.PageBlurb;
-                }
-                set
-                {
-                    mInstance.PageBlurb = value;
-                }
-            }
+			/// <summary>
+			/// Page Blurb.
+			/// </summary>
+			public string PageBlurb
+			{
+				get
+				{
+					return mInstance.PageBlurb;
+				}
+				set
+				{
+					mInstance.PageBlurb = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Page Content.
-            /// </summary>
-            public string PageContent
-            {
-                get
-                {
-                    return mInstance.PageContent;
-                }
-                set
-                {
-                    mInstance.PageContent = value;
-                }
-            }
+			/// <summary>
+			/// Page Content.
+			/// </summary>
+			public string PageContent
+			{
+				get
+				{
+					return mInstance.PageContent;
+				}
+				set
+				{
+					mInstance.PageContent = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Page Image (888x507).
-            /// </summary>
-            public string PageImage
-            {
-                get
-                {
-                    return mInstance.PageImage;
-                }
-                set
-                {
-                    mInstance.PageImage = value;
-                }
-            }
+			/// <summary>
+			/// Page Image (888x507).
+			/// </summary>
+			public string PageImage
+			{
+				get
+				{
+					return mInstance.PageImage;
+				}
+				set
+				{
+					mInstance.PageImage = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Page Image Alt Text.
-            /// </summary>
-            public string PageImageAltText
-            {
-                get
-                {
-                    return mInstance.PageImageAltText;
-                }
-                set
-                {
-                    mInstance.PageImageAltText = value;
-                }
-            }
+			/// <summary>
+			/// Page Image Alt Text.
+			/// </summary>
+			public string PageImageAltText
+			{
+				get
+				{
+					return mInstance.PageImageAltText;
+				}
+				set
+				{
+					mInstance.PageImageAltText = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Short Description/Summary.
-            /// </summary>
-            public string Summary
-            {
-                get
-                {
-                    return mInstance.Summary;
-                }
-                set
-                {
-                    mInstance.Summary = value;
-                }
-            }
+			/// <summary>
+			/// Short Description/Summary.
+			/// </summary>
+			public string Summary
+			{
+				get
+				{
+					return mInstance.Summary;
+				}
+				set
+				{
+					mInstance.Summary = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Call To Action (CTA) Title.
-            /// </summary>
+			/// <summary>
+			/// Call To Action (CTA) Title.
+			/// </summary>
 			public string CtaTitle
-            {
-                get
-                {
+			{
+				get
+				{
 					return mInstance.CtaTitle;
-                }
-                set
-                {
+				}
+				set
+				{
 					mInstance.CtaTitle = value;
-                }
-            }
+				}
+			}
 
 
-            /// <summary>
-            /// CTA Link URL.
-            /// </summary>
+			/// <summary>
+			/// CTA Link URL.
+			/// </summary>
 			public string CtaUrl
-            {
-                get
-                {
+			{
+				get
+				{
 					return mInstance.CtaUrl;
-                }
-                set
-                {
+				}
+				set
+				{
 					mInstance.CtaUrl = value;
-                }
-            }
+				}
+			}
 
 
-            /// <summary>
-            /// CTA no.2 Title.
-            /// </summary>
+			/// <summary>
+			/// CTA no.2 Title.
+			/// </summary>
 			public string Cta2Title
-            {
-                get
-                {
+			{
+				get
+				{
 					return mInstance.Cta2Title;
-                }
-                set
-                {
+				}
+				set
+				{
 					mInstance.Cta2Title = value;
-                }
-            }
+				}
+			}
 
 
-            /// <summary>
-            /// CTA no.2 URL.
-            /// </summary>
+			/// <summary>
+			/// CTA no.2 URL.
+			/// </summary>
 			public string Cta2Url
-            {
-                get
-                {
+			{
+				get
+				{
 					return mInstance.Cta2Url;
-                }
-                set
-                {
+				}
+				set
+				{
 					mInstance.Cta2Url = value;
-                }
-            }
+				}
+			}
 
 
-            /// <summary>
-            /// CTA no.3 Title.
-            /// </summary>
+			/// <summary>
+			/// CTA no.3 Title.
+			/// </summary>
 			public string Cta3Title
-            {
-                get
-                {
+			{
+				get
+				{
 					return mInstance.Cta3Title;
-                }
-                set
-                {
+				}
+				set
+				{
 					mInstance.Cta3Title = value;
-                }
-            }
+				}
+			}
 
 
-            /// <summary>
-            /// CTA no.3 URL.
-            /// </summary>
+			/// <summary>
+			/// CTA no.3 URL.
+			/// </summary>
 			public string Cta3Url
-            {
-                get
-                {
+			{
+				get
+				{
 					return mInstance.Cta3Url;
-                }
-                set
-                {
+				}
+				set
+				{
 					mInstance.Cta3Url = value;
-                }
-            }
+				}
+			}
 
 
-            /// <summary>
-            /// Check this box if you do not want the link in a test directory to link.
-            /// </summary>
-            public bool Hide_URL
-            {
-                get
-                {
-                    return mInstance.Hide_URL;
-                }
-                set
-                {
-                    mInstance.Hide_URL = value;
-                }
-            }
+			/// <summary>
+			/// Check this box if you do not want the link in a test directory to link.
+			/// </summary>
+			public bool Hide_URL
+			{
+				get
+				{
+					return mInstance.Hide_URL;
+				}
+				set
+				{
+					mInstance.Hide_URL = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Reviewed Date.
-            /// </summary>
-            public DateTime ReviewedDate
-            {
-                get
-                {
-                    return mInstance.ReviewedDate;
-                }
-                set
-                {
-                    mInstance.ReviewedDate = value;
-                }
-            }
+			/// <summary>
+			/// Reviewed Date.
+			/// </summary>
+			public DateTime ReviewedDate
+			{
+				get
+				{
+					return mInstance.ReviewedDate;
+				}
+				set
+				{
+					mInstance.ReviewedDate = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Reviewed By.
-            /// </summary>
-            public string ReviewedBy
-            {
-                get
-                {
-                    return mInstance.ReviewedBy;
-                }
-                set
-                {
-                    mInstance.ReviewedBy = value;
-                }
-            }
+			/// <summary>
+			/// Reviewed By.
+			/// </summary>
+			public string ReviewedBy
+			{
+				get
+				{
+					return mInstance.ReviewedBy;
+				}
+				set
+				{
+					mInstance.ReviewedBy = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Reviewer List (new).
-            /// </summary>
-            public string ReviewerListGUID
-            {
-                get
-                {
-                    return mInstance.ReviewerListGUID;
-                }
-                set
-                {
-                    mInstance.ReviewerListGUID = value;
-                }
-            }
+			/// <summary>
+			/// Drag to select from listed NJH - Physicians.
+			/// </summary>
+			public string ReviewerListGUID
+			{
+				get
+				{
+					return mInstance.ReviewerListGUID;
+				}
+				set
+				{
+					mInstance.ReviewerListGUID = value;
+				}
+			}
 
 
-            /// <summary>
-            /// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
-            /// </summary>
-            public string ReviewerListText
-            {
-                get
-                {
-                    return mInstance.ReviewerListText;
-                }
-                set
-                {
-                    mInstance.ReviewerListText = value;
-                }
-            }
+			/// <summary>
+			/// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
+			/// </summary>
+			public string ReviewerListText
+			{
+				get
+				{
+					return mInstance.ReviewerListText;
+				}
+				set
+				{
+					mInstance.ReviewerListText = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Open link in new window?.
-            /// </summary>
-            public bool ReviewerListTextURLTarget
-            {
-                get
-                {
-                    return mInstance.ReviewerListTextURLTarget;
-                }
-                set
-                {
-                    mInstance.ReviewerListTextURLTarget = value;
-                }
-            }
+			/// <summary>
+			/// Open link in new window?.
+			/// </summary>
+			public bool ReviewerListTextURLTarget
+			{
+				get
+				{
+					return mInstance.ReviewerListTextURLTarget;
+				}
+				set
+				{
+					mInstance.ReviewerListTextURLTarget = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Alternative List URL.
-            /// </summary>
-            public string ReviewerListTextURL
-            {
-                get
-                {
-                    return mInstance.ReviewerListTextURL;
-                }
-                set
-                {
-                    mInstance.ReviewerListTextURL = value;
-                }
-            }
+			/// <summary>
+			/// Alternative List URL.
+			/// </summary>
+			public string ReviewerListTextURL
+			{
+				get
+				{
+					return mInstance.ReviewerListTextURL;
+				}
+				set
+				{
+					mInstance.ReviewerListTextURL = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Content Contact.
-            /// </summary>
-            public string Document_Reviewer
-            {
-                get
-                {
-                    return mInstance.Document_Reviewer;
-                }
-                set
-                {
-                    mInstance.Document_Reviewer = value;
-                }
-            }
+			/// <summary>
+			/// Content Contact.
+			/// </summary>
+			public string Document_Reviewer
+			{
+				get
+				{
+					return mInstance.Document_Reviewer;
+				}
+				set
+				{
+					mInstance.Document_Reviewer = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Review Comments.
-            /// </summary>
-            public string Review_Comments
-            {
-                get
-                {
-                    return mInstance.Review_Comments;
-                }
-                set
-                {
-                    mInstance.Review_Comments = value;
-                }
-            }
+			/// <summary>
+			/// Review Comments.
+			/// </summary>
+			public string Review_Comments
+			{
+				get
+				{
+					return mInstance.Review_Comments;
+				}
+				set
+				{
+					mInstance.Review_Comments = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Last Review Date.
-            /// </summary>
-            public DateTime Last_review_date
-            {
-                get
-                {
-                    return mInstance.Last_review_date;
-                }
-                set
-                {
-                    mInstance.Last_review_date = value;
-                }
-            }
+			/// <summary>
+			/// Last Review Date.
+			/// </summary>
+			public DateTime Last_review_date
+			{
+				get
+				{
+					return mInstance.Last_review_date;
+				}
+				set
+				{
+					mInstance.Last_review_date = value;
+				}
+			}
 
 
-            /// <summary>
-            /// Featured this in site search results.
-            /// </summary>
-            public bool IsFeaturedInSearchResults
-            {
-                get
-                {
-                    return mInstance.IsFeaturedInSearchResults;
-                }
-                set
-                {
-                    mInstance.IsFeaturedInSearchResults = value;
-                }
-            }
-        }
+			/// <summary>
+			/// Featured this in site search results.
+			/// </summary>
+			public bool IsFeaturedInSearchResults
+			{
+				get
+				{
+					return mInstance.IsFeaturedInSearchResults;
+				}
+				set
+				{
+					mInstance.IsFeaturedInSearchResults = value;
+				}
+			}
+		}
 
-        #endregion
+		#endregion
 
 
-        #region "Constructors"
+		#region "Constructors"
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PageType_Page" /> class.
-        /// </summary>
-        public PageType_Page() : base(CLASS_NAME)
-        {
-            mFields = new PageType_PageFields(this);
-        }
+		/// <summary>
+		/// Initializes a new instance of the <see cref="PageType_Page" /> class.
+		/// </summary>
+		public PageType_Page() : base(CLASS_NAME)
+		{
+			mFields = new PageType_PageFields(this);
+		}
 
-        #endregion
-    }
+		#endregion
+	}
 }

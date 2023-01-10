@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Njh.Kernel.Services
 {
-    internal interface IReviewerService
+    public interface IReviewerService
     {
-        IEnumerable<Reviewer> GetReviewersByNodeGuid(Guid nodeGuid);
+        Reviewers GetReviewersByNodeGuid(Guid nodeGuid);
     }
 }

@@ -1,0 +1,26 @@
+﻿@using Njh.Kernel.Models.Dto;
+
+@model Reviewers
+
+      @if (Model != null && Model.ReviewersList != null && Model.ReviewersList.Any())
+            {
+                <p class="reviewer-note container">
+                    <em>
+                    This information was reviewed and approved by
+                    @foreach (var reviewer in Model.ReviewersList)
+                    {
+                        var tempReviewer =string.Format("{0}, {1}", @reviewer.Name,  String.Join(", ", @reviewer.Titles));
+                      if(!Model.HideUrl && !string.IsNullOrWhiteSpace(reviewer.Url))
+                      {
+                          <a href="@reviewer.Url"> @tempReviewer</a>
+                      }
+                      else
+                      {
+                        @tempReviewer
+                      }
+                    }
+                     @(Model.ReviewDate > DateTime.MinValue?$"({@Model.ReviewDate.ToShortDateString()}).":"")
+                     
+                    </em>
+                </p>
+            }

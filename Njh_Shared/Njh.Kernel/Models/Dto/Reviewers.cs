@@ -13,6 +13,6 @@ namespace Njh.Kernel.Models.Dto
     {
         public bool HideUrl { get; set; } = false;
         public DateTime ReviewDate { get; set; } = DateTime.MinValue;
-        public IEnumerable<Reviewer> ReviewersList { get; set; } = Enumerable.Empty<Reviewer>();
+        public List<Reviewer> ReviewersList { get; set; } = new List<Reviewer>();
     }
 }

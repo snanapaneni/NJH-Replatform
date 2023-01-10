@@ -5,6 +5,8 @@
     using Njh.Kernel.Services;
     using CMS.DataEngine;
     using CMS.DocumentEngine;
+    using CMS.MacroEngine;
+    using ReasonOne.Extensions;
 
     /// <summary>
     /// Implements extension methods for the

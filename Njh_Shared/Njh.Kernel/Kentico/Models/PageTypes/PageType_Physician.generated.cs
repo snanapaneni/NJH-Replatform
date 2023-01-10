@@ -232,6 +232,23 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
 		/// <summary>
+		/// Professional Titles.
+		/// </summary>
+		[DatabaseField]
+		public string ProfessionalTitles
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("ProfessionalTitles"), @"");
+			}
+			set
+			{
+				SetValue("ProfessionalTitles", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Page Blurb.
 		/// </summary>
 		[DatabaseField]
@@ -625,6 +642,22 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 				set
 				{
 					mInstance.Email = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Professional Titles.
+			/// </summary>
+			public string ProfessionalTitles
+			{
+				get
+				{
+					return mInstance.ProfessionalTitles;
+				}
+				set
+				{
+					mInstance.ProfessionalTitles = value;
 				}
 			}
 
