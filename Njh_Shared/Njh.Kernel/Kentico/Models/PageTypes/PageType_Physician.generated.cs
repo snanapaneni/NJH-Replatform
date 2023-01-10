@@ -16,31 +16,29 @@ using CMS.Base;
 using CMS.Helpers;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
-using Njh.Kernel.Kentico.Models.PageTypes
-;
+using Njh.Kernel.Kentico.Models.PageTypes;
 
-[assembly: RegisterDocumentType(PageType_Page.CLASS_NAME, typeof(PageType_Page))]
+[assembly: RegisterDocumentType(PageType_Physician.CLASS_NAME, typeof(PageType_Physician))]
 
 namespace Njh.Kernel.Kentico.Models.PageTypes
-
 {
 	/// <summary>
-	/// Represents a content item of type PageType_Page.
+	/// Represents a content item of type PageType_Physician.
 	/// </summary>
-	public partial class PageType_Page : TreeNode
+	public partial class PageType_Physician : TreeNode
 	{
 		#region "Constants and variables"
 
 		/// <summary>
 		/// The name of the data class.
 		/// </summary>
-		public const string CLASS_NAME = "NJH.PageType_Page";
+		public const string CLASS_NAME = "NJH.PageType_Physician";
 
 
 		/// <summary>
-		/// The instance of the class that provides extended API for working with PageType_Page fields.
+		/// The instance of the class that provides extended API for working with PageType_Physician fields.
 		/// </summary>
-		private readonly PageType_PageFields mFields;
+		private readonly PageType_PhysicianFields mFields;
 
 		#endregion
 
@@ -48,18 +46,18 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 		#region "Properties"
 
 		/// <summary>
-		/// PageType_PageID.
+		/// PageType_PhysicianID.
 		/// </summary>
 		[DatabaseIDField]
-		public int PageType_PageID
+		public int PageType_PhysicianID
 		{
 			get
 			{
-				return ValidationHelper.GetInteger(GetValue("PageType_PageID"), 0);
+				return ValidationHelper.GetInteger(GetValue("PageType_PhysicianID"), 0);
 			}
 			set
 			{
-				SetValue("PageType_PageID", value);
+				SetValue("PageType_PhysicianID", value);
 			}
 		}
 
@@ -132,6 +130,125 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
 		/// <summary>
+		/// Display Name.
+		/// </summary>
+		[DatabaseField]
+		public string PhysicianDisplayName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("PhysicianDisplayName"), @"");
+			}
+			set
+			{
+				SetValue("PhysicianDisplayName", value);
+			}
+		}
+
+
+		/// <summary>
+		/// First Name.
+		/// </summary>
+		[DatabaseField]
+		public string FirstName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("FirstName"), @"");
+			}
+			set
+			{
+				SetValue("FirstName", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Middle Name.
+		/// </summary>
+		[DatabaseField]
+		public string MiddleName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("MiddleName"), @"");
+			}
+			set
+			{
+				SetValue("MiddleName", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Last Name.
+		/// </summary>
+		[DatabaseField]
+		public string LastName
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("LastName"), @"");
+			}
+			set
+			{
+				SetValue("LastName", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Suffix.
+		/// </summary>
+		[DatabaseField]
+		public string Suffix
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Suffix"), @"");
+			}
+			set
+			{
+				SetValue("Suffix", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Email.
+		/// </summary>
+		[DatabaseField]
+		public string Email
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("Email"), @"");
+			}
+			set
+			{
+				SetValue("Email", value);
+			}
+		}
+
+
+		/// <summary>
+		/// Professional Titles.
+		/// </summary>
+		[DatabaseField]
+		public string ProfessionalTitles
+		{
+			get
+			{
+				return ValidationHelper.GetString(GetValue("ProfessionalTitles"), @"");
+			}
+			set
+			{
+				SetValue("ProfessionalTitles", value);
+			}
+		}
+
+
+		/// <summary>
 		/// Page Blurb.
 		/// </summary>
 		[DatabaseField]
@@ -144,23 +261,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 			set
 			{
 				SetValue("PageBlurb", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Page Content.
-		/// </summary>
-		[DatabaseField]
-		public string PageContent
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("PageContent"), @"");
-			}
-			set
-			{
-				SetValue("PageContent", value);
 			}
 		}
 
@@ -217,108 +317,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
 		/// <summary>
-		/// Call To Action (CTA) Title.
-		/// </summary>
-		[DatabaseField]
-		public string CtaTitle
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("CtaTitle"), @"");
-			}
-			set
-			{
-				SetValue("CtaTitle", value);
-			}
-		}
-
-
-		/// <summary>
-		/// CTA Link URL.
-		/// </summary>
-		[DatabaseField]
-		public string CtaUrl
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("CtaUrl"), @"");
-			}
-			set
-			{
-				SetValue("CtaUrl", value);
-			}
-		}
-
-
-		/// <summary>
-		/// CTA no.2 Title.
-		/// </summary>
-		[DatabaseField]
-		public string Cta2Title
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Cta2Title"), @"");
-			}
-			set
-			{
-				SetValue("Cta2Title", value);
-			}
-		}
-
-
-		/// <summary>
-		/// CTA no.2 URL.
-		/// </summary>
-		[DatabaseField]
-		public string Cta2Url
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Cta2Url"), @"");
-			}
-			set
-			{
-				SetValue("Cta2Url", value);
-			}
-		}
-
-
-		/// <summary>
-		/// CTA no.3 Title.
-		/// </summary>
-		[DatabaseField]
-		public string Cta3Title
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Cta3Title"), @"");
-			}
-			set
-			{
-				SetValue("Cta3Title", value);
-			}
-		}
-
-
-		/// <summary>
-		/// CTA no.3 URL.
-		/// </summary>
-		[DatabaseField]
-		public string Cta3Url
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Cta3Url"), @"");
-			}
-			set
-			{
-				SetValue("Cta3Url", value);
-			}
-		}
-
-
-		/// <summary>
 		/// Check this box if you do not want the link in a test directory to link.
 		/// </summary>
 		[DatabaseField]
@@ -365,74 +363,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 			set
 			{
 				SetValue("ReviewedBy", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Drag to select from listed NJH - Physicians.
-		/// </summary>
-		[DatabaseField]
-		public string ReviewerListGUID
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("ReviewerListGUID"), @"");
-			}
-			set
-			{
-				SetValue("ReviewerListGUID", value);
-			}
-		}
-
-
-		/// <summary>
-		/// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
-		/// </summary>
-		[DatabaseField]
-		public string ReviewerListText
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("ReviewerListText"), @"");
-			}
-			set
-			{
-				SetValue("ReviewerListText", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Open link in new window?.
-		/// </summary>
-		[DatabaseField]
-		public bool ReviewerListTextURLTarget
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("ReviewerListTextURLTarget"), true);
-			}
-			set
-			{
-				SetValue("ReviewerListTextURLTarget", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Alternative List URL.
-		/// </summary>
-		[DatabaseField]
-		public string ReviewerListTextURL
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("ReviewerListTextURL"), @"");
-			}
-			set
-			{
-				SetValue("ReviewerListTextURL", value);
 			}
 		}
 
@@ -506,10 +436,10 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
 		/// <summary>
-		/// Gets an object that provides extended API for working with PageType_Page fields.
+		/// Gets an object that provides extended API for working with PageType_Physician fields.
 		/// </summary>
 		[RegisterProperty]
-		public PageType_PageFields Fields
+		public PageType_PhysicianFields Fields
 		{
 			get
 			{
@@ -519,39 +449,39 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
 		/// <summary>
-		/// Provides extended API for working with PageType_Page fields.
+		/// Provides extended API for working with PageType_Physician fields.
 		/// </summary>
 		[RegisterAllProperties]
-		public partial class PageType_PageFields : AbstractHierarchicalObject<PageType_PageFields>
+		public partial class PageType_PhysicianFields : AbstractHierarchicalObject<PageType_PhysicianFields>
 		{
 			/// <summary>
-			/// The content item of type PageType_Page that is a target of the extended API.
+			/// The content item of type PageType_Physician that is a target of the extended API.
 			/// </summary>
-			private readonly PageType_Page mInstance;
+			private readonly PageType_Physician mInstance;
 
 
 			/// <summary>
-			/// Initializes a new instance of the <see cref="PageType_PageFields" /> class with the specified content item of type PageType_Page.
+			/// Initializes a new instance of the <see cref="PageType_PhysicianFields" /> class with the specified content item of type PageType_Physician.
 			/// </summary>
-			/// <param name="instance">The content item of type PageType_Page that is a target of the extended API.</param>
-			public PageType_PageFields(PageType_Page instance)
+			/// <param name="instance">The content item of type PageType_Physician that is a target of the extended API.</param>
+			public PageType_PhysicianFields(PageType_Physician instance)
 			{
 				mInstance = instance;
 			}
 
 
 			/// <summary>
-			/// PageType_PageID.
+			/// PageType_PhysicianID.
 			/// </summary>
 			public int ID
 			{
 				get
 				{
-					return mInstance.PageType_PageID;
+					return mInstance.PageType_PhysicianID;
 				}
 				set
 				{
-					mInstance.PageType_PageID = value;
+					mInstance.PageType_PhysicianID = value;
 				}
 			}
 
@@ -621,6 +551,118 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
 			/// <summary>
+			/// Display Name.
+			/// </summary>
+			public string PhysicianDisplayName
+			{
+				get
+				{
+					return mInstance.PhysicianDisplayName;
+				}
+				set
+				{
+					mInstance.PhysicianDisplayName = value;
+				}
+			}
+
+
+			/// <summary>
+			/// First Name.
+			/// </summary>
+			public string FirstName
+			{
+				get
+				{
+					return mInstance.FirstName;
+				}
+				set
+				{
+					mInstance.FirstName = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Middle Name.
+			/// </summary>
+			public string MiddleName
+			{
+				get
+				{
+					return mInstance.MiddleName;
+				}
+				set
+				{
+					mInstance.MiddleName = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Last Name.
+			/// </summary>
+			public string LastName
+			{
+				get
+				{
+					return mInstance.LastName;
+				}
+				set
+				{
+					mInstance.LastName = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Suffix.
+			/// </summary>
+			public string Suffix
+			{
+				get
+				{
+					return mInstance.Suffix;
+				}
+				set
+				{
+					mInstance.Suffix = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Email.
+			/// </summary>
+			public string Email
+			{
+				get
+				{
+					return mInstance.Email;
+				}
+				set
+				{
+					mInstance.Email = value;
+				}
+			}
+
+
+			/// <summary>
+			/// Professional Titles.
+			/// </summary>
+			public string ProfessionalTitles
+			{
+				get
+				{
+					return mInstance.ProfessionalTitles;
+				}
+				set
+				{
+					mInstance.ProfessionalTitles = value;
+				}
+			}
+
+
+			/// <summary>
 			/// Page Blurb.
 			/// </summary>
 			public string PageBlurb
@@ -632,22 +674,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 				set
 				{
 					mInstance.PageBlurb = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Page Content.
-			/// </summary>
-			public string PageContent
-			{
-				get
-				{
-					return mInstance.PageContent;
-				}
-				set
-				{
-					mInstance.PageContent = value;
 				}
 			}
 
@@ -701,102 +727,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
 			/// <summary>
-			/// Call To Action (CTA) Title.
-			/// </summary>
-			public string CtaTitle
-			{
-				get
-				{
-					return mInstance.CtaTitle;
-				}
-				set
-				{
-					mInstance.CtaTitle = value;
-				}
-			}
-
-
-			/// <summary>
-			/// CTA Link URL.
-			/// </summary>
-			public string CtaUrl
-			{
-				get
-				{
-					return mInstance.CtaUrl;
-				}
-				set
-				{
-					mInstance.CtaUrl = value;
-				}
-			}
-
-
-			/// <summary>
-			/// CTA no.2 Title.
-			/// </summary>
-			public string Cta2Title
-			{
-				get
-				{
-					return mInstance.Cta2Title;
-				}
-				set
-				{
-					mInstance.Cta2Title = value;
-				}
-			}
-
-
-			/// <summary>
-			/// CTA no.2 URL.
-			/// </summary>
-			public string Cta2Url
-			{
-				get
-				{
-					return mInstance.Cta2Url;
-				}
-				set
-				{
-					mInstance.Cta2Url = value;
-				}
-			}
-
-
-			/// <summary>
-			/// CTA no.3 Title.
-			/// </summary>
-			public string Cta3Title
-			{
-				get
-				{
-					return mInstance.Cta3Title;
-				}
-				set
-				{
-					mInstance.Cta3Title = value;
-				}
-			}
-
-
-			/// <summary>
-			/// CTA no.3 URL.
-			/// </summary>
-			public string Cta3Url
-			{
-				get
-				{
-					return mInstance.Cta3Url;
-				}
-				set
-				{
-					mInstance.Cta3Url = value;
-				}
-			}
-
-
-			/// <summary>
 			/// Check this box if you do not want the link in a test directory to link.
 			/// </summary>
 			public bool Hide_URL
@@ -840,70 +770,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 				set
 				{
 					mInstance.ReviewedBy = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Drag to select from listed NJH - Physicians.
-			/// </summary>
-			public string ReviewerListGUID
-			{
-				get
-				{
-					return mInstance.ReviewerListGUID;
-				}
-				set
-				{
-					mInstance.ReviewerListGUID = value;
-				}
-			}
-
-
-			/// <summary>
-			/// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
-			/// </summary>
-			public string ReviewerListText
-			{
-				get
-				{
-					return mInstance.ReviewerListText;
-				}
-				set
-				{
-					mInstance.ReviewerListText = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Open link in new window?.
-			/// </summary>
-			public bool ReviewerListTextURLTarget
-			{
-				get
-				{
-					return mInstance.ReviewerListTextURLTarget;
-				}
-				set
-				{
-					mInstance.ReviewerListTextURLTarget = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Alternative List URL.
-			/// </summary>
-			public string ReviewerListTextURL
-			{
-				get
-				{
-					return mInstance.ReviewerListTextURL;
-				}
-				set
-				{
-					mInstance.ReviewerListTextURL = value;
 				}
 			}
 
@@ -978,11 +844,11 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 		#region "Constructors"
 
 		/// <summary>
-		/// Initializes a new instance of the <see cref="PageType_Page" /> class.
+		/// Initializes a new instance of the <see cref="PageType_Physician" /> class.
 		/// </summary>
-		public PageType_Page() : base(CLASS_NAME)
+		public PageType_Physician() : base(CLASS_NAME)
 		{
-			mFields = new PageType_PageFields(this);
+			mFields = new PageType_PhysicianFields(this);
 		}
 
 		#endregion

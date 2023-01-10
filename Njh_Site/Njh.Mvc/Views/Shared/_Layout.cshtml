@@ -42,15 +42,14 @@
 </a>
     <vc:header></vc:header>
     
-    <main class="app-main" id="main">
-        @* TEST add the left nav here to see what happens *@
-        <vc:left-nav></vc:left-nav>
-        @* TODO article container wrapper here, or generate with body depending on page type / template?
-        <article class="container" style="min-height: 100vh">(content goes here)</article>
-        *@
-        @RenderBody()
-    </main>
+    <p>master layout: Left nav begin</p>
+    <vc:left-nav></vc:left-nav>
+    <vc:utility-nav></vc:utility-nav>
+    <p>master layout: Left nav end</p>
 
+        
+        @RenderBody()
+   
     <footer class="app-footer">
         @* TODO replace below with Footer component *@
         <div class="container">

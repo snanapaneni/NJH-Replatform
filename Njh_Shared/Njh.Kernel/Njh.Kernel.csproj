@@ -25,7 +25,8 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="ReasonOne" Version="0.1.9" />
+		<PackageReference Include="ReasonOne" Version="0.1.11" />
+		<PackageReference Include="ReasonOne.KenticoXperience" Version="0.1.14" />
 	</ItemGroup>
 	<ItemGroup>
 		<AdditionalFiles Include="stylecop.json">

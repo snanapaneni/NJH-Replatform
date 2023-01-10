@@ -37,7 +37,6 @@ bld/
 # Uncomment if you have tasks that create the project's static files in wwwroot
 !**/wwwroot
 **/wwwroot/build
-**/wwwroot/dist
 **/wwwroot/images
 
 FED Build Static System
@@ -400,8 +399,9 @@ node_modules
 #VSCODE
 **.vscode/
 
-# Ignore files that MacOSX might add when viewing files. 
-.DS_Store 
+# Ignore files that MacOSX might add when viewing files.
+**/*.DS_Store
+*.DS_Store 
 .*.code-workspace
 [Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.html
 [Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/src/**/.*.js
@@ -418,9 +418,11 @@ node_modules
 
 #Media
 [Nn][Jj][Hh]_Admin/CMS/[Nn][Jj][Hh]/media/*
+
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/wwwroot/dist/
 [Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/wwwroot/azure/
-[Nn][Jj][Hh]_Site/[Nn][Jj][Hh]/[Nn][Jj][Hh]/media/*
-[Nn][Jj][Hh]_Site/[Nn][Jj][Hh]/[Nn][Jj][Hh]/files/*
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/[Nn][Jj][Hh]/media/*
+[Nn][Jj][Hh]_Site/[Nn][Jj][Hh].[Mm][Vv][Cc]/[Nn][Jj][Hh]/files/*
 /Njh_Admin/CMS/DancingGoatCore/media
 /Njh_Admin/CMS/DancingGoatMvc/media
 
@@ -430,4 +432,5 @@ node_modules
 # Misc dot files
 .DS_Store
 ._.DS_Store
+
 

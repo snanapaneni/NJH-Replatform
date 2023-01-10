@@ -1,14 +1,15 @@
-﻿using ReasonOne.AspNetCore.Mvc.ViewComponents;
+﻿using Njh.Kernel.Extensions;
+using Njh.Mvc.Models;
 
 namespace Njh.Mvc.ViewComponents.Navigation
 {
     using System;
     using Njh.Kernel.Services;
+    using CMS.DocumentEngine;
+    using Kentico.Content.Web.Mvc;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using ReasonOne.AspNetCore.Mvc.ViewComponents;
-    using Kentico.Content.Web.Mvc;
-    using CMS.DocumentEngine;
 
     /// <summary>
     /// Implements a Left Nav view component.
@@ -48,7 +49,8 @@ namespace Njh.Mvc.ViewComponents.Navigation
         /// <returns>The view component result.</returns>
         public IViewComponentResult Invoke(string currentDocPath)
         {
-            return this.TryInvoke(vc => {
+            return this.TryInvoke(vc => 
+            {
                 var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
 
                 // TODO is an empty list the right thing if currentPage and its parent aren't good?
