@@ -32,11 +32,13 @@ namespace Njh.Mvc.ViewComponents.Navigation
             ILogger<LeftNavViewComponent> logger, 
             IViewComponentErrorVisibility viewComponentErrorVisibility,
             INavigationService navigationService, 
-            IPageDataContextRetriever dataRetriever) 
+            IPageDataContextRetriever dataRetriever)
             : base(logger, viewComponentErrorVisibility)
         {
             this.navigationService = navigationService ??
                                      throw new ArgumentNullException(nameof(navigationService));
+            this.dataRetriever = dataRetriever ??
+                throw new ArgumentNullException(nameof(dataRetriever));
         }
 
         /// <summary>
@@ -48,21 +50,22 @@ namespace Njh.Mvc.ViewComponents.Navigation
         {
             return this.TryInvoke(vc => {
                 var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
-                IEnumerable<Kernel.Models.DTOs.NavItem> navItems;
+
+                // TODO is an empty list the right thing if currentPage and its parent aren't good?
+                IEnumerable<Kernel.Models.DTOs.NavItem> navItems = new List<Kernel.Models.DTOs.NavItem>();
 
                 // TODO what to do if current page is not found? what happens when viewing in CMS Admin?
                 if (currentPage != null)
                 {
-                    // TODO is this the correct method, or does it get a whole subtree instead of just what we need?
-                    // TODO do we need to check page types etc. here? in NavigationService?
-                    navItems = vc.navigationService.GetSectionNavigation(currentPage);
+                    var parentPage = currentPage.Parent;
+                    var navPath = parentPage.ClassName != "CMS.Folder"
+                    ? parentPage.NodeAliasPath
+                    : currentPage.NodeAliasPath;
+
+                    // TODO is this the correct method to get what we need?
+                    navItems = vc.navigationService.GetAllItemsInPath(navPath);
 
                     vc.navigationService.SetActiveItem(currentPage, navItems);
-                }
-                else
-                {
-                    // TODO is setting an empty list the right thing to do?
-                    navItems = new List<Kernel.Models.DTOs.NavItem>();
                 }
 
                 return vc.View("~/Views/Shared/Navigation/_LeftNav.cshtml", navItems);
