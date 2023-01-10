@@ -55,4 +55,12 @@ exports.templates = [
       h1: "Widget Zone Examples",
     },
   },
+
+  {
+    templateFilename: "search",
+    header: "app-header",
+    footer: "app-footer",
+    main_insert: "article",
+    main_components: [],
+  },
 ];

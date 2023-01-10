@@ -24,6 +24,12 @@
       }
     }
   }
+
+  &.has-search-open {
+    @include media-breakpoint-up(md) {
+      background-color: var(--blue--100);
+    }
+  }
 }
 
 // Using grid so that tab focus order selects the logo/home link first, than the utility nav.
@@ -359,7 +365,7 @@ button.btn.app-header__circle-button {
     display: none;
     position: absolute;
     width: var(--want-to-width);
-    max-height: 150px;
+    max-height: 300px;
     overflow-y: auto;
     border: 1px solid var(--neutral--300);
     border-top: none;
@@ -417,6 +423,22 @@ button.btn.app-header__circle-button {
     }
     &:focus {
       @include global-focus-ring;
+    }
+  }
+
+  &-input-wrapper {
+    position: relative;
+  }
+
+  &-feedback {
+    position: absolute;
+    top: 100%;
+  }
+
+  &-form {
+    margin-bottom: 2rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 0;
     }
   }
 }

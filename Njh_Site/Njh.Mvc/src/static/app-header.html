@@ -61,11 +61,14 @@
           </li>
 
           <li class="app-header__quick-nav-search">
+            <!-- @Lars this button changed in NJHK13-284 -->
             <button
               class="app-header__circle-button btn"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#appHeader__search">
+              aria-expanded="false"
+              aria-label="Search this website"
+              aria-controls="appHeader__search"
+              data-bs-target="#appHeader__search"
+              data-bs-toggle="collapse">
               <svg
                 class="app-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -350,10 +353,10 @@
       <!-- NAV TOGGLE -->
       <button
         class="app-header__small-screen-nav-panel-trigger btn app-header__circle-button"
-        data-hook="appHeader__smallScreenNavPanelTrigger"
         aria-controls="appHeader__smallScreenNavPanelDrawer"
         aria-expanded="false"
-        aria-label="Toggle Navigation">
+        aria-label="Toggle Navigation"
+        data-hook="appHeader__smallScreenNavPanelTrigger">
         <svg
           class="app-icon"
           data-hook="appHeader__smallScreenNavPanelTriggerOpen"
@@ -384,8 +387,8 @@
         <a
           href="tel:+18772255654"
           class="app-header__phone-number btn app-header__circle-button"
-          data-hook="appHeader__smallScreenNavPanelPhoneNumber"
-          aria-label="877-CALL NJH">
+          aria-label="877-CALL NJH"
+          data-hook="appHeader__smallScreenNavPanelPhoneNumber">
           <svg
             class="app-icon"
             xmlns="http://www.w3.org/2000/svg"
@@ -396,6 +399,7 @@
         </a>
 
         <!-- SEARCH TRIGGER -->
+        <!-- @Lars this button changed in NJHK13-284 -->
         <button
           class="app-header__small-screen-nav-panel-search-button btn app-header__circle-button"
           aria-expanded="false"
@@ -419,13 +423,13 @@
     <div
       id="appHeader__smallScreenNavPanelDrawer"
       class="app-header__small-screen-nav-panel-drawer"
-      data-hook="appHeader__smallScreenNavPanelDrawer"
-      aria-hidden="true">
+      aria-hidden="true"
+      data-hook="appHeader__smallScreenNavPanelDrawer">
       <!-- Quick Nav -->
       <nav
         class="app-header__quick-nav"
-        data-hook="appHeader__quickNav"
-        aria-label="Header Quick Navigation and Search">
+        aria-label="Header Quick Navigation and Search"
+        data-hook="appHeader__quickNav">
         <div class="container">
           <ul role="list" class="app-header__quick-nav-list">
             <li>
@@ -718,36 +722,57 @@
   <!-- NJHK13-284 Main Nav Search -->
   <section
     id="appHeader__search"
-    data-hook="appHeader__search"
-    class="app-header__search collapse">
+    class="app-header__search collapse"
+    aria-hidden="true"
+    data-hook="appHeader__search">
     <div class="container">
+      <!-- Close Button-->
       <button
         class="btn-close app-header__search-close"
         aria-label="Close search"
         aria-controls="appHeader__search"
         data-bs-target="#appHeader__search"
         data-bs-toggle="collapse"></button>
+
       <div class="row row-cols-1 row-cols-md-2 gy-3 align-items-end">
-        <form class="app-header__search-form col flex-grow-1">
+        <!-- Search Form -->
+        <!-- Set the data-search-url with whatever url you want to send the search text to.  -->
+        <form
+          id="appHeader__searchForm"
+          class="app-header__search-form col flex-grow-1 needs-validation"
+          data-hook="appHeader__searchForm"
+          data-search-url="file:///Volumes/%5BC%5D%20Windows%2011.hidden/Users/nick/source/repos/NJH/Njh_Site/Njh.Mvc/wwwroot/dist/search.html"
+          novalidate>
           <div class="row align-items-end">
-            <div class="col flex-grow-1">
-              <label class="form-label">Search our site</label>
+            <div class="app-header__search-input-wrapper col flex-grow-1">
+              <label for="appHeader__searchInput" class="form-label">
+                Search our site
+              </label>
               <input
+                id="appHeader__searchInput"
                 class="app-header__search-input form-control"
-                data-hook="appHeader__searchInput"
+                placeholder="Search..."
                 type="text"
-                placeholder="Search..." />
+                aria-errormessage="appHeader__searchError"
+                data-hook="appHeader__searchInput"
+                required />
+              <div
+                id="appHeader__searchError"
+                class="invalid-tooltip"
+                aria-live="assertive">
+                Search text is required.
+              </div>
             </div>
             <div class="col flex-grow-0">
               <button
-                type="submit"
                 class="btn btn-sm btn-blue--700 app-header__search-submit"
+                type="submit"
+                aria-label="Submit Search"
                 data-hook="appHeader__searchSubmit">
                 <svg
                   class="app-icon"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 512 512">
-                  <title>Submit search</title>
                   <path
                     d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
                 </svg>
@@ -755,19 +780,22 @@
             </div>
           </div>
         </form>
+
+        <!-- "I want to..."" list -->
         <div class="app-header__want-to col">
           <button
-            data-hook="appHeader__wantTo"
+            id="appHeader__wantTo"
             aria-expanded="false"
-            aria-controls="appHeader__wantToWrapper">
+            aria-controls="appHeader__wantToWrapper"
+            data-hook="appHeader__wantTo">
             I want to...
           </button>
 
           <div
             id="appHeader__wantToWrapper"
             class="app-header__want-to-wrapper"
-            data-hook="appHeader__wantToWrapper"
-            aria-hidden="true">
+            aria-hidden="true"
+            data-hook="appHeader__wantToWrapper">
             <ul role="list">
               <li>
                 <a href="#">Find a Doctor</a>
@@ -786,6 +814,18 @@
               </li>
               <li>
                 <a href="#">See Event Calendar</a>
+              </li>
+              <li>
+                <a href="#">Access Patient Portal</a>
+              </li>
+              <li>
+                <a href="#">Ask a question</a>
+              </li>
+              <li>
+                <a href="#">Pay my bill</a>
+              </li>
+              <li>
+                <a href="#">Refer a patient</a>
               </li>
             </ul>
           </div>

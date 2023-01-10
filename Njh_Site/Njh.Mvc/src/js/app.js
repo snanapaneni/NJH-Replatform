@@ -43,6 +43,7 @@ import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
 // Components
 import App__appHeader from "./components/app-header";
 import App__appSidebar from "./components/app-sidebar";
+
 import App__accordion from "./components/accordion";
 import App__formBuilder from "./components/form-builder";
 //import App__globalAlert from "./components/global-alert";
@@ -51,6 +52,7 @@ import App__formCountryProvinceSelects from "./components/form-country-province-
 import App__routing from "./components/routing";
 import App__video from "./components/video";
 // Utilities
+import App__formValidation from "./utilities/form-validation";
 import App__externalLinkClass from "./utilities/external-link-class";
 import App__pagination from "./utilities/pagination";
 import App__responsiveImage from "./utilities/responsive-image";
@@ -67,7 +69,7 @@ import App__urlToolkit from "./utilities/url-toolkit";
 App.appHeader = App__appHeader;
 App.appSidebar = App__appSidebar;
 // Components
-// App.globalSearch = App__globalSearch;
+App.formValidation = App__formValidation;
 //App.accordion                  = App__accordion;
 //App.formBuilder                = App__formBuilder;
 //App.globalAlert                = App__globalAlert;
@@ -310,9 +312,10 @@ App.init = function () {
   // App.mediaQueries.init();
   App.appHeader.init();
 
-  // App.globalSearch.init();
+  App.formValidation.init();
   // App.appSidebar.init();
   // Components
+
   //App.accordion.init();
   //App.formBuilder.init();
   //App.newsletterSignup.init();

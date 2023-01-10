@@ -13,6 +13,7 @@ const App__appHeader = {
 
   appHeader__search: null,
   appHeader__searchInput: null,
+  appHeader__searchForm: null,
 
   init: function () {
     this.element = document.querySelector("[data-hook=appHeader]");
@@ -33,11 +34,15 @@ const App__appHeader = {
       "[data-hook=appHeader] [data-hook=appHeader__wantToWrapper]"
     );
 
+    // Init Search controls
     this.appHeader__search = document.querySelector(
       "[data-hook=appHeader__search]"
     );
     this.appHeader__searchInput = document.querySelector(
       "[data-hook=appHeader__searchInput]"
+    );
+    this.appHeader__searchForm = document.querySelector(
+      "[data-hook=appHeader__searchForm]"
     );
 
     if (
@@ -151,6 +156,12 @@ const App__appHeader = {
 
           return false;
         }
+      });
+
+      this.appHeader__searchForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        this.search__submit();
       });
     }
   },
@@ -358,6 +369,7 @@ const App__appHeader = {
     this.smallScreenNavPanel__close();
     this.primaryNavItemPanel__close();
 
+    this.element.classList.add("has-search-open");
     this.focusTrap = App.utils.focusTrap.createFocusTrap(
       "[data-hook=appHeader]"
     );
@@ -370,15 +382,26 @@ const App__appHeader = {
   search__reset_focus: function () {
     if (this.focusTrap === null) return;
 
+    this.element.classList.remove("has-search-open");
     // this.element.focus();
     this.focusTrap.deactivate();
   },
 
   search__close: function () {
-    if (this.appHeader__search.classList.contains("show")) {
-      const searchCollapse = new App.Collapse(this.appHeader__search);
-      searchCollapse.hide();
-    }
+    if (!this.appHeader__search.classList.contains("show")) return;
+
+    const searchCollapse = new App.Collapse(this.appHeader__search);
+    searchCollapse.hide();
+  },
+
+  search__submit: function () {
+    if (!this.appHeader__searchInput.validity.valid) return;
+
+    console.log(window.location);
+    const searchUrl = this.appHeader__searchForm.dataset.searchUrl;
+    const searchParams = `?searchtext=${this.appHeader__searchInput.value}&searchmode=allwords`;
+
+    window.location.href = searchUrl + searchParams;
   },
 };
 
