@@ -5,7 +5,6 @@
     using Njh.Kernel.Services;
     using CMS.DataEngine;
     using CMS.DocumentEngine;
-    using CMS.Helpers;
     using CMS.MacroEngine;
     using ReasonOne.Extensions;
 

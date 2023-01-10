@@ -61,7 +61,7 @@ namespace Njh.Kernel.Services
                             CustomTable_SectionColorThemesItem.CLASS_NAME),
                     },
             };
-
+            
             var result = this.cacheService.Get(
                 cp => GetThemesItemByGuid(themeGuid), cacheParameters);
 
