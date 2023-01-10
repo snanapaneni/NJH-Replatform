@@ -359,7 +359,7 @@ const App__appHeader = {
     this.primaryNavItemPanel__close();
 
     this.focusTrap = App.utils.focusTrap.createFocusTrap(
-      this.appHeader__search
+      "[data-hook=appHeader]"
     );
     this.appHeader__searchInput.focus({
       focusVisible: true,
@@ -370,7 +370,7 @@ const App__appHeader = {
   search__reset_focus: function () {
     if (this.focusTrap === null) return;
 
-    this.element.focus();
+    // this.element.focus();
     this.focusTrap.deactivate();
   },
 
