@@ -12,3 +12,9 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                typeof(SubPageTemplateProperties),
                                customViewName: "~/Views/Shared/PageTemplates/SubPageTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
+
+[assembly: RegisterPageTemplate("NJH.SubPageLeftNavTemplate",
+                               "Sub page (Left Nav) template",
+                               typeof(SubPageLeftNavTemplateProperties),
+                               customViewName: "~/Views/Shared/PageTemplates/SubPageLeftNavTemplate.cshtml",
+                               IconClass = "icon-l-rows-2")]

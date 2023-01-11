@@ -65,6 +65,17 @@ namespace Njh.Kernel.Services
             string path);
 
         /// <summary>
+        /// Gets document and its non-folder descendents from its node alias path.
+        /// </summary>
+        /// <param name="path">
+        /// The node alias path.
+        /// </param>
+        /// <returns>
+        /// An enumerable of the navigation items.
+        /// </returns>
+        IEnumerable<NavItem> GetSubTreeByPath(string path);
+
+        /// <summary>
         /// Gets all the documents in a section.
         /// </summary>
         /// <param name="currentNode">Takes in a node within that section.</param>

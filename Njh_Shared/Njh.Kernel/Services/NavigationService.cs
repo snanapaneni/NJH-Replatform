@@ -265,6 +265,78 @@ namespace Njh.Kernel.Services
         }
 
         /// <inheritdoc/>
+        public IEnumerable<NavItem> GetSubTreeByPath(string path)
+        {
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                    DataCacheKeys.DataSetByPathByType,
+                    "Navigation",
+                    path,
+                    "all"),
+                IsCultureSpecific = true,
+                CultureCode = this.context?.CultureName,
+                IsSiteSpecific = true,
+                SiteName = this.context?.Site?.SiteName,
+            };
+
+            var pageTypes = this.settingsKeyRepository.GetPagePageTypes()?.ToLower()?.Split(new char[] { ';' });
+
+            var result = this.cacheService.Get(
+                cp =>
+                {
+                    // Query for documents of desired page types in subtree and construct NavItems.
+                    var pages = DocumentHelper.GetDocuments()
+                        .Path(path, PathTypeEnum.Section)
+                        .OnCurrentSite()
+                        .CombineWithDefaultCulture()
+                        .LatestVersion()
+                        .Published()
+                        .WithCoupledColumns()
+                        .NestingLevel(-1)
+                        .OrderBy("NodeLevel")
+                        .ToList()
+                        .Where(d => !d.GetBooleanValue("HideFromNavigation", false) && (pageTypes != null && pageTypes.Contains(d.ClassName.ToLower())))
+                        .Select(p => new NavItem()
+                        {
+                            DisplayTitle = p.DocumentName,
+                            Link = DocumentURLProvider.GetUrl(p).TrimStart('~'),
+                            NodeAliasPath = p.NodeAliasPath,
+                            NodeID = p.NodeID,
+                            NodeLevel = p.NodeLevel,
+                            NodeOrder = p.NodeOrder,
+                            NodeParentID = p.NodeParentID,
+                        });
+
+                    // TODO dependency on path and all descendents - below is WRONG ???
+                    // Get path data from the supplied path.
+                    ExtractPathData(path, out string[] pathSegments, out string[] paths);
+
+                    // construct the cache dependencies based on the segments
+                    cp.CacheDependencies = pathSegments.Select(s =>
+                            this.cacheService.GetCacheKey(
+                            string.Format(DummyCacheKeys.PageSiteNodeAlias, this.context?.Site?.SiteName, s),
+                            cacheParameters.CultureCode,
+                            cacheParameters.SiteName))
+                            .ToList();
+
+                    // set parent-child relations
+                    var structuredItems = StructureChildren(pages);
+
+                    return structuredItems;
+                },
+                cacheParameters);
+
+            // Get path data from the supplied path.
+            ExtractPathData(path, out string[] pathSegments, out string[] paths);
+
+            this.SetOnPathItems(paths, result);
+
+            return result;
+        }
+
+
+        /// <inheritdoc/>
         public IEnumerable<NavItem> GetSectionNavigation(TreeNode currentNode)
         {
             if (currentNode == null)
