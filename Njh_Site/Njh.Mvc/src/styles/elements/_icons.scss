@@ -4,3 +4,16 @@
   overflow: visible;
   vertical-align: -0.125em;
 }
+
+.icon-external-link {
+  height: 12px;
+  width: 12px;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.125rem;
+  margin-right: 0.125rem;
+
+  svg {
+    fill: var(--has-color);
+  }
+}

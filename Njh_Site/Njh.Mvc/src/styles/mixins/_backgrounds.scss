@@ -3,6 +3,9 @@
     .bg-#{$key} {
       --has-background: #{$var};
       --has-color: #{color-contrast($var)};
+      a {
+        --has-color: #{color-contrast($var)};
+      }
     }
   }
 }

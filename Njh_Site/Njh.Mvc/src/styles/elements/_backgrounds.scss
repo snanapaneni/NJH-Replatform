@@ -21,9 +21,16 @@ $backgrounds: (
 
   background: var(--has-background);
   color: var(--has-color);
-  a:not(.btn):not(:disabled) {
+
+  // Override anchors so they're the same color as the copy.
+  a:not(.btn, :disabled) {
     color: var(--has-color);
     text-decoration: underline;
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+      text-decoration: none;
+    }
   }
 }
 

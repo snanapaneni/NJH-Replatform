@@ -1,65 +1,75 @@
 
 .fr-view {
-  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
-  font-size: 16px;
+    font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+    font-size: 16px;
 }
 
-.fr-view *:last-child {
-  margin-bottom: 0;
-}
+    .fr-view *:last-child {
+        margin-bottom: 0;
+    }
 
-.fr-view h2 {
-  font-family: "Eczar", serif;
-  font-size: 1.625rem;
-  font-weight: bold;
-}
-.fr-view h3 {
-  font-family: "Eczar", serif;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-.fr-view h4 {
-  font-family: "Eczar", serif;
-  font-size: 1.125rem;
-  font-weight: bold;
-}
-.fr-view h5 {
-  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
-  font-size: 1.125rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-.fr-view h6 {
-  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
-  font-size: 1rem;
-  font-weight: bold;
-  text-transform: uppercase;
-}
+    .fr-view h1 {
+        font-family: "Eczar", serif;
+        font-size: 1.625rem;
+        font-weight: bold;
+    }
 
-.fr-view p {
-  font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
-  line-height: 1.5;
-  margin-top: 0;
-}
+    .fr-view h2 {
+        font-family: "Eczar", serif;
+        font-size: 1.625rem;
+        font-weight: bold;
+    }
 
-.fr-view ul, ol {
-  list-style-position: outside;
-  margin-top: 0;
-}
+    .fr-view h3 {
+        font-family: "Eczar", serif;
+        font-size: 1.25rem;
+        font-weight: bold;
+    }
 
-.fr-view li {
-  line-height: 1.5;
-  margin-bottom: 0.5rem;
-}
+    .fr-view h4 {
+        font-family: "Eczar", serif;
+        font-size: 1.125rem;
+        font-weight: bold;
+    }
 
-.fr-view .row {
-  display: flex;
-  width: 100%;
-}
+    .fr-view h5 {
+        font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+        font-size: 1.125rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 
-.fr-view .row .col {
-  border:  1px dotted red;
-  flex: 1;
-  margin-bottom: 1rem;
-  padding: .75rem;
-}
+    .fr-view h6 {
+        font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .fr-view p {
+        font-family: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+        line-height: 1.5;
+        margin-top: 0;
+    }
+
+    .fr-view ul, ol {
+        list-style-position: outside;
+        margin-top: 0;
+    }
+
+    .fr-view li {
+        line-height: 1.5;
+        margin-bottom: 0.5rem;
+    }
+
+    .fr-view .row {
+        display: flex;
+        width: 100%;
+    }
+
+        .fr-view .row .col {
+            border: 1px dotted red;
+            flex: 1;
+            margin-bottom: 1rem;
+            padding: .75rem;
+        }
