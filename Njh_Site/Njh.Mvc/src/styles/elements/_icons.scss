@@ -13,3 +13,16 @@ $icon-dropdown: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' 
   background-image: escape-svg($icon-dropdown);
   background-position: center;
 }
+
+.icon-external-link {
+  height: 12px;
+  width: 12px;
+  vertical-align: baseline;
+  position: relative;
+  top: -0.125rem;
+  margin-right: 0.125rem;
+
+  svg {
+    fill: var(--has-color);
+  }
+}

@@ -9,12 +9,18 @@
         background-color: map_get($var, "default");
         border-color: map_get($var, "default");
         color: map_get($var, "color");
+        svg {
+          fill: map_get($var, "color");
+        }
 
         &:not(:disabled):not(.disabled):hover,
         &:not(:disabled):not(.disabled):active {
           background-color: map_get($var, "hover");
           border-color: map_get($var, "hover");
           color: map_get($var, "hover-color");
+          svg {
+            fill: map_get($var, "hover-color");
+          }
         }
 
         &:not(:disabled):not(.disabled):focus {
@@ -37,11 +43,17 @@
         background-color: transparent;
         color: map_get($var, "default");
         border-color: map_get($var, "default");
+        svg {
+          fill: map_get($var, "color");
+        }
 
         &:not(:disabled):not(.disabled):hover,
         &:not(:disabled):not(.disabled):active {
           border-color: map_get($var, "hover");
           color: map_get($var, "hover");
+          svg {
+            fill: map_get($var, "hover");
+          }
         }
 
         &:not(:disabled):not(.disabled):focus {
