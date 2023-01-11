@@ -65,15 +65,15 @@ namespace Njh.Kernel.Services
             string path);
 
         /// <summary>
-        /// Gets document and its non-folder descendents from its node alias path.
+        /// Gets document tree rooted on the parent of a page.
         /// </summary>
-        /// <param name="path">
-        /// The node alias path.
+        /// <param name="currentNode">
+        /// The document which will be at first level of the sub tree.
         /// </param>
         /// <returns>
         /// An enumerable of the navigation items.
         /// </returns>
-        IEnumerable<NavItem> GetSubTreeByPath(string path);
+        IEnumerable<NavItem> GetSubTreeOfParent(TreeNode currentNode);
 
         /// <summary>
         /// Gets all the documents in a section.

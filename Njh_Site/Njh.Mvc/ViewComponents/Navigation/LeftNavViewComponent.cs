@@ -72,9 +72,10 @@ namespace Njh.Mvc.ViewComponents.Navigation
 
                 if (currentPage != null)
                 {
-                    var parentPath = currentPage.Parent.NodeAliasPath;
-                    navItems = vc.navigationService.GetSubTreeByPath(parentPath);
-                    vc.navigationService.SetActiveItem(currentPage, navItems);
+                    navItems = vc.navigationService.GetSubTreeOfParent(currentPage);
+
+                    // set IsOnPath for current page
+                    //vc.navigationService.SetActiveItem(currentPage, navItems);
                 }
                 else
                 {

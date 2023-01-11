@@ -265,14 +265,17 @@ namespace Njh.Kernel.Services
         }
 
         /// <inheritdoc/>
-        public IEnumerable<NavItem> GetSubTreeByPath(string path)
+        public IEnumerable<NavItem> GetSubTreeOfParent(TreeNode currentNode)
         {
+            var parentPath = currentNode.Parent.NodeAliasPath;
+            // cache for current page, not parent, since current page will be
+            // flagged with IsOnPath and siblings will not
             var cacheParameters = new CacheParameters
             {
                 CacheKey = string.Format(
                     DataCacheKeys.DataSetByPathByType,
-                    "Navigation",
-                    path,
+                    "SubNavigation",
+                    currentNode.NodeAliasPath,
                     "all"),
                 IsCultureSpecific = true,
                 CultureCode = this.context?.CultureName,
@@ -286,8 +289,8 @@ namespace Njh.Kernel.Services
                 cp =>
                 {
                     // Query for documents of desired page types in subtree and construct NavItems.
-                    var pages = DocumentHelper.GetDocuments()
-                        .Path(path, PathTypeEnum.Section)
+                    var documents = DocumentHelper.GetDocuments()
+                        .Path(parentPath, PathTypeEnum.Section)
                         .OnCurrentSite()
                         .CombineWithDefaultCulture()
                         .LatestVersion()
@@ -297,20 +300,32 @@ namespace Njh.Kernel.Services
                         .OrderBy("NodeLevel")
                         .ToList()
                         .Where(d => !d.GetBooleanValue("HideFromNavigation", false) && (pageTypes != null && pageTypes.Contains(d.ClassName.ToLower())))
-                        .Select(p => new NavItem()
-                        {
-                            DisplayTitle = p.DocumentName,
-                            Link = DocumentURLProvider.GetUrl(p).TrimStart('~'),
-                            NodeAliasPath = p.NodeAliasPath,
-                            NodeID = p.NodeID,
-                            NodeLevel = p.NodeLevel,
-                            NodeOrder = p.NodeOrder,
-                            NodeParentID = p.NodeParentID,
-                        });
+                        .ToList();
+
+                    // TODO should DisplayTitle be pages' Title field, defaulting to DocumentName if none?
+                    // i.e. DisplayTitle = p.GetStringValue("Title", p.DocumentName) - or will that throw exception
+                    // if Title field not in the page type?
+                    // NOTE NodeAliasPath and LinkedPagePath are redundant here - set both for compatibility elsewhere
+                    var navItems = documents
+                        .Where(d => !d.GetBooleanValue("HideFromNavigation", false))
+                        .Select(d =>
+                            new NavItem()
+                            {
+                                DisplayTitle = d.DocumentName,
+                                Link = DocumentURLProvider.GetUrl(d).TrimStart('~'),
+                                NodeAliasPath = d.NodeAliasPath,
+                                NodeID = d.NodeID,
+                                NodeLevel = d.NodeLevel,
+                                NodeOrder = d.NodeOrder,
+                                NodeParentID = d.NodeParentID,
+                                IsClickable = true,
+                                LinkPage = d.NodeGUID,
+                                LinkedPagePath = d.NodeAliasPath,
+                            }).ToList();
 
                     // TODO dependency on path and all descendents - below is WRONG ???
                     // Get path data from the supplied path.
-                    ExtractPathData(path, out string[] pathSegments, out string[] paths);
+                    ExtractPathData(parentPath, out string[] pathSegments, out string[] paths);
 
                     // construct the cache dependencies based on the segments
                     cp.CacheDependencies = pathSegments.Select(s =>
@@ -320,17 +335,15 @@ namespace Njh.Kernel.Services
                             cacheParameters.SiteName))
                             .ToList();
 
-                    // set parent-child relations
-                    var structuredItems = StructureChildren(pages);
+                    // mark the current document here before tree-ifying
+                    this.SetActiveItem(currentNode, navItems);
+
+                    // put the nav items into a tree
+                    var structuredItems = StructureChildren(navItems);
 
                     return structuredItems;
                 },
                 cacheParameters);
-
-            // Get path data from the supplied path.
-            ExtractPathData(path, out string[] pathSegments, out string[] paths);
-
-            this.SetOnPathItems(paths, result);
 
             return result;
         }
