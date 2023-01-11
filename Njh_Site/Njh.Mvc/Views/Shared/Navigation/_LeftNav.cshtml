@@ -35,33 +35,33 @@
                         }
                         else
                         {
-                            <li class="subpage__aside-nav-item has-children@(link.IsOnPath ? " is-self" : "")"
-                                id="asideNavItem_@link.NodeID">
-                                <div class="subpage__aside-nav-dropdown">
-                                    <button type="button"
-                                        class="subpage__aside-nav-trigger"
-                                        id="asideNavItem_@(link.NodeID)_label"
-                                        aria-label="Self sub menu"
-                                        data-bs-toggle="collapse"
-                                        aria-expanded="true"
-                                        data-bs-target="#asideNavItem_@(link.NodeID)_children"
-                                        aria-controls="asideNavItem_@(link.NodeID)_children">
-                                        <span class="app-icon icon-dropdown"></span>
-                                    </button>
-                                    <a href="@link.Link">@link.DisplayTitle</a>
-                                </div>
-                                <ul class="subpage__aside-nav-list collapse show"
-                                    id="asideNavItem_@(link.NodeID)_children"
-                                    aria-hidden="false"
-                                    aria-labeledby="asideNavItem_@(link.NodeID)_label">
-                                    @foreach (var child in link.Children)
-                                    {
-                                        <li class="subpage__aside-nav-item" id="asideNavItem_@(child.NodeID)">
-                                            <a href="@child.Link">@child.DisplayTitle</a>
-                                        </li>
-                                    }
-                                </ul>
-                            </li>
+                        <li class="subpage__aside-nav-item has-children@(link.IsOnPath ? " is-self" : "")"
+                            id="asideNavItem_@link.NodeID">
+                            <div class="subpage__aside-nav-dropdown">
+                                <button type="button"
+                                    class="subpage__aside-nav-trigger"
+                                    id="asideNavItem_@(link.NodeID)_label"
+                                    aria-label="Self sub menu"
+                                    data-bs-toggle="collapse"
+                                    aria-expanded="@(link.IsOnPath ? "true" : "false")"
+                                    data-bs-target="#asideNavItem_@(link.NodeID)_children"
+                                    aria-controls="asideNavItem_@(link.NodeID)_children">
+                                    <span class="app-icon icon-dropdown"></span>
+                                </button>
+                                <a href="@link.Link">@link.DisplayTitle</a>
+                            </div>
+                            <ul class="subpage__aside-nav-list collapse@(link.IsOnPath ? " show" : "")"
+                                id="asideNavItem_@(link.NodeID)_children"
+                                aria-hidden="@(link.IsOnPath ? "false" : "true")"
+                                aria-labeledby="asideNavItem_@(link.NodeID)_label">
+                                @foreach (var child in link.Children)
+                                {
+                                    <li class="subpage__aside-nav-item" id="asideNavItem_@(child.NodeID)">
+                                        <a href="@child.Link">@child.DisplayTitle</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
                         }
                     }
                 </ul>
