@@ -1,5 +1,12 @@
 ﻿using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Njh.Mvc.Models.PageTemplateProperties;
+using Njh.Mvc.PageTemplates.ConditionPage;
+
+[assembly: RegisterPageTemplate("NJH.ConditionMainTemplate",
+                                "Condition Main Template",
+                                typeof(ConditionMainTemplateProperties),
+                                customViewName: "~/Views/Shared/PageTemplates/ConditionMainTemplate.cshtml",
+                                IconClass = "icon-l-rows-2")]
 
 [assembly: RegisterPageTemplate("NJH.LandingPageTemplate",
                                "Landing page template",
