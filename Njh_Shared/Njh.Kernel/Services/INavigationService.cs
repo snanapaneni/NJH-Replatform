@@ -65,7 +65,7 @@ namespace Njh.Kernel.Services
             string path);
 
         /// <summary>
-        /// Gets document tree rooted on the parent of a page.
+        /// Gets document tree rooted on the parent of a page, with current page marked as active.
         /// </summary>
         /// <param name="currentNode">
         /// The document which will be at first level of the sub tree.

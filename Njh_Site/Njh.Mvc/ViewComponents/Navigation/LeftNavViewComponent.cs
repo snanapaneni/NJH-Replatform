@@ -39,6 +39,9 @@ namespace Njh.Mvc.ViewComponents.Navigation
         /// <param name="viewComponentErrorVisibility">
         /// The view component error visibility.
         /// </param>
+        /// <param name="settingsKeyRepository">
+        /// The settings key repository.
+        /// </param>
         public LeftNavViewComponent(
             INavigationService navigationService,
             IPageDataContextRetriever dataRetriever,
@@ -53,7 +56,8 @@ namespace Njh.Mvc.ViewComponents.Navigation
             this.dataRetriever = dataRetriever ??
                 throw new ArgumentNullException(nameof(dataRetriever));
 
-            this.settingsKeyRepository = settingsKeyRepository;
+            this.settingsKeyRepository = settingsKeyRepository ??
+                throw new ArgumentNullException(nameof(settingsKeyRepository));
         }
 
         /// <summary>
@@ -72,10 +76,8 @@ namespace Njh.Mvc.ViewComponents.Navigation
 
                 if (currentPage != null)
                 {
+                    // get sub tree data starting at parent, with current page flagged IsOnPath
                     navItems = vc.navigationService.GetSubTreeOfParent(currentPage);
-
-                    // set IsOnPath for current page
-                    //vc.navigationService.SetActiveItem(currentPage, navItems);
                 }
                 else
                 {
