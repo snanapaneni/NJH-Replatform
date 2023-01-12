@@ -1,5 +1,7 @@
 ﻿// Copyright (c) Njh. All rights reserved.
 
+using System.Text.RegularExpressions;
+
 namespace Njh.Kernel.Definitions
 {
     /// <summary>
@@ -46,6 +48,12 @@ namespace Njh.Kernel.Definitions
             /// Defines the cache expiry time in minutes.
             /// </summary>
             public const int CacheExpiryMinutesShort = 5;
+        }
+
+        public static class Regexs
+        {
+            public static Regex RxPhone = new Regex(@"(\+\d{1})?(\d{3})(\d{3})(\d{4})");
+            public const string PhoneDisplayFormat = "$2.$3.$4";
         }
     }
 }

@@ -155,5 +155,54 @@ namespace Njh.Kernel.Extensions
             return settingsKeyRepository
                 .GetValue<string>("NJHPagePageTypes");
         }
+
+        public static string GetPolicyLinksPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHPolicyLinksPath");
+        }
+
+        public static string GetBadgesPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHBadgesPath");
+        }
+
+        public static string GetAddress(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAddress");
+        }
+
+        public static string GetAddressUrl(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAddressUrl");
+        }
+
+        public static string GetSupportedLanguagesPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHSupportedLanguagesPath");
+        }
+
+        public static string GetFooterSocialMediaLinksPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHFooterSocialMediaLinksPath");
+        }
+
+        public static string GetFooterButtonsPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHFooterButtonsPath");
+        }
     }
 }

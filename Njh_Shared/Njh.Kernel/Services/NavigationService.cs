@@ -17,6 +17,7 @@ namespace Njh.Kernel.Services
         private readonly ISettingsKeyRepository settingsKeyRepository;
         private readonly ICacheService cacheService;
         private readonly ContextConfig context;
+        private readonly IPageService pageService;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -34,7 +35,8 @@ namespace Njh.Kernel.Services
         public NavigationService(
             ISettingsKeyRepository settingsKeyRepository,
             ICacheService cacheService,
-            ContextConfig context)
+            ContextConfig context,
+            IPageService pageService)
         {
             this.settingsKeyRepository = settingsKeyRepository ??
                 throw new ArgumentNullException(nameof(settingsKeyRepository));
@@ -44,12 +46,13 @@ namespace Njh.Kernel.Services
 
             this.context = context ??
                 throw new ArgumentNullException(nameof(context));
+            this.pageService = pageService;
         }
 
         /// <inheritdoc/>
         public IEnumerable<NavItem> GetPrimaryNav()
         {
-            var navItems = this.GetNavItemsByPath(this.settingsKeyRepository.GetPrimaryNavigationPath());
+            var navItems = this.GetNavItemsByPath<PageType_NavItem>(this.settingsKeyRepository.GetPrimaryNavigationPath());
             var headerNav = StructureChildren(navItems);
 
             foreach (var navItem in headerNav)
@@ -63,14 +66,14 @@ namespace Njh.Kernel.Services
         /// <inheritdoc/>
         public IEnumerable<NavItem> GetUtilityNav()
         {
-            var navItems = this.GetNavItemsByPath(this.settingsKeyRepository.GetUtilityNavigationPath()).Take(4);
+            var navItems = this.GetNavItemsByPath<PageType_NavItem>(this.settingsKeyRepository.GetUtilityNavigationPath()).Take(4);
             return navItems;
         }
 
         /// <inheritdoc/>
         public IEnumerable<NavItem> GetFooterNav()
         {
-            var navItems = this.GetNavItemsByPath(this.settingsKeyRepository.GetFooterNavigationPath());
+            var navItems = this.GetNavItemsByPath<PageType_NavItem>(this.settingsKeyRepository.GetFooterNavigationPath());
             var footerNav = StructureChildren(navItems);
 
             return footerNav;
@@ -79,7 +82,7 @@ namespace Njh.Kernel.Services
         /// <inheritdoc/>
         public IEnumerable<NavItem> GetToeNav()
         {
-            var navItems = this.GetNavItemsByPath(this.settingsKeyRepository.GetToeNavigationPath());
+            var navItems = this.GetNavItemsByPath<PageType_NavItem>(this.settingsKeyRepository.GetToeNavigationPath());
             return navItems;
         }
 
@@ -236,18 +239,19 @@ namespace Njh.Kernel.Services
                         .Published()
                         .WithCoupledColumns()
                         .NestingLevel(-1)
-                        .OrderBy("NodeLevel")
+                        .OrderBy("NodeLevel","NodeOrder")
                         .ToList()
                         .Where(d => d.ClassName != "CMS.Folder")
                         .Select(p => new NavItem()
                         {
-                            DisplayTitle = p.DocumentName,
+                            DisplayTitle = p.GetStringValue(nameof(PageType_NavItem.Title), p.DocumentName),
                             Link = DocumentURLProvider.GetUrl(p).TrimStart('~'),
                             NodeAliasPath = p.NodeAliasPath,
                             NodeID = p.NodeID,
                             NodeLevel = p.NodeLevel,
                             NodeOrder = p.NodeOrder,
                             NodeParentID = p.NodeParentID,
+                            CssClass = p.GetStringValue("CssClass",String.Empty),
                         });
 
                     // consturct the cache dependencies based on the segments
@@ -371,6 +375,91 @@ namespace Njh.Kernel.Services
             }
         }
 
+        public IEnumerable<CTAItem> GetCTAItems(string path)
+        {
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                    DataCacheKeys.DataSetByPathByType,
+                    "CTANavigation",
+                    path,
+                    PageType_CTAItem.CLASS_NAME),
+                IsCultureSpecific = true,
+                CultureCode = this.context?.CultureName,
+                IsSiteSpecific = true,
+                SiteName = this.context?.Site?.SiteName,
+            };
+
+            var result = this.cacheService.Get(
+                cp =>
+                {
+                    // Query for the nodes using the list of paths and convert them to the dto. We do not want folders showing up in the navigation as Kentico excludes them
+                    // from the URL
+                    var pagesList = DocumentHelper.GetDocuments()
+                        .Path($"{path}/%")
+                        .OnCurrentSite()
+                        .CombineWithDefaultCulture()
+                        .LatestVersion()
+                        .Published()
+                        .WithCoupledColumns()
+                        .NestingLevel(-1)
+                        .OrderBy("NodeLevel", "NodeOrder")
+                        .ToList();
+
+                        var pages = pagesList
+                        .Where(d => d.ClassName != "CMS.Folder")
+                        .Select(p => new CTAItem()
+                        {
+                            DisplayTitle = p.GetStringValue(nameof(PageType_NavItem.Title), p.DocumentName),
+                            Title = p.GetStringValue(nameof(PageType_NavItem.Title), p.DocumentName),
+                            ImageAltText = p.GetValue(nameof(PageType_CTAItem.ImageAltText), string.Empty),
+                            Image = p.GetValue(nameof(PageType_CTAItem.Image),string.Empty),
+                            ShortDescription = p.GetValue(nameof(PageType_CTAItem.ShortDescription), string.Empty),
+                            LinkPage = p.GetValue(nameof(PageType_CTAItem.LinkPage),Guid.Empty),
+                            Link = p.ClassName.Equals(PageType_Badge.CLASS_NAME, StringComparison.OrdinalIgnoreCase) ? p.GetValue(nameof(PageType_Badge.Link), string.Empty) : string.Empty
+                        });
+
+                    List<Guid> pageGuidList = pages.Where(n => !n.LinkPage.Equals(Guid.Empty)).Select(n => n.LinkPage).ToList();
+
+                    // Perform the query to get the target pages
+                    var linkedPages = DocumentHelper.GetDocuments()
+                        .OnCurrentSite()
+                        .CombineWithDefaultCulture()
+                        .LatestVersion()
+                        .WhereIn("NodeGUID", pageGuidList)
+                        .ToList();
+
+                    if (linkedPages.Any())
+                    {
+                        // Back fill the target urls to the nav items
+                        foreach (var ctaItem in pages.Where(x => x.LinkPage != Guid.Empty))
+                        {
+                            var linkedPage = linkedPages.FirstOrDefault(lp => lp.NodeGUID == ctaItem.LinkPage);
+                            if (linkedPage != null)
+                            {
+                                ctaItem.Link = DocumentURLProvider.GetAbsoluteUrl(linkedPage);
+                            }
+                        }
+                    }
+
+                    if (pages.Any())
+                    {
+                        // Bust the cache on the change to any of the nav items
+                        cp.CacheDependencies.Add(string.Format(DummyCacheKeys.PageSiteNodePathChildren, cacheParameters.SiteName, path));
+                        cp.CacheDependencies.AddRange(pagesList.Select(n => string.Format(DummyCacheKeys.PageNodeId, n.NodeID)));
+                    }
+
+                    return pages;
+                },
+                cacheParameters);
+            return result;
+        }
+
+        public IEnumerable<NavItem> GetNavItems<TModel>(string path) where TModel : TreeNode, new()
+        {
+            return this.GetNavItemsByPath<TModel>(path);
+        }
+
         /// <summary>
         /// Takes a node alias path and breaks it up into component data.
         /// </summary>
@@ -472,7 +561,7 @@ namespace Njh.Kernel.Services
         /// The nesting level.
         /// </param>
         /// <returns>list of navigation nodes.</returns>
-        private IEnumerable<NavItem> GetNavItemsByPath(string path, int nestinglevel = -1)
+        private IEnumerable<NavItem> GetNavItemsByPath<TModel>(string path, int nestinglevel = -1) where TModel : TreeNode , new()
         {
             var cacheParameters = new CacheParameters
             {
@@ -491,7 +580,7 @@ namespace Njh.Kernel.Services
                 cp =>
                 {
                     // Get the NavItem nodes
-                    var navItems = DocumentHelper.GetDocuments<PageType_NavItem>()
+                    var navItems = DocumentHelper.GetDocuments<TModel>()
                         .OnCurrentSite()
                         .CombineWithDefaultCulture()
                         .Path(path, PathTypeEnum.Children)
@@ -516,9 +605,9 @@ namespace Njh.Kernel.Services
                     if (linkedPages.Any())
                     {
                         // Back fill the target urls to the nav items
-                        foreach (var navItem in navItems)
+                        foreach (var navItem in navItems.Where(x => x.LinkPage != Guid.Empty))
                         {
-                            var linkedPage = linkedPages.Where(lp => lp.NodeGUID == navItem.LinkPage).FirstOrDefault();
+                            var linkedPage = linkedPages.FirstOrDefault(lp => lp.NodeGUID == navItem.LinkPage);
                             if (linkedPage != null)
                             {
                                 navItem.Link = DocumentURLProvider.GetAbsoluteUrl(linkedPage);

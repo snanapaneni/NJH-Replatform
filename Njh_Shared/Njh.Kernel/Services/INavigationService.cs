@@ -97,5 +97,10 @@ namespace Njh.Kernel.Services
         void SetActiveItem(
             TreeNode currentNode,
             IEnumerable<NavItem> navItems);
+
+        IEnumerable<CTAItem> GetCTAItems(string path);
+
+        IEnumerable<NavItem> GetNavItems<TModel>(string path)
+            where TModel : TreeNode, new();
     }
 }
