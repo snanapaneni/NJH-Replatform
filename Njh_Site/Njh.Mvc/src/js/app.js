@@ -14,9 +14,9 @@ let App = (window.App = {});
 // import Alert from 'bootstrap/js/dist/alert'
 // import Button from 'bootstrap/js/dist/button'
 // import Carousel from 'bootstrap/js/dist/carousel'
-import Collapse from "bootstrap/js/dist/collapse";
+// import Collapse from "bootstrap/js/dist/collapse";
 // import Dropdown from 'bootstrap/js/dist/dropdown'
-import Modal from "bootstrap/js/dist/modal";
+// import Modal from "bootstrap/js/dist/modal";
 // import Modal from 'bootstrap/js/dist/offcanvas'
 // import Popover from 'bootstrap/js/dist/popover'
 // import Scrollspy from 'bootstrap/js/dist/scrollspy'
@@ -24,7 +24,7 @@ import Modal from "bootstrap/js/dist/modal";
 // import Toast from 'bootstrap/js/dist/toast'
 // import Tooltip from 'bootstrap/js/dist/tooltip'
 
-import * as bootstrap from 'bootstrap';
+import * as bootstrap from "bootstrap";
 
 /* Attach Bootstrap methods to App so that we can use them as modules and prevent them from firing multiple times. */
 App.bootstrap = bootstrap;
@@ -64,7 +64,6 @@ import App__urlToolkit from "./utilities/url-toolkit";
 /*
  * Setup the global App object
  * =========================================================================== */
-
 
 App.appHeader = App__appHeader;
 App.appSidebar = App__appSidebar;
@@ -245,6 +244,10 @@ App.utils = {
       )
     ) {
       App.appHeader.wantTo__close();
+    }
+
+    if (App.appHeader.appHeader__search.classList.contains("show")) {
+      App.appHeader.search__close();
     }
   },
   adjustBodyTopMargin: function () {

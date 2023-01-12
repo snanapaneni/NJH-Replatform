@@ -390,7 +390,7 @@ const App__appHeader = {
   search__close: function () {
     if (!this.appHeader__search.classList.contains("show")) return;
 
-    const searchCollapse = new App.Collapse(this.appHeader__search);
+    const searchCollapse = new App.bootstrap.Collapse(this.appHeader__search);
     searchCollapse.hide();
   },
 
