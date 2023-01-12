@@ -47,8 +47,11 @@
 
             <!-- SEARCH TRIGGER -->
             <button class="app-header__small-screen-nav-panel-search-button btn app-header__circle-button"
-                    data-hook="appHeader__smallScreenNavPanelSearchButton"
-                    aria-label="Search this website">
+                    aria-expanded="false"
+                    aria-label="Search this website"
+                    aria-controls="appHeader__search"
+                    data-bs-target="#appHeader__search"
+                    data-bs-toggle="collapse">
                 <svg class="app-icon"
                      xmlns="http://www.w3.org/2000/svg"
                      viewBox="0 0 512 512">
@@ -56,6 +59,7 @@
                           d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
                 </svg>
             </button>
+
         </div>
     </div>
 
@@ -66,26 +70,26 @@
          aria-hidden="true">
         <!-- Quick Nav -->
         <vc:quick-nav is-mobile="true"></vc:quick-nav>
-        
+
         @if (Model.CurrentTree != null)
         {
             <nav class="app-header__primary-nav app-header__page-nav"
-                 data-hook="appHeader__primaryNav"
-                 aria-label="Current Page Navigation">
+             data-hook="appHeader__primaryNav"
+             aria-label="Current Page Navigation">
                 <div class="container">
                     <ul role="list" class="app-header__primary-nav-list">
                         <!-- Single top level item -- START-->
-                        <li class="app-header__primary-nav-item"
-                            data-hook="appHeader__primaryNavItem">
+                    <li class="app-header__primary-nav-item"
+                        data-hook="appHeader__primaryNavItem">
                             <button aria-expanded="false"
-                                    data-hook="appHeader__primaryNavItemPanelTrigger">
+                                data-hook="appHeader__primaryNavItemPanelTrigger">
                                 @Model.CurrentTree.DisplayTitle
                             </button>
                             @if (Model.CurrentTree.Children.Any())
                             {
                                 <div class="app-header__primary-nav-item-panel"
-                                     data-hook="appHeader__primaryNavItemPanel"
-                                     aria-hidden="true">
+                             data-hook="appHeader__primaryNavItemPanel"
+                             aria-hidden="true">
                                     <ul role="list">
                                         @foreach (var link in Model.CurrentTree.Children)
                                         {
@@ -104,6 +108,6 @@
 
         <!-- Utility nav -->
         <vc:utility-nav is-mobile="true"></vc:utility-nav>
-        
+
     </div>
 </div>

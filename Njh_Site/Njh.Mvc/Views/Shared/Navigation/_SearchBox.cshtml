@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model SearchBoxViewModel
+
+
+<!-- NJHK13-284 Main Nav Search -->
+<section id="appHeader__search"
+         class="app-header__search collapse"
+         aria-hidden="true"
+         data-hook="appHeader__search">
+    <div class="container">
+        <!-- Close Button-->
+        <button class="btn-close app-header__search-close"
+                aria-label="Close search"
+                aria-controls="appHeader__search"
+                data-bs-target="#appHeader__search"
+                data-bs-toggle="collapse"></button>
+
+        <div class="row row-cols-1 row-cols-md-2 gy-3 align-items-end">
+            <!-- Search Form -->
+            <!-- Set the data-search-url with whatever url you want to send the search text to.  -->
+            <form id="appHeader__searchForm"
+                  class="app-header__search-form col flex-grow-1 needs-validation"
+                  data-hook="appHeader__searchForm"
+                  data-search-url="@Model.SearchResultsPageUrl"
+                  novalidate>
+                <div class="row align-items-end">
+                    <div class="app-header__search-input-wrapper col flex-grow-1">
+                        <label for="appHeader__searchInput" class="form-label">
+                            @Model.SearchBoxLabel
+                        </label>
+                        <input id="appHeader__searchInput"
+                               class="app-header__search-input form-control"
+                               placeholder="@Model.SearchBoxPlaceholderText"
+                               type="text"
+                               aria-errormessage="appHeader__searchError"
+                               data-hook="appHeader__searchInput"
+                               required />
+                        <div id="appHeader__searchError"
+                             class="invalid-tooltip"
+                             aria-live="assertive">
+                            @Model.SearchBoxValidationErrorMessage
+                        </div>
+                    </div>
+                    <div class="col flex-grow-0">
+                        <button class="btn btn-sm btn-blue--700 app-header__search-submit"
+                                type="submit"
+                                aria-label="Submit Search"
+                                data-hook="appHeader__searchSubmit">
+                            <svg class="app-icon"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 viewBox="0 0 512 512">
+                                <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- "I want to..."" list -->
+            <div class="app-header__want-to col">
+                <button id="appHeader__wantTo"
+                        aria-expanded="false"
+                        aria-controls="appHeader__wantToWrapper"
+                        data-hook="appHeader__wantTo">
+                    @Model.QuickLinksDropdownPlaceholder
+                </button>
+
+                <div id="appHeader__wantToWrapper"
+                     class="app-header__want-to-wrapper"
+                     aria-hidden="true"
+                     data-hook="appHeader__wantToWrapper">
+                    @if (@Model.QuickLinks.Any())
+                    {
+                        <ul role="list">
+                            @foreach (var link in @Model.QuickLinks)
+                            {
+                                <li>
+                                    <a href="@link.Link">@link.Text</a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,8 @@
+.form-control {
+  border-radius: 0.25rem;
+  border-color: var(--neutral--500);
+  &:focus {
+    @include global-focus-ring;
+    border-color: var(--neutral--500);
+  }
+}
