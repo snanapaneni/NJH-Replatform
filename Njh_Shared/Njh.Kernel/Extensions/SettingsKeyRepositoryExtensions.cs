@@ -155,5 +155,23 @@ namespace Njh.Kernel.Extensions
             return settingsKeyRepository
                 .GetValue<string>("NJHPagePageTypes");
         }
+
+
+        /// <summary>
+        /// Gets the analytics script (i.e. GTM).
+        /// </summary>
+        /// <param name="settingsKeyRepository">
+        /// The settings key repository.
+        /// </param>
+        /// <returns>
+        /// The analytics script (GTM).
+        /// </returns>
+        public static string GetAnalyticsScript(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAnalyticsScript");
+        }
+        
     }
 }
