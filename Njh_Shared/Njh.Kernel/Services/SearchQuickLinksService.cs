@@ -2,6 +2,7 @@
 using Njh.Kernel.Constants;
 using Njh.Kernel.Kentico.Models.CustomTables;
 using Njh.Kernel.Models;
+using Njh.Kernel.Models.Dto;
 
 namespace Njh.Kernel.Services
 {
@@ -32,13 +33,56 @@ namespace Njh.Kernel.Services
                 throw new ArgumentNullException(nameof(cacheService));
         }
 
+        public IEnumerable<SimpleLink> GetSearchQuickSimpleLinks(bool enabled = true, bool cached = true)
+        {
+            if (!cached)
+            {
+                return GetSearchQuickLinks()
+                    .Where(i => i.Enabled)
+                    .OrderBy(i => i.ItemOrder)
+                    .Select(item => new SimpleLink()
+                    {
+                        Text = item.DisplayText,
+                        Link = item.Url
+                    });
+            }
+            // Todo: update cache dependency to be on item id
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                   DataCacheKeys.DataSetByTableName,
+                   "searchquicklinkssimplelinks",
+                   CustomTable_SearchQuickLinksItem.CLASS_NAME),
+                IsCultureSpecific = false,
+                IsSiteSpecific = false,
+                CacheDependencies = new List<string>
+                    {
+                        string.Format(
+                            DummyCacheKeys.CustomTableItemsAll,
+                            CustomTable_SearchQuickLinksItem.CLASS_NAME),
+                    },
+            };
+
+            var result = this.cacheService.Get(
+                cp => GetSearchQuickLinks()
+                .Where(i => i.Enabled)
+                .OrderBy(i => i.ItemOrder)
+                .Select(item => new SimpleLink()
+                {
+                    Text = item.DisplayText,
+                    Link = item.Url
+                }), cacheParameters);
+
+            return result;
+
+        }
         public IEnumerable<CustomTable_SearchQuickLinksItem> GetSearchQuickLinks(bool enabled = true, bool cached = true)
         {
             if (!cached)
             {
                 return GetSearchQuickLinks().Where(i => i.Enabled);
             }
-            // Todo: update cache dependency to be on item id
+
             var cacheParameters = new CacheParameters
             {
                 CacheKey = string.Format(
