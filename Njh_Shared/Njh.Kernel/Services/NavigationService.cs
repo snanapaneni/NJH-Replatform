@@ -17,7 +17,6 @@ namespace Njh.Kernel.Services
         private readonly ISettingsKeyRepository settingsKeyRepository;
         private readonly ICacheService cacheService;
         private readonly ContextConfig context;
-        private readonly IPageService pageService;
 
         /// <summary>
         /// Initializes a new instance of the
@@ -35,8 +34,7 @@ namespace Njh.Kernel.Services
         public NavigationService(
             ISettingsKeyRepository settingsKeyRepository,
             ICacheService cacheService,
-            ContextConfig context,
-            IPageService pageService)
+            ContextConfig context)
         {
             this.settingsKeyRepository = settingsKeyRepository ??
                 throw new ArgumentNullException(nameof(settingsKeyRepository));
@@ -46,7 +44,6 @@ namespace Njh.Kernel.Services
 
             this.context = context ??
                 throw new ArgumentNullException(nameof(context));
-            this.pageService = pageService;
         }
 
         /// <inheritdoc/>
@@ -77,13 +74,6 @@ namespace Njh.Kernel.Services
             var footerNav = StructureChildren(navItems);
 
             return footerNav;
-        }
-
-        /// <inheritdoc/>
-        public IEnumerable<NavItem> GetToeNav()
-        {
-            var navItems = this.GetNavItemsByPath<PageType_NavItem>(this.settingsKeyRepository.GetToeNavigationPath());
-            return navItems;
         }
 
         /// <inheritdoc/>
@@ -143,128 +133,6 @@ namespace Njh.Kernel.Services
                 },
                 cacheParameters);
 
-            return result;
-        }
-
-        /// <inheritdoc/>
-        public CTAItem GetCTAItem(string nodeAliasPath)
-        {
-            var cacheParameters = new CacheParameters
-            {
-                CacheKey = string.Format(
-                    DataCacheKeys.DataSetByPathByType,
-                    "NavigationCTA",
-                    nodeAliasPath,
-                    PageType_CTAItem.CLASS_NAME),
-                IsCultureSpecific = true,
-                CultureCode = this.context?.CultureName,
-                IsSiteSpecific = true,
-                SiteName = this.context?.Site?.SiteName,
-            };
-            var result = this.cacheService.Get(
-                cp =>
-                {
-                    // Find the first cta item under the specified node
-                    var ctaItem = DocumentHelper.GetDocuments<PageType_CTAItem>()
-                        .OnCurrentSite()
-                        .CombineWithDefaultCulture()
-                        .Path(nodeAliasPath, PathTypeEnum.Children)
-                        .NestingLevel(1)
-                        .Published()
-                        .OrderBy("NodeOrder")
-                        .TopN(1)
-                        .ProjectToType<CTAItem>()
-                        .FirstOrDefault();
-
-                    // If there is a CTA item get it's url
-                    if (ctaItem != null)
-                    {
-                        var linkedPage = DocumentHelper.GetDocuments()
-                            .OnCurrentSite()
-                            .CombineWithDefaultCulture()
-                            .LatestVersion()
-                            .WhereEquals("NodeGuid", ctaItem.LinkPage)
-                            .OrderBy("NodeOrder")
-                            .TopN(1)
-                            .FirstOrDefault();
-
-                        if (linkedPage != null)
-                        {
-                            ctaItem.Link = DocumentURLProvider.GetAbsoluteUrl(linkedPage);
-                        }
-                    }
-
-                    cp.CacheDependencies.Add(
-                        this.cacheService.GetCacheKey(
-                            string.Format(DummyCacheKeys.PageSiteNodeAlias, cacheParameters.SiteName, nodeAliasPath),
-                            cacheParameters.CultureCode,
-                            cacheParameters.SiteName));
-
-                    return ctaItem;
-                },
-                cacheParameters);
-
-            return result;
-        }
-
-        /// <inheritdoc/>
-        public IEnumerable<NavItem> GetAllItemsInPath(string path)
-        {
-            var cacheParameters = new CacheParameters
-            {
-                CacheKey = string.Format(
-                    DataCacheKeys.DataSetByPathByType,
-                    "Navigation",
-                    path,
-                    PageType_CTAItem.CLASS_NAME),
-                IsCultureSpecific = true,
-                CultureCode = this.context?.CultureName,
-                IsSiteSpecific = true,
-                SiteName = this.context?.Site?.SiteName,
-            };
-
-            var result = this.cacheService.Get(
-                cp =>
-                {
-                    // Get path data from the supplied path.
-                    ExtractPathData(path, out string[] pathSegments, out string[] paths);
-
-                    // Query for the nodes using the list of paths and convert them to the dto. We do not want folders showing up in the navigation as Kentico excludes them
-                    // from the URL
-                    var pages = DocumentHelper.GetDocuments()
-                        .Path(paths)
-                        .OnCurrentSite()
-                        .CombineWithDefaultCulture()
-                        .LatestVersion()
-                        .Published()
-                        .WithCoupledColumns()
-                        .NestingLevel(-1)
-                        .OrderBy("NodeLevel","NodeOrder")
-                        .ToList()
-                        .Where(d => d.ClassName != "CMS.Folder")
-                        .Select(p => new NavItem()
-                        {
-                            DisplayTitle = p.GetStringValue(nameof(PageType_NavItem.Title), p.DocumentName),
-                            Link = DocumentURLProvider.GetUrl(p).TrimStart('~'),
-                            NodeAliasPath = p.NodeAliasPath,
-                            NodeID = p.NodeID,
-                            NodeLevel = p.NodeLevel,
-                            NodeOrder = p.NodeOrder,
-                            NodeParentID = p.NodeParentID,
-                            CssClass = p.GetStringValue("CssClass",String.Empty),
-                        });
-
-                    // consturct the cache dependencies based on the segments
-                    cp.CacheDependencies = pathSegments.Select(s =>
-                            this.cacheService.GetCacheKey(
-                            string.Format(DummyCacheKeys.PageSiteNodeAlias, this.context?.Site?.SiteName, s),
-                            cacheParameters.CultureCode,
-                            cacheParameters.SiteName))
-                            .ToList();
-
-                    return pages;
-                },
-                cacheParameters);
             return result;
         }
 
@@ -348,15 +216,6 @@ namespace Njh.Kernel.Services
             this.SetOnPathItems(paths, result);
 
             return result;
-        }
-
-        /// <inheritdoc/>
-        public void SetActiveItems(TreeNode currentNode, IEnumerable<NavItem> navItems)
-        {
-            // Get path data from the supplied path.
-            ExtractPathData(currentNode.NodeAliasPath, out string[] pathSegments, out string[] paths);
-
-            this.SetOnPathItems(paths, navItems);
         }
 
         /// <inheritdoc />

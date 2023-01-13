@@ -56,21 +56,6 @@
                 .GetValue<string>("NJHFooterNavigation");
         }
 
-        /// <summary>
-        /// Returns the toe navigation page path.
-        /// </summary>
-        /// <param name="settingsKeyRepository">
-        /// The settings key repository.
-        /// </param>
-        /// <returns>
-        /// The toe navigation page path.
-        /// </returns>
-        public static string GetToeNavigationPath(
-            this ISettingsKeyRepository settingsKeyRepository)
-        {
-            return settingsKeyRepository
-                .GetValue<string>("NJHToeNavigation");
-        }
 
         public static string GetHeaderLogo(
             this ISettingsKeyRepository settingsKeyRepository)
