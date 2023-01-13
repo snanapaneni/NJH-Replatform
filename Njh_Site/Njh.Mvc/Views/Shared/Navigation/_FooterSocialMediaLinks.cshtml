@@ -1,0 +1,16 @@
+﻿@using CMS.Helpers
+@model IEnumerable<Njh.Kernel.Models.DTOs.NavItem>
+<div class="app-footer__contact-follow col-md-8">
+    <p><strong>@ResHelper.GetString("NJH.Footer.FollowUs")</strong></p>
+    <ul role="list" class="list-unstyled">
+        @foreach (var link in Model)
+        {
+            <li>
+                <a href="@link.Link">
+                    <span class="visually-hidden">@link.DisplayTitle</span>
+                    <span class="app-icon @link.CssClass"></span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

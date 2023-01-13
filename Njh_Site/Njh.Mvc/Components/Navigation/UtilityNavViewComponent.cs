@@ -1,16 +1,13 @@
-﻿using Njh.Kernel.Extensions;
+﻿using CMS.DocumentEngine;
+using Kentico.Content.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Njh.Kernel.Extensions;
+using Njh.Kernel.Services;
 using Njh.Mvc.Models;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
-namespace Njh.Mvc.ViewComponents.Navigation
+namespace Njh.Mvc.Components.Navigation
 {
-    using System;
-    using Njh.Kernel.Services;
-    using CMS.DocumentEngine;
-    using Kentico.Content.Web.Mvc;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using ReasonOne.AspNetCore.Mvc.ViewComponents;
-
     /// <summary>
     /// Implements the utility navigation view component.
     /// </summary>
@@ -74,7 +71,7 @@ namespace Njh.Mvc.ViewComponents.Navigation
                     vc.navigationService.SetActiveItem(currentPage, navItems);
                 }
 
-                var model = new UtilityNavDto()
+                var model = new UtilityNavViewModel()
                 {
                     Links = navItems,
                     PhoneNumber = settingsKeyRepository.GetGlobalPhoneNumber(),

@@ -48,6 +48,8 @@ namespace Njh.Kernel.Models.DTOs
         /// </summary>
         public CTAItem? CTAItem { get; set; } = null;
 
+        public string CssClass { get; set; } = string.Empty;
+
         /// <summary>
         /// Checks if there is
         /// any child nav items on the path.

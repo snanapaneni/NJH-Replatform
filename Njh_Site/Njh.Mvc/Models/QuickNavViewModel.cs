@@ -2,7 +2,7 @@
 
 namespace Njh.Mvc.Models
 {
-    public class QuickNavDto
+    public class QuickNavViewModel
     {
         /// <summary>
         /// Gets or sets the Make An Appointment URI.
