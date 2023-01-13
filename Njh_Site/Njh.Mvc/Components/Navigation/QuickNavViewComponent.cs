@@ -1,13 +1,11 @@
-﻿namespace Njh.Mvc.ViewComponents.Navigation
-{
-    using System;
-    using Njh.Kernel.Services;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using ReasonOne.AspNetCore.Mvc.ViewComponents;
-    using Njh.Mvc.Models;
-    using Njh.Kernel.Extensions;
+﻿using Microsoft.AspNetCore.Mvc;
+using Njh.Kernel.Extensions;
+using Njh.Kernel.Services;
+using Njh.Mvc.Models;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
+namespace Njh.Mvc.Components.Navigation
+{
     /// <summary>
     /// Implements the Primary Navigation view component.
     /// </summary>
@@ -54,7 +52,7 @@
             return
                 this.TryInvoke((vc) =>
                 {
-                    QuickNavDto model = new ()
+                    QuickNavViewModel model = new ()
                     {
                         MakeAnAppointmentUri = settingsKeyRepository.GetMakeAnAppointmentPage(),
                         MakeAnAppointmentText = settingsKeyRepository.GetMakeAnAppointmentText(),

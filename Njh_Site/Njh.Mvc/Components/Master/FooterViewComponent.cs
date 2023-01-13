@@ -1,18 +1,15 @@
 ﻿using CMS.Helpers;
+using Microsoft.AspNetCore.Mvc;
 using Njh.Kernel.Definitions;
+using Njh.Kernel.Extensions;
 using Njh.Kernel.Kentico.Models.PageTypes;
 using Njh.Kernel.Models.DTOs;
+using Njh.Kernel.Services;
+using Njh.Mvc.Models;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
-namespace Njh.Mvc.ViewComponents.Master
+namespace Njh.Mvc.Components.Master
 {
-    using System;
-    using Njh.Kernel.Services;
-    using Njh.Mvc.Models;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using ReasonOne.AspNetCore.Mvc.ViewComponents;
-    using Njh.Kernel.Extensions;
-
     /// <summary>
     /// View component for the site footer.
     /// </summary>
@@ -60,7 +57,7 @@ namespace Njh.Mvc.ViewComponents.Master
                 this.TryInvoke((vc) =>
                 {
                     var phoneNumber = settingsKeyRepository.GetGlobalPhoneNumber();
-                    FooterDto footerDto = new ()
+                    FooterViewModel footerDto = new ()
                     {
                         Address = settingsKeyRepository.GetAddress(),
                         AddressUrl = settingsKeyRepository.GetAddressUrl(),

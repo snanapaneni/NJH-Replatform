@@ -1,15 +1,15 @@
 ﻿using Njh.Kernel.Models.DTOs;
+using Njh.Mvc.Components.Master;
 
 namespace Njh.Mvc.Models
 {
     using System.Collections.Generic;
-    using Njh.Mvc.ViewComponents.Master;
 
     /// <summary>
     /// Implements the view model for the
     /// <see cref="FooterViewComponent"/> widget.
     /// </summary>
-    public class FooterDto
+    public class FooterViewModel
     {
         public IEnumerable<NavItem> PolicyLinks { get; set; }
         public IEnumerable<NavItem> SupportedLanguages { get; set; }

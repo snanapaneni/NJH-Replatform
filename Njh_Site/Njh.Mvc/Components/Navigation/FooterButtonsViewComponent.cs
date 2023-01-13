@@ -1,14 +1,11 @@
-﻿using Njh.Kernel.Extensions;
+﻿using Microsoft.AspNetCore.Mvc;
+using Njh.Kernel.Extensions;
 using Njh.Kernel.Kentico.Models.PageTypes;
+using Njh.Kernel.Services;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
-namespace Njh.Mvc.ViewComponents.Navigation
+namespace Njh.Mvc.Components.Navigation
 {
-    using System;
-    using Njh.Kernel.Services;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using ReasonOne.AspNetCore.Mvc.ViewComponents;
-
     /// <summary>
     /// Implements the Footer Navigation view component.
     /// </summary>

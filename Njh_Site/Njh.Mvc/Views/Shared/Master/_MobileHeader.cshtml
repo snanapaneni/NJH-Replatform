@@ -1,4 +1,4 @@
-﻿@model HeaderDto
+﻿@model HeaderViewModel
 <div id="app-header__small-screen-nav-panel"
      class="app-header__small-screen-nav-panel"
      data-hook="appHeader__smallScreenNavPanel">
@@ -65,7 +65,7 @@
          data-hook="appHeader__smallScreenNavPanelDrawer"
          aria-hidden="true">
         <!-- Quick Nav -->
-        <vc:quick-nav is-mobile="true"></vc:quick-nav>
+        <QuickNavViewComponent is-mobile="true"></QuickNavViewComponent>
         
         @if (Model.CurrentTree != null)
         {
@@ -100,10 +100,10 @@
             </nav>
         }
         <!-- Primary nav -->
-        <vc:main-nav is-mobile="true"></vc:main-nav>
+        <MainNavViewComponent is-mobile="true"></MainNavViewComponent>
 
         <!-- Utility nav -->
-        <vc:utility-nav is-mobile="true"></vc:utility-nav>
+        <UtilityNavViewComponent is-mobile="true"></UtilityNavViewComponent>
         
     </div>
 </div>

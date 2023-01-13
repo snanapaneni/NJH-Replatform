@@ -1,26 +1,20 @@
-﻿using Njh.Kernel.Extensions;
-using Njh.Kernel.Kentico.Models.PageTypes;
+﻿using Microsoft.AspNetCore.Mvc;
+using Njh.Kernel.Services;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
-namespace Njh.Mvc.ViewComponents.Navigation
+namespace Njh.Mvc.Components.Navigation
 {
-    using System;
-    using Njh.Kernel.Services;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using ReasonOne.AspNetCore.Mvc.ViewComponents;
-
     /// <summary>
     /// Implements the Footer Navigation view component.
     /// </summary>
-    public class FooterSocialMediaLinksViewComponent
-        : SafeViewComponent<FooterSocialMediaLinksViewComponent>
+    public class FooterNavViewComponent
+        : SafeViewComponent<FooterNavViewComponent>
     {
         private INavigationService navservice;
-        private readonly ISettingsKeyRepository settingsKeyRepository;
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="FooterSocialMediaLinksViewComponent"/> class.
+        /// <see cref="FooterNavViewComponent"/> class.
         /// </summary>
         /// <param name="logger">
         /// The logger.
@@ -31,17 +25,14 @@ namespace Njh.Mvc.ViewComponents.Navigation
         /// <param name="viewComponentErrorVisibility">
         /// The view component error visibility.
         /// </param>
-        public FooterSocialMediaLinksViewComponent(
-            ILogger<FooterSocialMediaLinksViewComponent> logger,
+        public FooterNavViewComponent(
+            ILogger<FooterNavViewComponent> logger,
             INavigationService navigationService,
-            ISettingsKeyRepository settingsKeyRepository,
             IViewComponentErrorVisibility viewComponentErrorVisibility)
             : base(logger, viewComponentErrorVisibility)
         {
             this.navservice = navigationService ??
-                              throw new ArgumentNullException(nameof(navigationService));
-
-            this.settingsKeyRepository = settingsKeyRepository;
+                throw new ArgumentNullException(nameof(navigationService));
         }
 
         /// <summary>
@@ -55,10 +46,10 @@ namespace Njh.Mvc.ViewComponents.Navigation
             return
                 this.TryInvoke((vc) =>
                 {
-                    var navItems = vc.navservice.GetNavItems<PageType_SocialMediaLink>(settingsKeyRepository.GetFooterSocialMediaLinksPath());
+                    var navItems = vc.navservice.GetFooterNav();
 
                     return vc.View(
-                        "~/Views/Shared/Navigation/_FooterSocialMediaLinks.cshtml",
+                        "~/Views/Shared/Navigation/_FooterNav.cshtml",
                         navItems);
                 });
         }
