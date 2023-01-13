@@ -1,12 +1,7 @@
-﻿using Njh.Kernel.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Njh.Kernel.Extensions
+﻿namespace Njh.Kernel.Extensions
 {
+    using Njh.Kernel.Services;
+
     /// <summary>
     /// Implements extensions methods for the
     /// <see cref="ISettingsKeyRepository"/> interface.
@@ -154,6 +149,23 @@ namespace Njh.Kernel.Extensions
         {
             return settingsKeyRepository
                 .GetValue<string>("NJHPagePageTypes");
+        }
+
+
+        /// <summary>
+        /// Gets the analytics script (i.e. GTM).
+        /// </summary>
+        /// <param name="settingsKeyRepository">
+        /// The settings key repository.
+        /// </param>
+        /// <returns>
+        /// The analytics script (GTM).
+        /// </returns>
+        public static string GetAnalyticsScript(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAnalyticsScript");
         }
 
         public static string GetPolicyLinksPath(
