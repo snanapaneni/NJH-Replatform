@@ -1,15 +1,40 @@
 const App__externalLinkClass = {
   add: function () {
-    let selectors = [
-      '.app-header__alert-banner-content a:not([href*="bot.com"]):not([href*="bot-lh"]):not([href*="website-app-trbot"]):not([href="#"]):not([href^="#main"]):not([href^="/"]):not([href^="mailto"])',
-      '.app-header__utility-nav-portal-menu a:not([href*="bot.com"]):not([href*="bot-lh"]):not([href*="website-app-trbot"]):not([href="#"]):not([href^="#main"]):not([href^="/"]):not([href^="mailto"])',
-      'main a:not([href*="bot.com"]):not([href*="bot-lh"]):not([href*="website-app-trbot"]):not([href^="#"]):not([href^="#main"]):not([href^="/"]):not([href^="mailto"])',
-      'main a[target="_blank"]',
-      '.app-footer__primary-nav-list a:not([href*="bot.com"]):not([href*="bot-lh"]):not([href*="website-app-trbot"]):not([href="#"]):not([href^="#main"]):not([href^="/"]):not([href^="mailto"])',
-      '.app-footer .logo-zone a:not([href*="bot.com"]):not([href*="bot-lh"]):not([href*="website-app-trbot"]):not([href="#"]):not([href^="#main"]):not([href^="/"]):not([href^="mailto"])',
+    const internalUrls = [
+      // Same Page
+      '[href="#"]',
+      '[href^="#main"]',
+
+      // Relative
+      '[href^="/"]',
+      '[href^="./"]',
+
+      // Device triggers
+      '[href^="mailto"]',
+      '[href^="tel"]',
+
+      // Dev/Prod environments
+      '[href*="nationaljewish.org"]',
+      '[href*="njhmvc"]',
+      '[href*="localhost"]',
     ];
 
-    document.querySelectorAll(selectors.join()).forEach(function (item) {
+    // The selectors we want to target.
+    const selectors = [
+      ".app-main a",
+      ".app-footer a",
+      ".app-header__utility-nav a",
+    ];
+
+    // Add any "non-automated" selectors here.
+    let querySelector = [];
+
+    // Loop over the selectors and apply a not to the interal urls.
+    selectors.map((selector) => {
+      querySelector.push(`${selector}:not(${internalUrls.join(",")})`);
+    });
+
+    document.querySelectorAll(querySelector.join(",")).forEach(function (item) {
       if (
         item.hasAttribute("href") &&
         item.getAttribute("href") !== null &&

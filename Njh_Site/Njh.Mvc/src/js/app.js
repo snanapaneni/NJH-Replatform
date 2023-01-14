@@ -57,6 +57,7 @@ import App__externalLinkClass from "./utilities/external-link-class";
 import App__pagination from "./utilities/pagination";
 import App__responsiveImage from "./utilities/responsive-image";
 import App__sibling from "./utilities/sibling";
+import App__tables from "./utilities/tables";
 import App__urlToolkit from "./utilities/url-toolkit";
 // Animation
 // import "./animation/fade-up";
@@ -300,6 +301,7 @@ App.utils = {
   responsiveImage: App__responsiveImage,
   // sibling: App__sibling,
   // urlToolkit: App__urlToolkit,
+  tables: App__tables,
 };
 
 App.utils.pagination = App__pagination;
@@ -346,6 +348,8 @@ window.addEventListener("load", function (event) {
   App.utils.adjustBodyTopMargin();
 
   App.utils.externalLinkClass.add();
+
+  App.utils.tables.makeResponsive();
 
   reframe('iframe[src*="youtube"], iframe[src*="vimeo"]');
 
