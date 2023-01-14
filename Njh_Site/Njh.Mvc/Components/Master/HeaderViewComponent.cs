@@ -1,19 +1,14 @@
-﻿using CMS.DocumentEngine.Routing;
+﻿using CMS.DocumentEngine;
+using Kentico.Content.Web.Mvc;
+using Microsoft.AspNetCore.Mvc;
+using Njh.Kernel.Extensions;
 using Njh.Kernel.Models.DTOs;
+using Njh.Kernel.Services;
+using Njh.Mvc.Models;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
-namespace Njh.Mvc.ViewComponents.Master
+namespace Njh.Mvc.Components.Master
 {
-    using System;
-    using System.Linq;
-    using Kernel.Services;
-    using Models;
-    using CMS.DocumentEngine;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using ReasonOne.AspNetCore.Mvc.ViewComponents;
-    using Njh.Kernel.Extensions;
-    using Kentico.Content.Web.Mvc;
-
     /// <summary>
     /// Implements the Header view component.
     /// </summary>
@@ -73,7 +68,7 @@ namespace Njh.Mvc.ViewComponents.Master
                 this.TryInvoke((vc) =>
                 {
 
-                    HeaderDto headerModel = new ()
+                    HeaderViewModel headerModel = new ()
                     {
                         Logo = settingsKeyRepository.GetHeaderLogo(),
                         LogoAltText = settingsKeyRepository.GetHeaderLogoAltText(),

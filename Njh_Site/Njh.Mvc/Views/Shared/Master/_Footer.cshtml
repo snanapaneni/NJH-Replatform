@@ -1,0 +1,88 @@
+﻿@using CMS.Helpers
+@using CMS.MacroEngine
+@using Njh.Mvc.Components.Navigation
+@using Njh.Mvc.ViewComponents.Navigation
+@model FooterViewModel
+<footer class="app-footer">
+    <!-- FOOTER CONTENT -->
+    <section class="app-footer__content">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- CTA BUTTONS -->
+                <vc:footer-buttons></vc:footer-buttons>
+
+                <!-- LINK LIST -->
+                <vc:footer-nav></vc:footer-nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CONTACT -->
+    <section class="app-footer__contact">
+        <div class="container">
+            <!-- FOLLOW / SUBSCRIBE -->
+            <div class="row gy-4 mb-4">
+                <vc:footer-social-media-links></vc:footer-social-media-links>
+                <div class="app-footer__contact-subscribe col-md-4 text-md-end">
+                    <p><strong>@ResHelper.GetString("NJH.Footer.KeepInTouch")</strong></p>
+                    <button class="btn btn-orange--900">@Model.NewsletterSignUpText</button>
+                </div>
+            </div>
+
+            <hr class="mb-4" />
+
+            <!-- BEST HOSPITAL / COPYRIGHT / ADDRESS-->
+            <div class="row align-items-center justify-content-between gy-4">
+                <div class="app-footer__contact-best-hospital col-lg-3">
+                    @foreach (var badge in Model.Badges)
+                    {
+                        <a href="@badge.Link" target="_blank">
+                            <!-- Images height and width should repesent they're actual dimensions -->
+                            <img src="@badge.Image" alt="@(!string.IsNullOrWhiteSpace(badge.ImageAltText) ? badge.ImageAltText : @badge.DisplayTitle)"
+                                 width="200"
+                                 height="200"
+                                 loading="lazy"/>
+                        </a>
+                    }
+                </div>
+                <div class="app-footer__contact-copyright col-lg-9 text-lg-end">
+                    <ul role="list"
+                        class="separated-list flex-wrap justify-content-lg-end mb-3 gap-0">
+                        <li>
+                            <a href="@Model.AddressUrl">
+                                <!-- recommend linking this to Google Maps-->
+                                <strong>@Model.Address</strong>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:@Model.PhoneNumberText"><strong>@Model.PhoneNumberText</strong></a>
+                        </li>
+                    </ul>
+                    <ul role="list"
+                        class="separated-list flex-wrap mb-3 gap-0 justify-content-lg-end">
+                        @foreach (var link in Model.PolicyLinks)
+                        {
+                            <li>
+                                <a href="@link.Link">@link.DisplayTitle</a>
+                            </li>
+                        }
+                    </ul>
+                    <small>© @DateTime.Now.Year  @Html.Raw(MacroResolver.Resolve(Model.CopyRightText))</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUPPORTED LANGUAGES -->
+    <section class="app-footer__languages">
+        <div class="container">
+            <p class="visually-hidden">@ResHelper.GetString("NJH.Footer.SupportedLanguages")</p>
+            <ul role="list" class="separated-list flex-wrap justify-content-center">
+                @foreach (var link in Model.SupportedLanguages)
+                {
+                    <li><a href="@link.Link" target="_blank">@link.DisplayTitle</a></li>
+                }
+            </ul>
+        </div>
+    </section>
+</footer>

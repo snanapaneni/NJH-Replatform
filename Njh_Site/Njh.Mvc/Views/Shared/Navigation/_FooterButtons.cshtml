@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Njh.Kernel.Models.DTOs.NavItem>
+<div class="app-footer__content-cta col-md-5 col-lg-4 col-xl-3">
+    <ul class="list-unstyled" role="list">
+        @foreach (var link in Model)
+        {
+            <li>
+                <a href="@link.Link" class="btn btn-neutral--100 btn-round d-block">
+                    @link.DisplayTitle
+                </a>
+            </li>
+        }
+    </ul>
+</div>

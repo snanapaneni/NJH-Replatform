@@ -1,12 +1,7 @@
-﻿using Njh.Kernel.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Njh.Kernel.Extensions
+﻿namespace Njh.Kernel.Extensions
 {
+    using Njh.Kernel.Services;
+
     /// <summary>
     /// Implements extensions methods for the
     /// <see cref="ISettingsKeyRepository"/> interface.
@@ -61,21 +56,6 @@ namespace Njh.Kernel.Extensions
                 .GetValue<string>("NJHFooterNavigation");
         }
 
-        /// <summary>
-        /// Returns the toe navigation page path.
-        /// </summary>
-        /// <param name="settingsKeyRepository">
-        /// The settings key repository.
-        /// </param>
-        /// <returns>
-        /// The toe navigation page path.
-        /// </returns>
-        public static string GetToeNavigationPath(
-            this ISettingsKeyRepository settingsKeyRepository)
-        {
-            return settingsKeyRepository
-                .GetValue<string>("NJHToeNavigation");
-        }
 
         public static string GetHeaderLogo(
             this ISettingsKeyRepository settingsKeyRepository)
@@ -154,6 +134,72 @@ namespace Njh.Kernel.Extensions
         {
             return settingsKeyRepository
                 .GetValue<string>("NJHPagePageTypes");
+        }
+
+
+        /// <summary>
+        /// Gets the analytics script (i.e. GTM).
+        /// </summary>
+        /// <param name="settingsKeyRepository">
+        /// The settings key repository.
+        /// </param>
+        /// <returns>
+        /// The analytics script (GTM).
+        /// </returns>
+        public static string GetAnalyticsScript(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAnalyticsScript");
+        }
+
+        public static string GetPolicyLinksPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHPolicyLinksPath");
+        }
+
+        public static string GetBadgesPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHBadgesPath");
+        }
+
+        public static string GetAddress(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAddress");
+        }
+
+        public static string GetAddressUrl(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAddressUrl");
+        }
+
+        public static string GetSupportedLanguagesPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHSupportedLanguagesPath");
+        }
+
+        public static string GetFooterSocialMediaLinksPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHFooterSocialMediaLinksPath");
+        }
+
+        public static string GetFooterButtonsPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHFooterButtonsPath");
         }
     }
 }

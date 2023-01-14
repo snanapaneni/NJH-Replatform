@@ -18,27 +18,27 @@ using CMS.DataEngine;
 using CMS.DocumentEngine;
 using Njh.Kernel.Kentico.Models.PageTypes;
 
-[assembly: RegisterDocumentType(PageType_CTAItem.CLASS_NAME, typeof(PageType_CTAItem))]
+[assembly: RegisterDocumentType(PageType_Badge.CLASS_NAME, typeof(PageType_Badge))]
 
 namespace Njh.Kernel.Kentico.Models.PageTypes
 {
     /// <summary>
-    /// Represents a content item of type PageType_CTAItem.
+    /// Represents a content item of type PageType_Badge.
     /// </summary>
-    public partial class PageType_CTAItem : TreeNode
+    public partial class PageType_Badge : TreeNode
     {
         #region "Constants and variables"
 
         /// <summary>
         /// The name of the data class.
         /// </summary>
-        public const string CLASS_NAME = "NJH.PageType_CTAItem";
+        public const string CLASS_NAME = "NJH.PageType_Badge";
 
 
         /// <summary>
-        /// The instance of the class that provides extended API for working with PageType_CTAItem fields.
+        /// The instance of the class that provides extended API for working with PageType_Badge fields.
         /// </summary>
-        private readonly PageType_CTAItemFields mFields;
+        private readonly PageType_BadgeFields mFields;
 
         #endregion
 
@@ -49,15 +49,15 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         /// PageType_CTAItemID.
         /// </summary>
         [DatabaseIDField]
-        public int PageType_CTAItemID
+        public int PageType_BadgeID
         {
             get
             {
-                return ValidationHelper.GetInteger(GetValue("PageType_CTAItemID"), 0);
+                return ValidationHelper.GetInteger(GetValue("PageType_BadgeID"), 0);
             }
             set
             {
-                SetValue("PageType_CTAItemID", value);
+                SetValue("PageType_BadgeID", value);
             }
         }
 
@@ -114,7 +114,7 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Image (300 x 225).
+        /// Image.
         /// </summary>
         [DatabaseField]
         public string Image
@@ -151,17 +151,18 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         /// Link Page.
         /// </summary>
         [DatabaseField]
-        public Guid LinkPage
+        public string Link
         {
             get
             {
-                return ValidationHelper.GetGuid(GetValue("LinkPage"), Guid.Empty);
+                return ValidationHelper.GetString(GetValue("Link"), @"");
             }
             set
             {
-                SetValue("LinkPage", value);
+                SetValue("Link", value);
             }
         }
+
 
         /// <summary>
         /// Link Type.
@@ -181,10 +182,10 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Gets an object that provides extended API for working with PageType_CTAItem fields.
+        /// Gets an object that provides extended API for working with PageType_Badge fields.
         /// </summary>
         [RegisterProperty]
-        public PageType_CTAItemFields Fields
+        public PageType_BadgeFields Fields
         {
             get
             {
@@ -194,22 +195,22 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Provides extended API for working with PageType_CTAItem fields.
+        /// Provides extended API for working with PageType_Badge fields.
         /// </summary>
         [RegisterAllProperties]
-        public partial class PageType_CTAItemFields : AbstractHierarchicalObject<PageType_CTAItemFields>
+        public partial class PageType_BadgeFields : AbstractHierarchicalObject<PageType_BadgeFields>
         {
             /// <summary>
-            /// The content item of type PageType_CTAItem that is a target of the extended API.
+            /// The content item of type PageType_Badge that is a target of the extended API.
             /// </summary>
-            private readonly PageType_CTAItem mInstance;
+            private readonly PageType_Badge mInstance;
 
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="PageType_CTAItemFields" /> class with the specified content item of type PageType_CTAItem.
+            /// Initializes a new instance of the <see cref="PageType_BadgeFields" /> class with the specified content item of type PageType_Badge.
             /// </summary>
-            /// <param name="instance">The content item of type PageType_CTAItem that is a target of the extended API.</param>
-            public PageType_CTAItemFields(PageType_CTAItem instance)
+            /// <param name="instance">The content item of type PageType_Badge that is a target of the extended API.</param>
+            public PageType_BadgeFields(PageType_Badge instance)
             {
                 mInstance = instance;
             }
@@ -222,11 +223,11 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
             {
                 get
                 {
-                    return mInstance.PageType_CTAItemID;
+                    return mInstance.PageType_BadgeID;
                 }
                 set
                 {
-                    mInstance.PageType_CTAItemID = value;
+                    mInstance.PageType_BadgeID = value;
                 }
             }
 
@@ -280,7 +281,7 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
             /// <summary>
-            /// Image (300 x 225).
+            /// Image.
             /// </summary>
             public string Image
             {
@@ -314,17 +315,18 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
             /// <summary>
             /// Link Page.
             /// </summary>
-            public Guid LinkPage
+            public string Link
             {
                 get
                 {
-                    return mInstance.LinkPage;
+                    return mInstance.Link;
                 }
                 set
                 {
-                    mInstance.LinkPage = value;
+                    mInstance.Link = value;
                 }
             }
+
 
             /// <summary>
             /// Link Type.
@@ -348,11 +350,11 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         #region "Constructors"
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PageType_CTAItem" /> class.
+        /// Initializes a new instance of the <see cref="PageType_Badge" /> class.
         /// </summary>
-        public PageType_CTAItem() : base(CLASS_NAME)
+        public PageType_Badge() : base(CLASS_NAME)
         {
-            mFields = new PageType_CTAItemFields(this);
+            mFields = new PageType_BadgeFields(this);
         }
 
         #endregion

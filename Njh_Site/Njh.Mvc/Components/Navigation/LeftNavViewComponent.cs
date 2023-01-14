@@ -1,7 +1,7 @@
 ﻿using Njh.Kernel.Extensions;
 using Njh.Mvc.Models;
 
-namespace Njh.Mvc.ViewComponents.Navigation
+namespace Njh.Mvc.Components.Navigation
 {
     using System;
     using Njh.Kernel.Services;
@@ -63,10 +63,13 @@ namespace Njh.Mvc.ViewComponents.Navigation
         /// <summary>
         /// Renders the view component markup.
         /// </summary>
+        /// <param name="maxDepth">
+        /// Max levels of navigation to retrieve; pass as 'max-depth' when component is placed as tag; default 5.
+        /// </param>
         /// <returns>
         /// The view component result.
         /// </returns>
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(int maxDepth = 5)
         {
             return this.TryInvoke(vc =>
             {
@@ -77,7 +80,7 @@ namespace Njh.Mvc.ViewComponents.Navigation
                 if (currentPage != null)
                 {
                     // get sub tree data starting at parent, with current page flagged IsOnPath
-                    navItems = vc.navigationService.GetSubTreeOfParent(currentPage);
+                    navItems = vc.navigationService.GetSubTreeOfParent(currentPage, maxDepth);
                 }
                 else
                 {

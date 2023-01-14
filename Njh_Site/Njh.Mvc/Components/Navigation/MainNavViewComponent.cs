@@ -1,11 +1,9 @@
-﻿namespace Njh.Mvc.ViewComponents.Navigation
-{
-    using System;
-    using Njh.Kernel.Services;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using ReasonOne.AspNetCore.Mvc.ViewComponents;
+﻿using Microsoft.AspNetCore.Mvc;
+using Njh.Kernel.Services;
+using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
+namespace Njh.Mvc.Components.Navigation
+{
     /// <summary>
     /// Implements the Primary Navigation view component.
     /// </summary>

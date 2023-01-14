@@ -11,6 +11,11 @@
         public const string DataSetByPathByType = "{0}|bypath|{1}|pagetype|{2}";
 
         /// <summary>
+        /// _UniqueName_|bypath|_alias path_|pagetype|_page type code name_|maxdepth|_max nesting level of query_.
+        /// </summary>
+        public const string DataSetByPathByTypeAndDepth = "{0}|bypath|{1}|pagetype|{2}|maxdepth|{3}";
+
+        /// <summary>
         /// _UniqueName_|byid|_alias path_|pagetype|_page type code name_.
         /// </summary>
         public const string DataSetByIdByType = "{0}|byid|{1}|pagetype|{2}";
@@ -29,7 +34,5 @@
         /// _UniqueName_|_key_.
         /// </summary>
         public const string DataSetByKey = "{0}|{1}";
-
-       
     }
 }

@@ -1,0 +1,24 @@
+﻿@model IEnumerable<Njh.Kernel.Models.DTOs.NavItem>
+<div class="app-footer__content-nav col-md-7 col-lg-8 col-xl-9">
+    <nav>
+        <ul class="list-unstyled" role="list">
+            @foreach (var link in Model.Where(item => item.CssClass?.Contains("highlight", StringComparison.OrdinalIgnoreCase) == true))
+            {
+                <!-- "Higlighted" links -->
+                <li class="highlight">
+                    <a href="@link.Link">@link.DisplayTitle</a>
+                </li>
+            }
+
+            <!-- Visual separator (desktop only)-->
+            <li role="separator" class="separator"></li>
+            
+            @foreach (var link in Model.Where(item => item.CssClass?.Contains("highlight", StringComparison.OrdinalIgnoreCase) != true))
+            {
+                <li class="">
+                    <a href="@link.Link">@link.DisplayTitle</a>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>

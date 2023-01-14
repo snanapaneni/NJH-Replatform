@@ -34,6 +34,7 @@ namespace Njh.Mvc.Components.Sections.TwoColumn7525
             return
                       this.TryInvoke((vc) =>
                       {
+                          int FullWidthColumnSize = 12;
                           var secProps = sectionProperties?.Properties;
                           var model = new TwoColumn7525SectionViewModel();
 
@@ -45,6 +46,8 @@ namespace Njh.Mvc.Components.Sections.TwoColumn7525
                               model.CssClass = themeItem?.CssClass ?? string.Empty;
                               model.BackgroundColor = themeItem?.BackgroundColor ?? string.Empty;
                               model.Color = themeItem?.TextColor ?? string.Empty;
+                              model.FirstColumnSize = (!secProps?.SwapColumns) ?? false ? 9 : 3;
+                              model.SecondColumnSize = FullWidthColumnSize - model.FirstColumnSize;
                           }
 
                           return vc.View("~/Views/Shared/Sections/_TwoColumn7525Section.cshtml", model);
