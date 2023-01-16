@@ -1,21 +1,26 @@
-h1,
-.like-h1 {
+@mixin headings {
   font-family: $font-family-headings;
-  font-weight: 400;
   line-height: 1.3;
-  font-size: 2rem;
+  text-transform: none;
+  font-weight: 500;
+}
 
+h1,
+.like-h1,
+.fr-view h1 {
+  @include headings;
+  font-size: 2rem;
+  font-weight: 400;
   @include media-breakpoint-up(md) {
     font-size: 2.625rem;
   }
 }
 
 h2,
-.like-h2 {
-  font-family: $font-family-headings;
-  font-weight: 500;
+.like-h2,
+.fr-view h2 {
+  @include headings;
   font-size: 1.625rem;
-  line-height: 1.3;
 
   @include media-breakpoint-up(md) {
     font-size: 1.75rem;
@@ -23,43 +28,37 @@ h2,
 }
 
 h3,
-.like-h3 {
-  font-family: $font-family-headings;
-  font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 1.3;
+.like-h3,
+.fr-view h3 {
+  @include headings;
+  font-size: 1.375rem;
 
   @include media-breakpoint-up(md) {
-    font-size: 1.375rem;
+    font-size: 1.5rem;
   }
 }
 
 h4,
-.like-h4 {
-  font-family: $font-family-sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.3;
+.like-h4,
+.fr-view h4 {
+  @include headings;
+  font-size: 1.2rem;
 
   @include media-breakpoint-up(md) {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 
 h5,
-.like-h5 {
-  font-family: $font-family-sans-serif;
-  font-weight: 700;
+.like-h,
+.fr-view h5 {
+  @include headings;
   font-size: 1.125rem;
-  line-height: 1.3;
-  text-transform: uppercase;
 }
 
 h6,
-.like-h6 {
-  font-family: $font-family-sans-serif;
-  font-weight: 700;
+.like-h6,
+.fr-view h6 {
+  @include headings;
   font-size: 1rem;
-  line-height: 1.3;
-  text-transform: uppercase;
 }

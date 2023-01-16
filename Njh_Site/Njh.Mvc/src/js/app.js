@@ -1,5 +1,7 @@
 import "../styles/app.scss";
 
+let App = (window.App = {});
+
 /*
  * NOTE!
  * app-critical.js must be loaded in the browser before this file
@@ -12,15 +14,20 @@ import "../styles/app.scss";
 // import Alert from 'bootstrap/js/dist/alert'
 // import Button from 'bootstrap/js/dist/button'
 // import Carousel from 'bootstrap/js/dist/carousel'
-// import Collapse from 'bootstrap/js/dist/collapse'
+// import Collapse from "bootstrap/js/dist/collapse";
 // import Dropdown from 'bootstrap/js/dist/dropdown'
-import Modal from "bootstrap/js/dist/modal";
+// import Modal from "bootstrap/js/dist/modal";
 // import Modal from 'bootstrap/js/dist/offcanvas'
 // import Popover from 'bootstrap/js/dist/popover'
 // import Scrollspy from 'bootstrap/js/dist/scrollspy'
 // import Tab from 'bootstrap/js/dist/tab'
 // import Toast from 'bootstrap/js/dist/toast'
 // import Tooltip from 'bootstrap/js/dist/tooltip'
+
+import * as bootstrap from "bootstrap";
+
+/* Attach Bootstrap methods to App so that we can use them as modules and prevent them from firing multiple times. */
+App.bootstrap = bootstrap;
 
 /*
  * Other 3rd Party Dependencies
@@ -49,6 +56,7 @@ import App__externalLinkClass from "./utilities/external-link-class";
 import App__pagination from "./utilities/pagination";
 import App__responsiveImage from "./utilities/responsive-image";
 import App__sibling from "./utilities/sibling";
+import App__tables from "./utilities/tables";
 import App__urlToolkit from "./utilities/url-toolkit";
 // Animation
 // import "./animation/fade-up";
@@ -57,7 +65,6 @@ import App__urlToolkit from "./utilities/url-toolkit";
 /*
  * Setup the global App object
  * =========================================================================== */
-let App = (window.App = {});
 
 App.appHeader = App__appHeader;
 App.appSidebar = App__appSidebar;
@@ -239,6 +246,10 @@ App.utils = {
     ) {
       App.appHeader.wantTo__close();
     }
+
+    if (App.appHeader.appHeader__search.classList.contains("show")) {
+      App.appHeader.search__close();
+    }
   },
   adjustBodyTopMargin: function () {
     // Calculate and adjust space to deal with fixed header on small screens
@@ -289,6 +300,7 @@ App.utils = {
   responsiveImage: App__responsiveImage,
   // sibling: App__sibling,
   // urlToolkit: App__urlToolkit,
+  tables: App__tables,
 };
 
 App.utils.pagination = App__pagination;
@@ -335,6 +347,8 @@ window.addEventListener("load", function (event) {
 
   App.utils.externalLinkClass.add();
 
+  App.utils.tables.makeResponsive();
+
   reframe('iframe[src*="youtube"], iframe[src*="vimeo"]');
 
   /*
@@ -375,7 +389,7 @@ window.addEventListener("load", function (event) {
     // If modal exists, attach event listener to trigger, setup the modal, and show it
     if (relatedModal) {
       modalTrigger.addEventListener("click", (e) => {
-        App.modal = new Modal(relatedModal, {
+        App.modal = new App.bootstrap.Modal(relatedModal, {
           backdrop: true,
         });
 

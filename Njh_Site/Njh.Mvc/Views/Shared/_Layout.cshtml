@@ -1,16 +1,21 @@
 ﻿@using Kentico.PageBuilder.Web.Mvc
 @using Kentico.Web.Mvc
 @using Microsoft.Extensions.Configuration
+@using Njh.Kernel.Services
+@using Njh.Kernel.Extensions
 
+@inject  ISettingsKeyRepository SettingsKeyRepository;
 @{
 
     var editMode = this.Context.Kentico().PageBuilder().EditMode;
+    var analyticsScript = SettingsKeyRepository?.GetAnalyticsScript()??"";
 
 }
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="utf-8" />
     @* TODO check format of page titles per-section vs globally; might be set in metadata *@
     <title>@ViewData["Title"]</title>
@@ -27,53 +32,43 @@
     <link rel="manifest" href="/manifest.webmanifest" asp-append-version="true">
 
     @*Dynamically add hashed CSS and JS files*@
-    <link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="preload" as="style" href="/dist/app.css" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="stylesheet" href="/dist/app.css" /></noscript>
-    <script asp-cache-mappings="@AssetsFileInfo.HashedFiles" src="/dist/app.js" defer></script>
     @if (editMode)
     {
+        <link href="/Content/InlineEditors/froala-editor-styles.css" rel="stylesheet" />
+        
         <page-builder-styles />
     }
     @RenderSection("styles", required: false)
+    <link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="preload" as="style" href="/dist/app.css" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link asp-cache-mappings="@AssetsFileInfo.HashedFiles" rel="stylesheet" href="/dist/app.css" /></noscript>
+    @Html.Raw(analyticsScript)
+    
+    
 </head>
 <body>
 <a href="#main" class="skip-to-content visually-hidden-focusable">
     Skip to content
 </a>
     <vc:header></vc:header>
-    
-
-        @* TODO article container wrapper here, or generate with body depending on page type / template?
-        <article class="container" style="min-height: 100vh">(content goes here)</article>
-        *@
-        @RenderBody()
+        
+    @RenderBody()
    
-    <footer class="app-footer">
-        @* TODO replace below with Footer component *@
-        <div class="container">
-            &copy; 2022 - Njh
-        </div>
-    </footer>
-
-
+    <vc:footer></vc:footer>
+    
     <div class="app-overlay" data-hook="appOverlay"></div>
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
 
 
 
     @await RenderSectionAsync("Scripts", required: false)
     @if (editMode)
     {
-        <link href="/Content/InlineEditors/froala-editor-styles.css" rel="stylesheet" />
 
         <page-builder-scripts />
         <script src="~/Content/FormComponents/select2.full.min.js"></script>
         <script src="/Content/InlineEditors/froala-configuration.js"></script>
 
     }
+    <script asp-cache-mappings="@AssetsFileInfo.HashedFiles" src="/dist/app.js" defer></script>
 
 </body>
 </html>

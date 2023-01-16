@@ -41,3 +41,8 @@ body.remove-scrollbar {
     display: none;
   }
 }
+
+a {
+  --has-color: var(--blue--600);
+  color: var(--has-color);
+}

@@ -30,7 +30,7 @@ exports.templates = [
     header: "app-header",
     footer: "app-footer",
     main_insert: "article",
-    main_components: ["subpage-header", "subpage-content", "subpage-aside"],
+    main_components: ["subpage-header", "subpage-aside", "subpage-content"],
     options: {
       h1: "Subpage Left Rail",
     },
@@ -54,5 +54,13 @@ exports.templates = [
     options: {
       h1: "Widget Zone Examples",
     },
+  },
+
+  {
+    templateFilename: "search",
+    header: "app-header",
+    footer: "app-footer",
+    main_insert: "article",
+    main_components: [],
   },
 ];

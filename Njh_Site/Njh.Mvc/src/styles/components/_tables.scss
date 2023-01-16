@@ -1,34 +1,9 @@
 table {
-  width: 100%;
-  border: 1px solid #ededed;
-  box-sizing: border-box;
-  border-radius: 4px;
-  margin-top: 24px;
+  @extend .table;
+  @extend .table-bordered;
+  // @extend .table-striped;
+}
 
-  th {
-    padding: 15px;
-    font-size: 12px;
-    color: map_get($app-colors, "neutral--700");
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: $font-family-sans-serif;
-    background-color: map_get($app-colors, "neutral--100");
-  }
-
-  tr {
-    &:nth-child(even) {
-      background-color: map_get($app-colors, "purple--pale");
-    }
-
-    &:hover {
-      background-color: map_get($app-colors, "neutral--200");
-    }
-  }
-
-  td {
-    padding: 22px 15px;
-    font-size: 14px;
-    line-height: 1.5;
-    text-transform: capitalize;
-  }
+.table-responsive {
+  margin-bottom: 2rem;
 }

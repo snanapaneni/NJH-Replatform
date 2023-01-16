@@ -1,2 +1,119 @@
 .app-footer {
+  color: white;
+  a:not(.btn) {
+    color: white;
+    @include global-reverse-anchor-decoration;
+  }
+
+  &__content,
+  &__contact {
+    padding: 2.5rem 0;
+  }
+}
+
+.app-footer__content {
+  background: var(--blue--600);
+
+  &-cta {
+    @include media-breakpoint-up(md) {
+      padding-right: 2rem;
+    }
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &-nav {
+    @include media-breakpoint-up(md) {
+      border-left: 1px solid var(--blue--700);
+      padding-left: 2rem;
+    }
+    .highlight {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .separator {
+      display: none;
+      @include media-breakpoint-up(lg) {
+        display: block;
+        border-bottom: 1px solid var(--blue--700);
+        margin: 1rem 0;
+        width: 50%;
+      }
+    }
+
+    ul {
+      columns: 2;
+      column-gap: 2rem;
+      @include media-breakpoint-up(lg) {
+        columns: 3;
+      }
+    }
+
+    li {
+      margin-bottom: 0.75rem;
+    }
+  }
+}
+
+.app-footer__contact {
+  background: var(--blue--700);
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .app-icon {
+    height: 3rem;
+    width: 3rem;
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto 1.5rem;
+  }
+
+  &-follow {
+    a {
+      height: 3rem;
+      width: 3rem;
+      display: block;
+      border-radius: 100%;
+      background-color: var(--neutral--100);
+      &:hover,
+      &:focus {
+        background-color: var(--neutral--300);
+      }
+    }
+  }
+
+  &-best-hospital {
+    display: flex;
+    flex-direction: row;
+    //flex-wrap: nowrap;
+    gap: 0.25rem;
+    img {
+      max-width: 100px;
+    }
+  }
+
+  .separated-list {
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+      a {
+        padding-left: 0;
+        padding-bottom: 0;
+      }
+      a::after {
+        display: none;
+      }
+    }
+  }
+}
+
+.app-footer__languages {
+  padding: 1.25rem 0;
+  background: var(--blue--900);
 }

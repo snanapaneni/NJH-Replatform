@@ -1,0 +1,123 @@
+$list-depth-offset: 1.5rem;
+
+// NJHK13-388 Left Rail Nav
+
+.subpage__aside-nav {
+  position: relative;
+
+  // Default adjustments
+  a {
+    padding: 0.5rem 0;
+    display: block;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--neutral--900);
+    flex-grow: 1;
+    margin: 0 6px; // offset the focus ring
+    &:focus {
+      @include global-focus-ring;
+    }
+  }
+
+  h2 {
+    margin: 0;
+    a {
+      font-size: 1.5rem;
+    }
+  }
+
+  &-skip {
+    position: absolute;
+    padding: 0.5rem;
+    bottom: 100%;
+    left: 0;
+  }
+
+  // the dropdown button
+  &-trigger {
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    &:focus {
+      @include global-focus-ring;
+    }
+    span {
+      width: $list-depth-offset;
+    }
+
+    &[aria-expanded="true"] {
+      span {
+        rotate: 90deg;
+      }
+    }
+  }
+
+  // dropdown wrapper div
+  &-dropdown {
+    display: flex;
+    flex-direction: row;
+    // Paddings should match li's
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+  }
+
+  // List adjustments
+  // Reset
+  ul,
+  li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  > ul {
+    border-bottom: 1px solid var(--neutral--300);
+  }
+
+  li {
+    border-top: 1px solid var(--neutral--300);
+  }
+
+  li {
+    padding-left: calc($list-depth-offset);
+    // Paddings should match li's
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    &.has-children {
+      padding: 0;
+    }
+  }
+
+  // Target the "parent" list item so that the entire list is left aligned to the container.
+  > ul > li.subpage__aside-nav-parent {
+    padding: 0;
+    border-top: none;
+  }
+
+  // Manage indents
+  > ul ul ul li {
+    padding-left: calc($list-depth-offset * 1.5);
+    &.has-children {
+      button {
+        margin-left: $list-depth-offset * 0.5;
+      }
+      li {
+        padding-left: calc($list-depth-offset * 2.25);
+      }
+    }
+
+    a {
+      font-size: 1rem;
+      font-weight: 400;
+    }
+  }
+
+  // Current page
+  .is-self {
+    > a,
+    > .subpage__aside-nav-dropdown {
+      background-color: var(--orange--100);
+    }
+  }
+}

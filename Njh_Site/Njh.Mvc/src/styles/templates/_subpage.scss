@@ -75,6 +75,7 @@
 .subpage__aside {
   grid-area: aside;
   display: none;
+  position: relative;
 
   @include media-breakpoint-up(md) {
     display: block;

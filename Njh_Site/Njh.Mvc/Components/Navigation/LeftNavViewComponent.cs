@@ -1,7 +1,7 @@
 ﻿using Njh.Kernel.Extensions;
 using Njh.Mvc.Models;
 
-namespace Njh.Mvc.ViewComponents.Navigation
+namespace Njh.Mvc.Components.Navigation
 {
     using System;
     using Njh.Kernel.Services;
@@ -10,12 +10,13 @@ namespace Njh.Mvc.ViewComponents.Navigation
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
     using ReasonOne.AspNetCore.Mvc.ViewComponents;
+    using Njh.Kernel.Models.DTOs;
 
     /// <summary>
-    /// Implements the utility navigation view component.
+    /// Implements the left navigation view component.
     /// </summary>
-    public class UtilityNavViewComponent
-        : SafeViewComponent<UtilityNavViewComponent>
+    public class LeftNavViewComponent
+        : SafeViewComponent<LeftNavViewComponent>
     {
         private readonly INavigationService navigationService;
 
@@ -24,7 +25,7 @@ namespace Njh.Mvc.ViewComponents.Navigation
 
         /// <summary>
         /// Initializes a new instance of the
-        /// <see cref="UtilityNavViewComponent"/> class.
+        /// <see cref="LeftNavViewComponent"/> class.
         /// </summary>
         /// <param name="navigationService">
         /// The navigation service.
@@ -38,10 +39,13 @@ namespace Njh.Mvc.ViewComponents.Navigation
         /// <param name="viewComponentErrorVisibility">
         /// The view component error visibility.
         /// </param>
-        public UtilityNavViewComponent(
+        /// <param name="settingsKeyRepository">
+        /// The settings key repository.
+        /// </param>
+        public LeftNavViewComponent(
             INavigationService navigationService,
             IPageDataContextRetriever dataRetriever,
-            ILogger<UtilityNavViewComponent> logger,
+            ILogger<LeftNavViewComponent> logger,
             IViewComponentErrorVisibility viewComponentErrorVisibility,
             ISettingsKeyRepository settingsKeyRepository)
             : base(logger, viewComponentErrorVisibility)
@@ -52,39 +56,38 @@ namespace Njh.Mvc.ViewComponents.Navigation
             this.dataRetriever = dataRetriever ??
                 throw new ArgumentNullException(nameof(dataRetriever));
 
-            this.settingsKeyRepository = settingsKeyRepository;
+            this.settingsKeyRepository = settingsKeyRepository ??
+                throw new ArgumentNullException(nameof(settingsKeyRepository));
         }
 
         /// <summary>
         /// Renders the view component markup.
         /// </summary>
+        /// <param name="maxDepth">
+        /// Max levels of navigation to retrieve; pass as 'max-depth' when component is placed as tag; default 5.
+        /// </param>
         /// <returns>
         /// The view component result.
         /// </returns>
-        public IViewComponentResult Invoke(bool isMobile = false)
+        public IViewComponentResult Invoke(int maxDepth = 5)
         {
             return this.TryInvoke(vc =>
             {
-                var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
+                IEnumerable<NavItem> navItems;
 
-                var navItems = vc.navigationService.GetUtilityNav();
+                var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
 
                 if (currentPage != null)
                 {
-                    vc.navigationService.SetActiveItem(currentPage, navItems);
+                    // get sub tree data starting at parent, with current page flagged IsOnPath
+                    navItems = vc.navigationService.GetSubTreeOfParent(currentPage, maxDepth);
+                }
+                else
+                {
+                    navItems = new List<NavItem>();
                 }
 
-                var model = new UtilityNavDto()
-                {
-                    Links = navItems,
-                    PhoneNumber = settingsKeyRepository.GetGlobalPhoneNumber(),
-                    PhoneNumberText = settingsKeyRepository.GetGlobalPhoneNumberText()
-                };
-
-                return vc.View(
-                    isMobile ? "~/Views/Shared/Navigation/_MobileUtilityNav.cshtml" :
-                    "~/Views/Shared/Navigation/_UtilityNav.cshtml",
-                    model);
+                return vc.View("~/Views/Shared/Navigation/_LeftNav.cshtml", navItems);
             });
         }
     }

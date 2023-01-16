@@ -2,7 +2,7 @@
 
 namespace Njh.Mvc.Models
 {
-    public class UtilityNavDto
+    public class UtilityNavViewModel
     {
         /// <summary>
         /// Gets or sets the Utility Links.

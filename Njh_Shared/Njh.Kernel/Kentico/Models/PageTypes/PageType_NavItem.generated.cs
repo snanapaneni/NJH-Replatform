@@ -112,6 +112,22 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
             }
         }
 
+        /// <summary>
+        /// Link Type.
+        /// </summary>
+        [DatabaseField]
+        public string CssClass
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("CssClass"), @"");
+            }
+            set
+            {
+                SetValue("CssClass", value);
+            }
+        }
+
 
         /// <summary>
         /// Gets an object that provides extended API for working with PageType_NavItem fields.
@@ -208,6 +224,21 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
                 set
                 {
                     mInstance.LinkPage = value;
+                }
+            }
+
+            /// <summary>
+            /// Link Type.
+            /// </summary>
+            public string CssClass
+            {
+                get
+                {
+                    return mInstance.CssClass;
+                }
+                set
+                {
+                    mInstance.CssClass = value;
                 }
             }
         }

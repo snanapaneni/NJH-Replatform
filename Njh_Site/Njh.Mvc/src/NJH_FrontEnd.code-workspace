@@ -5,6 +5,9 @@
 		},
 		{
 			"path": "../wwwroot"
+		},
+		{
+			"path": "../../.."
 		}
 	],
 	"settings": {

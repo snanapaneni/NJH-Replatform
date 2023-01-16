@@ -1,15 +1,15 @@
 ﻿using Njh.Kernel.Models.DTOs;
+using Njh.Mvc.Components.Master;
 
 namespace Njh.Mvc.Models
 {
     using System;
-    using Njh.Mvc.ViewComponents.Master;
 
     /// <summary>
     /// Implements the view model for the
     /// <see cref="HeaderViewComponent"/> view component.
     /// </summary>
-    public class HeaderDto
+    public class HeaderViewModel
     {
         /// <summary>
         /// Gets or sets the logo.
