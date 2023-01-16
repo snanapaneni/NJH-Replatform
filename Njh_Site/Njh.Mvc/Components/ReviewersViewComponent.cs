@@ -1,7 +1,7 @@
 ﻿using Njh.Kernel.Extensions;
 using Njh.Mvc.Models;
 
-namespace Njh.Mvc.ViewComponents.Navigation
+namespace Njh.Mvc.Components
 {
     using System;
     using Njh.Kernel.Services;
@@ -44,10 +44,10 @@ namespace Njh.Mvc.ViewComponents.Navigation
         {
             this.reviewerService = reviewerService ??
                 throw new ArgumentNullException(nameof(reviewerService));
-            
+
             this.dataRetriever = dataRetriever ??
                 throw new ArgumentNullException(nameof(dataRetriever));
-          
+
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace Njh.Mvc.ViewComponents.Navigation
         /// </returns>
         public IViewComponentResult Invoke()
         {
-            return this.TryInvoke(vc =>
+            return TryInvoke(vc =>
             {
                 var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
 
@@ -69,7 +69,7 @@ namespace Njh.Mvc.ViewComponents.Navigation
                     reviewers = vc.reviewerService.GetReviewersByNodeGuid(currentPage.NodeGUID);
                 }
 
-                
+
 
                 return vc.View("~/Views/Shared/_Reviewers.cshtml",
                     reviewers);

@@ -137,6 +137,84 @@ namespace Njh.Kernel.Services
         }
 
         /// <inheritdoc/>
+        public IEnumerable<NavItem> GetSubTreeOfParent(TreeNode currentNode, int maxDepth = -1)
+        {
+            var parentPath = currentNode.Parent.NodeAliasPath;
+
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                    DataCacheKeys.DataSetByPathByTypeAndDepth,
+                    "SubNavigation",
+                    currentNode.NodeAliasPath,
+                    "all",
+                    maxDepth),
+                IsCultureSpecific = true,
+                CultureCode = this.context?.CultureName,
+                IsSiteSpecific = true,
+                SiteName = this.context?.Site?.SiteName,
+            };
+
+            var pageTypes = this.settingsKeyRepository.GetPagePageTypes()?.ToLower()?.Split(new char[] { ';' });
+
+            var result = this.cacheService.Get(
+                cp =>
+                {
+                    // Query for documents of desired page types in subtree and construct NavItems.
+                    var documents = DocumentHelper.GetDocuments()
+                        .Path(parentPath, PathTypeEnum.Section)
+                        .OnCurrentSite()
+                        .CombineWithDefaultCulture()
+                        .LatestVersion()
+                        .Published()
+                        .WithCoupledColumns()
+                        .NestingLevel(maxDepth)
+                        .OrderBy("NodeLevel")
+                        .Where(d => !d.GetBooleanValue("HideFromNavigation", false) && (pageTypes != null && pageTypes.Contains(d.ClassName.ToLower())))
+                        .ToList();
+
+                    // NOTE use document Title field for DisplayTitle, defaulting to DocumentName if none
+                    // NOTE NodeAliasPath and LinkedPagePath are redundant here - set both for compatibility elsewhere
+                    var navItems = documents
+                        .Where(d => !d.GetBooleanValue("HideFromNavigation", false))
+                        .Select(d =>
+                            new NavItem()
+                            {
+                                DisplayTitle = d.GetStringValue("Title", d.DocumentName),
+                                Link = DocumentURLProvider.GetUrl(d).TrimStart('~'),
+                                NodeAliasPath = d.NodeAliasPath,
+                                NodeID = d.NodeID,
+                                NodeLevel = d.NodeLevel,
+                                NodeOrder = d.NodeOrder,
+                                NodeParentID = d.NodeParentID,
+                                IsClickable = true,
+                                LinkPage = d.NodeGUID,
+                                LinkedPagePath = d.NodeAliasPath,
+                            }).ToList();
+
+                    // set dependency: all documents in subtree should bust cache
+                    cp.CacheDependencies = navItems.Select(item =>
+                            this.cacheService.GetCacheKey(
+                            string.Format(DummyCacheKeys.PageSiteNodeAlias, this.context?.Site?.SiteName, item.NodeAliasPath),
+                            cacheParameters.CultureCode,
+                            cacheParameters.SiteName))
+                            .ToList();
+
+                    // mark the current document here before tree-ifying
+                    this.SetActiveItem(currentNode, navItems);
+
+                    // put the nav items into a tree
+                    var structuredItems = StructureChildren(navItems);
+
+                    return structuredItems;
+                },
+                cacheParameters);
+
+            return result;
+        }
+
+
+        /// <inheritdoc/>
         public IEnumerable<NavItem> GetSectionNavigation(TreeNode currentNode)
         {
             if (currentNode == null)
@@ -265,7 +343,7 @@ namespace Njh.Kernel.Services
                         .OrderBy("NodeLevel", "NodeOrder")
                         .ToList();
 
-                        var pages = pagesList
+                    var pages = pagesList
                         .Where(d => d.ClassName != "CMS.Folder")
                         .Select(p => new CTAItem()
                         {

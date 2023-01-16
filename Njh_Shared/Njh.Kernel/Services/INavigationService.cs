@@ -35,6 +35,20 @@ namespace Njh.Kernel.Services
         IEnumerable<NavItem> GetFooterNav();
 
         /// <summary>
+        /// Gets document tree rooted on the parent of a page, with current page marked as active.
+        /// </summary>
+        /// <param name="currentNode">
+        /// The document which will be at first level of the sub tree.
+        /// </param>
+        /// <param name="maxDepth">
+        /// Max depth of subtree to get; -1 = no limit.
+        /// </param>
+        /// <returns>
+        /// An enumerable of the navigation items.
+        /// </returns>
+        IEnumerable<NavItem> GetSubTreeOfParent(TreeNode currentNode, int maxDepth = -1);
+
+        /// <summary>
         /// Gets all the documents in a section.
         /// </summary>
         /// <param name="currentNode">Takes in a node within that section.</param>

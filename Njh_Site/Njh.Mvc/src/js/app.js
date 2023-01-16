@@ -14,19 +14,20 @@ let App = (window.App = {});
 // import Alert from 'bootstrap/js/dist/alert'
 // import Button from 'bootstrap/js/dist/button'
 // import Carousel from 'bootstrap/js/dist/carousel'
-import Collapse from "bootstrap/js/dist/collapse";
+// import Collapse from "bootstrap/js/dist/collapse";
 // import Dropdown from 'bootstrap/js/dist/dropdown'
-import Modal from "bootstrap/js/dist/modal";
-// import Offcanvas from 'bootstrap/js/dist/offcanvas'
+// import Modal from "bootstrap/js/dist/modal";
+// import Modal from 'bootstrap/js/dist/offcanvas'
 // import Popover from 'bootstrap/js/dist/popover'
 // import Scrollspy from 'bootstrap/js/dist/scrollspy'
 // import Tab from 'bootstrap/js/dist/tab'
 // import Toast from 'bootstrap/js/dist/toast'
 // import Tooltip from 'bootstrap/js/dist/tooltip'
 
-// Add the Bootstrap modules to App so that we don't run into multi-import issues in modules.
-App.Collapse = Collapse;
-App.Modal = Modal;
+import * as bootstrap from "bootstrap";
+
+/* Attach Bootstrap methods to App so that we can use them as modules and prevent them from firing multiple times. */
+App.bootstrap = bootstrap;
 
 /*
  * Other 3rd Party Dependencies
@@ -43,7 +44,6 @@ import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
 // Components
 import App__appHeader from "./components/app-header";
 import App__appSidebar from "./components/app-sidebar";
-
 import App__accordion from "./components/accordion";
 import App__formBuilder from "./components/form-builder";
 //import App__globalAlert from "./components/global-alert";
@@ -52,7 +52,6 @@ import App__formCountryProvinceSelects from "./components/form-country-province-
 import App__routing from "./components/routing";
 import App__video from "./components/video";
 // Utilities
-import App__formValidation from "./utilities/form-validation";
 import App__externalLinkClass from "./utilities/external-link-class";
 import App__pagination from "./utilities/pagination";
 import App__responsiveImage from "./utilities/responsive-image";
@@ -69,7 +68,6 @@ import App__urlToolkit from "./utilities/url-toolkit";
 App.appHeader = App__appHeader;
 App.appSidebar = App__appSidebar;
 // Components
-App.formValidation = App__formValidation;
 //App.accordion                  = App__accordion;
 //App.formBuilder                = App__formBuilder;
 //App.globalAlert                = App__globalAlert;
@@ -188,6 +186,7 @@ App.mediaQueries = {
   },
 };
 
+App.modal = {};
 App.utils = {
   closeOverlayPanels: function () {
     // Check for and close smallScreenNavPanel
@@ -247,7 +246,7 @@ App.utils = {
       App.appHeader.wantTo__close();
     }
 
-    if (App.appHeader.appHeader__search !== null) {
+    if (App.appHeader.appHeader__search.classList.contains("show")) {
       App.appHeader.search__close();
     }
   },
@@ -310,12 +309,11 @@ App.utils.urlToolkit = App__urlToolkit;
 App.init = function () {
   console.log("App Init");
   // App.mediaQueries.init();
+  // App.globalAlert.init();
   App.appHeader.init();
 
-  App.formValidation.init();
   // App.appSidebar.init();
   // Components
-
   //App.accordion.init();
   //App.formBuilder.init();
   //App.newsletterSignup.init();
@@ -362,7 +360,6 @@ window.addEventListener("load", function (event) {
     }
     if (isEscape) {
       App.utils.closeOverlayPanels();
-      // App.appHeader.search__close();
       // App.appSidebar.closeSideNavMenu();
     }
   };
@@ -374,7 +371,6 @@ window.addEventListener("load", function (event) {
   if (appOverlay) {
     appOverlay.addEventListener("click", function (e) {
       App.utils.closeOverlayPanels();
-      // App.appHeader.search__close();
       e.target.classList.remove("is-active");
     });
   }
@@ -389,7 +385,7 @@ window.addEventListener("load", function (event) {
     // If modal exists, attach event listener to trigger, setup the modal, and show it
     if (relatedModal) {
       modalTrigger.addEventListener("click", (e) => {
-        App.modal = new Modal(relatedModal, {
+        App.modal = new App.bootstrap.Modal(relatedModal, {
           backdrop: true,
         });
 
