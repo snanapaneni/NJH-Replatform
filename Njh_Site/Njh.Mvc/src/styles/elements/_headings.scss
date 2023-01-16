@@ -2,7 +2,7 @@
   font-family: $font-family-headings;
   line-height: 1.3;
   text-transform: none;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h1,
@@ -10,6 +10,7 @@ h1,
 .fr-view h1 {
   @include headings;
   font-size: 2rem;
+  font-weight: 400;
   @include media-breakpoint-up(md) {
     font-size: 2.625rem;
   }
@@ -19,7 +20,6 @@ h2,
 .like-h2,
 .fr-view h2 {
   @include headings;
-  font-weight: 500;
   font-size: 1.625rem;
 
   @include media-breakpoint-up(md) {
@@ -31,7 +31,6 @@ h3,
 .like-h3,
 .fr-view h3 {
   @include headings;
-  font-weight: 500;
   font-size: 1.375rem;
 
   @include media-breakpoint-up(md) {
@@ -43,7 +42,6 @@ h4,
 .like-h4,
 .fr-view h4 {
   @include headings;
-  font-weight: 500;
   font-size: 1.2rem;
 
   @include media-breakpoint-up(md) {
@@ -55,7 +53,6 @@ h5,
 .like-h,
 .fr-view h5 {
   @include headings;
-  font-weight: 700;
   font-size: 1.125rem;
 }
 
@@ -63,6 +60,5 @@ h6,
 .like-h6,
 .fr-view h6 {
   @include headings;
-  font-weight: 700;
   font-size: 1rem;
 }

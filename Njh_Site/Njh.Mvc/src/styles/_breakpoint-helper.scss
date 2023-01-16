@@ -1,13 +1,13 @@
-body {
+html[data-breakpoint-helper="true"] body {
   //Enable breakpoint indicators for debugging
   &:after {
     bottom: 0;
-    left: 0;
+    right: 0;
     position: fixed;
     white-space: nowrap;
     padding: 1rem;
     z-index: 10000;
-    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
 
     content: "--XS";
     background-color: red;

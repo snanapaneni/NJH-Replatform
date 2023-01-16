@@ -1,5 +1,9 @@
 table {
   @extend .table;
   @extend .table-bordered;
-  @extend .table-striped;
+  // @extend .table-striped;
+}
+
+.table-responsive {
+  margin-bottom: 2rem;
 }
