@@ -4,17 +4,22 @@
   flex-direction: row;
   margin: 0;
   padding: 0;
-  a {
+  li {
     position: relative;
-    padding: 0.5rem;
-    text-decoration: none;
+
     &::after {
       @include global-separator;
     }
   }
 
+  a {
+    position: relative;
+    padding: 0.5rem;
+    text-decoration: none;
+  }
+
   li:last-child {
-    a::after {
+    &::after {
       display: none;
     }
   }
