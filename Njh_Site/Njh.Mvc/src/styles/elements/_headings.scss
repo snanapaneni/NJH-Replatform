@@ -62,3 +62,7 @@ h6,
   @include headings;
   font-size: 1rem;
 }
+
+.bordered-heading {
+  @include global-bordered-heading;
+}

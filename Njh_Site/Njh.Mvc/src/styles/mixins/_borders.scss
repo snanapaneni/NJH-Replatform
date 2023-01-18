@@ -1,0 +1,7 @@
+@mixin make-borders($borders) {
+  @each $key, $var in $borders {
+    .border-#{$key} {
+      border-color: var(--#{$key}) !important;
+    }
+  }
+}

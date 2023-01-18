@@ -1,0 +1,13 @@
+.template-condition {
+  h2 {
+    @include global-bordered-heading;
+
+    &.like-h3 {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__section {
+    margin-bottom: 3rem;
+  }
+}

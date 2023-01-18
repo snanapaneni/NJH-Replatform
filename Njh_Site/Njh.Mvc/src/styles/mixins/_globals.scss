@@ -62,3 +62,11 @@
     text-decoration: underline;
   }
 }
+
+@mixin global-bordered-heading {
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--neutral--300);
+  img {
+    margin-right: 0.5rem;
+  }
+}

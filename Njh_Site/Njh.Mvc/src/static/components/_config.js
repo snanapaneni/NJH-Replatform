@@ -63,4 +63,14 @@ exports.templates = [
     main_insert: "article",
     main_components: [],
   },
+   {
+    templateFilename: "condition",
+    header: "app-header",
+    footer: "app-footer",
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "condition-content"],
+    options: {
+      h1: "Subpage Left Rail",
+    },
+  },
 ];
