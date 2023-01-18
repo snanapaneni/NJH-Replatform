@@ -68,8 +68,14 @@
 .subpage__content {
   grid-area: content;
   padding-bottom: 3rem;
-  > * {
+  h2,
+  h3 {
+    margin-top: 3rem;
     margin-bottom: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
   }
 }
 
