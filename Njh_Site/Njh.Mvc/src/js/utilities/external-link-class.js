@@ -20,11 +20,7 @@ const App__externalLinkClass = {
     ];
 
     // The selectors we want to target.
-    const selectors = [
-      ".app-main a",
-      ".app-footer a",
-      ".app-header__utility-nav a",
-    ];
+    const selectors = [".app-main a", ".app-header__utility-nav a"];
 
     // Add any "non-automated" selectors here.
     let querySelector = [];

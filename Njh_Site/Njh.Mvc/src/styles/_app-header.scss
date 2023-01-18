@@ -201,7 +201,7 @@ button.btn.app-header__circle-button {
     align-items: stretch;
 
     > li {
-      flex-basis: 16.666666%;
+      flex-basis: 100%;
     }
   }
 
@@ -253,13 +253,16 @@ button.btn.app-header__circle-button {
       top: calc(100% + var(--border-height));
       padding: 1rem;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      width: 600px;
+      width: auto;
       &-row {
         display: grid;
         grid-template-columns: repeat(2, auto);
         margin-bottom: 2rem;
       }
 
+      &-column {
+        width: 300px;
+      }
       ul {
         flex-direction: column;
         li:not(:last-child) {

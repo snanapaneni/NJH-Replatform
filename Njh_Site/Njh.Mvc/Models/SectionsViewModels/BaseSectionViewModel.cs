@@ -41,7 +41,7 @@
             return
                 UseCssClass
                 ? this.CssClass
-                : string.Empty;
+                : "bg-neutral--100";
         }
 
         /// <summary>
