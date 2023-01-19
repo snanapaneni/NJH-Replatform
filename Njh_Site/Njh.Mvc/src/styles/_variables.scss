@@ -109,3 +109,5 @@ $font-family-serif: "Eczar", serif;
 
 // Borders
 $border: rgba(map_get($app-colors, "neutral--700"), 0.2);
+
+$figure-caption-color: var(--has-color);

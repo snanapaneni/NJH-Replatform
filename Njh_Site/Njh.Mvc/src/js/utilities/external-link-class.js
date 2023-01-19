@@ -2,7 +2,7 @@ const App__externalLinkClass = {
   add: function () {
     const internalUrls = [
       // Same Page
-      '[href="#"]',
+      '[href^="#"]',
       '[href^="#main"]',
 
       // Relative
@@ -17,6 +17,9 @@ const App__externalLinkClass = {
       '[href*="nationaljewish.org"]',
       '[href*="njhmvc"]',
       '[href*="localhost"]',
+
+      // Ignore links with images
+      ":has(img)",
     ];
 
     // The selectors we want to target.
