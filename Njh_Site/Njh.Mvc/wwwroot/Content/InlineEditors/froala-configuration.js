@@ -65,24 +65,27 @@
             undo: true,
             refreshAfterCallback: true,
             options: {
-                'btn-neutral--900': 'Black Button',
-                'btn-neutral--900-outline': 'Black Button - outline',
-                'btn-neutral--300': 'Grey button',
-                'btn-neutral--300-outline': 'Grey button - outline',
-                'btn-neutral--100': 'White Button',
-                'btn-neutral--100-outline': 'White Button - outline',
-                'btn-blue--700': 'Blue button',
-                'btn-blue--700-outline': 'Blue button - Outline',
-                'btn-orange--900': 'Orange button',
-                'btn-orange--900-outline': 'Orange button - Outline',
-                'btn-purple--500': 'Purple button',
-                'btn-purple--500-outline': 'Purple button - Outline',
+                'btn btn-neutral--900': 'Black Button',
+                'btn btn-neutral--900-outline': 'Black Button - outline',
+                'btn btn-neutral--300': 'Grey button',
+                'btn btn-neutral--300-outline': 'Grey button - outline',
+                'btn btn-neutral--100': 'White Button',
+                'btn btn-neutral--100-outline': 'White Button - outline',
+                'btn btn-blue--700': 'Blue button',
+                'btn btn-blue--700-outline': 'Blue button - Outline',
+                'btn btn-orange--900': 'Orange button',
+                'btn btn-orange--900-outline': 'Orange button - Outline',
+                'btn btn-purple--500': 'Purple button',
+                'btn btn-purple--500-outline': 'Purple button - Outline',
             },
             callback: function (cmd, val) {
-                this.html.insert(
-                    '<button class="' + val + '">' + this.clean.html(this.html.getSelected(), ['p'], [], false) + '</button>'
-                );
-                this.undo.saveStep();
+                var tempSelectedHtml = this.html.getSelected();
+                var aStr = $(tempSelectedHtml).find('a');
+                if (aStr !== undefined && aStr.length > 0) {
+                    aStr.addClass(val);
+                    this.html.insert(aStr.prop("outerHTML"));
+                    this.undo.saveStep();
+                }
             },
         });
     };
@@ -133,6 +136,7 @@
                 "insertImage",
                 "|",
                 "insertHTML_Button",
+                "inlineClass",
                 "|",
                 "insertHTML_2Column",
                 "insertHTML_3Column",
@@ -145,6 +149,20 @@
             ["clearFormatting",
                 "html"]
         ],
+        inlineClasses: {
+            'btn btn-neutral--900': 'Black Button',
+            'btn btn-neutral--900-outline': 'Black Button - outline',
+            'btn btn-neutral--300': 'Grey button',
+            'btn btn-neutral--300-outline': 'Grey button - outline',
+            'btn btn-neutral--100': 'White Button',
+            'btn btn-neutral--100-outline': 'White Button - outline',
+            'btn btn-blue--700': 'Blue button',
+            'btn btn-blue--700-outline': 'Blue button - Outline',
+            'btn btn-orange--900': 'Orange button',
+            'btn btn-orange--900-outline': 'Orange button - Outline',
+            'btn btn-purple--500': 'Purple button',
+            'btn btn-purple--500-outline': 'Purple button - Outline',
+        }
     };
 
 
