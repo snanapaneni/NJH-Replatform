@@ -1,4 +1,6 @@
-﻿namespace Njh.Mvc.Models.SectionsViewModels
+﻿using Njh.Mvc.Models.Constants;
+
+namespace Njh.Mvc.Models.SectionsViewModels
 {
     public class BaseSectionViewModel
     {
@@ -41,7 +43,7 @@
             return
                 UseCssClass
                 ? this.CssClass
-                : "bg-neutral--100";
+                : ThemeConstants.DefaultSectionTheme;
         }
 
         /// <summary>
