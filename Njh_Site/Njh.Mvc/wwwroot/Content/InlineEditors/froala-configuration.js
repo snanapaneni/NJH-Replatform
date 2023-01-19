@@ -130,6 +130,7 @@
             ["formatUL",
                 "formatOL",
                 "insertLink",
+                "insertImage",
                 "|",
                 "insertHTML_Button",
                 "|",
