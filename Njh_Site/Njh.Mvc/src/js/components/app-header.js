@@ -373,6 +373,8 @@ const App__appHeader = {
     this.focusTrap = App.utils.focusTrap.createFocusTrap(
       "[data-hook=appHeader]"
     );
+
+    this.appHeader__search.setAttribute("aria-hidden", false);
     this.appHeader__searchInput.focus({
       focusVisible: true,
     });
@@ -383,6 +385,7 @@ const App__appHeader = {
     if (this.focusTrap === null) return;
 
     this.element.classList.remove("has-search-open");
+    this.appHeader__search.setAttribute("aria-hidden", true);
     // this.element.focus();
     this.focusTrap.deactivate();
   },
