@@ -201,7 +201,8 @@ button.btn.app-header__circle-button {
     align-items: stretch;
 
     > li {
-      flex-basis: 100%;
+      flex-basis: 16.66666%;
+      flex-grow: 0;
     }
   }
 
@@ -217,10 +218,13 @@ button.btn.app-header__circle-button {
       opacity: 0.5;
     }
 
-    button {
+    button,
+    > a {
       color: var(--neutral--100);
       display: block;
       font-size: 0.9rem;
+      font-weight: 500;
+      font-family: $font-family-headings;
       line-height: 1;
       word-wrap: normal;
       white-space: normal;

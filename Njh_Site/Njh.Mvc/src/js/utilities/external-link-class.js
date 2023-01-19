@@ -2,8 +2,7 @@ const App__externalLinkClass = {
   add: function () {
     const internalUrls = [
       // Same Page
-      '[href="#"]',
-      '[href^="#main"]',
+      '[href^="#"]',
 
       // Relative
       '[href^="/"]',
