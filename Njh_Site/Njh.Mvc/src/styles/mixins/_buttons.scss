@@ -4,7 +4,8 @@
     a.btn,
     button,
     button.btn,
-    input.btn {
+    input.btn,
+    a:not(.btn) span.btn {
       &.btn-#{$key} {
         background-color: map_get($var, "default");
         border-color: map_get($var, "default");
@@ -38,7 +39,8 @@
     a.btn,
     button,
     button.btn,
-    input.btn {
+    input.btn,
+    a:not(.btn) span.btn {
       &.btn-#{$key}-outline {
         background-color: transparent;
         color: map_get($var, "default");
