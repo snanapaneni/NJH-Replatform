@@ -1,75 +1,18 @@
 const appConfig = require("../config.json");
+const staticPlugins = require("../static-template-partials");
 
-const fs = require("fs");
 const glob = require("glob");
 const path = require("path");
 
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
-const HtmlWebpackPartialsPlugin = require("html-webpack-partials-plugin");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let plugins = [];
 
-const staticConfig = require("../../static/components/_config.js");
-// Generate static partial plugin entries
-staticConfig.templates.forEach((template) => {
-  // Setup template
-  plugins.push(
-    new HtmlWebpackPlugin({
-      template: path.resolve(
-        __dirname,
-        "../../static/" + template.templateFilename + ".html"
-      ),
-      filename: template.templateFilename + ".html",
-    })
-  );
-  // Setup partials to inject
-  let templatePartials = [];
-  // Add Header
-  templatePartials.push({
-    template_filename: template.templateFilename + ".html",
-    path: path.resolve(__dirname, "../../static/" + template.header + ".html"),
-    priority: "replace",
-    location: "header-partial",
-  });
-
-  // Add Main content components
-  template.main_components.forEach((component) => {
-    let componentFilepath = path.resolve(
-      __dirname,
-      "../../static/components/" + component + ".html"
-    );
-    try {
-      if (fs.existsSync(componentFilepath)) {
-        templatePartials.push({
-          template_filename: template.templateFilename + ".html",
-          path: path.resolve(
-            __dirname,
-            "../../static/components/" + component + ".html"
-          ),
-          priority: "low",
-          location: template.main_insert,
-          // options: template.options !== undefined ? template.options : "",
-        });
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  });
-
-  // Add Footer
-  templatePartials.push({
-    template_filename: template.templateFilename + ".html",
-    path: path.resolve(__dirname, "../../static/" + template.footer + ".html"),
-    priority: "replace",
-    location: "footer-partial",
-  });
-
-  // Push onto main plugins array
-  plugins.push(new HtmlWebpackPartialsPlugin(templatePartials));
-});
+if (staticPlugins.staticPlugins) {
+  plugins.push(...staticPlugins.staticPlugins);
+}
 
 // Add plugins to main plugins array
 plugins.push(
