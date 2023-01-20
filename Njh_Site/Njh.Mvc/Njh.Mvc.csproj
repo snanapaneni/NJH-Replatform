@@ -57,6 +57,5 @@
 		<Folder Include="App_Start\" />
 		<Folder Include="Models\PageTemplateProperties\" />
 		<Folder Include="ViewComponents\Navigation\" />
-		<Folder Include="wwwroot\dist\" />
 	</ItemGroup>
 </Project>

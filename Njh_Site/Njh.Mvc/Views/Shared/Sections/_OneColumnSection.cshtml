@@ -6,7 +6,7 @@
 @model OneColumnSectionViewModel
 
 
-<section class="widget-zone bg @Model.GetThemeCssClass() @Model.GetPaddingCssClass() has-margin" style="@Model.GetBackgroundColor() @Model.GetTextColor()">
+<section class="widget-zone @Model.BaseBackgroundCssClass @Model.GetThemeCssClass() @Model.GetPaddingCssClass() has-margin" style="@Model.GetBackgroundColor() @Model.GetTextColor()">
   <div class="container">
     <div class="row row-cols-1">
       <div class="col">

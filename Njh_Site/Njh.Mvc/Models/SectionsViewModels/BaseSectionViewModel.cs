@@ -17,7 +17,13 @@ namespace Njh.Mvc.Models.SectionsViewModels
         public string ThemeGuid { get; set; } = string.Empty;
         public string BackgroundColor { get; set; } = string.Empty;
         public string Color { get; set; } = string.Empty;
-
+        public string BaseBackgroundCssClass
+        {
+            get
+            {
+                return string.IsNullOrWhiteSpace(this.BackgroundColor) && string.IsNullOrWhiteSpace(this.CssClass) ? string.Empty : "bg";
+            }
+        }
         /// <summary>
         /// Returns the Padding CssClass.
         /// </summary>
@@ -43,7 +49,7 @@ namespace Njh.Mvc.Models.SectionsViewModels
             return
                 UseCssClass
                 ? this.CssClass
-                : ThemeConstants.DefaultSectionTheme;
+                : String.Empty;
         }
 
         /// <summary>
@@ -73,6 +79,6 @@ namespace Njh.Mvc.Models.SectionsViewModels
                 ? string.Empty
                 : $"--has-color:{this.Color};";
         }
-        
+
     }
 }
