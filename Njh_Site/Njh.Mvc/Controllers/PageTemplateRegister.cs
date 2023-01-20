@@ -1,6 +1,5 @@
 ﻿using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Njh.Mvc.Models.PageTemplateProperties;
-using Njh.Mvc.PageTemplates.ConditionPage;
 
 [assembly: RegisterPageTemplate("NJH.ConditionMainTemplate",
                                 "Condition Main Template",

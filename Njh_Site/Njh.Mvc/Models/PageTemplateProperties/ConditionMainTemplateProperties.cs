@@ -1,6 +1,4 @@
-﻿using Njh.Mvc.Models.PageTemplateProperties;
-
-namespace Njh.Mvc.PageTemplates.ConditionPage
+﻿namespace Njh.Mvc.Models.PageTemplateProperties
 {
     /// <summary>
     /// Main template for Condition pages
