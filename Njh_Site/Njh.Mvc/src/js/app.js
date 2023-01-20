@@ -44,6 +44,7 @@ import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
 // Components
 import App__appHeader from "./components/app-header";
 import App__appSidebar from "./components/app-sidebar";
+import App__alphasort from "./components/alphasort";
 import App__accordion from "./components/accordion";
 import App__formBuilder from "./components/form-builder";
 //import App__globalAlert from "./components/global-alert";
@@ -70,6 +71,7 @@ App.appHeader = App__appHeader;
 App.appSidebar = App__appSidebar;
 // Components
 //App.accordion                  = App__accordion;
+App.alphasort = App__alphasort;
 //App.formBuilder                = App__formBuilder;
 //App.globalAlert                = App__globalAlert;
 //App.newsletterSignup           = App__newsletterSignup;
@@ -314,6 +316,7 @@ App.init = function () {
   // App.globalAlert.init();
   App.appHeader.init();
 
+  App.alphasort.init();
   // App.appSidebar.init();
   // Components
   //App.accordion.init();

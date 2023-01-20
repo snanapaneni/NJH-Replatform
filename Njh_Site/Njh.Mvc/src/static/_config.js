@@ -47,7 +47,7 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_insert: "article",
-    main_components: ["subpage-header", "widget-zone"],
+    main_components: ["subpage-header", "alphasort", "widget-zone"],
     main_after: [""],
   },
 
