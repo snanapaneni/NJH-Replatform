@@ -1,7 +1,5 @@
 /*! purgecss start ignore */
 
-// This is dangerous just calling the a link that.  I don't have a work around until :has is
-a,
 a:has(span.btn) {
   display: inline-block;
   border-radius: 0.5rem;
@@ -15,7 +13,7 @@ a.btn,
 button,
 button.btn,
 input.btn,
-a span.btn {
+a:not(.btn) span.btn {
   border: 1px solid transparent;
   background-color: transparent;
   color: var(--nuetral--900);
