@@ -60,23 +60,23 @@ CKEDITOR.stylesSet.add( 'default', [
 	{ name: 'Subscript',		element: 'sub' },
 	{ name: 'Superscript',		element: 'sup' },
 
-	{ name: 'Button - White', element: 'button', attributes: { 'class': 'btn-neutral--100' } },
-    { name: 'Button - White - Outline', element: 'button', attributes: { 'class': 'btn-neutral--100-outline' } },
+	{ name: 'Button - White', element: 'span',  attributes: { 'class': 'btn btn-neutral--100' } },
+	{ name: 'Button - White - Outline', element: 'span', attributes: { 'class': 'btn btn-neutral--100-outline' } },
 
-	{ name: 'Button - Grey', element: 'button', attributes: { 'class': 'btn-neutral--300' } },
-    { name: 'Button - Grey - Outline', element: 'button', attributes: { 'class': 'btn-neutral--300-outline' } },
+	{ name: 'Button - Grey', element: 'span',  attributes: { 'class': 'btn btn-neutral--300' } },
+	{ name: 'Button - Grey - Outline', element: 'span',  attributes: { 'class': 'btn btn-neutral--300-outline' } },
 
-	{ name: 'Button - Black', element: 'button', attributes: { 'class': 'btn-neutral--900' } },
-    { name: 'Button - Black - Outline', element: 'button', attributes: { 'class': 'btn-neutral--900-outline' } },
+	{ name: 'Button - Black', element: 'span',  attributes: { 'class': 'btn btn-neutral--900' } },
+	{ name: 'Button - Black - Outline', element: 'span', attributes: { 'class': 'btn btn-neutral--900-outline' } },
 
-	{ name: 'Button - Blue', element: 'button', attributes: { 'class': 'btn-blue--700' } },
-    { name: 'Button - Blue - Outline', element: 'button', attributes: { 'class': 'btn-blue--700-outline' } },
+	{ name: 'Button - Blue', element: 'span',  attributes: { 'class': 'btn btn-blue--700' } },
+	{ name: 'Button - Blue - Outline', element: 'span', attributes: { 'class': 'btn btn-blue--700-outline' } },
 
-	{ name: 'Button - Orange', element: 'button', attributes: { 'class': 'btn-orange--900' } },
-    { name: 'Button - Orange - Outline', element: 'button', attributes: { 'class': 'btn-orange--900-outline' } },
+	{ name: 'Button - Orange', element: 'span', attributes: { 'class': 'btn btn-orange--900' } },
+	{ name: 'Button - Orange - Outline', element: 'span', attributes: { 'class': 'btn btn-orange--900-outline' } },
 
-	{ name: 'Button - Purple', element: 'button', attributes: { 'class': 'btn-purple--500' } },
-    { name: 'Button - Purple - Outline', element: 'button', attributes: { 'class': 'btn-purple--500-outline' } },
+	{ name: 'Button - Purple', element: 'span', attributes: { 'class': 'btn btn-purple--500' } },
+	{ name: 'Button - Purple - Outline', element: 'span', attributes: { 'class': 'btn btn-purple--500-outline' } },
 
 
 	//{ name: 'Big',				element: 'big' },
