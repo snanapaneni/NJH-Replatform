@@ -52,7 +52,7 @@ import App__formCountryProvinceSelects from "./components/form-country-province-
 import App__routing from "./components/routing";
 import App__video from "./components/video";
 // Utilities
-import App__externalLinkClass from "./utilities/external-link-class";
+import App__LinkClasses from "./utilities/link-classes";
 import App__pagination from "./utilities/pagination";
 import App__responsiveImage from "./utilities/responsive-image";
 import App__sibling from "./utilities/sibling";
@@ -294,7 +294,7 @@ App.utils = {
       appMain.style.paddingTop = spaceBuffer + "px";
     }
   },
-  externalLinkClass: App__externalLinkClass,
+  linkClasses: App__LinkClasses,
   focusTrap: focusTrap,
   // pagination: App__pagination,
   responsiveImage: App__responsiveImage,
@@ -345,7 +345,7 @@ window.addEventListener("load", function (event) {
 
   App.utils.adjustBodyTopMargin();
 
-  App.utils.externalLinkClass.add();
+  App.utils.linkClasses.init();
 
   App.utils.tables.makeResponsive();
 

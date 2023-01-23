@@ -5,7 +5,7 @@
     button,
     button.btn,
     input.btn,
-    a:not(.btn) span.btn {
+    a span.btn {
       &.btn-#{$key} {
         background-color: map_get($var, "default");
         border-color: map_get($var, "default");
@@ -29,6 +29,10 @@
             0 0 0 6px map_get($var, "focus-ring");
         }
       }
+    }
+    a:focus:not(:disabled) span.btn.btn-#{$key} {
+      box-shadow: 0 0 0 3px var(--neutral--100),
+        0 0 0 6px map_get($var, "focus-ring");
     }
   }
 }
@@ -63,6 +67,11 @@
             0 0 0 6px map_get($var, "focus-ring");
         }
       }
+    }
+
+    a:focus:not(:disabled) span.btn.btn-#{$key}-outline {
+      box-shadow: 0 0 0 3px var(--neutral--100),
+        0 0 0 6px map_get($var, "focus-ring");
     }
   }
 }
