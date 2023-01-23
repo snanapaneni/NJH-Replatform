@@ -201,5 +201,19 @@
             return settingsKeyRepository
                 .GetValue<string>("NJHFooterButtonsPath");
         }
+
+        public static string GetPageTitlePrefix(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("CMSPageTitlePrefix");
+        }
+
+        public static string GetPageTitleFormat(
+           this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("CMSPageTitleFormat");
+        }
     }
 }
