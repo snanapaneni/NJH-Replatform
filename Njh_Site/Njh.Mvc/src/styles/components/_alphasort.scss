@@ -1,4 +1,9 @@
 .alphasort {
+  p {
+    margin-bottom: 2rem;
+    max-width: 860px;
+  }
+
   ul,
   li {
     list-style: none;
@@ -9,6 +14,7 @@
   &__navigation {
     display: flex;
     flex-direction: column;
+    align-items: center;
     margin-bottom: 3rem;
 
     @include media-breakpoint-up(md) {
@@ -24,6 +30,12 @@
 
     &-trigger[data-sort="all"] {
       white-space: nowrap;
+      margin-bottom: 2rem;
+
+      @include media-breakpoint-up(md) {
+        margin-right: 2rem;
+        margin-bottom: 0;
+      }
     }
     &-trigger:not([data-sort="all"]) {
       padding: 0;
@@ -78,6 +90,33 @@
     &-section {
       margin-bottom: 1.5rem;
       break-after: avoid;
+    }
+
+    h3 {
+      border-bottom: 3px solid var(--orange--500);
+      padding-left: 0.5rem;
+    }
+    ul {
+      margin-left: 0.5rem;
+    }
+  }
+
+  &.is-filtered {
+    .alphasort__results {
+      column-count: 1 !important;
+
+      &-section ul {
+        column-count: 1;
+        @include media-breakpoint-up(sm) {
+          column-count: 2;
+        }
+        @include media-breakpoint-up(md) {
+          column-count: 3;
+        }
+        @include media-breakpoint-up(lg) {
+          column-count: 4;
+        }
+      }
     }
   }
 }
