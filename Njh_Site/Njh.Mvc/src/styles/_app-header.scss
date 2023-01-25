@@ -88,24 +88,28 @@
     grid-area: utility;
   }
 
+  li {
+    position: relative;
+    &::after {
+      @include global-separator;
+    }
+  }
+
   a:not(.btn) {
     display: block;
     padding: 0.5rem;
     position: relative;
     @include media-breakpoint-up(md) {
       display: inline-block;
-      &::after {
-        @include global-separator;
-      }
     }
   }
 
   li:last-child {
+    &::after {
+      display: none;
+    }
     a:not(.btn) {
       padding-right: 0;
-      &::after {
-        display: none;
-      }
     }
   }
 }

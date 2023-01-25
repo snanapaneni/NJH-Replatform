@@ -1,0 +1,5 @@
+.template-condition {
+  h2 {
+    @include global-bordered-heading;
+  }
+}
