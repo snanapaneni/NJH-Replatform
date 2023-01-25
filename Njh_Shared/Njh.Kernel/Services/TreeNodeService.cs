@@ -310,13 +310,17 @@ namespace Njh.Kernel.Services
         {
             var query = new MultiDocumentQuery();
 
-            var strCategoriesNames = Category.GetCategoriesNamesByGuid(categoriesGuids)?.ToArray() ?? Array.Empty<string>();
+            var strCategoriesNames = Category.GetCategoriesNamesByGuid(categoriesGuids)?.ToArray() ?? ;
             if (strCategoriesNames == null || strCategoriesNames.Length == 0)
             {
-                return Enumerable.Empty<TreeNode>();
+                strCategoriesNames = Array.Empty<string>();
             }
+
             if (!path.EndsWith("%"))
+            {
                 path = $"{path}/%";
+            }
+
             var documents = query
                 .OnSite(this.contextConfig.SiteName)
                 .Path(path)
