@@ -1,0 +1,89 @@
+﻿@using Njh.Kernel.Models.Dto;
+@using System.Collections.Generic;
+@model SortedDictionary<char, List<SimpleLink>>
+@{
+    var disabled = "disabled";
+}
+
+
+<section class="widget-zone has-margin">
+    <div class="container">
+        <div class="row row-cols-1">
+            <div class="col">
+                <!-- START ALPHASORT -->
+                <section class="alphasort">
+                    <h2>All Programs and Services or whatever heading</h2>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
+                        impedit earum repellendus accusantium, odit odio illo dolore quasi
+                        fugiat officiis, dicta vitae a quaerat esse corporis iure numquam
+                        excepturi eius!
+                    </p>
+                    <!-- START ALPHASORT NAVIGATION-->
+                    <div class="alphasort__navigation">
+                        <button class="alphasort__navigation-trigger btn btn-blue--700"
+                                data-hook="alphasort__trigger"
+                                data-sort="all">
+                            View All
+                        </button>
+                        <ul role="list">
+                            <!-- START SINGLE FILTER -->
+                            @foreach (var letter in @Model)
+                            {
+                                <li>
+                                    <button class="alphasort__navigation-trigger"
+                                        aria-controls="@letter.Key"
+                                        aria-expanded="true"
+                                        data-hook="alphasort__trigger"
+                                        data-sort="@letter.Key"
+                                        @(letter.Value.Count<=0?"disabled":"")>
+                                        <span class="visually-hidden">Sort by</span> @letter.Key
+                                    </button>
+                                </li>
+                            }
+
+
+
+
+                        </ul>
+                    </div>
+                    <!-- END ALPHASORT NAVIGATION-->
+                    <!-- START ALPHASORT RESULTS WRAPPER -->
+                    <div class="alphasort__results" id="alphaResultsWrapper">
+                        <!-- START SINGLE RESULT -->
+                        @foreach (var letter in @Model)
+                        {
+                            if (letter.Value.Count <= 0)
+                            { continue; }
+                            <div id="@letter.Key"
+                             class="alphasort__results-section"
+                             aria-hidden="false"
+                             data-hook="alphasort__section"
+                             data-sort-section="@letter.Key">
+                                <h3><span class="visually-hidden">Results for</span> @letter.Key</h3>
+                                <ul role="list">
+                                    @foreach (var link in letter.Value)
+
+                                    {
+                                        if (string.IsNullOrWhiteSpace(link.Link))
+                                        {
+                                            <li>@link.Text</li>
+                                        }
+                                        else
+                                        {
+                                            <li><a href="@link.Link">@link.Text</a></li>
+                                        }
+
+
+                                    }
+                                </ul>
+                            </div>
+                        }
+                        
+                    </div>
+                    <!-- END ALPHASORT RESULTS WRAPPER -->
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
