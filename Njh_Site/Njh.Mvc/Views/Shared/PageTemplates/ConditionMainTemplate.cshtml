@@ -4,9 +4,10 @@
 @using Njh.Kernel.Kentico.Models.PageTypes
 @using Njh.Mvc.Models.PageTemplateProperties
 @using Kentico.Web.Mvc
+@using Njh.Kernel.Definitions
 @model ComponentViewModel<ConditionMainTemplateProperties>
 @{
-    var currentPage = Model.Page.ToPageType<PageType_Page>();
+    var currentPage = Model.Page.ToPageType<PageType_Condition>();
     bool HasPrimaryCta = !string.IsNullOrWhiteSpace(currentPage.CtaTitle) && !string.IsNullOrWhiteSpace(currentPage.CtaUrl);
     bool HasSecondCta = !string.IsNullOrWhiteSpace(currentPage.Cta2Title) && !string.IsNullOrWhiteSpace(currentPage.Cta2Url);
     bool HasThirdCta = !string.IsNullOrWhiteSpace(currentPage.Cta3Title) && !string.IsNullOrWhiteSpace(currentPage.Cta3Url);
@@ -68,6 +69,8 @@
                     }
                 </div>
             </div>
+            
+            <vc:related-documents type="@RelatedDocumentType.Conditions" source-field="RelatedConditions" target-field="RelatedConditions" res-string="NJH.RelatedDocuments.ConditionsContent"></vc:related-documents>
 
             <!-- example of a widget zone -->
             <editable-area area-identifier="editableRegion" />

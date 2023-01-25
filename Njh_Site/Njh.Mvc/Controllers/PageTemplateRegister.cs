@@ -5,7 +5,7 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                 "Condition Main Template",
                                 typeof(ConditionMainTemplateProperties),
                                 customViewName: "~/Views/Shared/PageTemplates/ConditionMainTemplate.cshtml",
-                                IconClass = "icon-l-rows-2")]
+                                IconClass = "icon-box")]
 
 [assembly: RegisterPageTemplate("NJH.LandingPageTemplate",
                                "Landing page template",
