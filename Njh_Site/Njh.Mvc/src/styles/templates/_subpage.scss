@@ -56,9 +56,12 @@
 .subpage__cta {
   display: none;
   min-width: 250px;
-  text-align: center;
+  text-align: right;
   @include media-breakpoint-up(md) {
     display: block;
+  }
+  ul {
+    justify-content: flex-end;
   }
   .btn {
     margin-bottom: 1rem;
