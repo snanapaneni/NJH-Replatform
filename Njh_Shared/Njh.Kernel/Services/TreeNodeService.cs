@@ -310,7 +310,7 @@ namespace Njh.Kernel.Services
         {
             var query = new MultiDocumentQuery();
 
-            var strCategoriesNames = Category.GetCategoriesNamesByGuid(categoriesGuids)?.ToArray() ?? ;
+            var strCategoriesNames = Category.GetCategoriesNamesByGuid(categoriesGuids)?.ToArray() ?? Array.Empty<string>();
             if (strCategoriesNames == null || strCategoriesNames.Length == 0)
             {
                 strCategoriesNames = Array.Empty<string>();
