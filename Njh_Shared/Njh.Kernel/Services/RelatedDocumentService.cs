@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
+using CMS.Helpers;
 using Njh.Kernel.Constants;
 using Njh.Kernel.Definitions;
 using Njh.Kernel.Kentico.Models.CustomTables;
@@ -35,31 +36,40 @@ namespace Njh.Kernel.Services
         }
 
         /// <inheritdoc />
-        public IEnumerable<NavItem> GetRelatedDocuments(RelatedDocumentType type, string fieldName, IList<Guid> categories)
+        public IEnumerable<NavItem> GetRelatedDocuments(TreeNode currentDocument, RelatedDocumentType type, string sourceField, string targetField)
         {
+            var categories = currentDocument.GetValue(sourceField, string.Empty)
+                .Split(new[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(item => ValidationHelper.GetGuid(item, Guid.Empty)).ToList();
+
             switch (type)
             {
                 case RelatedDocumentType.ClinicalTrials:
                 case RelatedDocumentType.Conditions:
-                    return this.GetRelatedDocuments<PageType_Condition>(fieldName, categories);
+                    return this.GetRelatedDocuments<PageType_Condition>(currentDocument, targetField, categories);
                 default:
                     return new List<NavItem>();
             }
         }
 
-        private IEnumerable<NavItem> GetRelatedDocuments<TDocument>(string fieldName, IList<Guid> categories)
+        private IEnumerable<NavItem> GetRelatedDocuments<TDocument>(TreeNode currentPage, string fieldName, IList<Guid> categories)
             where TDocument : TreeNode, new()
         {
             var cacheParameters = new CacheParameters
             {
                 CacheKey = string.Format(
-                    DataCacheKeys.DataSetByTableName,
+                    DataCacheKeys.DataSetByPathByType,
                     "RelatedDocs",
+                    currentPage.NodeAliasPath,
                     typeof(TDocument).Name),
                 IsCultureSpecific = true,
                 CultureCode = this.contextConfig?.CultureName,
                 IsSiteSpecific = true,
                 SiteName = this.contextConfig?.SiteName,
+                CacheDependencies = new List<string>
+                {
+                    $"nodeid|{currentPage.NodeID}",
+                },
             };
 
             IEnumerable<NavItem> DocCache(CacheParameters cs)

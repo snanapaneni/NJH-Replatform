@@ -53,13 +53,10 @@ namespace Njh.Mvc.Components.RelatedDocuments
             return this.TryInvoke(vc =>
             {
                 var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
-                var relatedDocumentGuids = currentPage.GetValue(sourceField, string.Empty)
-                    .Split(new[] { ';', ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(item => ValidationHelper.GetGuid(item, Guid.Empty)).ToList();
 
                 var model = new RelatedDocumentViewModel
                 {
-                    RelatedDocuments = relatedDocumentService.GetRelatedDocuments(type, targetField, relatedDocumentGuids),
+                    RelatedDocuments = relatedDocumentService.GetRelatedDocuments(currentPage, type, sourceField, targetField),
                     Title = resourceStringService.GetString($"NJH.RelatedDocuments.{type.ToStringRepresentation()}Title"),
                     ImageUrl = settingsKeyRepository.GetValue<string>($"NJHRelatedDocument{type.ToStringRepresentation()}Image"),
                 };
