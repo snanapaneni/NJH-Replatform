@@ -1,12 +1,19 @@
 /*! purgecss start ignore */
 
+a:has(span.btn) {
+  display: inline-block;
+  border-radius: 0.5rem;
+  padding: 0;
+}
+
 /* Adjust global button styles
 =========================================================================== */
 .btn,
 a.btn,
 button,
 button.btn,
-input.btn {
+input.btn,
+a:not(.btn) span.btn {
   border: 1px solid transparent;
   background-color: transparent;
   color: var(--nuetral--900);

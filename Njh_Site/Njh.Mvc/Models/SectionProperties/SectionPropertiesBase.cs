@@ -19,7 +19,7 @@ namespace Njh.Mvc.Models.SectionProperties
         [EditingComponentProperty(nameof(CustomTableItemSelectorProperties.Multiple), false)]
         public string ThemeGuid { get; set; }
 
-        [EditingComponent(CheckBoxComponent.IDENTIFIER, Order = 2, Label = "Has Padding")]
+        [EditingComponent(CheckBoxComponent.IDENTIFIER, Order = 2, Label = "{$NJH.Section.Properties.HasPadding$}", ExplanationText = "{$NJH.Section.Properties.HasPadding.Explanation$}")]
         [EditingComponentProperty(nameof(CheckBoxProperties.DefaultValue), true)]
         public bool HasPadding { get; set; } = true;
 

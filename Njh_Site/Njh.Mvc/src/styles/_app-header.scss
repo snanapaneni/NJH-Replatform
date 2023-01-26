@@ -201,7 +201,8 @@ button.btn.app-header__circle-button {
     align-items: stretch;
 
     > li {
-      flex-basis: 16.666666%;
+      flex-basis: 16.66666%;
+      flex-grow: 0;
     }
   }
 
@@ -217,10 +218,13 @@ button.btn.app-header__circle-button {
       opacity: 0.5;
     }
 
-    button {
+    button,
+    > a {
       color: var(--neutral--100);
       display: block;
       font-size: 0.9rem;
+      font-weight: 500;
+      font-family: $font-family-headings;
       line-height: 1;
       word-wrap: normal;
       white-space: normal;
@@ -253,13 +257,16 @@ button.btn.app-header__circle-button {
       top: calc(100% + var(--border-height));
       padding: 1rem;
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-      width: 600px;
+      width: auto;
       &-row {
         display: grid;
         grid-template-columns: repeat(2, auto);
         margin-bottom: 2rem;
       }
 
+      &-column {
+        width: 300px;
+      }
       ul {
         flex-direction: column;
         li:not(:last-child) {
