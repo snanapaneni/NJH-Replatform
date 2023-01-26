@@ -87,6 +87,30 @@
       column-count: 4;
     }
 
+    &.columns-2 {
+      @include media-breakpoint-up(md) {
+        column-count: 2;
+        .alphasort__results-section {
+          break-after: column;
+        }
+      }
+    }
+
+    &.columns-3 {
+      @include media-breakpoint-up(md) {
+        column-count: 3;
+        .alphasort__results-section {
+          break-after: column;
+        }
+      }
+    }
+
+    &.columns-4 {
+      @include media-breakpoint-up(lg) {
+        column-count: 4;
+      }
+    }
+
     &-section {
       margin-bottom: 1.5rem;
       break-after: avoid;
@@ -105,18 +129,18 @@
     .alphasort__results {
       column-count: 1 !important;
 
-      &-section ul {
-        column-count: 1;
-        @include media-breakpoint-up(sm) {
-          column-count: 2;
-        }
-        @include media-breakpoint-up(md) {
-          column-count: 3;
-        }
-        @include media-breakpoint-up(lg) {
-          column-count: 4;
-        }
-      }
+      // &-section ul {
+      //   column-count: 1;
+      //   @include media-breakpoint-up(sm) {
+      //     column-count: 2;
+      //   }
+      //   @include media-breakpoint-up(md) {
+      //     column-count: 3;
+      //   }
+      //   @include media-breakpoint-up(lg) {
+      //     column-count: 4;
+      //   }
+      // }
     }
   }
 }

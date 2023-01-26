@@ -22,6 +22,8 @@ const App__alphasort = {
 
     if (!this.triggers.length || !this.results.length) return;
 
+    this.setResultColumns();
+
     // console.log(this.triggers);
     // console.log(this.results);
 
@@ -86,6 +88,25 @@ const App__alphasort = {
     this.resultsWrapper.scrollIntoView({
       behavior: "smooth",
     });
+  },
+
+  setResultColumns: function () {
+    const numResults = this.results.length;
+    let columns = 1;
+
+    if (numResults === 2) {
+      columns = 2;
+    }
+
+    if (numResults === 3) {
+      columns = 3;
+    }
+
+    if (numResults > 3) {
+      columns = 4;
+    }
+
+    this.resultsWrapper.classList.add(`columns-${columns}`);
   },
 };
 
