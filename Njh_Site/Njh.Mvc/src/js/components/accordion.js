@@ -1,12 +1,17 @@
 const App__accordion = {
+  
+  // Object Props
   accordions: [],
   accordionItems: [],
   accordionPanels: [],
   accordionTriggers: [],
 
+  // Used to identify the current open accordion. 
   openAccordion: null,
 
   init: function () {
+
+    // Register all of the props. 
     this.accordions = document.querySelectorAll("[data-hook=accordion]");
 
     if (this.accordions === null || this.accordions === undefined) return;
@@ -55,31 +60,41 @@ const App__accordion = {
    */
 
   handleClose: function () {
+    // Loop over all triggers and close them
     this.accordionTriggers.forEach((trigger) => {
       trigger.setAttribute("aria-expanded", false);
     });
 
+    // Same for all the panels. 
     this.accordionPanels.forEach((panel) => {
       panel.setAttribute("aria-hidden", true);
     });
   },
 
   handleOpen: function (e) {
+
+    
     e.preventDefault();
 
+    // At this point ALL accordions are closed, this will check the last to be opened and see if it's the same as we're clicking. 
+    // If so, we do nothing, and then reset the openAccordion to null so that on the next click we can open it or another back up. 
     if (this.isAccordionOpen(e)) {
       this.openAccordion = null;
       return;
     }
 
+    // Change the trigger
     e.target.setAttribute("aria-expanded", true);
 
+    // Find the associated panel based on ID
     const panel = document.getElementById(
       e.target.getAttribute("aria-controls")
-    );
+    ); 
 
+    // Open it up.
     panel.setAttribute("aria-hidden", false);
 
+    // Set this as the new open Accordion.
     this.openAccordion = e.target;
   },
 
@@ -89,6 +104,7 @@ const App__accordion = {
    * 
    */
   isAccordionOpen: function (e) {
+    // Used in this.handleOpen
     return (
       this.openAccordion !== null &&
       this.openAccordion.getAttribute("aria-controls") ===
