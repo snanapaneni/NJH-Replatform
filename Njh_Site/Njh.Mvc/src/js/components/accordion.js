@@ -24,7 +24,11 @@ const App__accordion = {
       "[data-hook=accordion__trigger]"
     );
 
-    if (!this.accordionPanels.length || !this.accordionTriggers.length) return;
+    this.accordionItems = document.querySelectorAll(
+      "[data-hook=accordion__item]"
+    );
+
+    if (!this.accordionPanels.length || !this.accordionTriggers.length || !this.accordionItems.length) return;
 
     /***
      *
@@ -35,7 +39,7 @@ const App__accordion = {
     this.listenToAccordionTriggers();
 
     // Close as a precaution.
-    this.closeAccordions();
+    this.handleClose();
   },
 
   /***
@@ -69,6 +73,10 @@ const App__accordion = {
     this.accordionPanels.forEach((panel) => {
       panel.setAttribute("aria-hidden", true);
     });
+
+    this.accordionItems.forEach((trigger) => {
+      trigger.setAttribute("data-open", false);
+    });
   },
 
   handleOpen: function (e) {
@@ -93,6 +101,9 @@ const App__accordion = {
 
     // Open it up.
     panel.setAttribute("aria-hidden", false);
+
+
+    e.target.closest('[data-hook=accordion__item').setAttribute('data-open', true);
 
     // Set this as the new open Accordion.
     this.openAccordion = e.target;

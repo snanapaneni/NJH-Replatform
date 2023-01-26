@@ -1,8 +1,99 @@
 .accordion {
+  --accordion-padding-y: 1rem;
+  --accordion-padding-x: 1rem;
+  --accordion-background: var(--blue--600);
+  --accordion-color: var(--neutral--100);
+  --accordion-border-radius: 0.35rem;
+  --accordion-border-color: var(--neutral--300);
+
+  border: 1px solid var(--accordion-border-color);
+  border-radius: calc(var(--accordion-border-radius) + 1px);
+  margin-bottom: 2rem;
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  
+  width: 100%;
+  padding: var(--accordion-padding-y) var(--accordion-padding-x);
+
+  background: var(--accordion-background);
+  color: var(--accordion-color);
+  fill: var(--accordion-color);
+  
+  font-weight: 700;
+  text-align: left;
+  line-height: 1.1;
+  
+  border-radius: 0;
+  border-bottom: 1px solid var(--accordion-border-color);
+  
+  z-index: 100;
+
+  &-minus {
+    display: none;
+  }
+
+  &:hover,
+  &:focus {
+    --accordion-background: var(--neutral--700);
+    --accordion-color: var(--neutral--100);
+  }
+  &:focus {
+    z-index: 200;
+    @include global-focus-ring(var(--neutral--900));
+  }
+
+  &[aria-expanded="true"] {
+    --accordion-background: var(--orange--500);
+    --accordion-color: var(--neutral--900);
+
+    &:focus {
+      z-index: 200;
+      @include global-focus-ring(var(--neutral--900));
+    }
+
+    .accordion__trigger-plus {
+      display: none;
+    }
+    .accordion__trigger-minus {
+      display: block;
+    }
+  }
 }
 
 .accordion__panel {
+  padding: var(--accordion-padding-y) var(--accordion-padding-x);
+  border-bottom: 1px solid var(--neutral--300);
+  background-color: var(--neutral--100);
   &[aria-hidden="true"] {
     display: none;
+  }
+}
+
+.accordion__item {
+  &:first-child {
+    .accordion__trigger {
+      border-top-left-radius: var(--accordion-border-radius);
+      border-top-right-radius: var(--accordion-border-radius);
+    }
+  }
+  &:last-child {
+    .accordion__trigger {
+      border-bottom-left-radius: var(--accordion-border-radius);
+      border-bottom-right-radius: var(--accordion-border-radius);
+      border-bottom: none;
+      &[aria-expanded="true"] {
+        border-radius: 0;
+      }
+    }
+    .accordion__panel {
+      border-bottom-left-radius: var(--accordion-border-radius);
+      border-bottom-right-radius: var(--accordion-border-radius);
+      border-bottom: none;
+    }
   }
 }

@@ -365,6 +365,7 @@ window.addEventListener("load", function (event) {
     }
     if (isEscape) {
       App.utils.closeOverlayPanels();
+      App.accordion.handleClose();
       // App.appSidebar.closeSideNavMenu();
     }
   };
