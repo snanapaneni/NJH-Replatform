@@ -4,7 +4,9 @@
 @using Njh.Kernel.Kentico.Models.PageTypes
 @using Njh.Mvc.Models.PageTemplateProperties
 @using Kentico.Web.Mvc
+@using Kentico.Content.Web.Mvc
 @model ComponentViewModel<SubPageTemplateProperties>
+  
 @{
     var currentPage = Model.Page.ToPageType<PageType_Page>();
     bool HasPrimaryCta = !string.IsNullOrWhiteSpace(currentPage.CtaTitle) && !string.IsNullOrWhiteSpace(currentPage.CtaUrl);
