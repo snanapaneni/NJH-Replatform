@@ -18,3 +18,9 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                typeof(SubPageLeftNavTemplateProperties),
                                customViewName: "~/Views/Shared/PageTemplates/SubPageLeftNavTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
+
+[assembly: RegisterPageTemplate("NJH.HomepageTemplate",
+    "Homepage template",
+    typeof(LandingPageProperties),
+    customViewName: "~/Views/Shared/PageTemplates/SubPageLeftNavTemplate.cshtml",
+    IconClass = "icon-home color-blue-100")]

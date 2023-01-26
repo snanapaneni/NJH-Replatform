@@ -1,0 +1,17 @@
+﻿@addTagHelper *, Kentico.Content.Web.Mvc
+
+@using Kentico.PageBuilder.Web.Mvc
+@using Njh.Kernel.Kentico.Models.PageTypes
+@using Njh.Mvc.Models.PageTemplateProperties
+@using Kentico.Web.Mvc
+@model ComponentViewModel<HomepageTemplateProperties>
+@{
+    var currentPage = Model.Page.ToPageType<PageType_Page>();
+}
+
+
+ <main class="app-main homepage" id="main">
+      <article class="homepage">
+          <editable-area area-identifier="editableRegion"/>
+      </article>
+</main>
