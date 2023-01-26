@@ -1,42 +1,100 @@
-
 const App__accordion = {
+  accordions: [],
+  accordionItems: [],
+  accordionPanels: [],
+  accordionTriggers: [],
 
-  init: function() {
-    // Attach event listeners
-    document.querySelectorAll('[data-hook=accordionGroupItem__title]').forEach ( function( accordionGroupItem__title ) {
-      accordionGroupItem__title.addEventListener('click', function(e) {
-        e.preventDefault()
-        let accordionGroupItem = e.target.closest('[data-hook=accordionGroupItem]');
-        if ( accordionGroupItem__title.getAttribute('aria-expanded') == 'false' ) {
-          App__accordion.open( accordionGroupItem )
-        } else {
-          App__accordion.close( accordionGroupItem )
-        }
-      })
-    })
+  openAccordion: null,
+
+  init: function () {
+    this.accordions = document.querySelectorAll("[data-hook=accordion]");
+
+    if (this.accordions === null || this.accordions === undefined) return;
+
+    this.accordionPanels = document.querySelectorAll(
+      "[data-hook=accordion__panel]"
+    );
+
+    this.accordionTriggers = document.querySelectorAll(
+      "[data-hook=accordion__trigger]"
+    );
+
+    if (!this.accordionPanels.length || !this.accordionTriggers.length) return;
+
+    /***
+     *
+     * FIRE INIT METHODS
+     *
+     */
+
+    this.listenToAccordionTriggers();
+
+    // Close as a precaution.
+    this.closeAccordions();
   },
 
-  open: function( accordionGroupItem ) {
-    accordionGroupItem.querySelector('[data-hook=accordionGroupItem__title]').setAttribute('aria-expanded', 'true')
-    accordionGroupItem.querySelector('[data-hook=accordionGroupItem__content]').style.display = 'block'
-    accordionGroupItem.querySelector('[data-hook=accordionGroupItem__content]').setAttribute('aria-hidden', 'false')
-
-    // If bottom of title is not in viewport, scroll up a bit to make it obvious that new content has appeared
-    let accordionGroupItemTitleBoundingBox = accordionGroupItem.querySelector('[data-hook=accordionGroupItem__title]').getBoundingClientRect()
-    if ( accordionGroupItemTitleBoundingBox.bottom > (window.innerHeight || document.documentElement.clientHeight) ) {
-      window.scrollBy({
-        top: 200,
-        behavior: 'smooth'
+  /***
+   * 
+   * LISTENERS
+   * 
+   */
+  listenToAccordionTriggers: function () {
+    this.accordionTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", (e) => {
+        this.handleClose(e);
+        this.handleOpen(e);
       });
-    }
+    });
   },
 
-  close: function( accordionGroupItem ) {
-    accordionGroupItem.querySelector('[data-hook=accordionGroupItem__title]').setAttribute('aria-expanded', 'false')
-    accordionGroupItem.querySelector('[data-hook=accordionGroupItem__content]').style.display = 'none'
-    accordionGroupItem.querySelector('[data-hook=accordionGroupItem__content]').setAttribute('aria-hidden', 'true')
-  }
-}
 
+  /***
+   * 
+   * HANDLERS
+   * 
+   */
+
+  handleClose: function () {
+    this.accordionTriggers.forEach((trigger) => {
+      trigger.setAttribute("aria-expanded", false);
+    });
+
+    this.accordionPanels.forEach((panel) => {
+      panel.setAttribute("aria-hidden", true);
+    });
+  },
+
+  handleOpen: function (e) {
+    e.preventDefault();
+
+    if (this.isAccordionOpen(e)) {
+      this.openAccordion = null;
+      return;
+    }
+
+    e.target.setAttribute("aria-expanded", true);
+
+    const panel = document.getElementById(
+      e.target.getAttribute("aria-controls")
+    );
+
+    panel.setAttribute("aria-hidden", false);
+
+    this.openAccordion = e.target;
+  },
+
+  /***
+   * 
+   * CONDITIONS
+   * 
+   */
+  isAccordionOpen: function (e) {
+    return (
+      this.openAccordion !== null &&
+      this.openAccordion.getAttribute("aria-controls") ===
+        e.target.getAttribute("aria-controls")
+    );
+  },
+};
 
 export default App__accordion;

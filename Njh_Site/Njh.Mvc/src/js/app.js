@@ -69,7 +69,7 @@ import App__urlToolkit from "./utilities/url-toolkit";
 App.appHeader = App__appHeader;
 App.appSidebar = App__appSidebar;
 // Components
-//App.accordion                  = App__accordion;
+App.accordion                  = App__accordion;
 //App.formBuilder                = App__formBuilder;
 //App.globalAlert                = App__globalAlert;
 //App.newsletterSignup           = App__newsletterSignup;
@@ -313,10 +313,11 @@ App.init = function () {
   // App.mediaQueries.init();
   // App.globalAlert.init();
   App.appHeader.init();
+  App.accordion.init();
 
   // App.appSidebar.init();
   // Components
-  //App.accordion.init();
+  
   //App.formBuilder.init();
   //App.newsletterSignup.init();
   //App.formCountryProvinceSelects.init();
