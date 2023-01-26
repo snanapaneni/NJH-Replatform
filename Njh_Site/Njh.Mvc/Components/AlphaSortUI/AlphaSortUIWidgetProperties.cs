@@ -31,7 +31,7 @@
         [EditingComponentProperty(nameof(ObjectSelectorProperties.MaxItemsLimit), 10)]
         [EditingComponentProperty(nameof(ObjectSelectorProperties.IdentifyObjectByGuid), false)]
         [EditingComponentProperty(nameof(ObjectSelectorProperties.Required), false)]
-        [Required(AllowEmptyStrings = true)]
+       
         public IEnumerable<ObjectSelectorItem> ItemsPageTypes { get; set; } = Enumerable.Empty<ObjectSelectorItem>();
 
         [EditingComponent(
@@ -44,7 +44,6 @@
         [EditingComponentProperty(nameof(ObjectSelectorProperties.MaxItemsLimit), 5)]
         [EditingComponentProperty(nameof(ObjectSelectorProperties.IdentifyObjectByGuid), true)]
         [EditingComponentProperty(nameof(ObjectSelectorProperties.Required), false)]
-        [Required(AllowEmptyStrings = true)]
         public IEnumerable<ObjectSelectorItem> ItemsCategories { get; set; } = Enumerable.Empty<ObjectSelectorItem>();
     }
 }
