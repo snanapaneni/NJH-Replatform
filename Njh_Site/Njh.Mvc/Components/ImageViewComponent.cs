@@ -3,6 +3,7 @@
     using System;
     using CMS.DocumentEngine;
     using CMS.MediaLibrary;
+    using CMS.SiteProvider;
     using Kentico.Content.Web.Mvc;
     using Kentico.PageBuilder.Web.Mvc;
     using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,9 @@
     using Njh.Mvc.Models.Widgets;
     using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
+    /// <summary>
+    /// Image widget component displays an image from media library selection; optional alt text, caption, etc. and optionally is hyperlinked.
+    /// </summary>
     public class ImageViewComponent : SafeViewComponent<ImageViewComponent>
     {
         /// <summary>
@@ -23,26 +27,21 @@
         public const string Identifier =
             "Njh.ImageWidget";
 
-        private readonly IPageDataContextRetriever dataRetriever;
         private readonly IMediaFileInfoProvider mediaFileInfo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageViewComponent"/> class.
         /// </summary>
-        /// <param name="dataRetriever">A page data context retriever.</param>
         /// <param name="mediaFileInfo">Media File Info provider.</param>
         /// <param name="logger">A logger for errors.</param>
         /// <param name="viewComponentErrorVisibility">View component error visibility methods.</param>
         /// <exception cref="ArgumentNullException">Throws exception if data retriever is missing or null.</exception>
         public ImageViewComponent(
-            IPageDataContextRetriever dataRetriever,
             IMediaFileInfoProvider mediaFileInfo,
             ILogger<ImageViewComponent> logger,
             IViewComponentErrorVisibility viewComponentErrorVisibility)
             : base(logger, viewComponentErrorVisibility)
         {
-            this.dataRetriever = dataRetriever ??
-                throw new ArgumentNullException(nameof(dataRetriever));
             this.mediaFileInfo = mediaFileInfo ??
                 throw new ArgumentNullException(nameof(mediaFileInfo));
         }
@@ -60,14 +59,12 @@
         {
             return this.TryInvoke((vc) =>
             {
-                var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page.ToPageType<PageType_Page>();
-
                 var props = componentProperties?.Properties
                     ?? new ImageComponentProperties();
 
-                // TODO get the image URL and put that, not the List<MediaFilesSelectorItem>, into the ImageViewModel
+                // get the image URL, width, and height from the media file object
                 var imageSourceGuid = props.ImageSource.FirstOrDefault()?.FileGuid ?? Guid.Empty;
-                MediaFileInfo mediaFile = mediaFileInfo.Get(imageSourceGuid, currentPage.Site.SiteID);
+                MediaFileInfo mediaFile = mediaFileInfo.Get(imageSourceGuid, SiteContext.CurrentSiteID);
 
                 string imageSourceUrl = "/NJH/media/assets/TEST-IT-Crowd-1920x1080.jpg";
                 int imageWidth = 0;

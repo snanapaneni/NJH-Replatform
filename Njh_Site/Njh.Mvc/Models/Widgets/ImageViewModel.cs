@@ -8,11 +8,9 @@
     public class ImageViewModel
     {
         /// <summary>
-        /// Gets or sets image source; expect a media library URL.
+        /// Gets or sets image source; expect a media library URL, not the selected media file object.
         /// </summary>
         public string? ImageSource { get; set; }
-
-        // TODO make width & height visible properties, or get from the media library URL?
 
         /// <summary>
         /// Gets or sets image width.
