@@ -1,0 +1,50 @@
+﻿@model Njh.Mvc.Models.Widgets.ImageViewModel
+
+@{
+    var figureStyle = Model.Alignment == "left"
+        ? @" style=""float: left;"""
+        : Model.Alignment == "right"
+          ? @" style=""float: right;"""
+          : "";
+
+    var altText = !string.IsNullOrEmpty(Model.ImageAltText) 
+        ? @"alt=""" + Model.ImageAltText + @""""
+        : "";
+
+    var imgWidth = Model.ImageWidth > 0
+        ? @"width=""" + Model.ImageWidth + @""""
+        : "";
+    var imgHeight = Model.ImageHeight > 0
+        ? @"width=""" + Model.ImageHeight + @""""
+        : "";
+    var imgLinkOpen = "";
+    var imgLinkClose = "";
+
+    if (!string.IsNullOrEmpty(Model.ImageLinkUrl))
+    {
+        imgLinkOpen = @"<a href=""" + Model.ImageLinkUrl + @"""";
+        var imgLinkTitle = !string.IsNullOrEmpty(Model.ImageLinkTitle)
+            ? @" title=""" + Model.ImageLinkTitle + @""""
+            : "";
+        imgLinkOpen += imgLinkTitle + @">";
+        imgLinkClose = @"</a>";
+    }
+}
+
+<!-- NJHK13-367 IMAGE COMPONENT-->
+<figure class="figure"@Html.Raw(figureStyle)>
+    @Html.Raw(imgLinkOpen)
+        <img 
+            src="@Model.ImageSource"
+            class="figure-img"
+            loading="lazy"
+            @Html.Raw(altText)
+            @Html.Raw(imgWidth)
+            @Html.Raw(imgHeight) />
+    @Html.Raw(imgLinkClose)
+    @if (!string.IsNullOrEmpty(Model.ImageCaption))
+    {
+        <figcaption class="figure-caption">@Model.ImageCaption</figcaption>
+    }
+</figure>
+
