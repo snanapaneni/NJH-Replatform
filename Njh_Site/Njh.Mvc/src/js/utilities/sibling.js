@@ -20,7 +20,7 @@ const App__sibling = {
 
     while (sibling) {
       while (sibling) {
-        if (sibling.nodeType === 1 && sibling !== e) {
+        if (sibling.nodeType === 1 && sibling !== elem) {
           siblings.push(sibling);
         }
         sibling = sibling.nextSibling;
