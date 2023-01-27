@@ -16,21 +16,21 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  
+
   width: 100%;
   padding: var(--accordion-padding-y) var(--accordion-padding-x);
 
   background: var(--accordion-background);
   color: var(--accordion-color);
   fill: var(--accordion-color);
-  
+
   font-weight: 700;
   text-align: left;
   line-height: 1.1;
-  
+
   border-radius: 0;
   border-bottom: 1px solid var(--accordion-border-color);
-  
+
   z-index: 100;
 
   &-minus {
@@ -77,8 +77,8 @@
 .accordion__item {
   &:first-child {
     .accordion__trigger {
-      border-top-left-radius: var(--accordion-border-radius);
-      border-top-right-radius: var(--accordion-border-radius);
+      border-top-left-radius: var(--accordion-border-radius) !important;
+      border-top-right-radius: var(--accordion-border-radius) !important;
     }
   }
   &:last-child {
@@ -95,5 +95,15 @@
       border-bottom-right-radius: var(--accordion-border-radius);
       border-bottom: none;
     }
+  }
+}
+
+.accordion-neutral {
+  --accordion-background: var(--neutral--100);
+  --accordion-color: var(--neutral--900);
+
+  .accordion__trigger[aria-expanded="true"] {
+    --accordion-background: var(--neutral--300);
+    --accordion-color: var(--neutral--900);
   }
 }

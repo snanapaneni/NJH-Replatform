@@ -1,17 +1,15 @@
 const App__accordion = {
-  
   // Object Props
   accordions: [],
   accordionItems: [],
   accordionPanels: [],
   accordionTriggers: [],
 
-  // Used to identify the current open accordion. 
-  openAccordion: null,
+  // Used to identify the current open accordion.
+  openAccordions: new Map(),
 
   init: function () {
-
-    // Register all of the props. 
+    // Register all of the props.
     this.accordions = document.querySelectorAll("[data-hook=accordion]");
 
     if (this.accordions === null || this.accordions === undefined) return;
@@ -28,7 +26,12 @@ const App__accordion = {
       "[data-hook=accordion__item]"
     );
 
-    if (!this.accordionPanels.length || !this.accordionTriggers.length || !this.accordionItems.length) return;
+    if (
+      !this.accordionPanels.length ||
+      !this.accordionTriggers.length ||
+      !this.accordionItems.length
+    )
+      return;
 
     /***
      *
@@ -36,16 +39,18 @@ const App__accordion = {
      *
      */
 
+    this.setUUID();
+
     this.listenToAccordionTriggers();
 
     // Close as a precaution.
-    this.handleClose();
+    this.handleCloseAll();
   },
 
   /***
-   * 
+   *
    * LISTENERS
-   * 
+   *
    */
   listenToAccordionTriggers: function () {
     this.accordionTriggers.forEach((trigger) => {
@@ -56,38 +61,61 @@ const App__accordion = {
     });
   },
 
-
   /***
-   * 
+   *
    * HANDLERS
-   * 
+   *
    */
 
-  handleClose: function () {
+  handleClose: function (e) {
+    // Loop over all triggers and close them
+    this.accordionTriggers.forEach((trigger) => {
+      if (this.isSameAccordionGroup(trigger, e.target)) {
+        trigger.setAttribute("aria-expanded", false);
+      }
+    });
+
+    // Same for all the panels.
+    this.accordionPanels.forEach((panel) => {
+      if (this.isSameAccordionGroup(panel, e.target)) {
+        panel.setAttribute("aria-hidden", true);
+      }
+    });
+
+    this.accordionItems.forEach((item) => {
+      if (this.isSameAccordionGroup(item, e.target)) {
+        item.setAttribute("data-open", false);
+      }
+    });
+  },
+
+  handleCloseAll: function (e) {
     // Loop over all triggers and close them
     this.accordionTriggers.forEach((trigger) => {
       trigger.setAttribute("aria-expanded", false);
     });
 
-    // Same for all the panels. 
+    // Same for all the panels.
     this.accordionPanels.forEach((panel) => {
       panel.setAttribute("aria-hidden", true);
     });
 
-    this.accordionItems.forEach((trigger) => {
-      trigger.setAttribute("data-open", false);
+    this.accordionItems.forEach((item) => {
+      item.setAttribute("data-open", false);
     });
+
+    this.openAccordions.clear();
   },
 
   handleOpen: function (e) {
-
-    
     e.preventDefault();
 
-    // At this point ALL accordions are closed, this will check the last to be opened and see if it's the same as we're clicking. 
-    // If so, we do nothing, and then reset the openAccordion to null so that on the next click we can open it or another back up. 
+    const targetID = e.target.getAttribute("aria-controls");
+
+    // At this point ALL accordions are closed, this will check the last to be opened and see if it's the same as we're clicking.
+    // If so, we do nothing, and then reset the openAccordion to null so that on the next click we can open it or another back up.
     if (this.isAccordionOpen(e)) {
-      this.openAccordion = null;
+      this.openAccordions.delete(targetID);
       return;
     }
 
@@ -95,32 +123,55 @@ const App__accordion = {
     e.target.setAttribute("aria-expanded", true);
 
     // Find the associated panel based on ID
-    const panel = document.getElementById(
-      e.target.getAttribute("aria-controls")
-    ); 
+    const panel = document.getElementById(targetID);
 
     // Open it up.
     panel.setAttribute("aria-hidden", false);
 
-
-    e.target.closest('[data-hook=accordion__item').setAttribute('data-open', true);
+    e.target
+      .closest("[data-hook=accordion__item")
+      .setAttribute("data-open", true);
 
     // Set this as the new open Accordion.
-    this.openAccordion = e.target;
+    this.openAccordions.set(targetID, e.target);
   },
 
   /***
-   * 
+   *
    * CONDITIONS
-   * 
+   *
    */
   isAccordionOpen: function (e) {
-    // Used in this.handleOpen
-    return (
-      this.openAccordion !== null &&
-      this.openAccordion.getAttribute("aria-controls") ===
-        e.target.getAttribute("aria-controls")
-    );
+    const targetID = e.target.getAttribute("aria-controls");
+
+    return this.openAccordions.size && this.openAccordions.has(targetID);
+  },
+
+  isSameAccordionGroup: function (self, target) {
+    
+    // We'll assume they're in the same group by default.
+    if (target === undefined || self === undefined) return true;
+
+    const selfGroup = self
+      .closest("[data-hook=accordion]")
+      .getAttribute("data-id");
+    const targetGroup = target
+      .closest("[data-hook=accordion]")
+      .getAttribute("data-id");
+
+    return selfGroup === targetGroup;
+  },
+
+  /***
+   *
+   * SETTERS
+   *
+   */
+  setUUID: function () {
+    this.accordions.forEach((accordion) => {
+      const UUID = App.utils.uuid.generate();
+      accordion.setAttribute("data-id", UUID);
+    });
   },
 };
 

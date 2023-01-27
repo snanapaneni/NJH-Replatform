@@ -58,6 +58,7 @@ import App__responsiveImage from "./utilities/responsive-image";
 import App__sibling from "./utilities/sibling";
 import App__tables from "./utilities/tables";
 import App__urlToolkit from "./utilities/url-toolkit";
+import App__UUID from "./utilities/uuid";
 // Animation
 // import "./animation/fade-up";
 // import "./animation/slide";
@@ -301,6 +302,7 @@ App.utils = {
   // sibling: App__sibling,
   // urlToolkit: App__urlToolkit,
   tables: App__tables,
+  uuid: App__UUID,
 };
 
 App.utils.pagination = App__pagination;
@@ -365,7 +367,7 @@ window.addEventListener("load", function (event) {
     }
     if (isEscape) {
       App.utils.closeOverlayPanels();
-      App.accordion.handleClose();
+      App.accordion.handleCloseAll();
       // App.appSidebar.closeSideNavMenu();
     }
   };
