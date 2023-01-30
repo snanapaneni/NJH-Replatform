@@ -1,4 +1,4 @@
-﻿namespace Njh.Mvc.Components
+﻿namespace Njh.Mvc.Components.Image
 {
     using System;
     using CMS.DocumentEngine;
@@ -64,9 +64,9 @@
 
                 // get the image URL, width, and height from the media file object
                 var imageSourceGuid = props.ImageSource.FirstOrDefault()?.FileGuid ?? Guid.Empty;
-                MediaFileInfo mediaFile = mediaFileInfo.Get(imageSourceGuid, SiteContext.CurrentSiteID);
+                MediaFileInfo mediaFile = this.mediaFileInfo.Get(imageSourceGuid, SiteContext.CurrentSiteID);
 
-                string imageSourceUrl = "/NJH/media/assets/TEST-IT-Crowd-1920x1080.jpg";
+                string imageSourceUrl = string.Empty;
                 int imageWidth = 0;
                 int imageHeight = 0;
 

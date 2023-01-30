@@ -1,6 +1,6 @@
 ﻿namespace Njh.Mvc.Models.Widgets
 {
-    using Njh.Mvc.Components;
+    using Njh.Mvc.Components.Image;
 
     /// <summary>
     /// Implements the view model for the <see cref="ImageViewComponent"/> widget.

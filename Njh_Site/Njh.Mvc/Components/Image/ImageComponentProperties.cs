@@ -1,4 +1,4 @@
-﻿namespace Njh.Mvc.Components
+﻿namespace Njh.Mvc.Components.Image
 {
     using Kentico.Components.Web.Mvc.FormComponents;
     using Kentico.Forms.Web.Mvc;
