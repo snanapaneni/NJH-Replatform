@@ -9,6 +9,9 @@ using Njh.Mvc.Components.Sections.TwoColumn6733;
 using Njh.Mvc.Components.Sections.TwoColumn7525;
 using Njh.Mvc.Models.Constants;
 
+/*
+ * Sections
+ */
 [assembly: RegisterSection(
     OneColumnSectionViewComponent.Identifier,
     typeof(OneColumnSectionViewComponent),
@@ -58,10 +61,22 @@ using Njh.Mvc.Models.Constants;
     typeof(FourColumnSectionProperties),
     IconClass = IconConstants.FourColumn)]
 
+/*
+ * Widgets
+ */
+
 [assembly: RegisterWidget(
     BlurbContentViewComponent.Identifier,
     typeof(BlurbContentViewComponent),
     "NJH Blurb Content Widget",
     typeof(BlurbContentProperties),
     AllowCache = true,
-    IconClass = IconConstants.OneColumn)]
+    IconClass = IconConstants.HeaderText)]
+
+[assembly: RegisterWidget(
+    ImageViewComponent.Identifier,
+    typeof(ImageViewComponent),
+    "NJH Image Widget",
+    typeof(ImageComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Picture)]

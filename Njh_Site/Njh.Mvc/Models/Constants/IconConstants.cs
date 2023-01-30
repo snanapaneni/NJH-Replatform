@@ -2,6 +2,7 @@
 {
     /// <summary>
     /// Defines icon constants for widgets.
+    /// See https://devnet.kentico.com/docs/icon-list/index.html for full list.
     /// </summary>
     internal static class IconConstants
     {
@@ -46,6 +47,30 @@
         /// </summary>
         public const string Picture =
             "icon-picture";
+
+        /// <summary>
+        /// The text icon for widgets.
+        /// </summary>
+        public const string Text =
+            "icon-l-text";
+
+        /// <summary>
+        /// The header text icon for widgets.
+        /// </summary>
+        public const string HeaderText =
+            "icon-l-header-text";
+
+        /// <summary>
+        /// A 3-line hamburger menu icon for widgets.
+        /// </summary>
+        public const string Menu =
+            "icon-menu";
+
+        /// <summary>
+        /// A tab icon for widgets.
+        /// </summary>
+        public const string Tab =
+            "icon-tab";
 
         /// <summary>
         /// The convert icon for widgets.
