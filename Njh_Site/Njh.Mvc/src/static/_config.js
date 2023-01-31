@@ -5,8 +5,8 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_after: [""],
-    main_insert: "main",
-    main_components: [],
+    main_insert: "article",
+    main_components: ["image-slider"],
   },
   {
     templateFilename: "elements",
