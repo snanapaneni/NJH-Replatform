@@ -202,6 +202,13 @@
                 .GetValue<string>("NJHFooterButtonsPath");
         }
 
+        public static string GetAlertPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAlertPath");
+        }
+        
         public static string GetPageTitlePrefix(
             this ISettingsKeyRepository settingsKeyRepository)
         {
