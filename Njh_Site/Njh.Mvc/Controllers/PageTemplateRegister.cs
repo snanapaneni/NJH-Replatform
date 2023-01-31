@@ -24,3 +24,9 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                typeof(SubPageLeftNavTemplateProperties),
                                customViewName: "~/Views/Shared/PageTemplates/SubPageLeftNavTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
+
+[assembly: RegisterPageTemplate("NJH.SpecialtyMainTemplate",
+    "Specialty Main Template",
+    typeof(SpecialtyMainTemplateProperties),
+    customViewName: "~/Views/Shared/PageTemplates/SpecialtyMainTemplate.cshtml",
+    IconClass = "icon-badge")]

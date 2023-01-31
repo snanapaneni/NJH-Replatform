@@ -1,0 +1,103 @@
+﻿@model PrimaryServiceViewModel
+<section id="programsServices" class="condition-programs__col col">
+      <h2>Programs and Services</h2>
+      <figure>
+        <a href="#">
+          <img
+            src="https://picsum.photos/600/300"
+            title="If this is a link, it'll need a title"
+            alt="This is the alt of the image"
+            height="300"
+            width="600" />
+        </a>
+      </figure>
+
+      <a class="like-h4 mb-3 d-inline-block" href="#">
+        Respiratory Treatment Programs
+      </a>
+
+      <section class="accordion" data-hook="accordion">
+        <!-- START SINGLE ACCORDION ITEM -->
+        <div
+          id="moreProgramsServices"
+          class="accordion__item"
+          data-hook="accordion__item">
+          <!-- HEADER -->
+          <header class="accordion__header">
+            <!-- TRIGGER -->
+            <button
+              id="accordionTrigger_moreProgramsServices"
+              class="accordion__trigger"
+              aria-controls="accordionPanel_moreProgramsServices"
+              aria-expanded="false"
+              data-hook="accordion__trigger">
+              More programs and services
+
+              <!-- STATE INDICATOR -->
+              <svg
+                class="app-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512">
+                <path
+                  class="accordion__trigger-plus"
+                  d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z" />
+                <path
+                  class="accordion__trigger-minus"
+                  d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z" />
+              </svg>
+            </button>
+          </header>
+
+          <!-- PANEL -->
+          <div
+            id="accordionPanel_moreProgramsServices"
+            class="accordion__panel"
+            role="region"
+            aria-hidden="true"
+            aria-labelledby="accordionTrigger_moreProgramsServices"
+            data-hook="accordion__panel">
+            <ul class="list-unstyled" role="list">
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+              <li>
+                <a href="#"> Item </a>
+              </li>
+            </ul>
+            <a href="/programs/search" class="btn btn-neutral--900-outline">
+              Search Programs
+            </a>
+          </div>
+        </div>
+      </section>
+    </section>
