@@ -1,5 +1,6 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Njh.Mvc.Components;
+using Njh.Mvc.Components.Image;
 using Njh.Mvc.Components.Sections.FourColumn;
 using Njh.Mvc.Components.Sections.OneColumn;
 using Njh.Mvc.Components.Sections.OneColumnFullWidth;
