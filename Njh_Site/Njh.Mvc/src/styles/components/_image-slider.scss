@@ -9,8 +9,11 @@
   border-radius: 100%;
   border: 1px solid var(--blue--700);
 
-  fill: var(--blue--700);
   background: white;
+
+  svg {
+    fill: var(--blue--700) !important;
+  }
 
   cursor: pointer;
 
@@ -18,16 +21,15 @@
   &:focus {
     --swiper-theme-color: var(--neutral--100);
     background-color: var(--blue--700);
-    fill: var(--neutral--100);
+    svg {
+      fill: var(--neutral--100) !important;
+    }
   }
 
   &:focus {
     @include global-focus-ring;
   }
-
 }
-
-
 
 .image-slider {
   --swiper-button-top: 15rem;
@@ -57,13 +59,13 @@
 .image-slider__toggle {
   position: absolute;
   z-index: 1000;
-  
+
   // Match the distance on swiper-buttons
   top: 10px;
   right: 10px;
 
   @include slider-button;
- 
+
   .image-slider__pause,
   .image-slider__play {
     display: none;
@@ -91,10 +93,7 @@
 }
 .swiper-button-prev,
 .swiper-button-next {
-
   top: var(--swiper-button-top);
-  
+
   @include slider-button;
-
-
 }

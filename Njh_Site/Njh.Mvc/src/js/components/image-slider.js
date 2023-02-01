@@ -65,6 +65,7 @@ const App__imageSlider = {
         autoplay: this.isAutoplay(slider),
         autoHeight: true,
         slidesPerView: 1,
+        loop: true,
         keyboard: {
           enabled: true,
         },
