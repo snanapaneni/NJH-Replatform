@@ -8,12 +8,12 @@ using ReasonOne.AspNetCore.Mvc.ViewComponents;
 
 namespace Njh.Mvc.Components.RelatedDocuments
 {
-    public class PrimaryServiceViewComponent : SafeViewComponent<PrimaryServiceViewComponent>
+    public class SpecialtyPageServiceViewComponent : SafeViewComponent<SpecialtyPageServiceViewComponent>
     {
         private readonly IPageDataContextRetriever dataRetriever;
 
         /// <inheritdoc />
-        public PrimaryServiceViewComponent(ILogger<PrimaryServiceViewComponent> logger, IViewComponentErrorVisibility viewComponentErrorVisibility, IPageDataContextRetriever dataRetriever)
+        public SpecialtyPageServiceViewComponent(ILogger<SpecialtyPageServiceViewComponent> logger, IViewComponentErrorVisibility viewComponentErrorVisibility, IPageDataContextRetriever dataRetriever)
             : base(logger, viewComponentErrorVisibility)
         {
             this.dataRetriever = dataRetriever;
@@ -24,12 +24,12 @@ namespace Njh.Mvc.Components.RelatedDocuments
             return this.TryInvoke(vc =>
             {
                 var currentPage = vc.dataRetriever.Retrieve<TreeNode>()?.Page;
-                var model = new PrimaryServiceViewModel();
+                var model = new SpecialtyPageServiceViewModel();
                 model.ImagePath = currentPage.GetStringValue(nameof(PageType_Specialty.ConditionsWeTreatImage), string.Empty);
                 model.ImageAltText = currentPage.GetStringValue(nameof(PageType_Specialty.ConditionsWeTreatImageAltText), string.Empty);
                 model.Url = currentPage.GetStringValue(nameof(PageType_Specialty.ConditionsWeTreatLink), string.Empty);
 
-                return vc.View("~/Views/Shared/RelatedDocuments/PrimaryService.cshtml", model);
+                return vc.View("~/Views/Shared/RelatedDocuments/SpecialtyPageService.cshtml", model);
             });
         }
     }

@@ -2,7 +2,7 @@
 
 namespace Njh.Mvc.Models
 {
-    public class PrimaryConditionViewModel
+    public class SpecialtyPageConditionViewModel
     {
         public string ImagePath { get; set; }
 
@@ -16,6 +16,8 @@ namespace Njh.Mvc.Models
 
         public string SearchUrl { get; set; }
 
-        public IEnumerable<NavItem> Links { get; set; }
+        public IEnumerable<NavItem> MainLinks { get; set; }
+
+        public IEnumerable<NavItem> OtherLinks { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Njh.Mvc.Models
 {
-    public class PrimaryServiceViewModel : PrimaryConditionViewModel
+    public class SpecialtyPageServiceViewModel : SpecialtyPageConditionViewModel
     {
         public string PediatricSearchUrl { get; set; }
 

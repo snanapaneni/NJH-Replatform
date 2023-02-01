@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.Helpers;
+using CMS.Taxonomy;
 using Njh.Kernel.Constants;
 using Njh.Kernel.Definitions;
 using Njh.Kernel.Kentico.Models.CustomTables;
@@ -77,9 +78,9 @@ namespace Njh.Kernel.Services
                 var query = new DocumentQuery<TDocument>().OnSite(this.contextConfig.SiteName)
                     .Culture(this.contextConfig.CultureName)
                     .CombineWithDefaultCulture(false)
-                    //.WhereIn(fieldName, categories)
                     .PublishedVersion()
-                    .Published();
+                    .Published()
+                    .OrderBy("DocumentName");
 
                 WhereCondition where = new WhereCondition();
                 foreach (var category in categories)
@@ -89,7 +90,71 @@ namespace Njh.Kernel.Services
 
                 var data = query.Where(where).ToList();
 
-                //TODO: Add cache dependencies
+                data.ForEach(doc =>
+                {
+                    cs.CacheDependencies.Add($"nodeid|{doc.NodeID}");
+                });
+
+                return data.Select(x => new NavItem
+                {
+                    DisplayTitle = x.GetValue("Title", x.DocumentName),
+                    Link = DocumentURLProvider.GetUrl(x),
+                });
+            }
+
+            return cacheService.Get(DocCache, cacheParameters);
+        }
+
+        private IEnumerable<NavItem> GetRelatedDocuments<TDocument>(TreeNode currentPage)
+            where TDocument : TreeNode, new()
+        {
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                    DataCacheKeys.DataSetByPathByType,
+                    "RelatedDocs",
+                    currentPage.NodeAliasPath,
+                    typeof(TDocument).Name),
+                IsCultureSpecific = true,
+                CultureCode = this.contextConfig?.CultureName,
+                IsSiteSpecific = true,
+                SiteName = this.contextConfig?.SiteName,
+                CacheDependencies = new List<string>
+                {
+                    $"nodeid|{currentPage.NodeID}",
+                },
+            };
+
+            IEnumerable<NavItem> DocCache(CacheParameters cs)
+            {
+                var categories = new List<int>();
+                if (currentPage.GetIntegerValue("PrimaryCategory", 0) != 0)
+                {
+                    categories.Add(currentPage.GetIntegerValue("PrimaryCategory", 0));
+                }
+                else
+                {
+                    categories = currentPage.Categories.Cast<CategoryInfo>()
+                        .Where(c => c.GetStringValue("CategoryNamePath", string.Empty).StartsWith("/Adult-Peds") ==
+                                    false).Cast<CategoryInfo>().Select(c => c.CategoryID).ToList();
+                }
+
+                var sql = $"(DocumentID in (Select DocumentID from CMS_DocumentCategory where CategoryID in ({string.Join(",", categories)})))";
+
+                var query = new DocumentQuery<TDocument>().OnSite(this.contextConfig.SiteName)
+                    .Culture(this.contextConfig.CultureName)
+                    .CombineWithDefaultCulture(false)
+                    .PublishedVersion()
+                    .Published()
+                    .Where(sql)
+                    .OrderBy("DocumentName");
+
+                var data = query.ToList();
+
+                data.ForEach(doc =>
+                {
+                    cs.CacheDependencies.Add($"nodeid|{doc.NodeID}");
+                });
 
                 return data.Select(x => new NavItem
                 {
