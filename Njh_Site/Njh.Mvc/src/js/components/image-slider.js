@@ -1,6 +1,6 @@
 const App__imageSlider = {
   sliders: [],
-  pauseTriggers: [],
+  sliderToggles: [],
 
   init: function () {
     this.sliders = document.querySelectorAll("[data-hook=imageSlider]");
@@ -9,43 +9,65 @@ const App__imageSlider = {
 
     this.handleSliders();
 
+    this.listenToResize();
 
-    this.pauseButtons = document.querySelectorAll('[data-hook=imageSlider__pause]');
+    this.sliderToggles = document.querySelectorAll(
+      "[data-hook=imageSlider__toggle]"
+    );
 
-    if(!this.pauseTriggers.length) return;
+    if (!this.sliderToggles.length) return;
 
-    this.listenToPauseTriggers();
-
-
+    this.listenToToggles();
   },
 
   /***
-   * 
+   *
    * LISTENERS
-   * 
+   *
    */
 
-  listenToPauseTriggers: function () {
-
-    this.pauseTriggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
+  listenToToggles: function () {
+    this.sliderToggles.forEach((toggle) => {
+      toggle.addEventListener("click", (e) => {
         e.preventDefault();
 
-        this.handlePause(trigger);
+        this.handleToggle(toggle);
+      });
+    });
+  },
 
-      })
-    })
+  // This keeps the buttons centered on the image so they don't move all over the place.
+  listenToResize: function () {
+    window.onresize = App.utils.timers.debounce(function () {
+      const sliders = document.querySelectorAll("[data-hook=imageSlider]");
+      sliders.forEach((slider) => {
+        const firstImage = slider.querySelector("img");
+
+        if (firstImage !== undefined) {
+          slider.style.setProperty(
+            "--swiper-button-top",
+            `${firstImage.offsetHeight / 2}px`
+          );
+        }
+      });
+    });
   },
   /***
-   * 
+   *
    * HANDLERS
-   * 
+   *
    */
   handleSliders: function () {
     this.sliders.forEach((slider) => {
-      const swiperSlider = new App.Swiper(slider, {
-        autoplay: this.isAutoplay(slider),
+      const swiper = slider.querySelector("[data-hook=imageSlider__swiper]");
 
+      const initSlider = new App.Swiper(swiper, {
+        autoplay: this.isAutoplay(slider),
+        autoHeight: true,
+        slidesPerView: 1,
+        keyboard: {
+          enabled: true,
+        },
         pagination: {
           el: slider.querySelector(".swiper-pagination"),
           type: "fraction",
@@ -57,21 +79,46 @@ const App__imageSlider = {
           prevEl: slider.querySelector(".swiper-button-prev"),
         },
       });
+
+      // center the buttons on the first image of the slider. 
+      const firstImage = slider.querySelector("img");
+
+      if (firstImage !== undefined) {
+        slider.style.setProperty(
+          "--swiper-button-top",
+          `${firstImage.offsetHeight / 2}px`
+        );
+      }
     });
   },
 
-  handlePause: function (target) {
+  handleToggle: function (target) {
+    let state = target.dataset.state;
 
-    const slider = target.closet('[data-hook=imageSlider]');
+    const slider = target.parentNode.querySelector(
+      "[data-hook=imageSlider__swiper]"
+    );
 
-    if(slider === undefined) return;
+    if (slider === undefined || state === undefined) return;
 
-    slider.swiper.pause()
+    const autoPlay = slider.swiper.autoplay;
+
+    if (state === "playing") {
+      autoPlay.pause();
+      target.dataset.state = "paused";
+      return;
+    }
+
+    autoPlay.run();
+    target.dataset.state = "playing";
+
+    return;
   },
+
   /***
-   * 
+   *
    * CONDITIONS
-   * 
+   *
    */
 
   isAutoplay: function (slider) {
@@ -86,7 +133,6 @@ const App__imageSlider = {
     return {
       delay: parseInt(autoPlay),
     };
-
   },
 };
 

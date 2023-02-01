@@ -36,6 +36,7 @@ import App__LinkClasses from "./utilities/link-classes";
 
 import App__sibling from "./utilities/sibling";
 import App__tables from "./utilities/tables";
+import App__timers from "./utilities/timers";
 import App__urlToolkit from "./utilities/url-toolkit";
 
 
@@ -271,6 +272,7 @@ App.utils = {
   urlToolkit: App__urlToolkit,
   tables: App__tables,
   urlToolkit: App__urlToolkit,
+  timers: App__timers,
 };
 
 // Global App component initialization
