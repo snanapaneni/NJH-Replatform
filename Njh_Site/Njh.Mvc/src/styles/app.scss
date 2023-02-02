@@ -40,7 +40,7 @@
 @import "~bootstrap/scss/images";
 @import "~bootstrap/scss/list-group";
 @import "~bootstrap/scss/modal";
-// @import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/nav";
 // @import "~bootstrap/scss/navbar";
 // @import "~bootstrap/scss/pagination";
 // @import "~bootstrap/scss/popover";
@@ -84,6 +84,7 @@
 @import "./components/page-blurb";
 @import "./components/separated-list";
 @import "./components/subpage-aside-nav";
+@import "./components/tabs";
 @import "./components/tables";
 @import "./components/widget-zone";
 

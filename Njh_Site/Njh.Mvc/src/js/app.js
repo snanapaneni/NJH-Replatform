@@ -43,14 +43,18 @@ import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
  * =========================================================================== */
 // Components
 import App__appHeader from "./components/app-header";
-import App__appSidebar from "./components/app-sidebar";
-import App__accordion from "./components/accordion";
-import App__formBuilder from "./components/form-builder";
-//import App__globalAlert from "./components/global-alert";
-import App__newsletterSignup from "./components/newsletter-signup";
-import App__formCountryProvinceSelects from "./components/form-country-province-selects";
-import App__routing from "./components/routing";
-import App__video from "./components/video";
+import App__tabs from "./components/tabs";
+
+// import App__accordion from "./components/accordion";
+// import App__formBuilder from "./components/form-builder";
+// import App__globalAlert from "./components/global-alert";
+// import App__newsletterSignup from "./components/newsletter-signup";
+// import App__formCountryProvinceSelects from "./components/form-country-province-selects";
+// import App__routing from "./components/routing";
+// import App__video from "./components/video";
+
+
+
 // Utilities
 import App__LinkClasses from "./utilities/link-classes";
 import App__pagination from "./utilities/pagination";
@@ -67,8 +71,9 @@ import App__urlToolkit from "./utilities/url-toolkit";
  * =========================================================================== */
 
 App.appHeader = App__appHeader;
-App.appSidebar = App__appSidebar;
+
 // Components
+App.tabs = App__tabs;
 //App.accordion                  = App__accordion;
 //App.formBuilder                = App__formBuilder;
 //App.globalAlert                = App__globalAlert;
@@ -299,13 +304,12 @@ App.utils = {
   // pagination: App__pagination,
   responsiveImage: App__responsiveImage,
   // sibling: App__sibling,
-  // urlToolkit: App__urlToolkit,
+  urlToolkit: App__urlToolkit,
   tables: App__tables,
 };
 
-App.utils.pagination = App__pagination;
-App.utils.sibling = App__sibling;
-App.utils.urlToolkit = App__urlToolkit;
+// App.utils.pagination = App__pagination;
+//App.utils.sibling = App__sibling;
 
 // Global App component initialization
 App.init = function () {
@@ -313,6 +317,8 @@ App.init = function () {
   // App.mediaQueries.init();
   // App.globalAlert.init();
   App.appHeader.init();
+
+  App.tabs.init();
 
   // App.appSidebar.init();
   // Components
@@ -401,6 +407,8 @@ window.addEventListener("load", function (event) {
       });
     }
   });
+
+
 });
 
 window.addEventListener("resize", function (event) {

@@ -42,6 +42,15 @@ exports.templates = [
     main_after: [""],
   },
   {
+    templateFilename: "components",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_insert: "component-partial",
+    main_components: ["tabs"],
+    main_after: [""],
+  },
+  {
     templateFilename: "widget-zones",
     header: "app-header",
     footer: "app-footer",
