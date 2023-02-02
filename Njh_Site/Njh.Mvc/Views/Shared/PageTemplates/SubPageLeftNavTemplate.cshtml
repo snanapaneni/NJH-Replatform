@@ -10,11 +10,13 @@
     bool HasPrimaryCta = !string.IsNullOrWhiteSpace(currentPage.CtaTitle) && !string.IsNullOrWhiteSpace(currentPage.CtaUrl);
     bool HasSecondCta = !string.IsNullOrWhiteSpace(currentPage.Cta2Title) && !string.IsNullOrWhiteSpace(currentPage.Cta2Url);
     bool HasThirdCta = !string.IsNullOrWhiteSpace(currentPage.Cta3Title) && !string.IsNullOrWhiteSpace(currentPage.Cta3Url);
-
 }
 
 
  <main class="app-main subpage" id="main">
+    <!-- Breadcrumb Nav -->
+    <vc:breadcrumbs></vc:breadcrumbs>
+
     <article class="subpage__left-rail container">
         <div class="subpage__header-cta-wrapper container">
  @if (!string.IsNullOrWhiteSpace(currentPage.Title))

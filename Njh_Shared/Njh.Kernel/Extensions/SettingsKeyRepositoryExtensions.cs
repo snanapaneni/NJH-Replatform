@@ -120,6 +120,13 @@
                 .GetValue<string>("NJHGlobalPhoneNumberText");
         }
 
+        public static string GetHomePagePath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("CMSHomePagePath");
+        }
+
         /// <summary>
         /// Gets the page type types.
         /// </summary>

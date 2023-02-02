@@ -1,8 +1,8 @@
-﻿using CMS.DocumentEngine;
-using Njh.Kernel.Models.DTOs;
-
-namespace Njh.Kernel.Services
+﻿namespace Njh.Kernel.Services
 {
+    using CMS.DocumentEngine;
+    using Njh.Kernel.Models.DTOs;
+
     /// <summary>
     /// Defines the service to work with navigation items.
     /// </summary>
@@ -33,6 +33,13 @@ namespace Njh.Kernel.Services
         /// </summary>
         /// <returns>list of navigation nodes.</returns>
         IEnumerable<NavItem> GetFooterNav();
+
+        /// <summary>
+        /// Gets all ancestors of a document up the CMS Tree, omitting non-pages and document root, including Home page as first item.
+        /// </summary>
+        /// <param name="currentNode">The current page at the end of the breadcrumb list.</param>
+        /// <returns>A list of navigation items.</returns>
+        IEnumerable<NavItem> GetBreadcrumbNav(TreeNode currentNode);
 
         /// <summary>
         /// Gets document tree rooted on the parent of a page, with current page marked as active.

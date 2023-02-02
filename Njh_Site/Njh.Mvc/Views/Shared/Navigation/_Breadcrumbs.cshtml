@@ -1,0 +1,13 @@
+﻿@model List<Njh.Kernel.Models.DTOs.NavItem>
+<nav class="breadcrumb-nav" aria-label="breadcrumb">
+  <div class="container">
+    <ol class="breadcrumb">
+    @for(int i=0; i<Model.Count()-1; i++){
+        <li class="breadcrumb-item">
+            <a href="@Model[i].Link">@Model[i].DisplayTitle</a>
+        </li>
+    }
+        <li class="breadcrumb-item active" aria-current="page">@Model.Last().DisplayTitle</li>
+    </ol>
+  </div>
+</nav>
