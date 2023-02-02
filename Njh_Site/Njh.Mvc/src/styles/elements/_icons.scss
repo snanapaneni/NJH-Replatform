@@ -4,6 +4,18 @@
   overflow: visible;
   vertical-align: -0.125em;
   background-repeat: no-repeat;
+
+  &-2x {
+    height: 2em;
+  }
+
+  &-lg {
+    height: 1.5em;
+  }
+
+  &-sm {
+    height: 0.5em;
+  }
 }
 
 $icon-dropdown-fill: map-get($app-colors, "blue--900");

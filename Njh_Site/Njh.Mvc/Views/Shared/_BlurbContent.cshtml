@@ -1,0 +1,17 @@
+﻿@model BlurbContentViewModel
+
+@if (Model.ShowBlurb)
+{
+  <div class="page-blurb container">
+    @Html.Raw(Model.PageBlurbData)
+  </div>
+}
+
+@if (Model.ShowContent)
+{
+  <div class="rich-text">
+    <div class="container">
+        @Html.Raw(Model.PageContentData)
+    </div>
+  </div>
+}

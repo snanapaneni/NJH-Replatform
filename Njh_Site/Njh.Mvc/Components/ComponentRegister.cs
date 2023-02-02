@@ -1,4 +1,6 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
+using Njh.Mvc.Components;
+using Njh.Mvc.Components.Image;
 using Njh.Mvc.Components.Sections.FourColumn;
 using Njh.Mvc.Components.Sections.OneColumn;
 using Njh.Mvc.Components.Sections.OneColumnFullWidth;
@@ -8,6 +10,9 @@ using Njh.Mvc.Components.Sections.TwoColumn6733;
 using Njh.Mvc.Components.Sections.TwoColumn7525;
 using Njh.Mvc.Models.Constants;
 
+/*
+ * Sections
+ */
 [assembly: RegisterSection(
     OneColumnSectionViewComponent.Identifier,
     typeof(OneColumnSectionViewComponent),
@@ -56,3 +61,23 @@ using Njh.Mvc.Models.Constants;
     "Four Column Section",
     typeof(FourColumnSectionProperties),
     IconClass = IconConstants.FourColumn)]
+
+/*
+ * Widgets
+ */
+
+[assembly: RegisterWidget(
+    BlurbContentViewComponent.Identifier,
+    typeof(BlurbContentViewComponent),
+    "NJH Blurb Content Widget",
+    typeof(BlurbContentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.HeaderText)]
+
+[assembly: RegisterWidget(
+    ImageViewComponent.Identifier,
+    typeof(ImageViewComponent),
+    "NJH Image Widget",
+    typeof(ImageComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Picture)]

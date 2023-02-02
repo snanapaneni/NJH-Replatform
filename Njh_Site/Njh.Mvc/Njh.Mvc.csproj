@@ -17,6 +17,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="ViewComponents\**" />
+	  <Content Remove="ViewComponents\**" />
+	  <EmbeddedResource Remove="ViewComponents\**" />
+	  <None Remove="ViewComponents\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Remove="appsettings.Development.json.template" />
 	</ItemGroup>
 
@@ -56,6 +63,7 @@
 	<ItemGroup>
 		<Folder Include="App_Start\" />
 		<Folder Include="ViewComponents\Navigation\" />
+		<Folder Include="Models\PageTemplateProperties\" />
 		<Folder Include="wwwroot\dist\" />
 	</ItemGroup>
 </Project>

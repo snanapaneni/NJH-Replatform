@@ -211,5 +211,26 @@
         {
             return settingsKeyRepository.GetValue<int>("NJHPediatricCategoryId");
         }
+        
+        public static string GetAlertPath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHAlertPath");
+        }
+        
+        public static string GetPageTitlePrefix(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("CMSPageTitlePrefix");
+        }
+
+        public static string GetPageTitleFormat(
+           this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("CMSPageTitleFormat");
+        }
     }
 }
