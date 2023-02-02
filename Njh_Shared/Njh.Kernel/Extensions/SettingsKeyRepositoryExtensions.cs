@@ -201,5 +201,15 @@
             return settingsKeyRepository
                 .GetValue<string>("NJHFooterButtonsPath");
         }
+
+        public static int GetAdultCategoryId(this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository.GetValue<int>("NJHAdultCategoryId");
+        }
+
+        public static int GetPediatricCategoryId(this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository.GetValue<int>("NJHPediatricCategoryId");
+        }
     }
 }

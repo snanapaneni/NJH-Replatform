@@ -70,7 +70,8 @@
                 </div>
             </div>
             
-            <vc:related-documents type="@RelatedDocumentType.Conditions" source-field="RelatedConditions" target-field="RelatedConditions" res-string="NJH.RelatedDocuments.ConditionsContent"></vc:related-documents>
+            <vc:related-documents type="@RelatedDocumentType.Program" page-types="@PageType_Specialty.CLASS_NAME" res-string="NJH.RelatedDocuments.ProgramAndServiceContent"></vc:related-documents>
+            <vc:related-documents type="@RelatedDocumentType.ClinicalTrials" page-types="@PageType_ClinicalTrial.CLASS_NAME" res-string="NJH.RelatedDocuments.ClinicalTrialsContent"></vc:related-documents>
 
             <!-- example of a widget zone -->
             <editable-area area-identifier="editableRegion" />

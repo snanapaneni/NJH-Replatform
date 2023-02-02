@@ -19,5 +19,16 @@ namespace Njh.Kernel.Services
         /// <param name="categories">Categories.</param>
         /// <returns>List of related documents.</returns>
         IEnumerable<NavItem> GetRelatedDocuments(TreeNode currentDocument, RelatedDocumentType type, string sourceField, string targetField);
+
+        /// <summary>
+        /// Get Related Documents base on categories of the page.
+        /// </summary>
+        /// <param name="currentPage">Current Page.</param>
+        /// <param name="pageTypes">Document Types to Return.</param>
+        /// <returns>Related documents.</returns>
+        IEnumerable<NavItem> GetRelatedDocuments(TreeNode currentPage, string[] pageTypes);
+
+        TDocument? GetDocument<TDocument>(Guid nodeGuid, bool published = true)
+            where TDocument : TreeNode, new();
     }
 }

@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CMS.DataEngine;
+﻿using CMS.DataEngine;
 using CMS.DocumentEngine;
 using CMS.Helpers;
 using CMS.Taxonomy;
 using Njh.Kernel.Constants;
 using Njh.Kernel.Definitions;
-using Njh.Kernel.Kentico.Models.CustomTables;
+using Njh.Kernel.Extensions;
 using Njh.Kernel.Kentico.Models.PageTypes;
 using Njh.Kernel.Models;
 using Njh.Kernel.Models.DTOs;
@@ -22,18 +16,22 @@ namespace Njh.Kernel.Services
     {
         private readonly ContextConfig contextConfig;
         private readonly ICacheService cacheService;
+        private readonly ISettingsKeyRepository settingsKeyRepository;
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="RelatedDocumentService"/> class.
         /// </summary>
         /// <param name="contextConfig">Context config.</param>
         /// <param name="cacheService">cache service.</param>
+        /// <param name="settingsKeyRepository">Settings Key Repo.</param>
         public RelatedDocumentService(
             ContextConfig contextConfig,
-            ICacheService cacheService)
+            ICacheService cacheService,
+            ISettingsKeyRepository settingsKeyRepository)
         {
             this.contextConfig = contextConfig;
             this.cacheService = cacheService;
+            this.settingsKeyRepository = settingsKeyRepository;
         }
 
         /// <inheritdoc />
@@ -105,8 +103,8 @@ namespace Njh.Kernel.Services
             return cacheService.Get(DocCache, cacheParameters);
         }
 
-        private IEnumerable<NavItem> GetRelatedDocuments<TDocument>(TreeNode currentPage)
-            where TDocument : TreeNode, new()
+        /// <inheritdoc />
+        public IEnumerable<NavItem> GetRelatedDocuments(TreeNode currentPage, string[] pageTypes)
         {
             var cacheParameters = new CacheParameters
             {
@@ -114,7 +112,7 @@ namespace Njh.Kernel.Services
                     DataCacheKeys.DataSetByPathByType,
                     "RelatedDocs",
                     currentPage.NodeAliasPath,
-                    typeof(TDocument).Name),
+                    string.Join("_",pageTypes)),
                 IsCultureSpecific = true,
                 CultureCode = this.contextConfig?.CultureName,
                 IsSiteSpecific = true,
@@ -136,18 +134,29 @@ namespace Njh.Kernel.Services
                 {
                     categories = currentPage.Categories.Cast<CategoryInfo>()
                         .Where(c => c.GetStringValue("CategoryNamePath", string.Empty).StartsWith("/Adult-Peds") ==
-                                    false).Cast<CategoryInfo>().Select(c => c.CategoryID).ToList();
+                                    false).Select(c => c.CategoryID).ToList();
                 }
 
                 var sql = $"(DocumentID in (Select DocumentID from CMS_DocumentCategory where CategoryID in ({string.Join(",", categories)})))";
 
-                var query = new DocumentQuery<TDocument>().OnSite(this.contextConfig.SiteName)
+                // TODO:Add columns to query
+                var query = new MultiDocumentQuery().OnSite(this.contextConfig.SiteName)
+                    .Types(pageTypes)
                     .Culture(this.contextConfig.CultureName)
                     .CombineWithDefaultCulture(false)
                     .PublishedVersion()
                     .Published()
+                    .WhereNotEquals(nameof(TreeNode.NodeID), currentPage.NodeID)
                     .Where(sql)
                     .OrderBy("DocumentName");
+
+                var adultPedFilterItem = GetAdultOrPediatricStringBasedOnCategory(currentPage);
+                if (adultPedFilterItem != null)
+                {
+                    query.And().Where(
+                        CategoryInfoProvider.GetCategoriesDocumentsWhereCondition(
+                            new List<string> { adultPedFilterItem.CategoryIDPath }, true));
+                }
 
                 var data = query.ToList();
 
@@ -164,6 +173,107 @@ namespace Njh.Kernel.Services
             }
 
             return cacheService.Get(DocCache, cacheParameters);
+        }
+
+        public TDocument? GetDocument<TDocument>(Guid nodeGuid, bool published = true)
+            where TDocument : TreeNode, new()
+        {
+            return this
+                .GetDocuments<TDocument>(
+                    published,
+                    new Guid[] { nodeGuid })
+                .FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the documents by IDs.
+        /// </summary>
+        /// <param name="published">
+        /// If only published documents should be returned.
+        /// </param>
+        /// <param name="nodeGuids">
+        /// The GUID of the documents.
+        /// </param>
+        /// <returns>
+        /// The documents. Empty enumerable, otherwise.
+        /// </returns>
+        private IEnumerable<TDocument> GetDocuments<TDocument>(
+            bool published = true,
+            params Guid[] nodeGuids)
+            where TDocument : TreeNode, new()
+        {
+            var cacheKey =
+                nodeGuids.Length > 0
+                    ? nodeGuids
+                        .OrderBy(guid => guid)
+                        .Select(guid => guid.ToString())
+                        .Aggregate((current, next) => current + next)
+                    : string.Empty;
+
+            // TODO: replace with the data key
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                    DataCacheKeys.DataSetByKey,
+                    "relateddocument",
+                    $"{cacheKey}|{typeof(TDocument).Name}"),
+                IsCultureSpecific = true,
+                CultureCode = this.contextConfig?.CultureName,
+                IsSiteSpecific = true,
+                SiteName = this.contextConfig?.SiteName,
+                CacheDependencies = nodeGuids
+                    .Select(guid =>
+                        string.Format(
+                            DummyCacheKeys.PageSiteNodeGuid,
+                            this.contextConfig?.SiteName,
+                            guid))
+                    .ToList(),
+            };
+
+            return published ?
+                this.cacheService.Get(
+                    () => this.GetUncachedDocuments<TDocument>(published, nodeGuids),
+                    cacheParameters)
+                : this.GetUncachedDocuments<TDocument>(published, nodeGuids);
+        }
+
+        /// <summary>
+        /// Gets the documents by IDs.
+        /// </summary>
+        /// <param name="published">
+        /// If only published documents should be returned.
+        /// </param>
+        /// <param name="nodeGuids">
+        /// The GUID of the documents.
+        /// </param>
+        /// <returns>
+        /// The documents. Empty enumerable, otherwise.
+        /// </returns>
+        protected IEnumerable<TDocument> GetUncachedDocuments<TDocument>(
+            bool published = true,
+            params Guid[] nodeGuids)
+            where TDocument : TreeNode, new()
+        {
+            var query =
+                new DocumentQuery<TDocument>();
+
+            var documents = query
+                .OnSite(this.contextConfig.SiteName)
+                .Culture(this.contextConfig.CultureName)
+                .CombineWithDefaultCulture(false)
+                .Published(published)
+                .WhereNodeGuidIn(nodeGuids)?
+                .ToList() ?? new List<TDocument>();
+
+            return documents;
+        }
+
+        private CategoryInfo? GetAdultOrPediatricStringBasedOnCategory(TreeNode currentPage)
+        {
+            return currentPage.Categories.Cast<CategoryInfo>()
+                        .FirstOrDefault(c => c.CategoryID == settingsKeyRepository.GetAdultCategoryId())
+                    ?? currentPage.Categories.Cast<CategoryInfo>().FirstOrDefault(c =>
+                        c.CategoryID == settingsKeyRepository.GetPediatricCategoryId());
         }
     }
 }

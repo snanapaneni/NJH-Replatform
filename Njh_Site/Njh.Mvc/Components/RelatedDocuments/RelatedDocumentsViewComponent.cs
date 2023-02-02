@@ -41,14 +41,13 @@ namespace Njh.Mvc.Components.RelatedDocuments
         }
 
         /// <summary>
-        /// 
+        /// Render view.
         /// </summary>
         /// <param name="type">Related Document Type.</param>
-        /// <param name="sourceField">source category field.</param>
-        /// <param name="targetField">target category field.</param>
+        /// <param name="pageTypes">targeted page types.</param>
         /// <param name="resString">ResString for empty related documents.</param>
         /// <returns>The view component results.</returns>
-        public IViewComponentResult Invoke(RelatedDocumentType type, string sourceField, string targetField, string resString)
+        public IViewComponentResult Invoke(RelatedDocumentType type, string pageTypes, string resString)
         {
             return this.TryInvoke(vc =>
             {
@@ -56,7 +55,7 @@ namespace Njh.Mvc.Components.RelatedDocuments
 
                 var model = new RelatedDocumentViewModel
                 {
-                    RelatedDocuments = relatedDocumentService.GetRelatedDocuments(currentPage, type, sourceField, targetField),
+                    RelatedDocuments = relatedDocumentService.GetRelatedDocuments(currentPage, pageTypes.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)),
                     Title = resourceStringService.GetString($"NJH.RelatedDocuments.{type.ToStringRepresentation()}Title"),
                     ImageUrl = settingsKeyRepository.GetValue<string>($"NJHRelatedDocument{type.ToStringRepresentation()}Image"),
                 };
