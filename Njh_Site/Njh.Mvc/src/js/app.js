@@ -17,6 +17,7 @@ App.bootstrap = bootstrap;
  * =========================================================================== */
 // Components
 import App__appHeader from "./components/app-header";
+import App__alphasort from './components/alphasort';
 import App__tabs from "./components/tabs";
 
 // Utilities
