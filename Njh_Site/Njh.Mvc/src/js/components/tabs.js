@@ -91,7 +91,7 @@ const App__tabs = {
 
     const currentIndex = parseInt(e.target.dataset.index);
     let moveToIndex = parseInt(currentIndex);
-    const numberOfTabs = this.getSiblings(e.target).length; // How many Tabs do we have?
+    const numberOfTabs = App.utils.sibling.getAll(e.target).length; // How many Tabs do we have?
     let flagged = false; // This will flip if one of the keys we've designated it pressed.
 
     /**
@@ -255,7 +255,7 @@ const App__tabs = {
     // console.log("setTabUUID");
 
     this.tabComponents.forEach((tabComponent) => {
-      tabComponent.setAttribute("data-uuid", this.generateUUID());
+      tabComponent.setAttribute("data-uuid", App.utils.uuid.generate());
     });
 
     let tabIndex = 0;
@@ -288,46 +288,6 @@ const App__tabs = {
         .getAttribute("data-uuid");
       panel.setAttribute("data-tab-uuid", tabUUID);
     });
-  },
-
-  /***
-   *
-   * UTILITY METHODS
-   *
-   */
-
-  generateUUID: function () {
-    // Creates a UUID that will be used to distiguish multiple tab sections from each other.
-
-    var dt = new Date().getTime();
-    var uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
-      /[xy]/g,
-      function (c) {
-        var r = (dt + Math.random() * 16) % 16 | 0;
-        dt = Math.floor(dt / 16);
-        return (c == "x" ? r : (r & 0x3) | 0x8).toString(16);
-      }
-    );
-    return uuid;
-  },
-
-  getSiblings: function (e) {
-    // Get's all siblings of a specific element.
-    let siblings = [];
-
-    if (!e.parentNode) return;
-
-    let sibling = e.parentNode.firstChild;
-
-    while (sibling) {
-      while (sibling) {
-        if (sibling.nodeType === 1 && sibling !== e) {
-          siblings.push(sibling);
-        }
-        sibling = sibling.nextSibling;
-      }
-      return siblings;
-    }
   },
 };
 
