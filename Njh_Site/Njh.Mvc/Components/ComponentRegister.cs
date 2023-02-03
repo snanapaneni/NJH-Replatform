@@ -4,6 +4,7 @@ using Njh.Mvc.Components.Image;
 using Njh.Mvc.Components.Sections.FourColumn;
 using Njh.Mvc.Components.Sections.OneColumn;
 using Njh.Mvc.Components.Sections.OneColumnFullWidth;
+using Njh.Mvc.Components.Sections.Tabs;
 using Njh.Mvc.Components.Sections.ThreeColumn;
 using Njh.Mvc.Components.Sections.TwoColumn5050;
 using Njh.Mvc.Components.Sections.TwoColumn6733;
@@ -61,6 +62,13 @@ using Njh.Mvc.Models.Constants;
     "Four Column Section",
     typeof(FourColumnSectionProperties),
     IconClass = IconConstants.FourColumn)]
+
+[assembly: RegisterSection(
+    TabSectionViewComponent.Identifier,
+    typeof(TabSectionViewComponent),
+    "Tab Section",
+    typeof(TabSectionProperties),
+    IconClass = IconConstants.Tab)]
 
 /*
  * Widgets
