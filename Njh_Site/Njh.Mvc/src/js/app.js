@@ -9,8 +9,10 @@ let App = (window.App = {});
 import * as bootstrap from "bootstrap";
 import * as focusTrap from "focus-trap";
 import _ from "lodash";
+import Swiper from 'swiper/bundle';
 
 App.bootstrap = bootstrap;
+App.Swiper = Swiper;
 
 /**
  * Custom Dependencies
@@ -63,9 +65,8 @@ App.init = function () {
 
   // Components
   App.tabs.init();
-
   App.imageSlider.init();
-};
+
 
   // Utilities
   App.utils.linkClasses.init();
