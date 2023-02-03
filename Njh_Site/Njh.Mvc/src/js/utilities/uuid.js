@@ -1,7 +1,6 @@
 const App__UUID = {
   
   generate: function (prefix = null, suffix = null) {
-    // Creates a UUID that will be used to distiguish multiple tab sections from each other.
 
     let dt = new Date().getTime();
     let uuid = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
@@ -20,8 +19,7 @@ const App__UUID = {
     if(suffix !== null) {
       uuid = `${uuid}-${suffix}`;
     }
-
-
+		
     return uuid;
   },
 }

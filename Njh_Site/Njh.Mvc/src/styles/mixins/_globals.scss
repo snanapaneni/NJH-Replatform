@@ -33,7 +33,7 @@
   }
 }
 
-@mixin global-focus-ring ($accent: var(--blue--700) ) {
+@mixin global-focus-ring ($accent: var(--blue--700)) {
   box-shadow: 0 0 0 3px var(--neutral--100), 0 0 0 6px $accent;
 }
 
