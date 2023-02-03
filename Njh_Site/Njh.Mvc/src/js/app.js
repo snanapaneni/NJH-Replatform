@@ -51,6 +51,7 @@ App.utils = {
   sibling: App__sibling,
   urlToolkit: App__urlToolkit,
   tables: App__tables,
+  timers: App__timers,
   uuid: App__UUID,
 };
 
@@ -61,9 +62,7 @@ App.init = function () {
 
   // Components
   App.tabs.init();
-
   App.imageSlider.init();
-};
 
   // Utilities
   App.utils.linkClasses.init();
