@@ -52,8 +52,7 @@ module.exports = {
 
   entry: {
     //critical: path.resolve(__dirname, "../../js/app-critical.js"),
-    app: path.resolve(__dirname, "../../js/app.js"),
-    //react: path.resolve(__dirname, "../../js/react/app.js"),
+    app: path.resolve(__dirname, "../../js/app.js"), //react: path.resolve(__dirname, "../../js/react/app.js"),
   },
 
   output: {
@@ -85,9 +84,8 @@ module.exports = {
           "postcss-loader", // Post-process CSS (Autoprefix, Tree-shake, etc.)
           "sass-loader", // Compile Sass to CSS
         ],
-      },
+      }, // Process JS
 
-      // Process JS
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
@@ -100,27 +98,23 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
-      },
+      }, // Process Images
 
-      // Process Images
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
-      },
+      }, // Process Fonts
 
-      // Process Fonts
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: "asset/resource",
-      },
+      }, // Process CSV / TSV
 
-      // Process CSV / TSV
       {
         test: /\.(csv|tsv)$/i,
         use: ["csv-loader"],
-      },
+      }, // Process XML
 
-      // Process XML
       {
         test: /\.xml$/i,
         use: ["xml-loader"],
