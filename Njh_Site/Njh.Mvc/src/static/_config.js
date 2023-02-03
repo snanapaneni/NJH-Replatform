@@ -6,7 +6,7 @@ exports.templates = [
     main_before: [""],
     main_after: [""],
     main_insert: "article",
-    main_components: ["image-slider"],
+    main_components: ["image-slider", "physician-info-box"],
   },
   {
     templateFilename: "home",
@@ -68,5 +68,15 @@ exports.templates = [
     main_insert: "article",
     main_components: [],
     main_after: [""],
+  },
+
+  {
+    templateFilename: "physician",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_after: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "physician-info-box"],
   },
 ];

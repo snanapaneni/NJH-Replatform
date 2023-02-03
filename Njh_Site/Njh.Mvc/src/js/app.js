@@ -7,13 +7,7 @@ let App = (window.App = {});
  * app-critical.js must be loaded in the browser before this file
  * =========================================================================== */
 
-import * as bootstrap from "bootstrap";
-
 /* Attach Bootstrap methods to App so that we can use them as modules and prevent them from firing multiple times. */
-App.bootstrap = bootstrap;
-
-import Swiper from "swiper/bundle";
-App.Swiper = Swiper;
 
 /*
  * Other 3rd Party Dependencies
@@ -22,7 +16,14 @@ App.Swiper = Swiper;
 import * as focusTrap from "focus-trap";
 import _ from "lodash";
 import reframe from "reframe.js";
-import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
+// import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
+import * as bootstrap from "bootstrap";
+import Swiper from "swiper/bundle";
+import DOMPurify from "dompurify";
+
+App.bootstrap = bootstrap;
+App.Swiper = Swiper;
+App.Purify = DOMPurify;
 
 /*
  * Custom Dependencies
@@ -30,6 +31,7 @@ import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
 // Components
 import App__appHeader from "./components/app-header";
 import App__imageSlider from "./components/image-slider";
+import App__infoBoxes from "./components/info-boxes";
 
 // Utilities
 import App__LinkClasses from "./utilities/link-classes";
@@ -39,14 +41,13 @@ import App__tables from "./utilities/tables";
 import App__timers from "./utilities/timers";
 import App__urlToolkit from "./utilities/url-toolkit";
 
-
 /*
  * Setup the global App object
  * =========================================================================== */
 
 App.appHeader = App__appHeader;
 App.imageSlider = App__imageSlider;
-
+App.infoBoxes = App__infoBoxes;
 
 App.mediaQueries = {
   is: function (breakpoint, callback) {
@@ -280,6 +281,7 @@ App.init = function () {
   console.log("App Init");
   App.appHeader.init();
   App.imageSlider.init();
+  App.infoBoxes.init();
 };
 
 window.addEventListener("load", function (event) {
