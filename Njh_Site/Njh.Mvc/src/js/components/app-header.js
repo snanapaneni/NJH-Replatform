@@ -175,6 +175,69 @@ const App__appHeader = {
     }
   },
 
+  closeOverlayPanels: function () {
+    // Check for and close smallScreenNavPanel
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__smallScreenNavPanel].is-open"
+      )
+    ) {
+      this.smallScreenNavPanel__close();
+    }
+
+    // Check for and close globalSearchPanel
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__globalSearchPanel][aria-hidden=false]"
+      )
+    ) {
+      this.globalSearchPanel__close();
+    }
+
+    // Check for and close primaryNavItem
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__primaryNavItem].is-open"
+      )
+    ) {
+      this.primaryNavItemPanel__close(
+        this.element.querySelector(
+          "[data-hook=appHeader__primaryNavItem].is-open"
+        )
+      );
+    }
+
+    // Check for and close portalNav
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__utilityNavPortalMenu].is-open"
+      )
+    ) {
+      let utilityNavPortalMenuTrigger = this.element.querySelector(
+        "[data-hook=appHeader__utilityNavPortalMenuTrigger][aria-expanded=true]"
+      );
+      this.togglePortalUtilityNavMenu(utilityNavPortalMenuTrigger);
+    }
+
+    // Check for and close wantTo
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__wantToWrapper].is-open"
+      )
+    ) {
+      this.wantTo__close();
+    }
+
+    if (this.appHeader__search.classList.contains("show")) {
+      this.search__close();
+    }
+  },
+
   // Primary Nav Methods
   //=====================================================
   primaryNavItemPanel__open: function (primaryNavItem) {

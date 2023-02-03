@@ -1,2 +1,50 @@
-.breadcrumbs {
+.breadcrumb-nav {
+  background-color: var(--blue--100);
+  font-size: 0.8rem;
+  .breadcrumb {
+    --bs-breadcrumb-divider-color: var(--blue--600);
+    --bs-breadcrumb-item-active-color: var(--neutral--900);
+    --bs-breadcrumb-padding-x: 0.5rem;
+    --bs-breadcrumb-padding-y: 0.5rem;
+    &-item {
+      &::before {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .breadcrumb-scroll {
+    overflow-x: auto;
+    width: auto;
+    .breadcrumb {
+      flex-wrap: nowrap;
+      width: max-content;
+    }
+  }
+
+  .breadcrumb-collapsable {
+    @include media-breakpoint-down(md) {
+      .breadcrumb-item:not(:last-child, :first-child) {
+        display: none;
+      }
+    }
+  }
+
+  .breadcrumb-collapsable-parent {
+    @include media-breakpoint-down(md) {
+      .breadcrumb-item:not(:last-child, :nth-last-child(2)),
+      .breadcrumb-item:nth-last-child(2):before {
+        display: none;
+      }
+
+      .breadcrumb-item:nth-last-child(2) {
+        padding-left: 0;
+      }
+    }
+  }
+
+  a {
+    font-weight: 600;
+    color: var(--neutral--700);
+  }
 }
