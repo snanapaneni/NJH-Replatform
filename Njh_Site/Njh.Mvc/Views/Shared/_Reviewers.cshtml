@@ -4,20 +4,29 @@
 
       @if (Model != null && Model.ReviewersList != null && Model.ReviewersList.Any())
             {
+                var reviewersCount = Model.ReviewersList.Count;
+                int i = 1;
+                var comma = ", ";
                 <p class="reviewer-note container">
                     <em>
                     This information was reviewed and approved by
                     @foreach (var reviewer in Model.ReviewersList)
                     {
-                        var tempReviewer =string.Format("{0}, {1}", @reviewer.Name,  String.Join(", ", @reviewer.Titles));
+                        if (i == reviewersCount)
+                        {
+                            comma = "";
+                        }     
+                      var tempReviewer =string.Format("{0}{1}", @reviewer.Name,  @reviewer.Titles.Count>0?", " + String.Join(", ", @reviewer.Titles):"");
                       if(!Model.HideUrl && !string.IsNullOrWhiteSpace(reviewer.Url))
                       {
-                          <a href="@reviewer.Url"> @tempReviewer</a>
+                          <a href="@reviewer.Url"> @tempReviewer</a>@comma
                       }
                       else
                       {
-                        @tempReviewer
-                      }
+                            @tempReviewer@comma
+                      }       
+                    
+                    i++;
                     }
                      @(Model.ReviewDate > DateTime.MinValue?$"({@Model.ReviewDate.ToShortDateString()}).":"")
                      

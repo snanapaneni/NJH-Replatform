@@ -52,7 +52,7 @@ namespace Njh.Mvc.Components.Navigation
             return
                 this.TryInvoke((vc) =>
                 {
-                    var navItems = vc.navservice.GetNavItems<PageType_NavItem>(settingsKeyRepository.GetFooterButtonsPath());
+                    var navItems = vc.navservice.GetNavItems<PageType_NavItem>(settingsKeyRepository.GetFooterButtonsPath()).Take(3);
 
                     return vc.View(
                         "~/Views/Shared/Navigation/_FooterButtons.cshtml",

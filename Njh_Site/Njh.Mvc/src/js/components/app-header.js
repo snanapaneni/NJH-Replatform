@@ -14,6 +14,8 @@ const App__appHeader = {
   appHeader__search: null,
   appHeader__searchInput: null,
   appHeader__searchForm: null,
+  appHeader__searchIconClose: null,
+  appHeader__searchIconOpen: null,
 
   init: function () {
     this.element = document.querySelector("[data-hook=appHeader]");
@@ -43,6 +45,13 @@ const App__appHeader = {
     );
     this.appHeader__searchForm = document.querySelector(
       "[data-hook=appHeader__searchForm]"
+    );
+
+    this.appHeader__searchIconClose = document.querySelector(
+      "[data-hook=appHeader__searchIconClose]"
+    );
+    this.appHeader__searchIconOpen = document.querySelector(
+      "[data-hook=appHeader__searchIconOpen]"
     );
 
     if (
@@ -163,6 +172,69 @@ const App__appHeader = {
 
         this.search__submit();
       });
+    }
+  },
+
+  closeOverlayPanels: function () {
+    // Check for and close smallScreenNavPanel
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__smallScreenNavPanel].is-open"
+      )
+    ) {
+      this.smallScreenNavPanel__close();
+    }
+
+    // Check for and close globalSearchPanel
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__globalSearchPanel][aria-hidden=false]"
+      )
+    ) {
+      this.globalSearchPanel__close();
+    }
+
+    // Check for and close primaryNavItem
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__primaryNavItem].is-open"
+      )
+    ) {
+      this.primaryNavItemPanel__close(
+        this.element.querySelector(
+          "[data-hook=appHeader__primaryNavItem].is-open"
+        )
+      );
+    }
+
+    // Check for and close portalNav
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__utilityNavPortalMenu].is-open"
+      )
+    ) {
+      let utilityNavPortalMenuTrigger = this.element.querySelector(
+        "[data-hook=appHeader__utilityNavPortalMenuTrigger][aria-expanded=true]"
+      );
+      this.togglePortalUtilityNavMenu(utilityNavPortalMenuTrigger);
+    }
+
+    // Check for and close wantTo
+    if (
+      this.element &&
+      this.element.querySelector(
+        "[data-hook=appHeader__wantToWrapper].is-open"
+      )
+    ) {
+      this.wantTo__close();
+    }
+
+    if (this.appHeader__search.classList.contains("show")) {
+      this.search__close();
     }
   },
 
@@ -378,6 +450,10 @@ const App__appHeader = {
     this.appHeader__searchInput.focus({
       focusVisible: true,
     });
+
+    this.appHeader__searchIconClose.classList.remove("d-none");
+    this.appHeader__searchIconOpen.classList.add("d-none");
+
     this.focusTrap.activate();
   },
 
@@ -386,6 +462,9 @@ const App__appHeader = {
 
     this.element.classList.remove("has-search-open");
     this.appHeader__search.setAttribute("aria-hidden", true);
+
+    this.appHeader__searchIconClose.classList.add("d-none");
+    this.appHeader__searchIconOpen.classList.remove("d-none");
     // this.element.focus();
     this.focusTrap.deactivate();
   },
