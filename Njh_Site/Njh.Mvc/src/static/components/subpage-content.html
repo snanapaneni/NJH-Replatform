@@ -292,6 +292,119 @@
     </p>
   </div>
 
+  <section class="tabs" data-hook="tabs">
+    <div class="container">
+      <nav
+        class="tabs__list"
+        role="tablist"
+        aria-label=""
+        data-hook="tabs__tabList">
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="contact"
+          aria-selected="true"
+          data-hook="tabs__tabTrigger">
+          Tab one
+        </button>
+
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="about"
+          aria-selected="false"
+          data-hook="tabs__tabTrigger">
+          Tab two
+        </button>
+
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="tabPanel3"
+          aria-selected="false"
+          data-hook="tabs__tabTrigger">
+          Tab three
+        </button>
+
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="tabPanel4"
+          aria-selected="false"
+          data-hook="tabs__tabTrigger">
+          Tab four
+        </button>
+      </nav>
+
+      <div class="tabs__panels">
+        <!-- Default all panels to and js will show the correct one on load.-->
+        <div
+          id="contact"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>Contact</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+
+        <div
+          id="about"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>About</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+
+        <div
+          id="tabPanel3"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>Panel Three</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+
+        <div
+          id="tabPanel4"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>Panel Four</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- example of a widget zone -->
   <div class="widget-zone has-margin has-padding bg bg-orange--100">
     <div class="container">

@@ -1,0 +1,32 @@
+﻿@using Njh.Kernel.Services
+@model MetaDataViewModel
+
+@if (Model != null)
+{
+
+    if (!string.IsNullOrEmpty(Model.Description))
+    {
+        <meta name="description" content="@Model.Description" />
+    }
+
+    if (!string.IsNullOrEmpty(Model.Keywords))
+    {
+        <meta name="keywords" content="@Model.Keywords" />
+    }
+
+    <open-graph tag="Type" content="@(Model.OgType)" />
+    <meta property="og:site_name" content="@(Model.OgSiteName)"/>
+    <meta property="og:url" content="@(@Model.PageUrl)" />
+    <open-graph tag="Title" content="@Model.Title" />
+    <open-graph tag="Description" content="@Model.Description" />
+    <open-graph tag="Image" content="@Model.ImageUrl" />
+    <open-graph tag="ImageAlt" content="@Model.ImageAlt" />
+
+    <twitter-card-metatag tag="Card" content="@Model.TwitterCard" />
+    <twitter-card-metatag tag="Creator" content="@Model.TwitterHandle"/>
+    <twitter-card-metatag tag="Site" content="@Model.TwitterHandle"/>
+    <twitter-card-metatag tag="Title" content="@Model.Title" />
+    <twitter-card-metatag tag="Description" content="@Model.Description" />
+    <twitter-card-metatag tag="Image" content="@Model.TwitterCardImageUrl" />
+    <twitter-card-metatag tag="ImageAlt" content="@Model.ImageAlt" />
+}

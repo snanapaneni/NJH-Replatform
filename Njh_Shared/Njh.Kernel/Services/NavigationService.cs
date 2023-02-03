@@ -1,13 +1,13 @@
-﻿using CMS.DocumentEngine;
-using Njh.Kernel.Kentico.Models.PageTypes;
-using Njh.Kernel.Models.DTOs;
-using Njh.Kernel.Models;
-using Mapster;
-using Njh.Kernel.Constants;
-using Njh.Kernel.Extensions;
-
-namespace Njh.Kernel.Services
+﻿namespace Njh.Kernel.Services
 {
+    using CMS.DocumentEngine;
+    using Mapster;
+    using Njh.Kernel.Constants;
+    using Njh.Kernel.Extensions;
+    using Njh.Kernel.Kentico.Models.PageTypes;
+    using Njh.Kernel.Models;
+    using Njh.Kernel.Models.DTOs;
+
     /// <summary>
     /// A service for handling navigation related components.
     /// </summary>
@@ -74,6 +74,84 @@ namespace Njh.Kernel.Services
             var footerNav = StructureChildren(navItems);
 
             return footerNav;
+        }
+
+        /// <inheritdoc/>
+        public IEnumerable<NavItem> GetBreadcrumbNav(TreeNode currentNode)
+        {
+            if (currentNode == null)
+            {
+                return new List<NavItem>();
+            }
+
+            var nodeGuids = new List<Guid> { currentNode.NodeGUID };
+            var parentNode = currentNode.Parent;
+            while (parentNode != null && parentNode.ClassName != "CMS.Root")
+            {
+                nodeGuids.Add(parentNode.NodeGUID);
+                parentNode = parentNode.Parent;
+            }
+
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                    DataCacheKeys.DataSetByPathByType,
+                    "BreadcrumbsNav",
+                    currentNode.NodeAliasPath,
+                    PageType_NavItem.CLASS_NAME),
+                IsCultureSpecific = true,
+                CultureCode = this.context?.CultureName,
+                IsSiteSpecific = true,
+                SiteName = this.context?.Site?.SiteName,
+            };
+
+            var pageTypes = this.settingsKeyRepository.GetPagePageTypes()?.ToLower()?.Split(new char[] { ';' });
+
+            // special case: Home page is first item in breadcrumbs
+            var homePageAliasPath = this.settingsKeyRepository.GetHomePagePath();
+
+            var result = this.cacheService.Get(
+                cp =>
+                {
+                    var documents = DocumentHelper.GetDocuments()
+                        .OnCurrentSite()
+                        .CombineWithDefaultCulture()
+                        .Published()
+                        .WithCoupledColumns()
+                        .LatestVersion()
+                        .OrderBy("NodeLevel, NodeOrder")
+                        .Where(d => string.Join(";", nodeGuids).Contains(d.NodeGUID.ToString()) || d.NodeAliasPath == homePageAliasPath)
+                        .Where(d => !d.GetBooleanValue("HideFromNavigation", false) && pageTypes != null && pageTypes.Contains(d.ClassName.ToLower()));
+
+                    var navItems = documents
+                        .Where(d => !d.GetBooleanValue("HideFromNavigation", false))
+                        .Select(d =>
+                            new NavItem()
+                            {
+                                DisplayTitle = d.DocumentName,
+                                Link = DocumentURLProvider.GetAbsoluteUrl(d),
+                                NodeAliasPath = d.NodeAliasPath,
+                                NodeID = d.NodeID,
+                                NodeLevel = d.NodeLevel,
+                                NodeOrder = d.NodeOrder,
+                                NodeParentID = d.NodeParentID,
+                                IsClickable = true,
+                                LinkPage = d.NodeGUID,
+                            }).ToList();
+
+                    // set dependency: all documents in breadcrumb should bust cache
+                    cp.CacheDependencies = navItems.Select(item =>
+                            this.cacheService.GetCacheKey(
+                            string.Format(DummyCacheKeys.PageSiteNodeAlias, this.context?.Site?.SiteName, item.NodeAliasPath),
+                            cacheParameters.CultureCode,
+                            cacheParameters.SiteName))
+                            .ToList();
+
+                    return navItems;
+                },
+                cacheParameters);
+
+            return result;
         }
 
         /// <inheritdoc/>
