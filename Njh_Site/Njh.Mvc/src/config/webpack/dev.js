@@ -29,7 +29,7 @@ plugins.push(
     patterns: [
       {
         from: path.resolve(__dirname, "../../images"),
-        to: path.resolve(__dirname, appConfig.WEBROOT + "/images"),
+        to: path.resolve(__dirname, appConfig.WEBPACK_DIST_PATH + "/images"),
       },
     ],
   })
@@ -64,10 +64,13 @@ module.exports = {
 
   devtool: "inline-source-map",
 
-  // devServer: {
-  //   // contentBase: './',
-  //   contentBase: __dirname,
-  // },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, appConfig.WEBROOT),
+    },
+    compress: true,
+    port: 9000,
+  },
 
   plugins: plugins,
 

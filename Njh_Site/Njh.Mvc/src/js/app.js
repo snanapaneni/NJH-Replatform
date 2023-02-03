@@ -7,27 +7,7 @@ let App = (window.App = {});
  * app-critical.js must be loaded in the browser before this file
  * =========================================================================== */
 
-/*
- * Bootstrap Components
- * Only uncomment what you need to reduce js payload size
- * =========================================================================== */
-// import Alert from 'bootstrap/js/dist/alert'
-// import Button from 'bootstrap/js/dist/button'
-// import Carousel from 'bootstrap/js/dist/carousel'
-// import Collapse from "bootstrap/js/dist/collapse";
-// import Dropdown from 'bootstrap/js/dist/dropdown'
-// import Modal from "bootstrap/js/dist/modal";
-// import Modal from 'bootstrap/js/dist/offcanvas'
-// import Popover from 'bootstrap/js/dist/popover'
-// import Scrollspy from 'bootstrap/js/dist/scrollspy'
-// import Tab from 'bootstrap/js/dist/tab'
-// import Toast from 'bootstrap/js/dist/toast'
-// import Tooltip from 'bootstrap/js/dist/tooltip'
-
-import * as bootstrap from "bootstrap";
-
 /* Attach Bootstrap methods to App so that we can use them as modules and prevent them from firing multiple times. */
-App.bootstrap = bootstrap;
 
 /*
  * Other 3rd Party Dependencies
@@ -36,41 +16,38 @@ App.bootstrap = bootstrap;
 import * as focusTrap from "focus-trap";
 import _ from "lodash";
 import reframe from "reframe.js";
-import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
+// import shortAndSweet from "short-and-sweet/dist/short-and-sweet.module.js";
+import * as bootstrap from "bootstrap";
+import Swiper from "swiper/bundle";
+import DOMPurify from "dompurify";
+
+App.bootstrap = bootstrap;
+App.Swiper = Swiper;
+App.Purify = DOMPurify;
 
 /*
  * Custom Dependencies
  * =========================================================================== */
 // Components
 import App__appHeader from "./components/app-header";
-import App__tabs from "./components/tabs";
-
-// import App__accordion from "./components/accordion";
-// import App__formBuilder from "./components/form-builder";
-// import App__globalAlert from "./components/global-alert";
-// import App__newsletterSignup from "./components/newsletter-signup";
-// import App__formCountryProvinceSelects from "./components/form-country-province-selects";
-// import App__routing from "./components/routing";
-// import App__video from "./components/video";
-
-
+import App__imageSlider from "./components/image-slider";
+import App__infoBoxes from "./components/info-boxes";
 
 // Utilities
 import App__LinkClasses from "./utilities/link-classes";
-import App__pagination from "./utilities/pagination";
-import App__responsiveImage from "./utilities/responsive-image";
+
 import App__sibling from "./utilities/sibling";
 import App__tables from "./utilities/tables";
+import App__timers from "./utilities/timers";
 import App__urlToolkit from "./utilities/url-toolkit";
-// Animation
-// import "./animation/fade-up";
-// import "./animation/slide";
 
 /*
  * Setup the global App object
  * =========================================================================== */
 
 App.appHeader = App__appHeader;
+App.imageSlider = App__imageSlider;
+App.infoBoxes = App__infoBoxes;
 
 // Components
 App.tabs = App__tabs;
@@ -302,20 +279,16 @@ App.utils = {
   linkClasses: App__LinkClasses,
   focusTrap: focusTrap,
   // pagination: App__pagination,
-  responsiveImage: App__responsiveImage,
-  // sibling: App__sibling,
+  sibling: App__sibling,
   urlToolkit: App__urlToolkit,
   tables: App__tables,
+  urlToolkit: App__urlToolkit,
+  timers: App__timers,
 };
-
-// App.utils.pagination = App__pagination;
-//App.utils.sibling = App__sibling;
 
 // Global App component initialization
 App.init = function () {
   console.log("App Init");
-  // App.mediaQueries.init();
-  // App.globalAlert.init();
   App.appHeader.init();
 
   App.tabs.init();
@@ -327,24 +300,9 @@ App.init = function () {
   //App.newsletterSignup.init();
   //App.formCountryProvinceSelects.init();
   //App.video.init();
+  App.imageSlider.init();
+  App.infoBoxes.init();
 };
-
-/**
-// Setup media query and listener for large screens
-const mediaQueryList__lg = window.matchMedia(App.mediaQueries.lg);
-// Call listener function explicitly at run time
-// App.mediaQueries.isLargeUp = mediaQueryList__lg.matches ? true : false;
-// Attach listener function to listen in on state changes
-App.mediaQueryList__lg.addEventListener("change", (mediaQuery__lg) => {
-  console.log("watching media query");
-  // Screen is Large or greater
-  if (mediaQueryList__lg.matches) {
-    // Screen is less than Large
-  } else {
-  }
-});
-
-**/
 
 window.addEventListener("load", function (event) {
   App.init();
@@ -407,8 +365,6 @@ window.addEventListener("load", function (event) {
       });
     }
   });
-
-
 });
 
 window.addEventListener("resize", function (event) {

@@ -24,3 +24,7 @@ a:has(img) {
     width: 100%;
   }
 }
+
+.figure .icon-external-link {
+  display: none !important; // just in case
+}

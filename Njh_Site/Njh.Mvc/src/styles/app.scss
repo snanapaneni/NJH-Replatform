@@ -51,6 +51,9 @@
 // @import "~bootstrap/scss/tooltip";
 @import "~bootstrap/scss/transitions";
 
+
+@import "~swiper/css/bundle";
+
 // This should be turned off on prod.
 @import "./breakpoint-helper";
 
@@ -70,6 +73,7 @@
 
 // Templates
 @import "./templates/subpage";
+@import "./templates/home";
 
 // Elements
 @import "./elements/backgrounds";
@@ -81,6 +85,9 @@
 // Components
 @import "./components/alert";
 @import "./components/blockquote";
+@import "./components/image-slider";
+@import "./components/info-boxes";
+@import './components/modal';
 @import "./components/breadcrumbs";
 @import "./components/page-blurb";
 @import "./components/separated-list";

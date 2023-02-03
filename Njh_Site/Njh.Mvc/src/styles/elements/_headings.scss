@@ -62,3 +62,11 @@ h6,
   @include headings;
   font-size: 1rem;
 }
+
+.hr {
+  &-orange--500 {
+    opacity: 1;
+    border-color: var(--orange--500);
+    border-width: 3px;
+  }
+}

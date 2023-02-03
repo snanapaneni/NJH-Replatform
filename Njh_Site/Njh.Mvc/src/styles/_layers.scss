@@ -2,13 +2,13 @@
   z-index: 5000;
 }
 .app-header {
-  z-index: 2000;
-}
-
-.app-main {
   z-index: 1000;
 }
 
+.app-main {
+  z-index: 500;
+}
+
 .app-footer {
-  z-index: 1500;
+  z-index: 1000;
 }

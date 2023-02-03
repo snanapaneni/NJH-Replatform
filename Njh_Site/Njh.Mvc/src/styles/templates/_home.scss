@@ -1,0 +1,94 @@
+.template-home {
+  article {
+    padding-top: 0;
+  }
+
+  // Home slider variant
+  .home-slider {
+    --swiper-theme-color: var(--neutral--100);
+    margin-bottom: 0;
+    .swiper-slide {
+      position: relative;
+    }
+    picture,
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    &__content {
+      padding: 1.5rem;
+
+      font-size: 1.25rem;
+      font-weight: bold;
+      line-height: 1.125;
+
+      background: rgba(255, 255, 255, 0.9);
+
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        left: 0;
+        bottom: 2rem;
+        border-top-right-radius: 0.25rem;
+        border-bottom-right-radius: 0.25rem;
+        font-size: 1.5rem;
+        padding: 1.5rem 2rem;
+      }
+
+      a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        color: var(--blue--700);
+      }
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    .app-icon {
+      fill: var(--orange--900);
+    }
+
+    .swiper-pagination {
+      position: absolute;
+      bottom: auto;
+      right: auto;
+      top: 0;
+      left: 0;
+      width: auto;
+
+      padding: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      background: var(--blue--700);
+
+      svg {
+        fill: var(--neutral--100) !important;
+      }
+
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        --swiper-theme-color: var(--neutral--100);
+        background-color: var(--blue--600);
+        svg {
+          fill: var(--neutral--100) !important;
+        }
+      }
+    }
+  }
+
+  // Alerts are slightly larger on the homepage. 
+  .alert {
+    font-size: 1.25rem;
+  }
+}
