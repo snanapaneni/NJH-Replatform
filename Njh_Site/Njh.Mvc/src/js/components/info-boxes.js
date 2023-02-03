@@ -11,7 +11,7 @@ const App__infoBoxes = {
   init: function () {
     this.modal = document.getElementById("infoBoxModal");
 
-    if (this.modal === undefined) return;
+    if (this.modal === undefined || !this.modal) return;
 
     this.modalBody = this.modal.querySelector("[data-hook=physician_body]");
 
