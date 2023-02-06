@@ -47,7 +47,7 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_insert: "component-partial",
-    main_components: ["tabs", "additional-links"],
+    main_components: ["tabs", "additional-links", "class-listings"],
     main_after: [""],
   },
   {
