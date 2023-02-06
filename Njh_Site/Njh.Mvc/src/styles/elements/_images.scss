@@ -1,6 +1,10 @@
 a:has(img) {
   display: inline-block;
 }
+.figure a {
+  display: block;
+  margin-bottom: .5rem;
+}
 
 figcaption {
   font-style: italic;
