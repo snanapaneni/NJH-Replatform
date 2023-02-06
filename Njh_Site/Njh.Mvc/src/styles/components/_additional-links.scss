@@ -1,0 +1,22 @@
+.additional-links {
+  ul {
+    li::after {
+      content: "";
+      display:block;
+      width: 3rem;
+      height: 2px;
+      background-color: var(--neutral--300);
+      margin: .25rem 0 ;
+    }
+    li:last-child::after {
+      display: none;
+    }
+    a {
+      display: inline-block;
+      padding: .5rem 0;
+      color: var(--blue--600);
+      font-weight: bold;
+      @include global-reverse-anchor-decoration(!important);
+    }
+  }
+}

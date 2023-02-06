@@ -62,3 +62,12 @@ h6,
   @include headings;
   font-size: 1rem;
 }
+
+
+hr {
+  --hr: var(--neutral--300);
+  border-top: 3px solid var(--hr);
+  opacity: 1;
+}
+
+@include make-heading-rules ($app-colors);

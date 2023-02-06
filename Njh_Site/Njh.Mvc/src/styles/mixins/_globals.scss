@@ -55,10 +55,10 @@
   padding-right: 0;
 }
 
-@mixin global-reverse-anchor-decoration {
-  text-decoration: none;
+@mixin global-reverse-anchor-decoration ($useImportant: null) {
+  text-decoration: none #{$useImportant};
   &:hover,
   &:focus {
-    text-decoration: underline;
+    text-decoration: underline #{$useImportant};
   }
 }

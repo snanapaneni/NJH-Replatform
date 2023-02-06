@@ -6,7 +6,7 @@ exports.templates = [
     main_before: [""],
     main_after: [""],
     main_insert: "main",
-    main_components: [],
+    main_components: [""],
   },
   {
     templateFilename: "elements",
@@ -47,7 +47,7 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_insert: "component-partial",
-    main_components: ["tabs"],
+    main_components: ["tabs", "additional-links"],
     main_after: [""],
   },
   {
