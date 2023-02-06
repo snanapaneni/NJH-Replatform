@@ -50,6 +50,7 @@ exports.templates = [
     main_components: ["tabs", "additional-links", "class-listings"],
     main_after: [""],
   },
+
   {
     templateFilename: "widget-zones",
     header: "app-header",
@@ -57,6 +58,15 @@ exports.templates = [
     main_before: ["breadcrumbs"],
     main_insert: "article",
     main_components: ["subpage-header", "widget-zone"],
+    main_after: [""],
+  },
+  {
+    templateFilename: "programs-services",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: ["breadcrumbs", "alert-banner"],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "programs-services-content"],
     main_after: [""],
   },
 
