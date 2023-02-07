@@ -5,8 +5,17 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_after: [""],
-    main_insert: "main",
-    main_components: [""],
+    main_insert: "article",
+    main_components: ["image-slider", "physician-info-box"],
+  },
+  {
+    templateFilename: "home",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_after: [""],
+    main_insert: "article",
+    main_components: ["home-hero", "alert-banner", "widget-zone"],
   },
   {
     templateFilename: "elements",
@@ -78,5 +87,15 @@ exports.templates = [
     main_insert: "article",
     main_components: [],
     main_after: [""],
+  },
+
+  {
+    templateFilename: "physician",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_after: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "physician-info-box"],
   },
 ];

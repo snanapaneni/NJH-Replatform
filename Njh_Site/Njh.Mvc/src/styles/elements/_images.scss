@@ -54,3 +54,16 @@ figcaption {
   margin-right: auto;
   margin-left: 1.5rem;
 }
+
+.row-cols-md-2,
+.row-cols-md-3,
+.row-cols-md-4 {
+  .figure,
+  .figure-img {
+    width: 100%;
+  }
+}
+
+.figure .icon-external-link {
+  display: none !important; // just in case
+}
