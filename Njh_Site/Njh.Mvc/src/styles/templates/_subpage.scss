@@ -1,6 +1,6 @@
 .subpage {
   padding-top: 0px;
-  article {
+  > article {
     padding-top: 1rem;
     display: grid;
     grid-template-areas:

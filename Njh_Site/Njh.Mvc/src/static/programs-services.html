@@ -48,6 +48,107 @@
       <main-after-partial></main-after-partial>
     </main>
 
+    <div
+      class="modal info-boxes__modal"
+      id="infoBoxModal"
+      aria-hidden="true"
+      tabindex="-1"
+      data-loading="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"></button>
+
+          <div class="modal-loading" data-hook="modalLoading">
+            <svg
+              class="app-icon icon-loading"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 576 512">
+              <path
+                class="app-icon-primary"
+                d="M256 32C256 14.33 270.3 0 288 0C429.4 0 544 114.6 544 256C544 302.6 531.5 346.4 509.7 384C500.9 399.3 481.3 404.6 465.1 395.7C450.7 386.9 445.5 367.3 454.3 351.1C470.6 323.8 480 291 480 255.1C480 149.1 394 63.1 288 63.1C270.3 63.1 256 49.67 256 31.1V32z" />
+              <path
+                class="app-icon-secondary"
+                d="M287.1 64C181.1 64 95.1 149.1 95.1 256C95.1 362 181.1 448 287.1 448C358.1 448 419.3 410.5 452.9 354.4L453 354.5C446.1 369.4 451.5 387.3 465.1 395.7C481.3 404.6 500.9 399.3 509.7 384C509.9 383.7 510.1 383.4 510.2 383.1C466.1 460.1 383.1 512 288 512C146.6 512 32 397.4 32 256C32 114.6 146.6 0 288 0C270.3 0 256 14.33 256 32C256 49.67 270.3 64 288 64H287.1z" />
+            </svg>
+          </div>
+
+          <div class="modal-body" data-hook="physician_body">
+            <!-- ! START RESPONSE BODY -->
+            <div class="row gy-3">
+              <div class="col-12 col-lg-4">
+                <img src="/images/PHYSICIAN_IMAGE.jpg" alt="PHYSICIAN_NAME" />
+              </div>
+              <div class="col-12 col-lg-8">
+                <h3><a href="/PHYSICIAN_URL">PHYSICIAN_NAME</a></h3>
+                <p>PHYSICIAN_BIO</p>
+
+                <ul role="list" aria-label="Positions">
+                  <li>POSITION_NAME</li>
+                  <li>POSITION_NAME</li>
+                </ul>
+
+                <ul role="list" aria-label="Divisions and departments">
+                  <li><a href="/DIVISION_URL">DIVISION_NAME</a></li>
+                  <li><a href="/DIVISION_URL">DIVISION_NAME</a></li>
+                </ul>
+
+                <hr class="hr-orange--500" />
+
+                <a href="/PHYSICIAN_URL">Full Profile</a>
+
+                <hr />
+
+                <div class="row gy-3 align-items-center justify-content-end">
+                  <div class="col-12 col-md-6">
+                    <h4>Patient Rating</h4>
+                    <div class="info-boxes__rating">
+                      <img
+                        src="/images/stars/1_0.svg"
+                        alt=""
+                        role="presentation" />
+                      <img
+                        src="/images/stars/1_0.svg"
+                        alt=""
+                        role="presentation" />
+                      <img
+                        src="/images/stars/1_0.svg"
+                        alt=""
+                        role="presentation" />
+                      <img
+                        src="/images/stars/1_0.svg"
+                        alt=""
+                        role="presentation" />
+                      <img
+                        src="/images/stars/0_8.svg"
+                        alt=""
+                        role="presentation" />
+                    </div>
+                    <p class="text-muted">
+                      <span itemprop="ratingValue">PHYSICIAN_RATING</span>
+                      out of <span itemprop="bestRating">5</span>
+                    </p>
+                  </div>
+
+                  <div class="col-12 col-md-6 text-md-end">
+                    <a
+                      href="https://www.nationaljewish.org/Patients-Visitors/Make-an-Appointment"
+                      class="btn btn-sm btn-blue--700">
+                      Make an Appointment
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ! END RESPONSE BODY -->
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer-partial></footer-partial>
   </body>
 </html>
