@@ -18,6 +18,7 @@ App.bootstrap = bootstrap;
 // Components
 import App__appHeader from "./components/app-header";
 import App__tabs from "./components/tabs";
+import App__listBox from './components/listbox';
 
 // Utilities
 import App__linkClasses from "./utilities/link-classes";
@@ -33,6 +34,7 @@ import App__UUID from "./utilities/uuid";
  * =========================================================================== */
 
 App.appHeader = App__appHeader;
+App.listbox = App__listBox;
 
 // Components
 App.tabs = App__tabs;
@@ -54,6 +56,7 @@ App.init = function () {
 
   // Components
   App.tabs.init();
+  App.listbox.init();
 
 
   // Utilities
@@ -79,6 +82,7 @@ window.addEventListener("load", function (event) {
     }
     if (isEscape) {
       App.appHeader.closeOverlayPanels();
+      App.listbox.handleCloseAll();
     }
   };
 

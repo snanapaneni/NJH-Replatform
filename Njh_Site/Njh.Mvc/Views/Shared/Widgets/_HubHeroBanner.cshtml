@@ -1,0 +1,44 @@
+﻿@using Kentico.Content.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+
+@model Njh.Mvc.Models.Widgets.HubHeroBannerViewModel
+
+@{
+    var editMode = this.Context.Kentico().PageBuilder().EditMode;
+}
+
+@if (string.IsNullOrEmpty(Model.ImageSource) && editMode)
+{
+    <h2>Hub Hero Banner widget: configuration is required.</h2>
+}
+else
+{
+<!-- NJHK13-280 - Hub Hero-->
+<section class="hub-hero container">
+    <!-- IMAGE -->
+    <figure class="hub-hero__figure col-12 col-md-7 col-lg-8">
+        <img src="@Model.ImageSource"
+             class="hub-hero__image"
+             loading="eager"
+             alt="@Model.ImageAltText"
+             width="@Model.ImageWidth"
+             height="@Model.ImageHeight" />
+    </figure>
+
+    <!-- CONTENT -->
+    <div class="hub-hero__content col-12 col-md-5 col-lg-4 bg bg-purple--500">
+        @Html.Raw(Html.Kentico().ResolveRichText(Model.BannerRichText))
+    </div>
+@* NOTE: we could show Froala editor inline like this, but in practise the column is too narrow; edit in the widget config instead.
+    @if (editMode)
+    {
+        Html.Kentico().RichTextEditor(nameof(Model.BannerRichText));
+    }
+    else
+    {
+        @Html.Raw(Html.Kentico().ResolveRichText(Model.BannerRichText))
+    }
+*@
+</section>
+}

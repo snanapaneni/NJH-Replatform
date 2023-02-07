@@ -49,6 +49,13 @@
             "icon-picture";
 
         /// <summary>
+        /// The picture icon for an image banner.
+        /// It's actually an ID card, but looks appropriate.
+        /// </summary>
+        public const string ImageBanner =
+            "icon-id-card";
+
+        /// <summary>
         /// The text icon for widgets.
         /// </summary>
         public const string Text =
