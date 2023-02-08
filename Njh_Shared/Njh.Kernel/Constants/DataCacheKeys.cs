@@ -34,5 +34,16 @@
         /// _UniqueName_|_key_.
         /// </summary>
         public const string DataSetByKey = "{0}|{1}";
+
+
+        /// <summary>
+        /// PressGaneyPerson|_key_.
+        /// </summary>
+        public const string PressGaneyPersonKey = "PressGaneyPerson|{0}";
+
+        /// <summary>
+        /// PressGaneyAuthToken
+        /// </summary>
+        public const string PressGaneyTokenKey = "PressGaneyAuthToken";
     }
 }
