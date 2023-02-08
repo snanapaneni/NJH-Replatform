@@ -12,7 +12,7 @@ namespace Njh.Mvc.Helpers
             string pageTitleFormatted = string.Empty;
             try
             {
-                MacroResolver m = new MacroResolver();
+                MacroResolver m = MacroResolver.GetInstance();
                 Dictionary<string, object> st = new Dictionary<string, object>();
 
                 var titleFormat = settingsKeyRepository.GetPageTitleFormat();
