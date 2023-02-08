@@ -1,9 +1,13 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Njh.Mvc.Components;
+using Njh.Mvc.Components.AdditionalLinks;
+using Njh.Mvc.Components.Accordion;
+using Njh.Mvc.Components.Banner;
 using Njh.Mvc.Components.Image;
 using Njh.Mvc.Components.Sections.FourColumn;
 using Njh.Mvc.Components.Sections.OneColumn;
 using Njh.Mvc.Components.Sections.OneColumnFullWidth;
+using Njh.Mvc.Components.Sections.Tabs;
 using Njh.Mvc.Components.Sections.ThreeColumn;
 using Njh.Mvc.Components.Sections.TwoColumn5050;
 using Njh.Mvc.Components.Sections.TwoColumn6733;
@@ -62,6 +66,13 @@ using Njh.Mvc.Models.Constants;
     typeof(FourColumnSectionProperties),
     IconClass = IconConstants.FourColumn)]
 
+[assembly: RegisterSection(
+    TabSectionViewComponent.Identifier,
+    typeof(TabSectionViewComponent),
+    "Tab Section",
+    typeof(TabSectionProperties),
+    IconClass = IconConstants.Tab)]
+
 /*
  * Widgets
  */
@@ -79,5 +90,29 @@ using Njh.Mvc.Models.Constants;
     typeof(ImageViewComponent),
     "NJH Image Widget",
     typeof(ImageComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Picture)]
+
+[assembly: RegisterWidget(
+    AccordionComponent.Identifier,
+    typeof(AccordionComponent),
+    "NJH Accordion Widget",
+    typeof(AccordionComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Accordion)]
+// TODO do we need register Hub Hero Banner as a widget, or is it used only as part of a page template?
+[assembly: RegisterWidget(
+    HubHeroBannerViewComponent.Identifier,
+    typeof(HubHeroBannerViewComponent),
+    "NJH Hub Hero Banner Widget",
+    typeof(HubHeroBannerViewComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.ImageBanner)]
+
+[assembly: RegisterWidget(
+    AdditionalLinksComponent.Identifier,
+    typeof(AdditionalLinksComponent),
+    "NJH Additional Links Widget",
+    typeof(AdditionalLinksComponentProperties),
     AllowCache = true,
     IconClass = IconConstants.Picture)]

@@ -3,10 +3,18 @@
   background-color: var(--orange--900);
   color: var(--neutral--100);
   fill: var(--neutral--100);
+  
   &-row {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+  }
+  a {
+    color: var(--neutral--100);
+    text-decoration: underline;
+  }
+  p {
+    margin-bottom: 0 !important;
   }
 }

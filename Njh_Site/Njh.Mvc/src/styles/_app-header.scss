@@ -202,7 +202,7 @@ button.btn.app-header__circle-button {
 
     > li {
       flex-basis: 16.66666%;
-      flex-grow: 0;
+      flex-grow: 1;
     }
   }
 
@@ -235,6 +235,9 @@ button.btn.app-header__circle-button {
       height: 100%;
       width: 100%;
       text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:focus,
       &:hover {
@@ -309,16 +312,20 @@ button.btn.app-header__circle-button {
     // Middle children center the panel
     &:nth-last-child(3),
     &:nth-last-child(4) {
-      .app-header__primary-nav-item-panel {
-        right: 50%;
-        translate: 50% 0;
+      &:not(:nth-child(1), :nth-child(2)) {
+        .app-header__primary-nav-item-panel {
+          right: 50%;
+          translate: 50% 0;
+        }
       }
     }
     // Last and second child swap the menu to the other side.
     &:nth-last-child(1),
     &:nth-last-child(2) {
-      .app-header__primary-nav-item-panel {
-        right: 0;
+      &:not(:nth-child(1), :nth-child(2)) {
+        .app-header__primary-nav-item-panel {
+          right: 0;
+        }
       }
     }
 

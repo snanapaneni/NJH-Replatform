@@ -1,14 +1,14 @@
 <!-- Content -->
 <section class="subpage__content" id="subpageContent">
   <!-- Optional Sections -->
-  <p class="reviewer-note">
+  <p class="reviewer-note container">
     <em>
       This information was reviewed and approved by
       <a href="#">Anthony Gerber, MD, PhD</a> (June 2022).
     </em>
   </p>
 
-  <div class="page-blurb">
+  <div class="page-blurb container">
     <img alt="Placeholder image" src="https://picsum.photos/400/300" />
     <p>
       Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo culpa
@@ -158,17 +158,125 @@
     </div>
   </div>
 
+  <section class="tabs" data-hook="tabs">
+    <div class="container">
+      <nav
+        class="tabs__list"
+        role="tablist"
+        aria-label=""
+        data-hook="tabs__tabList">
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="contact"
+          aria-selected="true"
+          data-hook="tabs__tabTrigger">
+          Tab one
+        </button>
+
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="about"
+          aria-selected="false"
+          data-hook="tabs__tabTrigger">
+          Tab two
+        </button>
+
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="tabPanel3"
+          aria-selected="false"
+          data-hook="tabs__tabTrigger">
+          Tab three
+        </button>
+
+        <button
+          class="tabs__trigger"
+          role="tab"
+          type="button"
+          aria-controls="tabPanel4"
+          aria-selected="false"
+          data-hook="tabs__tabTrigger">
+          Tab four
+        </button>
+      </nav>
+
+      <div class="tabs__panels">
+        <!-- Default all panels to and js will show the correct one on load.-->
+        <div
+          id="contact"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>Contact</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+
+        <div
+          id="about"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>About</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+
+        <div
+          id="tabPanel3"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>Panel Three</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+
+        <div
+          id="tabPanel4"
+          class="tabs__panel"
+          role="tabpanel"
+          aria-hidden="true"
+          data-hook="tabs__panel">
+          <h2>Panel Four</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus
+            illum quidem incidunt unde recusandae optio, dolorum praesentium non
+            expedita iusto at aliquid harum beatae consequatur deleniti. Cumque
+            ex rem repudiandae.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- example of a widget zone -->
-  <div class="widget-zone has-margin has-padding bg bg-orange--100">
+  <div class="widget-zone has-margin has-padding">
     <div class="container">
       <div class="row row-cols-1 row-cols-md-2">
         <div class="col">
           <h2>Widget zone - 2 column 50/50</h2>
-          <ul>
-            <li>Theme: bg-orange--100</li>
-            <li>Padding: false</li>
-            <li>Margin: false</li>
-          </ul>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
             earum, dolorem <a href="#">asperiores rem porro</a>, tempore vitae
@@ -177,19 +285,145 @@
           </p>
         </div>
         <div class="col">
-          <!-- NJHK13-367 IMAGE COMPONENT-->
-          <figure class="figure">
-            <img
-              src="https://picsum.photos/400/300"
-              class="figure-img"
-              loading="lazy"
-              alt="This is a cool image from Picsum what will it be?"
-              width="400"
-              height="300" />
-            <figcaption class="figure-caption">
-              This is a caption kid!
-            </figcaption>
-          </figure>
+          <!-- NJHK13-399 - ACCORDION -->
+
+          <section class="accordion" data-hook="accordion">
+            <!-- START SINGLE ACCORDION ITEM -->
+            <div
+              id="accordion_NODEID"
+              class="accordion__item"
+              data-hook="accordion__item">
+              <header class="accordion__header">
+                <!-- TRIGGER -->
+                <button
+                  id="accordionTrigger_NODEID"
+                  class="accordion__trigger"
+                  aria-controls="accordionPanel_NODEID"
+                  aria-expanded="false"
+                  data-hook="accordion__trigger">
+                  Laboriosam libero quos quod accusamus?
+
+                  <svg
+                    class="app-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                      class="accordion__trigger-plus"
+                      d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z" />
+                    <path
+                      class="accordion__trigger-minus"
+                      d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z" />
+                  </svg>
+                </button>
+              </header>
+
+              <!-- Panel -->
+              <div
+                id="accordionPanel_NODEID"
+                class="accordion__panel"
+                role="region"
+                aria-hidden="true"
+                aria-labelledby="accordionTrigger_NODEID"
+                data-hook="accordion__panel">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                  ex exercitationem consequatur ratione veniam, ducimus
+                  voluptates beatae similique magnam aperiam dignissimos
+                  provident sunt ipsam delectus laboriosam libero quos quod
+                  accusamus?
+                </p>
+              </div>
+            </div>
+            <!-- END SINGLE ACCORDION ITEM -->
+
+            <div
+              id="accordion_2"
+              class="accordion__item"
+              data-hook="accordion__item">
+              <header class="accordion__header">
+                <button
+                  id="accordionTrigger_2"
+                  class="accordion__trigger"
+                  aria-controls="accordionPanel_2"
+                  aria-expanded="false"
+                  data-hook="accordion__trigger">
+                  Lorem ipsum dolor sit amet
+                  <svg
+                    class="app-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                      class="accordion__trigger-plus"
+                      d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z" />
+                    <path
+                      class="accordion__trigger-minus"
+                      d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z" />
+                  </svg>
+                </button>
+              </header>
+
+              <div
+                id="accordionPanel_2"
+                class="accordion__panel"
+                role="region"
+                aria-hidden="true"
+                aria-labelledby="accordionTrigger_2"
+                data-hook="accordion__panel">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                  ex exercitationem consequatur ratione veniam, ducimus
+                  voluptates beatae similique magnam aperiam dignissimos
+                  provident sunt ipsam delectus laboriosam libero quos quod
+                  accusamus?
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="accordion_3"
+              class="accordion__item"
+              data-hook="accordion__item">
+              <header class="accordion__header">
+                <button
+                  id="accordionTrigger_3"
+                  class="accordion__trigger"
+                  aria-controls="accordionPanel_3"
+                  aria-expanded="false"
+                  data-hook="accordion__trigger">
+                  Exercitationem consequatur ratione veniam ducimus voluptates
+                  beatae dignissimos provident sunt!
+
+                  <svg
+                    class="app-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                      class="accordion__trigger-plus"
+                      d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z" />
+                    <path
+                      class="accordion__trigger-minus"
+                      d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z" />
+                  </svg>
+                </button>
+              </header>
+
+              <div
+                id="accordionPanel_3"
+                class="accordion__panel"
+                role="region"
+                aria-hidden="true"
+                aria-labelledby="accordionTrigger_3"
+                data-hook="accordion__panel">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                  ex exercitationem consequatur ratione veniam, ducimus
+                  voluptates beatae similique magnam aperiam dignissimos
+                  provident sunt ipsam delectus laboriosam libero quos quod
+                  accusamus?
+                </p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -304,6 +538,146 @@
     <div class="container">
       <div class="row row-cols-1">
         <div class="col">
+          <!-- NJHK13-399 - ACCORDION -->
+
+          <section class="accordion" data-hook="accordion">
+            <!-- START SINGLE ACCORDION ITEM -->
+            <div
+              id="accordion_5"
+              class="accordion__item"
+              data-hook="accordion__item">
+              <header class="accordion__header">
+                <!-- TRIGGER -->
+                <button
+                  id="accordionTrigger_5"
+                  class="accordion__trigger"
+                  aria-controls="accordionPanel_5"
+                  aria-expanded="false"
+                  data-hook="accordion__trigger">
+                  Laboriosam libero quos quod accusamus?
+
+                  <svg
+                    class="app-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                      class="accordion__trigger-plus"
+                      d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z" />
+                    <path
+                      class="accordion__trigger-minus"
+                      d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z" />
+                  </svg>
+                </button>
+              </header>
+
+              <!-- Panel -->
+              <div
+                id="accordionPanel_5"
+                class="accordion__panel"
+                role="region"
+                aria-hidden="true"
+                aria-labelledby="accordionTrigger_5"
+                data-hook="accordion__panel">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                  ex exercitationem consequatur ratione veniam, ducimus
+                  voluptates beatae similique magnam aperiam dignissimos
+                  provident sunt ipsam delectus laboriosam libero quos quod
+                  accusamus?
+                </p>
+              </div>
+            </div>
+            <!-- END SINGLE ACCORDION ITEM -->
+
+            <div
+              id="accordion_6"
+              class="accordion__item"
+              data-hook="accordion__item">
+              <header class="accordion__header">
+                <button
+                  id="accordionTrigger_6"
+                  class="accordion__trigger"
+                  aria-controls="accordionPanel_6"
+                  aria-expanded="false"
+                  data-hook="accordion__trigger">
+                  Lorem ipsum dolor sit amet
+                  <svg
+                    class="app-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                      class="accordion__trigger-plus"
+                      d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z" />
+                    <path
+                      class="accordion__trigger-minus"
+                      d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z" />
+                  </svg>
+                </button>
+              </header>
+
+              <div
+                id="accordionPanel_6"
+                class="accordion__panel"
+                role="region"
+                aria-hidden="true"
+                aria-labelledby="accordionTrigger_6"
+                data-hook="accordion__panel">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                  ex exercitationem consequatur ratione veniam, ducimus
+                  voluptates beatae similique magnam aperiam dignissimos
+                  provident sunt ipsam delectus laboriosam libero quos quod
+                  accusamus?
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="accordion_7"
+              class="accordion__item"
+              data-hook="accordion__item">
+              <header class="accordion__header">
+                <button
+                  id="accordionTrigger_7"
+                  class="accordion__trigger"
+                  aria-controls="accordionPanel_7"
+                  aria-expanded="false"
+                  data-hook="accordion__trigger">
+                  Exercitationem consequatur ratione veniam ducimus voluptates
+                  beatae dignissimos provident sunt!
+
+                  <svg
+                    class="app-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 448 512">
+                    <path
+                      class="accordion__trigger-plus"
+                      d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z" />
+                    <path
+                      class="accordion__trigger-minus"
+                      d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z" />
+                  </svg>
+                </button>
+              </header>
+
+              <div
+                id="accordionPanel_7"
+                class="accordion__panel"
+                role="region"
+                aria-hidden="true"
+                aria-labelledby="accordionTrigger_7"
+                data-hook="accordion__panel">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
+                  ex exercitationem consequatur ratione veniam, ducimus
+                  voluptates beatae similique magnam aperiam dignissimos
+                  provident sunt ipsam delectus laboriosam libero quos quod
+                  accusamus?
+                </p>
+              </div>
+            </div>
+          </section>
+
           <div class="fr-view">
             <strong>This is for testing 1 Column</strong> section Lorem Ipsum is
             simply dummy text of the printing and typesetting industry. Lorem

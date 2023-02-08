@@ -1,0 +1,77 @@
+.listbox {
+  --listbox-width: 100%;
+  position: relative;
+  z-index: 1500;
+  width: auto;
+  flex-grow: 1;
+
+  button {
+    display: block;
+    width: var(--listbox-width);
+    position: relative;
+    overflow: hidden;
+    padding: 0.75rem 0rem 0.75rem 1rem;
+    border: 1px solid var(--neutral--500);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    text-align: left;
+    color: var(--neutral--900);
+    background-color: var(--neutral--100);
+
+    &:focus {
+      @include global-focus-ring;
+    }
+    &:after {
+      content: "▼";
+      display: flex;
+      align-items: center;
+
+      height: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      padding: 0.65rem 1rem;
+
+      font-size: 0.8rem;
+      color: white;
+      background-color: var(--blue--700);
+    }
+  }
+
+  .listbox__wrapper {
+    display: none;
+    position: absolute;
+    width: var(--listbox-width);
+    max-height: 300px;
+    overflow-y: auto;
+
+    border: 1px solid var(--neutral--300);
+    border-top: none;
+    
+    background-color: var(--neutral--100);
+    &[aria-hidden="false"] {
+      display: block;
+    }
+    ul {
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+    li a {
+      display: block;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      color: var(--neutral--900);
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        background-color: var(--blue--700);
+        color: var(--neutral--100);
+      }
+    }
+  }
+}

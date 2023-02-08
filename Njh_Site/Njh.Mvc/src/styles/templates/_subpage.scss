@@ -1,7 +1,9 @@
 .subpage {
   padding-top: 0px;
+  margin-bottom: 3rem;
   article {
     padding-top: 1rem;
+    padding-bottom: 3rem;
     display: grid;
     grid-template-areas:
       "header"
@@ -91,5 +93,22 @@
   @include media-breakpoint-up(md) {
     display: block;
     border-right: 1px solid var(--neutral--300);
+  }
+}
+
+
+
+// TEMPLATE HUB
+//=============================================
+.template-hub {
+
+  article {
+    grid-template-areas:
+      "header"
+      "hero"
+      "content";
+  }
+  .hub-hero {
+    grid-area: hero;
   }
 }

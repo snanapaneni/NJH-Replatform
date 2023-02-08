@@ -27,7 +27,7 @@
                     <button type=""button""
                     class=""subpage__aside-nav-trigger""
                     id=""asideNavItem_" + link.NodeID + @"_label""
-                    aria-label=""Self sub menu""
+                    aria-label=""" + link.DisplayTitle + @" sub menu""
                     data-bs-toggle=""collapse""
                     aria-expanded=""" + (link.IsOnPath ? "true" : "false") + @"""
                     data-bs-target=""#asideNavItem_" + link.NodeID + @"_children""
@@ -39,7 +39,7 @@
                 <ul class=""subpage__aside-nav-list collapse" + (link.IsOnPath ? " show" : "") + @"""
                     id=""asideNavItem_" + link.NodeID + @"_children""
                     aria-hidden=""" + (link.IsOnPath ? "false" : "true") + @"""
-                    aria-labeledby=""asideNavItem_" + link.NodeID + @"_label"">";
+                    aria-labelledby=""asideNavItem_" + link.NodeID + @"_label"">";
                     @foreach (var child in link.Children)
                     {
                         listItem += renderNode(child);
@@ -54,7 +54,6 @@
 
 @* Aside / DOES NOT load on mobile *@
 <aside class="subpage__aside">
-    <!-- NJHK13-388 Left Rail Nav -->
     @* TODO replace Skip Navigation text, aria labels, etc. with resource strings *@
     <a href="#subpageContent"
        class="subpage__aside-nav-skip visually-hidden-focusable">

@@ -1,0 +1,87 @@
+﻿@using Kentico.Content.Web.Mvc
+@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@model Njh.Mvc.Models.SectionsViewModels.TabSectionViewModel
+
+@{
+    var editMode = this.Context.Kentico().PageBuilder().EditMode;
+}
+
+@if (!Model.Tabs.Any() && editMode)
+{
+
+    <section class="widget-zone   has-padding has-margin">
+        <div class="container">
+            <div class="row row-cols-1">
+                <div class="col">
+                    <div data-v-461d5b7e="" data-v-c09d5556="" class="ktc-border-root ktc-widget-zone ktc-widget-zone--empty" id="7834063e-835b-4bc8-9692-727fcf4bd69d" tabindex="0">
+                        <div data-v-461d5b7e="" class="ktc-admin-ui"><!---->
+                            <div data-v-461d5b7e="" class="ktc-border ktc-border-top"></div>
+                            <div data-v-461d5b7e="" class="ktc-border ktc-border-right"></div>
+                            <div data-v-461d5b7e="" class="ktc-border ktc-border-bottom"></div>
+                            <div data-v-461d5b7e="" class="ktc-border ktc-border-left"></div></div>
+                        <div data-v-c09d5556="" data-v-461d5b7e="" class="ktc-admin-ui">
+                            <div data-v-1845a3ec="" data-v-461d5b7e="" data-v-c09d5556="" class="ktc-dropzone ktc-dropzone--full" style="display: none;"></div> <!----></div>
+                        <div data-v-c09d5556="" data-v-461d5b7e="" class="ktc-admin-ui">
+                            <H3>Edit the properties of this sections to add tabs.</H3></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--If there is no widget zone it will show a warning message that won't be useful to the editor-->
+    <div style="display:none !important;">
+        <widget-zone allowed-widgets="AllowedComponents.ALL" id="tabWidgetsdefault"></widget-zone>
+    </div>
+}
+<section class="tabs" data-hook="tabs">
+    <div class="container">
+        <nav class="tabs__list"
+             role="tablist"
+             aria-label=""
+             data-hook="tabs__tabList">
+             
+            @foreach (var tab in Model.Tabs)
+            {
+                <button class="tabs__trigger"
+                        role="tab"
+                        type="button"
+                    aria-controls="tab-@(Math.Abs(tab.GetHashCode()))"
+                        aria-selected="true"
+                        data-hook="tabs__tabTrigger">
+                    @tab
+                </button>
+            }
+        </nav>
+
+        <div class="tabs__panels">
+            <!-- Default all panels to and js will show the correct one on load.-->
+            @foreach (var tab in Model.Tabs)
+            {
+                <div id="tab-@(Math.Abs(tab.GetHashCode()))"
+                     class="tabs__panel"
+                     role="tabpanel"
+                     aria-hidden="true"
+                     data-hook="tabs__panel">
+                    <widget-zone allowed-widgets="AllowedComponents.ALL" id="tabWidgets@(Math.Abs(tab.GetHashCode()))"></widget-zone>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+@if (editMode)
+{
+    <script type="text/javascript">
+        (function () {
+            if (document.readyState === "loading") {
+                // Calls the function during the 'DOMContentLoaded' event, after the HTML document has been completely loaded
+                document.addEventListener("DOMContentLoaded", function () {
+                    window.App.tabs.init();
+                });
+            } else {
+                // Calls the function directly in cases where the section is rendered dynamically after 'DOMContentLoaded'
+                window.App.tabs.init();
+            }
+        })();
+    </script>
+}

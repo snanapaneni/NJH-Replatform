@@ -10,11 +10,11 @@
 @inject ISettingsKeyRepository SettingsKeyRepository;
 
 @{
-   
+    ViewBag.Title = Model?.Page?.Title;
 
- 
     var editMode = this.Context.Kentico().PageBuilder().EditMode;
     var analyticsScript = SettingsKeyRepository?.GetAnalyticsScript() ?? "";
+
     var pageTitleFormatted = Seo.GetFormattedPageTitle(SettingsKeyRepository, ViewBag.Title, ViewBag.TitleOverride);
     
 }
@@ -43,8 +43,7 @@
     <meta name="apple-mobile-web-app-title" content="National Jewish Health">
     <meta name="application-name" content="National Jewish Health">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="theme-color" content="#ffffff">
-    
+    <meta name="theme-color" content="#ffffff"> 
     <title>@pageTitleFormatted</title>
     @*Dynamically add hashed CSS and JS files*@
     @if (editMode)
@@ -61,7 +60,7 @@
     </noscript>
     @Html.Raw(analyticsScript)
 
-
+    <vc:meta-data></vc:meta-data>
 </head>
 
 <body>

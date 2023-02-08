@@ -7,6 +7,7 @@
     using CMS.DocumentEngine;
     using CMS.MacroEngine;
     using ReasonOne.Extensions;
+    using CMS.Helpers;
 
     /// <summary>
     /// Implements extension methods for the
@@ -60,5 +61,65 @@
                 dt.Rows[0]);
         }
 
+
+        /// <summary>
+        /// Get meta tag of the page.
+        /// The Kentico ones are not working properly.
+        /// </summary>
+        /// <param name="page">
+        /// The page.
+        /// </param>
+        /// <param name="metaTagName">
+        /// The meta tag name.
+        /// </param>
+        /// <returns>
+        /// The meta tag.
+        /// </returns>
+        public static string GetMetaTag(
+            this TreeNode page,
+            string metaTagName)
+        {
+            var resolver = MacroContext.CurrentResolver;
+
+            resolver.SetAnonymousSourceData(page);
+
+            var data = page.GetStringValue(metaTagName, string.Empty);
+
+            if (string.IsNullOrWhiteSpace(data))
+            {
+                data = page.GetInheritedValue(metaTagName)?.ToString();
+            }
+
+            return resolver.ResolveMacros(data);
+        }
+
+        /// <summary>
+        /// Returns the absolute image URL for the Twitter image tag.
+        /// </summary>
+        /// <param name="page">
+        /// The page.
+        /// </param>
+        /// <returns>
+        /// The absolute image URL. Empty string, otherwise.
+        /// </returns>
+        public static string GetSocialImage(
+            this TreeNode page)
+        {
+            var pageImage =
+                ValidationHelper.GetString(
+                    page.GetValue(nameof(IPageType_BasePageType.PageImage)),
+                    string.Empty);
+
+            var absoluteImageUrl =
+                page != null &&
+                page.Site != null &&
+                !string.IsNullOrWhiteSpace(pageImage)
+                    ? DocumentURLProvider.GetAbsoluteUrl(
+                        pageImage,
+                        new SiteInfoIdentifier(page.Site.SiteID))
+                    : string.Empty;
+
+            return absoluteImageUrl;
+        }
     }
 }

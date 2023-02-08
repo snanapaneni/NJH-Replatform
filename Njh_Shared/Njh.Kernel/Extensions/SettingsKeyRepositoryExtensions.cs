@@ -120,6 +120,13 @@
                 .GetValue<string>("NJHGlobalPhoneNumberText");
         }
 
+        public static string GetHomePagePath(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("CMSHomePagePath");
+        }
+
         /// <summary>
         /// Gets the page type types.
         /// </summary>
@@ -231,6 +238,41 @@
         {
             return settingsKeyRepository
                 .GetValue<string>("CMSPageTitleFormat");
+        }
+
+        public static string GetOgType(
+          this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHOGType");
+        }
+
+        public static string GetOgSiteName(
+           this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHOGSiteName");
+        }
+
+        public static string GetTwitterHandle(
+          this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHTwitterHandle");
+        }
+
+        public static string GetTwitterCard(
+          this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHTwitterCard");
+        }
+
+        public static string GetDefaulSocialImage(
+            this ISettingsKeyRepository settingsKeyRepository)
+        {
+            return settingsKeyRepository
+                .GetValue<string>("NJHDefaultSocialImage");
         }
     }
 }

@@ -7,44 +7,53 @@
 
             @foreach (var link in Model)
             {
-                <!-- Single top level item -- START-->
-                <li class="app-header__primary-nav-item@(link.IsOnPath ? " is-current" : "")"
-                    data-hook="appHeader__primaryNavItem">
-                    <button aria-expanded="false"
-                            data-hook="appHeader__primaryNavItemPanelTrigger">
-                        @link.DisplayTitle
-                    </button>
+                if ((link.Children.Any() && link.Children.First().Children.Any()) || link.CTAItem != null)
+                {
+                    <!-- Single top level item -- START-->
+                    <li class="app-header__primary-nav-item@(link.IsOnPath ? " is-current" : "")"
+                data-hook="appHeader__primaryNavItem">
+                        <button aria-expanded="false"
+                        data-hook="appHeader__primaryNavItemPanelTrigger">
+                            @link.DisplayTitle
+                        </button>
 
-                    <div class="app-header__primary-nav-item-panel"
-                         data-hook="appHeader__primaryNavItemPanel"
-                         aria-hidden="true">
-                        <div class="app-header__primary-nav-item-panel-row">
+                        <div class="app-header__primary-nav-item-panel"
+                     data-hook="appHeader__primaryNavItemPanel"
+                     aria-hidden="true">
                             @if (link.Children.Any())
                             {
-                                foreach (var folder in link.Children)
-                                {
-                                    <!-- Sub level column -- START -->
-                                    <div class="app-header__primary-nav-item-panel-column">
-                                        <ul role="list">
-                                            @foreach (var subLink in folder.Children)
-                                            {
-                                                <li><a href="@subLink.Link">@subLink.DisplayTitle</a></li>
-                                            }
-                                        </ul>
-                                    </div>
-                                    <!-- Sub level column -- END -->
-                                }
+                                <div class="app-header__primary-nav-item-panel-row">
+                                    @foreach (var folder in link.Children)
+                                    {
+                                        <!-- Sub level column -- START -->
+                                        <div class="app-header__primary-nav-item-panel-column">
+                                            <ul role="list">
+                                                @foreach (var subLink in folder.Children.Where(item => !string.IsNullOrWhiteSpace(item.Link)))
+                                                {
+                                                    <li><a href="@subLink.Link">@subLink.DisplayTitle</a></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <!-- Sub level column -- END -->
+                                    }
+                                </div>
+                            }
+                            @if (link.CTAItem != null)
+                            {
+                                <a class="app-header__primary-nav-item-more" href="@link.CTAItem.Link">
+                                    @link.CTAItem.DisplayTitle
+                                </a>
                             }
                         </div>
-                        
-                        @if (link.CTAItem != null)
-                        {
-                            <a class="app-header__primary-nav-item-more" href="@link.CTAItem.Link">
-                                @link.CTAItem.DisplayTitle
-                            </a>
-                        }
-                    </div>
-                </li>
+                    </li>
+                }
+                else if (!string.IsNullOrWhiteSpace(link.Link))
+                {
+                    <li class="app-header__primary-nav-item@(link.IsOnPath ? " is-current" : "")"
+                data-hook="appHeader__primaryNavItem">
+                        <a href="@link.Link"> @link.DisplayTitle </a>
+                    </li>
+                }
                 <!-- Single top level item -- END-->
             }
         </ul>
