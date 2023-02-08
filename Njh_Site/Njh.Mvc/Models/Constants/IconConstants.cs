@@ -84,5 +84,10 @@
         /// </summary>
         public const string Convert =
             "icon-convert";
+
+        /// <summary>
+        /// The accordion icon for widgets.
+        /// </summary>
+        public const string Accordion = "icon-accordion";
     }
 }

@@ -5,8 +5,8 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_after: [""],
-    main_insert: "main",
-    main_components: [],
+    main_insert: "article",
+    main_components: ["accordion"],
   },
   {
     templateFilename: "elements",
@@ -15,6 +15,7 @@ exports.templates = [
     main_before: [""],
     main_insert: "main",
     main_components: [
+      ,
       "elements--typography",
       "elements--table",
       "elements--buttons",
@@ -67,6 +68,15 @@ exports.templates = [
     main_before: [""],
     main_insert: "article",
     main_components: [],
+    main_after: [""],
+  },
+  {
+    templateFilename: "specialty-main",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "speciality-content"],
     main_after: [""],
   },
 ];

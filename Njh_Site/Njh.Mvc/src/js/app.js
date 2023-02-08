@@ -17,6 +17,7 @@ App.bootstrap = bootstrap;
  * =========================================================================== */
 // Components
 import App__appHeader from "./components/app-header";
+import App__accordion from './components/accordion';
 import App__tabs from "./components/tabs";
 import App__listBox from './components/listbox';
 
@@ -37,6 +38,7 @@ App.appHeader = App__appHeader;
 App.listbox = App__listBox;
 
 // Components
+App.accordion = App__accordion;
 App.tabs = App__tabs;
 
 App.utils = {
@@ -53,6 +55,7 @@ App.utils = {
 App.init = function () {
   console.log("App Init");
   App.appHeader.init();
+  App.accordion.init();
 
   // Components
   App.tabs.init();
@@ -81,8 +84,8 @@ window.addEventListener("load", function (event) {
       isEscape = e.keyCode === 27;
     }
     if (isEscape) {
-      App.appHeader.closeOverlayPanels();
-      App.listbox.handleCloseAll();
+        App.appHeader.closeOverlayPanels();
+        App.accordion.handleCloseAll();
     }
   };
 

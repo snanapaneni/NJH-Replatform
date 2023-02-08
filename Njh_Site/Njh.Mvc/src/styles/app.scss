@@ -26,7 +26,7 @@
 /* Bootstrap Components
    Only uncomment what you need to reduce css payload size
 =========================================================================== */
-@import "~bootstrap/scss/accordion";
+// @import "~bootstrap/scss/accordion";
 // @import "~bootstrap/scss/alert";
 // @import "~bootstrap/scss/badge";
 @import "~bootstrap/scss/breadcrumb";
@@ -70,6 +70,7 @@
 
 // Templates
 @import "./templates/subpage";
+@import "./templates/specialty";
 
 // Elements
 @import "./elements/backgrounds";
@@ -80,6 +81,7 @@
 
 // Components
 @import "./components/alert";
+@import "./components/accordion";
 @import "./components/blockquote";
 @import "./components/breadcrumbs";
 @import "./components/hub-hero";
