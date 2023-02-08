@@ -1,5 +1,6 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Njh.Mvc.Components;
+using Njh.Mvc.Components.AdditionalLinks;
 using Njh.Mvc.Components.Accordion;
 using Njh.Mvc.Components.Banner;
 using Njh.Mvc.Components.Image;
@@ -107,3 +108,11 @@ using Njh.Mvc.Models.Constants;
     typeof(HubHeroBannerViewComponentProperties),
     AllowCache = true,
     IconClass = IconConstants.ImageBanner)]
+
+[assembly: RegisterWidget(
+    AdditionalLinksComponent.Identifier,
+    typeof(AdditionalLinksComponent),
+    "NJH Additional Links Widget",
+    typeof(AdditionalLinksComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Picture)]

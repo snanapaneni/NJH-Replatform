@@ -47,8 +47,8 @@ exports.templates = [
     header: "app-header",
     footer: "app-footer",
     main_before: [""],
-    main_insert: "",
-    main_components: [""],
+    main_insert: "component-partial",
+    main_components: ["tabs", "additional-links"],
     main_after: [""],
   },
   {
