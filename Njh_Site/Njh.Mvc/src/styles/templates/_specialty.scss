@@ -1,0 +1,25 @@
+.condition-programs {
+
+  container-type: inline-size;
+  container-name: conditionPrograms;
+
+}
+
+@container conditionPrograms (max-width: 650px) {
+  .condition-programs__col {
+    width: 100%;
+  }
+}
+
+
+.appointment-cta {
+  display: flex;
+  gap: 3rem;
+  flex-direction: column;
+  
+
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    align-items: center;
+  }
+}

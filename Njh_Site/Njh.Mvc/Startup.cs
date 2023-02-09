@@ -16,6 +16,10 @@ using ReasonOne.KenticoXperience;
 using ReasonOne.KenticoXperience.DependencyInjection;
 using ReasonOne.KenticoXperience.Services;
 using Njh.Mvc.Components.Sections.OneColumn;
+using Kentico.Scheduler.Web.Mvc;
+using Njh.Kernel.Services;
+using CMS.Core;
+
 /// <summary>
 /// Configures the application startup.
 /// </summary>
@@ -69,7 +73,7 @@ public class Startup
             // features.UseWebAnalytics();
             // features.UseEmailTracking();
             // features.UseCampaignLogger();
-            // features.UseScheduler();
+            features.UseScheduler();
             features.UsePageRouting();
         });
 
@@ -104,7 +108,7 @@ public class Startup
         // Registers the view component error visibility
         // based on Edit Mode from Kentico
         services.AddScoped<IViewComponentErrorVisibility, EditModeViewComponentErrorVisibility>();
-
+        
         services.AddHealthChecks();
     }
 
@@ -118,7 +122,8 @@ public class Startup
     /// This method gets called by the runtime.
     /// Use this method to configure the HTTP request pipeline.
     /// </remarks>
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app,
+        IHostApplicationLifetime hostApplicationLifetime)
     {
         // Configure the HTTP request pipeline.
         if (!this.Environment.IsDevelopment())
@@ -156,8 +161,18 @@ public class Startup
                 await context.Response.WriteAsync("The site has not been configured yet.");
             });
         });
+        hostApplicationLifetime.ApplicationStarted.Register(OnStarted);
     }
+    private void OnStarted()
+    {
+        IPressGaneyService pressGaneyService = Service.Resolve<IPressGaneyService>();
+        IEventLogService eventLogService = Service.Resolve<IEventLogService>();
+        string message = string.Empty;
+        Task.Run(() =>
+                message = pressGaneyService.RefreshCache(true));
+        eventLogService.LogInformation("PressGaneyUpdate", "ApplicationStart", message);
 
+    }
     /// <summary>
     /// Configures the Autofac container.
     /// </summary>

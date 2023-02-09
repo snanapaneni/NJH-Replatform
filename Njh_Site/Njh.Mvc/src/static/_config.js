@@ -6,6 +6,7 @@ exports.templates = [
     main_before: [""],
     main_after: [""],
     main_insert: "article",
+    main_components: ["accordion"],
     main_components: ["image-slider"],
   },
   {
@@ -24,6 +25,7 @@ exports.templates = [
     main_before: [""],
     main_insert: "main",
     main_components: [
+      ,
       "elements--typography",
       "elements--table",
       "elements--buttons",
@@ -55,6 +57,15 @@ exports.templates = [
     header: "app-header",
     footer: "app-footer",
     main_before: [""],
+    main_insert: "component-partial",
+    main_components: ["tabs", "additional-links"],
+    main_after: [""],
+  },
+  {
+    templateFilename: "hub",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
     main_insert: "",
     main_components: [""],
     main_after: [""],
@@ -76,6 +87,15 @@ exports.templates = [
     main_before: [""],
     main_insert: "article",
     main_components: [],
+    main_after: [""],
+  },
+  {
+    templateFilename: "specialty-main",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "speciality-content"],
     main_after: [""],
   },
 ];

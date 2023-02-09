@@ -90,5 +90,14 @@
         /// </summary>
         public const string Convert =
             "icon-convert";
+
+        /// <summary>
+        /// The chain/link icon for widgets.
+        /// </summary>
+        public const string Link = "icon-chain";
+        
+        /// The accordion icon for widgets.
+        /// </summary>
+        public const string Accordion = "icon-accordion";
     }
 }

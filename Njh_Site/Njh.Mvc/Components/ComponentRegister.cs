@@ -1,5 +1,7 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Njh.Mvc.Components;
+using Njh.Mvc.Components.AdditionalLinks;
+using Njh.Mvc.Components.Accordion;
 using Njh.Mvc.Components.Banner;
 using Njh.Mvc.Components.Image;
 using Njh.Mvc.Components.Sections.FourColumn;
@@ -92,13 +94,12 @@ using Njh.Mvc.Models.Constants;
     IconClass = IconConstants.Picture)]
 
 [assembly: RegisterWidget(
-    ImageSliderViewComponent.Identifier,
-    typeof(ImageSliderViewComponent),
-    "Njh Image Slider Widget",
-    typeof(ImageSliderComponentProperties),
+    AccordionComponent.Identifier,
+    typeof(AccordionComponent),
+    "NJH Accordion Widget",
+    typeof(AccordionComponentProperties),
     AllowCache = true,
-    IconClass = IconConstants.Slides)]
-
+    IconClass = IconConstants.Accordion)]
 // TODO do we need register Hub Hero Banner as a widget, or is it used only as part of a page template?
 [assembly: RegisterWidget(
     HubHeroBannerViewComponent.Identifier,
@@ -107,3 +108,11 @@ using Njh.Mvc.Models.Constants;
     typeof(HubHeroBannerViewComponentProperties),
     AllowCache = true,
     IconClass = IconConstants.ImageBanner)]
+
+[assembly: RegisterWidget(
+    AdditionalLinksComponent.Identifier,
+    typeof(AdditionalLinksComponent),
+    "NJH Additional Links Widget",
+    typeof(AdditionalLinksComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Picture)]
