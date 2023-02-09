@@ -15,7 +15,8 @@
 
 
 <main class="app-main subpage template-specialty" id="main">
-    <article class="subpage__no-rail">
+    <vc:breadcrumbs></vc:breadcrumbs>
+    <article class="subpage__left-rail container">
         <div class="subpage__header-cta-wrapper container">
             @if (!string.IsNullOrWhiteSpace(currentPage.Title))
             {
@@ -27,17 +28,18 @@
             <!-- CTA - Optional -->
             <section class="subpage__cta">
                 <!-- Removes itself on mobile -->
-                @if(HasPrimaryCta){
+                @if (HasPrimaryCta)
+                {
                     <a href="@currentPage.CtaUrl" class="btn btn-blue--700">@currentPage.CtaTitle</a>
                 }
-                @if(HasSecondCta || HasThirdCta)
+                @if (HasSecondCta || HasThirdCta)
                 {
                     <ul class="separated-list" role="list">
-                        @if(HasSecondCta)
+                        @if (HasSecondCta)
                         {
                             <li><a href="@currentPage.Cta2Url">@currentPage.Cta2Title</a></li>
                         }
-                        @if(HasThirdCta)
+                        @if (HasThirdCta)
                         {
                             <li><a href="@currentPage.Cta3Url">@currentPage.Cta3Title</a></li>
                         }
@@ -53,33 +55,35 @@
             <div class="page-blurb container">
                 @if (!string.IsNullOrEmpty(@currentPage.PageBlurb))
                 {
-                    @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageBlurb));
+                    @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageBlurb))
+                    ;
                 }
             </div>
 
             <div class="rich-text container">
                 @if (!string.IsNullOrEmpty(@currentPage.PageContent))
                 {
-                    @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageContent));
+                    @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageContent))
+                    ;
                 }
             </div>
-            
-            <hr />
-            
+
+            <hr/>
+
             <div class="condition-programs row row-cols-1 row-cols-md-2 gy-3">
                 <vc:specialty-page-condition></vc:specialty-page-condition>
                 <vc:specialty-page-service></vc:specialty-page-service>
             </div>
-            
+
             <div class="widget-zone has-margin">
                 <div class="container">
                     <!-- example of a widget zone -->
                     <editable-area area-identifier="editableRegion"/>
                 </div>
             </div>
-            
-            <hr />
-            
+
+            <hr/>
+
             <!-- Appointment CTA -->
             <section class="appointment-cta">
                 <a
@@ -92,12 +96,14 @@
                 <a href="tel:+18772255654" class="like-h3">
                     <svg class="app-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                         <path
-                            d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z" />
+                            d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
                     </svg>
                     Call 1.877.CALL.NJH
                 </a>
             </section>
         </section>
-      
+        <!-- Left Nav begin, max 5 levels deep -->
+        <vc:left-nav max-depth="5"></vc:left-nav>
+        <!-- Left Nav end -->
     </article>
 </main>

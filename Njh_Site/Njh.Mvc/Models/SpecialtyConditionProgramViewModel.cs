@@ -27,6 +27,6 @@ namespace Njh.Mvc.Models
 
         public NavItem OverviewLink { get; set; }
 
-        public IEnumerable<NavItem> Links { get; set; }
+        public List<NavItem> Links { get; set; }
     }
 }

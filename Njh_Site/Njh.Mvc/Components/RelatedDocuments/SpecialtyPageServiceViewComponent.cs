@@ -65,7 +65,7 @@ namespace Njh.Mvc.Components.RelatedDocuments
                     var relatedServices = relatedDocumentService.GetRelatedDocuments(currentPage, new[] { PageType_Specialty.CLASS_NAME });
                     if (relatedServices.Any())
                     {
-                        model.Links.ToList().AddRange(relatedServices);
+                        model.Links.AddRange(relatedServices);
                     }
                 }
 

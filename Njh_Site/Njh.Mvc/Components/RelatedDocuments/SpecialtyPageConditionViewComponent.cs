@@ -70,13 +70,13 @@ namespace Njh.Mvc.Components.RelatedDocuments
                                 DisplayTitle = doc.GetStringValue(nameof(PageType_Page.Title), doc.DocumentName),
                                 Link = DocumentURLProvider.GetUrl(doc),
                             });
-                        model.Links.ToList().AddRange(childPages);
+                        model.Links.AddRange(childPages);
                     }
 
                     var relatedConditions = relatedDocumentService.GetRelatedDocuments(currentPage, new[] { PageType_Condition.CLASS_NAME });
                     if (relatedConditions.Any())
                     {
-                        model.Links.ToList().AddRange(relatedConditions);
+                        model.Links.AddRange(relatedConditions);
                     }
                 }
 
