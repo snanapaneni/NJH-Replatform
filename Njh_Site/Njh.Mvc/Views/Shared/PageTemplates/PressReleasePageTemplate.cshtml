@@ -8,9 +8,12 @@
 @using Njh.Mvc.Components
 @using Njh.Mvc.Components.Navigation
 @using Kentico.Content.Web.Mvc
+@using CMS.Helpers
 @model ComponentViewModel<PressReleaseTemplateProperties>
 @{
     var currentPage = Model.Page.ToPageType<PageType_PressRelease>();
+    var njhPressReleaseSubject = ResHelper.GetString("NJH.PressRelease.MailtoSubject");
+    var njhPressReleaseBody = ResHelper.GetString("NJH.PressRelease.MailtoBody");
 }
 
 
@@ -26,7 +29,7 @@
             <!-- Reviewers -->
             <vc:reviewers></vc:reviewers>
             <div class="share-story">
-                <a href="mailto:?Subject=@(Uri.EscapeDataString("National Jewish Health Press Release"))&amp;Body=@(Uri.EscapeDataString("Here is the story you requested: " + Context.Request.GetDisplayUrl()))"
+                <a href="mailto:?Subject=@(Uri.EscapeDataString(njhPressReleaseSubject))&amp;Body=@(Uri.EscapeDataString(njhPressReleaseBody + " " + Context.Request.GetDisplayUrl()))"
                     class="btn btn-blue--700-outline btn-sm" rel="nofollow">
                     <svg
                         class="app-icon"
