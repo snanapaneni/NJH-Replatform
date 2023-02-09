@@ -24,8 +24,6 @@ import App__tabs from "./components/tabs";
 import App__imageSlider from "./components/image-slider";
 import App__listBox from './components/listbox';
 
-import App__imageSlider from "./components/image-slider";
-
 // Utilities
 import App__linkClasses from "./utilities/link-classes";
 import App__formValidation from "./utilities/form-validation";
