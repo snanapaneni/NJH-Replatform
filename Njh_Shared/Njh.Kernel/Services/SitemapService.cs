@@ -61,7 +61,7 @@ namespace Njh.Kernel.Services
                 SiteName = this.context.SiteName,
                 CacheDependencies = new List<string>
                 {
-                    $"node|this.context.SiteName|/",
+                    $"node|{this.context.SiteName}|/",
                 },
             };
 
