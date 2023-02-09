@@ -97,10 +97,10 @@ namespace Njh.Mvc.Components.AlphaSortUI
                         .GetPropertiesOrDefault();
 
                     // Get object categories
-                    var categoriesGuids = properties.ItemsCategories.Select(item => item.ObjectGuid).ToArray();
+                    var categoriesGuids = properties.ItemsCategories?.Select(item => item.ObjectGuid)?.ToArray();
 
                     // Get Object Page types
-                    var pageTypes = properties.ItemsPageTypes.Select(item => item.ObjectCodeName);
+                    var pageTypes = properties.ItemsPageTypes?.Select(item => item.ObjectCodeName);
 
                     // get path 
                     var path = properties.PageItemsFolderPath?.FirstOrDefault()?.NodeAliasPath ?? string.Empty;
@@ -120,9 +120,9 @@ namespace Njh.Mvc.Components.AlphaSortUI
                         treeNodes = this.treeNodeService.GetDocumentsByCategories(
                             path,
                             pageTypes,
-                            columns: new List<string> { "DocumentName", "PageName", "Hide_Url", "NodeAliasPath" },
+                            columns: new List<string> { },// "DocumentName", "PageName", "Hide_Url", "NodeAliasPath" },
                             categoriesGuids: categoriesGuids,
-                            orderBy: "PageName ASC",
+                            orderBy: "DocumentName ASC",
                             level: nestingLevel);
                         results = AlphaSort.GetAlphaSortedPages(treeNodes);
                     }

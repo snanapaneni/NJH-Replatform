@@ -5,20 +5,14 @@
     var disabled = "disabled";
 }
 
-
+@if(Model != null && Model.Count >0)
+{
 <section class="widget-zone has-margin">
     <div class="container">
         <div class="row row-cols-1">
             <div class="col">
                 <!-- START ALPHASORT -->
                 <section class="alphasort">
-                    <h2>All Programs and Services or whatever heading</h2>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non
-                        impedit earum repellendus accusantium, odit odio illo dolore quasi
-                        fugiat officiis, dicta vitae a quaerat esse corporis iure numquam
-                        excepturi eius!
-                    </p>
                     <!-- START ALPHASORT NAVIGATION-->
                     <div class="alphasort__navigation">
                         <button class="alphasort__navigation-trigger btn btn-blue--700"
@@ -87,3 +81,5 @@
         </div>
     </div>
 </section>
+
+}

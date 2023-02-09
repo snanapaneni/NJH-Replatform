@@ -14,6 +14,7 @@
             PathSelector.IDENTIFIER,
             Order = 1,
             Label = "Path to Items folder")]
+        [EditingComponentProperty(nameof(PathSelectorProperties.Required), true)]
         public IList<PathSelectorItem> PageItemsFolderPath { get; set; } =
             new List<PathSelectorItem>();
 

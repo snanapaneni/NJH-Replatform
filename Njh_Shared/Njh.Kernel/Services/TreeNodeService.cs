@@ -190,13 +190,21 @@ namespace Njh.Kernel.Services
             int level = 1,
             bool published = true)
         {
-            var cacheKey =
-               categoriesGuids.Length > 0
+            var categoriesKeys =
+               categoriesGuids?.Length > 0
                    ? categoriesGuids
                        .OrderBy(guid => guid)
                        .Select(guid => guid.ToString())
                        .Aggregate((current, next) => current + next)
                    : string.Empty;
+            var pageTypesKeys =
+               pageTypes?.Count() > 0
+                   ? pageTypes
+                       .OrderBy(pt => pt)
+                       .Select(pt => pt.ToString())
+                       .Aggregate((current, next) => current + next)
+                   : string.Empty;
+            var cacheKey = $"{categoriesKeys}|{path}|{pageTypesKeys}|{level}";
 
             var cacheParameters = new CacheParameters
             {
@@ -208,13 +216,12 @@ namespace Njh.Kernel.Services
                 CultureCode = this.contextConfig?.CultureName,
                 IsSiteSpecific = true,
                 SiteName = this.contextConfig?.SiteName,
-                CacheDependencies = categoriesGuids
-                    .Select(guid =>
+                CacheDependencies = new List<string>() {
                         string.Format(
-                            DummyCacheKeys.PageSiteNodeGuid,
+                            DummyCacheKeys.PageSiteNodePathChildren,
                             this.contextConfig?.SiteName,
-                            guid))
-                    .ToList(),
+                            path),
+                },
             };
 
             return published ?
@@ -314,6 +321,11 @@ namespace Njh.Kernel.Services
             if (strCategoriesNames == null || strCategoriesNames.Length == 0)
             {
                 strCategoriesNames = Array.Empty<string>();
+            }
+
+            if (pageTypes == null || pageTypes.Count() == 0)
+            {
+                pageTypes = Array.Empty<string>();
             }
 
             if (!path.EndsWith("%"))
