@@ -114,6 +114,23 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
+        /// Mobile Slide Image.
+        /// </summary>
+        [DatabaseField]
+        public string MobileSlideImage
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("MobileSlideImage"), @"");
+            }
+            set
+            {
+                SetValue("MobileSlideImage", value);
+            }
+        }
+
+
+        /// <summary>
         /// Content / Description.
         /// </summary>
         [DatabaseField]
@@ -259,6 +276,22 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
                 set
                 {
                     mInstance.ImageAltText = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Mobile Slide Image.
+            /// </summary>
+            public string MobileSlideImage
+            {
+                get
+                {
+                    return mInstance.MobileSlideImage;
+                }
+                set
+                {
+                    mInstance.MobileSlideImage = value;
                 }
             }
 

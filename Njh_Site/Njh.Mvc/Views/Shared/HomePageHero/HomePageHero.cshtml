@@ -40,18 +40,21 @@
                     <!-- START SINGLE SLIDE  -->
                     <div class="swiper-slide">
                         <picture>
-                            <!-- DESKTOP IMAGE -->
-                            <source srcset="https://picsum.photos/1800/600"
-                                    media="(min-width: 992px)"/>
+                            @if (!string.IsNullOrWhiteSpace(imageSlide.MobileImageSource))
+                            {
+                                <!-- DESKTOP IMAGE -->
+                                <source srcset="@imageSlide.ImageSource"
+                                        media="(min-width: 992px)"/>
+                            }
                             <!-- MOBILE IMAGE || DESKTOP IMAGE if not mobile set. -->
-                            <img src="https://picsum.photos/768/500"
+                            <img src="@(string.IsNullOrWhiteSpace(imageSlide.MobileImageSource) ? imageSlide.ImageSource : imageSlide.MobileImageSource)"
                                  class="home-slider__image"
-                                 alt="This is a cool image from Picsum what will it be?"/>
+                                 alt="@imageSlide.ImageAltText"/>
                         </picture>
 
                         <div class="home-slider__content">
-                            <a href="#main">
-                                How can chronic lung disease affect your mood?
+                            <a href="@imageSlide.SlideLinkUrl">
+                                @imageSlide.SlideLinkTitle
                                 <svg class="app-icon"
                                      xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 448 512">

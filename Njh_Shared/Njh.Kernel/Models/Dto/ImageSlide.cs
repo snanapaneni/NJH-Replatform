@@ -16,6 +16,11 @@
         public string? ImageSource { get; set; }
 
         /// <summary>
+        /// Gets or sets mobile image source; expect a media library URL, not the selected media file object.
+        /// </summary>
+        public string? MobileImageSource { get; set; }
+
+        /// <summary>
         /// Gets or sets image width.
         /// </summary>
         public int ImageWidth { get; set; }
