@@ -9,3 +9,12 @@
     }
   }
 }
+
+
+@mixin make-heading-rules ($colors) {
+  @each $key, $var in $colors {
+    .hr-#{$key} {
+      --hr: var(--#{$key});
+    }
+  }
+}

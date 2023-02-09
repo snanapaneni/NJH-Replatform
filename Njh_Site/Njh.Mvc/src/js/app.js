@@ -23,7 +23,9 @@ App.bootstrap = bootstrap;
  * =========================================================================== */
 // Components
 import App__appHeader from "./components/app-header";
+import App__accordion from './components/accordion';
 import App__tabs from "./components/tabs";
+import App__listBox from './components/listbox';
 
 import App__imageSlider from "./components/image-slider";
 import App__infoBoxes from "./components/info-boxes";
@@ -45,8 +47,10 @@ import App__UUID from "./utilities/uuid";
 App.appHeader = App__appHeader;
 App.imageSlider = App__imageSlider;
 App.infoBoxes = App__infoBoxes;
+App.listbox = App__listBox;
 
 // Components
+App.accordion = App__accordion;
 App.tabs = App__tabs;
 
 App.utils = {
@@ -65,11 +69,13 @@ App.utils = {
 App.init = function () {
   console.log("App Init");
   App.appHeader.init();
+  App.accordion.init();
 
   // Components
   App.imageSlider.init();
   App.infoBoxes.init();
   App.tabs.init();
+  App.listbox.init();
 
 
   // Utilities
@@ -94,7 +100,8 @@ window.addEventListener("load", function (event) {
       isEscape = e.keyCode === 27;
     }
     if (isEscape) {
-      App.appHeader.closeOverlayPanels();
+        App.appHeader.closeOverlayPanels();
+        App.accordion.handleCloseAll();
     }
   };
 

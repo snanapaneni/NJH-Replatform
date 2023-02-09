@@ -63,10 +63,12 @@ h6,
   font-size: 1rem;
 }
 
-.hr {
-  &-orange--500 {
-    opacity: 1;
-    border-color: var(--orange--500);
-    border-width: 3px;
-  }
+
+hr {
+  display: block;
+
+  margin: 3rem 0;
+  border-color: var(--neutral--300);
+  
+  opacity: 1;
 }

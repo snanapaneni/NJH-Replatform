@@ -96,6 +96,10 @@ $dropdown-width: 20px;
         padding-left: 0;
       }
     }
+    h2 a {
+      padding-left: 0;
+      margin-left: 0;
+    }
   }
 
   // Target the "parent" list item so that the entire list is left aligned to the container.
