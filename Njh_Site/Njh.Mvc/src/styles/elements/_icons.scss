@@ -16,6 +16,10 @@
   &-sm {
     height: 0.5em;
   }
+
+  &-secondary {
+    opacity: .4;
+  }
 }
 
 $icon-dropdown-fill: map-get($app-colors, "blue--900");

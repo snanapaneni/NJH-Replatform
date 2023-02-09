@@ -13,13 +13,15 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                customViewName: "~/PageTemplates/LandingPage/_LandingPageTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
 
-[assembly: RegisterPageTemplate("NJH.SubPageTemplate",
+[assembly: RegisterPageTemplate(
+                               "NJH.SubPageTemplate",
                                "Sub page (No Nav) template",
                                typeof(SubPageTemplateProperties),
                                customViewName: "~/Views/Shared/PageTemplates/SubPageTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
 
-[assembly: RegisterPageTemplate("NJH.SubPageLeftNavTemplate",
+[assembly: RegisterPageTemplate(
+                               "NJH.SubPageLeftNavTemplate",
                                "Sub page (Left Nav) template",
                                typeof(SubPageLeftNavTemplateProperties),
                                customViewName: "~/Views/Shared/PageTemplates/SubPageLeftNavTemplate.cshtml",
@@ -30,3 +32,15 @@ using Njh.Mvc.Models.PageTemplateProperties;
     typeof(SpecialtyMainTemplateProperties),
     customViewName: "~/Views/Shared/PageTemplates/SpecialtyMainTemplate.cshtml",
     IconClass = "icon-badge")]
+    
+[assembly: RegisterPageTemplate("NJH.PressReleaseTemplate",
+                                "Press Release Page template",
+                                typeof(PressReleaseTemplateProperties),
+                                customViewName: "~/Views/Shared/PageTemplates/PressReleasePageTemplate.cshtml",
+                                IconClass = "icon-newspaper")]
+[assembly: RegisterPageTemplate(
+                               "NJH.HubPageTemplate",
+                               "Hub Page template",
+                               typeof(HubPageTemplateProperties),
+                               customViewName: "~/Views/Shared/PageTemplates/HubPageTemplate.cshtml",
+                               IconClass = "icon-l-rows-2")]
