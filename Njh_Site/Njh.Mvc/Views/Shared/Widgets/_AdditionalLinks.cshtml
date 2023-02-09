@@ -1,0 +1,23 @@
+﻿@model Njh.Mvc.Models.Widgets.AdditionalLinksViewModel
+
+@if (Model.Items?.Any() == true)
+{
+    <div class="additional-links">
+        <h2 class="like-h3">
+            <img
+                class="app-icon me-2"
+                role="presentation"
+                alt=""
+                src="/images/additional-links.svg"/>
+
+            @Model.Title
+        </h2>
+        <hr class="hr-green--500"/>
+        <ul role="list" class="list-unstyled">
+            @foreach (var item in Model.Items)
+            {
+                <li><a href="@item.Link">@item.DisplayTitle</a></li>
+            }
+        </ul>
+    </div>
+}

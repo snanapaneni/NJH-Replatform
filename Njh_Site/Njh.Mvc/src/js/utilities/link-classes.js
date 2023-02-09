@@ -20,6 +20,7 @@ const App__linkClasses = {
 
       // Dev/Prod environments
       '[href*="nationaljewish.org"]',
+      '[href*="njhealth.org"]',
       '[href*="njhmvc"]',
       '[href*="localhost"]',
     ];
