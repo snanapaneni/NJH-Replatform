@@ -9,8 +9,10 @@ let App = (window.App = {});
 import * as bootstrap from "bootstrap";
 import * as focusTrap from "focus-trap";
 import _ from "lodash";
+import Swiper from 'swiper/bundle';
 
 App.bootstrap = bootstrap;
+App.Swiper = Swiper;
 
 /**
  * Custom Dependencies
@@ -19,6 +21,7 @@ App.bootstrap = bootstrap;
 import App__appHeader from "./components/app-header";
 import App__accordion from './components/accordion';
 import App__tabs from "./components/tabs";
+import App__imageSlider from "./components/image-slider";
 import App__listBox from './components/listbox';
 
 // Utilities
@@ -26,6 +29,7 @@ import App__linkClasses from "./utilities/link-classes";
 import App__formValidation from "./utilities/form-validation";
 import App__sibling from "./utilities/sibling";
 import App__tables from "./utilities/tables";
+import App__timers from "./utilities/timers";
 import App__urlToolkit from "./utilities/url-toolkit";
 import App__UUID from "./utilities/uuid";
 
@@ -40,6 +44,7 @@ App.listbox = App__listBox;
 // Components
 App.accordion = App__accordion;
 App.tabs = App__tabs;
+App.imageSlider = App__imageSlider;
 
 App.utils = {
   linkClasses: App__linkClasses,
@@ -49,6 +54,7 @@ App.utils = {
   urlToolkit: App__urlToolkit,
   tables: App__tables,
   uuid: App__UUID,
+  timers: App__timers,
 };
 
 // Global App component initialization
@@ -59,6 +65,7 @@ App.init = function () {
 
   // Components
   App.tabs.init();
+  App.imageSlider.init();
   App.listbox.init();
 
 

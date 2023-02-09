@@ -8,7 +8,7 @@
     grid-template-areas:
       "header"
       "content";
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     column-gap: 2rem;
     @include media-breakpoint-up(md) {
       padding-top: 2rem;
@@ -23,11 +23,13 @@
       grid-template-areas:
         "header header"
         "aside content";
-      grid-template-columns: 33% 1fr;
+      grid-template-columns: 33% minmax(0, 1fr);
+      // minmax(0, 1fr) is to combat a swiper issue. 
     }
 
     @include media-breakpoint-up(lg) {
-      grid-template-columns: 25% 1fr;
+      grid-template-columns: 25% minmax(0, 1fr);
+      // minmax(0, 1fr) is to combat a swiper issue.
     }
 
     .subpage__content .container,
@@ -72,6 +74,7 @@
 
 .subpage__content {
   grid-area: content;
+  // overflow: hidden;
   > * {
     margin-bottom: 1.5rem;
   }

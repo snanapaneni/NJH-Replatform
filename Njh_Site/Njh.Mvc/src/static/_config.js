@@ -7,6 +7,16 @@ exports.templates = [
     main_after: [""],
     main_insert: "article",
     main_components: ["accordion"],
+    main_components: ["image-slider"],
+  },
+  {
+    templateFilename: "home",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_after: [""],
+    main_insert: "article",
+    main_components: ["home-hero", "alert-banner", "widget-zone"],
   },
   {
     templateFilename: "elements",

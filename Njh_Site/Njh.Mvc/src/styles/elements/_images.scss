@@ -33,7 +33,9 @@ figcaption {
     width: 100%;
   }
 }
-
+.figure .icon-external-link {
+  display: none !important; // just in case
+}
 .figure.float-start,
 .figure.float-left,
 .figure[style*="float:left"],
