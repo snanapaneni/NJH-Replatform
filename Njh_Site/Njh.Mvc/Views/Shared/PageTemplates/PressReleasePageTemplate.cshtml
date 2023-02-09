@@ -1,0 +1,77 @@
+﻿@addTagHelper *, Kentico.Content.Web.Mvc
+
+@using Kentico.PageBuilder.Web.Mvc
+@using Njh.Kernel.Kentico.Models.PageTypes
+@using Njh.Mvc.Models.PageTemplateProperties
+@using Kentico.Web.Mvc
+@using Microsoft.AspNetCore.Http.Extensions
+@using Njh.Mvc.Components
+@using Njh.Mvc.Components.Navigation
+@using Kentico.Content.Web.Mvc
+@using CMS.Helpers
+@model ComponentViewModel<PressReleaseTemplateProperties>
+@{
+    var currentPage = Model.Page.ToPageType<PageType_PressRelease>();
+    var njhPressReleaseSubject = ResHelper.GetString("NJH.PressRelease.MailtoSubject");
+    var njhPressReleaseBody = ResHelper.GetString("NJH.PressRelease.MailtoBody");
+}
+
+
+<main class="app-main subpage" id="main">
+    <!-- Breadcrumb Nav -->
+    <vc:breadcrumbs></vc:breadcrumbs>
+
+    <article class="subpage__left-rail container">
+
+        <!-- Content -->
+        <section class="subpage__content" id="subpageContent">
+            <!-- Optional Sections -->
+            <!-- Reviewers -->
+            <vc:reviewers></vc:reviewers>
+            <div class="share-story">
+                <a href="mailto:?Subject=@(Uri.EscapeDataString(njhPressReleaseSubject))&amp;Body=@(Uri.EscapeDataString(njhPressReleaseBody + " " + Context.Request.GetDisplayUrl()))"
+                    class="btn btn-blue--700-outline btn-sm" rel="nofollow">
+                    <svg
+                        class="app-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path
+                            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
+                    </svg>
+                    Email Story
+                </a>
+
+                <a href="/Print?printpath=@(currentPage.NodeAliasPath)&amp;printTemplate=/Print-Templates/PressRelease"
+                    target="_blank"
+                    class="btn btn-blue--700-outline btn-sm">
+                    <svg
+                        class="app-icon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 512 512">
+                        <path
+                            d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/>
+                    </svg>
+                    <span>Print Story</span>
+                </a>
+            </div>
+            <h1>
+                @(string.IsNullOrWhiteSpace(currentPage.Title) ? currentPage.DocumentName : currentPage.Title)
+            </h1>
+            @if (!string.IsNullOrWhiteSpace(currentPage.SubHeading))
+            {
+                <p class="like-h3">@currentPage.SubHeading</p>
+            }
+            <hr class="hr-orange--500" />
+            <p><time datetime="@currentPage.PressReleaseDate.ToShortDateString()">@currentPage.PressReleaseDate.ToString("MMMM dd, yyyy")</time></p>
+            
+            @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageContent))
+
+            <!-- example of a widget zone -->
+            <editable-area area-identifier="editableRegion"/>
+        </section>
+
+        <!-- Left Nav begin, max 5 levels deep -->
+        <vc:left-nav max-depth="5"></vc:left-nav>
+        <!-- Left Nav end -->
+    </article>
+</main>

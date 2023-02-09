@@ -16,7 +16,7 @@ exports.templates = [
     main_before: [""],
     main_after: [""],
     main_insert: "article",
-    main_components: ["home-hero", "alert-banner", "widget-zone"],
+    main_components: ["home-hero", "alert-banner", "widget-zone", "accordion"],
   },
   {
     templateFilename: "elements",
@@ -88,6 +88,25 @@ exports.templates = [
     main_insert: "article",
     main_components: [],
     main_after: [""],
+  },
+
+  {
+    templateFilename: "physician",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_after: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "physician-info-box"],
+  },
+  {
+    templateFilename: "press-release",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_after: [""],
+    main_insert: "article",
+    main_components: ["subpage-aside", "press-release-content"],
   },
   {
     templateFilename: "specialty-main",

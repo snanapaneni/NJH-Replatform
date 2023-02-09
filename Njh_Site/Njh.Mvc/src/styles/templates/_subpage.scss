@@ -74,7 +74,7 @@
 
 .subpage__content {
   grid-area: content;
-  // overflow: hidden;
+  padding-bottom: 3rem;
   > * {
     margin-bottom: 1.5rem;
   }
