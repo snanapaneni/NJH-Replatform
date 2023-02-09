@@ -21,6 +21,7 @@ App.Swiper = Swiper;
 import App__appHeader from "./components/app-header";
 import App__accordion from './components/accordion';
 import App__tabs from "./components/tabs";
+import App__imageSlider from "./components/image-slider";
 import App__listBox from './components/listbox';
 
 import App__imageSlider from "./components/image-slider";
@@ -57,6 +58,7 @@ App.utils = {
   tables: App__tables,
   timers: App__timers,
   uuid: App__UUID,
+  timers: App__timers,
 };
 
 // Global App component initialization
