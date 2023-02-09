@@ -94,13 +94,21 @@ using Njh.Mvc.Models.Constants;
     IconClass = IconConstants.Picture)]
 
 [assembly: RegisterWidget(
+    ImageSliderViewComponent.Identifier,
+    typeof(ImageSliderViewComponent),
+    "NJH Image Slider Widget",
+    typeof(ImageSliderComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Slides)]
+
+[assembly: RegisterWidget(
     AccordionComponent.Identifier,
     typeof(AccordionComponent),
     "NJH Accordion Widget",
     typeof(AccordionComponentProperties),
     AllowCache = true,
     IconClass = IconConstants.Accordion)]
-// TODO do we need register Hub Hero Banner as a widget, or is it used only as part of a page template?
+
 [assembly: RegisterWidget(
     HubHeroBannerViewComponent.Identifier,
     typeof(HubHeroBannerViewComponent),
