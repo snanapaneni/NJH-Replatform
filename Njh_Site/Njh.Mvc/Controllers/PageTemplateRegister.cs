@@ -27,17 +27,24 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                customViewName: "~/Views/Shared/PageTemplates/SubPageLeftNavTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
 
+[assembly: RegisterPageTemplate("NJH.HomePageTemplate",
+                                "Home Page template",
+                                typeof(HomePageTemplateProperties),
+                                customViewName: "~/Views/Shared/PageTemplates/HomePageTemplate.cshtml",
+                                IconClass = "icon-home")]
+								
 [assembly: RegisterPageTemplate("NJH.SpecialtyMainTemplate",
     "Specialty Main Template",
     typeof(SpecialtyMainTemplateProperties),
     customViewName: "~/Views/Shared/PageTemplates/SpecialtyMainTemplate.cshtml",
-    IconClass = "icon-badge")]
-    
+    IconClass = "icon-badge")]								
+                                
 [assembly: RegisterPageTemplate("NJH.PressReleaseTemplate",
                                 "Press Release Page template",
                                 typeof(PressReleaseTemplateProperties),
                                 customViewName: "~/Views/Shared/PageTemplates/PressReleasePageTemplate.cshtml",
                                 IconClass = "icon-newspaper")]
+                                
 [assembly: RegisterPageTemplate(
                                "NJH.HubPageTemplate",
                                "Hub Page template",

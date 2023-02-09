@@ -32,6 +32,7 @@ namespace Njh.Mvc.Components.Image
         private readonly IMediaFileInfoProvider mediaFileInfo;
         private readonly ICacheService cacheService;
         private readonly ContextConfig context;
+        private readonly IImageSlideService imageSlideService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageSliderViewComponent"/> class.
@@ -47,7 +48,7 @@ namespace Njh.Mvc.Components.Image
             ICacheService cacheService,
             ContextConfig context,
             ILogger<ImageSliderViewComponent> logger,
-            IViewComponentErrorVisibility viewComponentErrorVisibility)
+            IViewComponentErrorVisibility viewComponentErrorVisibility, IImageSlideService imageSlideService)
             : base(logger, viewComponentErrorVisibility)
         {
             this.mediaFileInfo = mediaFileInfo ??
@@ -58,6 +59,7 @@ namespace Njh.Mvc.Components.Image
 
             this.context = context ??
                 throw new ArgumentNullException(nameof(context));
+            this.imageSlideService = imageSlideService;
         }
 
         /// <summary>
@@ -80,76 +82,7 @@ namespace Njh.Mvc.Components.Image
                 var slidesPath = props.SlidePaths.FirstOrDefault()?.NodeAliasPath;
                 var slidePageType = PageType_SliderImage.CLASS_NAME;
 
-                var cacheParameters = new CacheParameters
-                {
-                    CacheKey = string.Format(
-                        DataCacheKeys.DataSetByPathByType,
-                        "ImageSlider",
-                        slidesPath,
-                        slidePageType),
-                    IsCultureSpecific = true,
-                    CultureCode = this.context?.CultureName,
-                    IsSiteSpecific = true,
-                    SiteName = this.context?.Site?.SiteName,
-                };
-
-                var cachedSlides = this.cacheService.Get(
-                    cp =>
-                    {
-                        var slideDocuments = DocumentHelper.GetDocuments()
-                            .OnCurrentSite()
-                            .CombineWithDefaultCulture()
-                            .Published()
-                            .WithCoupledColumns()
-                            .LatestVersion()
-                            .Path(slidesPath, PathTypeEnum.Children)
-                            .Type(slidePageType)
-                            .OrderBy("NodeOrder")
-                            .ToList();
-
-                        var imageSlides = new List<ImageSlide>();
-
-                        foreach (var slideDoc in slideDocuments)
-                        {
-                            // NOTE: media selection in NJH Slider Image page type stores image path, not a GUID
-                            var imageSourcePath = slideDoc.GetStringValue("SlideImage", string.Empty);
-                            if (!string.IsNullOrEmpty(imageSourcePath))
-                            {
-                                var imageSourceUrl = URLHelper.ResolveUrl(imageSourcePath);
-                                // TODO is there any way to get width and height of the media image selection?
-                                var imageWidth = 0;
-                                var imageHeight = 0;
-
-                                var linkUrl = slideDoc.GetStringValue("LinkUrl", string.Empty);
-                                if (!string.IsNullOrEmpty(linkUrl))
-                                {
-                                    linkUrl = URLHelper.ResolveUrl(linkUrl);
-                                }
-
-                                imageSlides.Add(new ImageSlide()
-                                {
-                                    SlideTitle = slideDoc.GetStringValue("Title", string.Empty),
-                                    ImageSource = imageSourceUrl,
-                                    ImageWidth = imageWidth,
-                                    ImageHeight = imageHeight,
-                                    ImageAltText = slideDoc.GetStringValue("ImageAltText", string.Empty),
-                                    ImageDescription = slideDoc.GetStringValue("Description", string.Empty),
-                                    SlideLinkUrl = linkUrl,
-                                    SlideLinkTitle = slideDoc.GetStringValue("LinkTitle", string.Empty),
-                                });
-                            }
-                        }
-
-                        // set dependency: all documents in slider should bust cache
-                        cp.CacheDependencies = slideDocuments.Select(item =>
-                                this.cacheService.GetCacheKey(
-                                string.Format(DummyCacheKeys.PageSiteNodeAlias, this.context?.Site?.SiteName, item.NodeAliasPath),
-                                cacheParameters.CultureCode,
-                                cacheParameters.SiteName))
-                                .ToList();
-
-                        return imageSlides;
-                    }, cacheParameters);
+                var cachedSlides = imageSlideService.GetSlides(slidesPath).ToList();
 
                 // read SlideDuration from widget config; default 3000 milliseconds, minimum 1000.
                 int slideDuration = 3000;
