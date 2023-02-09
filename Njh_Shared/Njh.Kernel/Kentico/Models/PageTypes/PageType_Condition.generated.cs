@@ -18,27 +18,27 @@ using CMS.DataEngine;
 using CMS.DocumentEngine;
 using Njh.Kernel.Kentico.Models.PageTypes;
 
-[assembly: RegisterDocumentType(PageType_Page.CLASS_NAME, typeof(PageType_Page))]
+[assembly: RegisterDocumentType(PageType_Condition.CLASS_NAME, typeof(PageType_Condition))]
 
 namespace Njh.Kernel.Kentico.Models.PageTypes
 {
     /// <summary>
-    /// Represents a content item of type PageType_Page.
+    /// Represents a content item of type PageType_Condition.
     /// </summary>
-    public partial class PageType_Page : TreeNode
+    public partial class PageType_Condition : TreeNode
     {
         #region "Constants and variables"
 
         /// <summary>
         /// The name of the data class.
         /// </summary>
-        public const string CLASS_NAME = "NJH.PageType_Page";
+        public const string CLASS_NAME = "NJH.PageType_Condition";
 
 
         /// <summary>
-        /// The instance of the class that provides extended API for working with PageType_Page fields.
+        /// The instance of the class that provides extended API for working with PageType_Condition fields.
         /// </summary>
-        private readonly PageType_PageFields mFields;
+        private readonly PageType_ConditionFields mFields;
 
         #endregion
 
@@ -46,18 +46,18 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         #region "Properties"
 
         /// <summary>
-        /// PageType_PageID.
+        /// ConditionID.
         /// </summary>
         [DatabaseIDField]
-        public int PageType_PageID
+        public int ConditionID
         {
             get
             {
-                return ValidationHelper.GetInteger(GetValue("PageType_PageID"), 0);
+                return ValidationHelper.GetInteger(GetValue("ConditionID"), 0);
             }
             set
             {
-                SetValue("PageType_PageID", value);
+                SetValue("ConditionID", value);
             }
         }
 
@@ -113,23 +113,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Primary Category.
-        /// </summary>
-        [DatabaseField]
-        public int PrimaryCategory
-        {
-            get
-            {
-                return ValidationHelper.GetInteger(GetValue("PrimaryCategory"), 0);
-            }
-            set
-            {
-                SetValue("PrimaryCategory", value);
-            }
-        }
-
-
-        /// <summary>
         /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
         /// </summary>
         [DatabaseField]
@@ -142,23 +125,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
             set
             {
                 SetValue("FeaturedOnHomePage", value);
-            }
-        }
-
-
-        /// <summary>
-        /// Show on HTLP.
-        /// </summary>
-        [DatabaseField]
-        public bool ShowOnHTLP
-        {
-            get
-            {
-                return ValidationHelper.GetBoolean(GetValue("ShowOnHTLP"), false);
-            }
-            set
-            {
-                SetValue("ShowOnHTLP", value);
             }
         }
 
@@ -538,10 +504,163 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Gets an object that provides extended API for working with PageType_Page fields.
+        /// Treated By.
+        /// </summary>
+        [DatabaseField]
+        public string TreatedBy
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("TreatedBy"), @"");
+            }
+            set
+            {
+                SetValue("TreatedBy", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Researched by.
+        /// </summary>
+        [DatabaseField]
+        public string ResearchedBy
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ResearchedBy"), @"");
+            }
+            set
+            {
+                SetValue("ResearchedBy", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Related Clinical Trials.
+        /// </summary>
+        [DatabaseField]
+        public string RelatedClinicalTrials
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("RelatedClinicalTrials"), @"");
+            }
+            set
+            {
+                SetValue("RelatedClinicalTrials", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Related Conditions.
+        /// </summary>
+        [DatabaseField]
+        public string RelatedConditions
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("RelatedConditions"), @"");
+            }
+            set
+            {
+                SetValue("RelatedConditions", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Related Program.
+        /// </summary>
+        [DatabaseField]
+        public string RelatedProgram
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("RelatedProgram"), @"");
+            }
+            set
+            {
+                SetValue("RelatedProgram", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Locations Treating this.
+        /// </summary>
+        [DatabaseField]
+        public string RelatedLocation
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("RelatedLocation"), @"");
+            }
+            set
+            {
+                SetValue("RelatedLocation", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Related Stories.
+        /// </summary>
+        [DatabaseField]
+        public string RelatedStories
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("RelatedStories"), @"");
+            }
+            set
+            {
+                SetValue("RelatedStories", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Related News.
+        /// </summary>
+        [DatabaseField]
+        public string RelatedNews
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("RelatedNews"), @"");
+            }
+            set
+            {
+                SetValue("RelatedNews", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Related Test/Med Fact.
+        /// </summary>
+        [DatabaseField]
+        public string Related_TestMed_Facts
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Related_TestMed_Facts"), @"");
+            }
+            set
+            {
+                SetValue("Related_TestMed_Facts", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Gets an object that provides extended API for working with PageType_Condition fields.
         /// </summary>
         [RegisterProperty]
-        public PageType_PageFields Fields
+        public PageType_ConditionFields Fields
         {
             get
             {
@@ -551,39 +670,39 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Provides extended API for working with PageType_Page fields.
+        /// Provides extended API for working with PageType_Condition fields.
         /// </summary>
         [RegisterAllProperties]
-        public partial class PageType_PageFields : AbstractHierarchicalObject<PageType_PageFields>
+        public partial class PageType_ConditionFields : AbstractHierarchicalObject<PageType_ConditionFields>
         {
             /// <summary>
-            /// The content item of type PageType_Page that is a target of the extended API.
+            /// The content item of type PageType_Condition that is a target of the extended API.
             /// </summary>
-            private readonly PageType_Page mInstance;
+            private readonly PageType_Condition mInstance;
 
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="PageType_PageFields" /> class with the specified content item of type PageType_Page.
+            /// Initializes a new instance of the <see cref="PageType_ConditionFields" /> class with the specified content item of type PageType_Condition.
             /// </summary>
-            /// <param name="instance">The content item of type PageType_Page that is a target of the extended API.</param>
-            public PageType_PageFields(PageType_Page instance)
+            /// <param name="instance">The content item of type PageType_Condition that is a target of the extended API.</param>
+            public PageType_ConditionFields(PageType_Condition instance)
             {
                 mInstance = instance;
             }
 
 
             /// <summary>
-            /// PageType_PageID.
+            /// ConditionID.
             /// </summary>
-            public int ID
+            public int ConditionID
             {
                 get
                 {
-                    return mInstance.PageType_PageID;
+                    return mInstance.ConditionID;
                 }
                 set
                 {
-                    mInstance.PageType_PageID = value;
+                    mInstance.ConditionID = value;
                 }
             }
 
@@ -637,22 +756,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
             /// <summary>
-            /// Primary Category.
-            /// </summary>
-            public int PrimaryCategory
-            {
-                get
-                {
-                    return mInstance.PrimaryCategory;
-                }
-                set
-                {
-                    mInstance.PrimaryCategory = value;
-                }
-            }
-
-
-            /// <summary>
             /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
             /// </summary>
             public bool FeaturedOnHomePage
@@ -664,22 +767,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
                 set
                 {
                     mInstance.FeaturedOnHomePage = value;
-                }
-            }
-
-
-            /// <summary>
-            /// Show on HTLP.
-            /// </summary>
-            public bool ShowOnHTLP
-            {
-                get
-                {
-                    return mInstance.ShowOnHTLP;
-                }
-                set
-                {
-                    mInstance.ShowOnHTLP = value;
                 }
             }
 
@@ -1034,6 +1121,150 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
                     mInstance.IsFeaturedInSearchResults = value;
                 }
             }
+
+
+            /// <summary>
+            /// Treated By.
+            /// </summary>
+            public string TreatedBy
+            {
+                get
+                {
+                    return mInstance.TreatedBy;
+                }
+                set
+                {
+                    mInstance.TreatedBy = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Researched by.
+            /// </summary>
+            public string ResearchedBy
+            {
+                get
+                {
+                    return mInstance.ResearchedBy;
+                }
+                set
+                {
+                    mInstance.ResearchedBy = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Related Clinical Trials.
+            /// </summary>
+            public string RelatedClinicalTrials
+            {
+                get
+                {
+                    return mInstance.RelatedClinicalTrials;
+                }
+                set
+                {
+                    mInstance.RelatedClinicalTrials = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Related Conditions.
+            /// </summary>
+            public string RelatedConditions
+            {
+                get
+                {
+                    return mInstance.RelatedConditions;
+                }
+                set
+                {
+                    mInstance.RelatedConditions = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Related Program.
+            /// </summary>
+            public string RelatedProgram
+            {
+                get
+                {
+                    return mInstance.RelatedProgram;
+                }
+                set
+                {
+                    mInstance.RelatedProgram = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Locations Treating this.
+            /// </summary>
+            public string RelatedLocation
+            {
+                get
+                {
+                    return mInstance.RelatedLocation;
+                }
+                set
+                {
+                    mInstance.RelatedLocation = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Related Stories.
+            /// </summary>
+            public string RelatedStories
+            {
+                get
+                {
+                    return mInstance.RelatedStories;
+                }
+                set
+                {
+                    mInstance.RelatedStories = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Related News.
+            /// </summary>
+            public string RelatedNews
+            {
+                get
+                {
+                    return mInstance.RelatedNews;
+                }
+                set
+                {
+                    mInstance.RelatedNews = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Related Test/Med Fact.
+            /// </summary>
+            public string Related_TestMed_Facts
+            {
+                get
+                {
+                    return mInstance.Related_TestMed_Facts;
+                }
+                set
+                {
+                    mInstance.Related_TestMed_Facts = value;
+                }
+            }
         }
 
         #endregion
@@ -1042,11 +1273,11 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         #region "Constructors"
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PageType_Page" /> class.
+        /// Initializes a new instance of the <see cref="PageType_Condition" /> class.
         /// </summary>
-        public PageType_Page() : base(CLASS_NAME)
+        public PageType_Condition() : base(CLASS_NAME)
         {
-            mFields = new PageType_PageFields(this);
+            mFields = new PageType_ConditionFields(this);
         }
 
         #endregion

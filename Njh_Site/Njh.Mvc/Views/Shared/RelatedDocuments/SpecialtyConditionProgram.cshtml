@@ -1,0 +1,81 @@
+﻿@model SpecialtyConditionProgramViewModel
+<section id="@Model.ID" class="condition-programs__col col">
+    <h2>@Model.HeaderText</h2>
+    @if (!string.IsNullOrWhiteSpace(Model.ImagePath) && !string.IsNullOrWhiteSpace(Model.Url))
+    {
+        <figure>
+            <a href="@Model.Url">
+                <img
+                    src="@Model.ImagePath"
+                    title="@Model.ImageAltText"
+                    alt="@Model.ImageAltText"
+                    height="300"
+                    width="600"/>
+            </a>
+        </figure>
+    }
+      
+    @if (Model.OverviewLink != null)
+    {
+        <a class="like-h4 mb-3 d-inline-block" href="@Model.OverviewLink.Link">@Model.OverviewLink.DisplayTitle</a>
+    }
+    @if (Model.Links.Any())
+    {
+        <section class="accordion" data-hook="accordion">
+            <!-- START SINGLE ACCORDION ITEM -->
+            <div
+                id="moreConditionInfomation"
+                class="accordion__item"
+                data-hook="accordion__item">
+                <!-- HEADER -->
+                <header class="accordion__header">
+                    <!-- TRIGGER -->
+                    <button
+                        id="accordionTrigger_more@(Model.ID)"
+                        class="accordion__trigger"
+                        aria-controls="accordionPanel_more@(Model.ID)"
+                        aria-expanded="false"
+                        data-hook="accordion__trigger">
+                        @Model.MoreText
+
+                        <!-- STATE INDICATOR -->
+                        <svg
+                            class="app-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 448 512">
+                            <path
+                                class="accordion__trigger-plus"
+                                d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z"/>
+                            <path
+                                class="accordion__trigger-minus"
+                                d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z"/>
+                        </svg>
+                    </button>
+                </header>
+
+                <!-- PANEL -->
+                <div id="accordionPanel_more@(Model.ID)"
+                     class="accordion__panel"
+                     role="region"
+                     aria-hidden="true"
+                     aria-labelledby="accordionTrigger_more@(Model.ID)"
+                     data-hook="accordion__panel">
+                    <ul class="list-unstyled" role="list">
+                        @foreach (var item in Model.Links)
+                        {
+                            <li>
+                                <a href="@item.Link"> @item.DisplayTitle </a>
+                            </li>
+                        }
+                    </ul>
+                    @if (!string.IsNullOrWhiteSpace(Model.SearchText) && !string.IsNullOrWhiteSpace(Model.SearchUrl))
+                    {
+                        <a href="@Model.SearchUrl" class="btn btn-neutral--900-outline">
+                            @Model.SearchText
+                        </a>
+                    }
+                </div>
+            </div>
+        </section>
+    }
+    </section>

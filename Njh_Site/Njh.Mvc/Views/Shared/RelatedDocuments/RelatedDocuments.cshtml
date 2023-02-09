@@ -1,0 +1,29 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@model RelatedDocumentViewModel;
+
+@if (Model.RelatedDocuments.Any() || !string.IsNullOrWhiteSpace(Model.Content))
+{
+    <section class="template-condition__section">
+        <h2 class="like-h3 border-orange--500">
+            <img src="@Model.ImageUrl" role="presentation" alt="" /> @Model.Title
+        </h2>
+
+        @if (!string.IsNullOrWhiteSpace(Model.Content))
+        {
+            <p>
+                @Html.Raw(Html.Kentico().ResolveRichText(Model.Content))
+            </p>
+        }
+        
+        @if (Model.RelatedDocuments.Any())
+        {
+            <ul>
+                @foreach (var doc in Model.RelatedDocuments)
+                {
+                    <li><a href="@doc.Link">@doc.DisplayTitle</a></li>
+                }
+            </ul>
+        }
+    </section>
+}

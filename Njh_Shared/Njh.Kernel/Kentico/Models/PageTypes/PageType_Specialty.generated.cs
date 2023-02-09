@@ -9,8 +9,6 @@
 // </auto-generated>
 //--------------------------------------------------------------------------------------------------
 
-using System;
-using System.Collections.Generic;
 using CMS;
 using CMS.Base;
 using CMS.Helpers;
@@ -18,27 +16,27 @@ using CMS.DataEngine;
 using CMS.DocumentEngine;
 using Njh.Kernel.Kentico.Models.PageTypes;
 
-[assembly: RegisterDocumentType(PageType_Page.CLASS_NAME, typeof(PageType_Page))]
+[assembly: RegisterDocumentType(PageType_Specialty.CLASS_NAME, typeof(PageType_Specialty))]
 
 namespace Njh.Kernel.Kentico.Models.PageTypes
 {
     /// <summary>
-    /// Represents a content item of type PageType_Page.
+    /// Represents a content item of type PageType_Specialty.
     /// </summary>
-    public partial class PageType_Page : TreeNode
+    public partial class PageType_Specialty : TreeNode
     {
         #region "Constants and variables"
 
         /// <summary>
         /// The name of the data class.
         /// </summary>
-        public const string CLASS_NAME = "NJH.PageType_Page";
+        public const string CLASS_NAME = "NJH.PageType_Specialty";
 
 
         /// <summary>
-        /// The instance of the class that provides extended API for working with PageType_Page fields.
+        /// The instance of the class that provides extended API for working with PageType_Specialty fields.
         /// </summary>
-        private readonly PageType_PageFields mFields;
+        private readonly PageType_SpecialtyFields mFields;
 
         #endregion
 
@@ -46,18 +44,18 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         #region "Properties"
 
         /// <summary>
-        /// PageType_PageID.
+        /// PageType_SpecialtyID.
         /// </summary>
         [DatabaseIDField]
-        public int PageType_PageID
+        public int PageType_SpecialtyID
         {
             get
             {
-                return ValidationHelper.GetInteger(GetValue("PageType_PageID"), 0);
+                return ValidationHelper.GetInteger(GetValue("PageType_SpecialtyID"), 0);
             }
             set
             {
-                SetValue("PageType_PageID", value);
+                SetValue("PageType_SpecialtyID", value);
             }
         }
 
@@ -113,23 +111,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Primary Category.
-        /// </summary>
-        [DatabaseField]
-        public int PrimaryCategory
-        {
-            get
-            {
-                return ValidationHelper.GetInteger(GetValue("PrimaryCategory"), 0);
-            }
-            set
-            {
-                SetValue("PrimaryCategory", value);
-            }
-        }
-
-
-        /// <summary>
         /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
         /// </summary>
         [DatabaseField]
@@ -147,18 +128,171 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Show on HTLP.
+        /// Primary Program/Service.
         /// </summary>
         [DatabaseField]
-        public bool ShowOnHTLP
+        public Guid PrimaryProgram
         {
             get
             {
-                return ValidationHelper.GetBoolean(GetValue("ShowOnHTLP"), false);
+                return ValidationHelper.GetGuid(GetValue("PrimaryProgram"), Guid.Empty);
             }
             set
             {
-                SetValue("ShowOnHTLP", value);
+                SetValue("PrimaryProgram", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Primary Condition.
+        /// </summary>
+        [DatabaseField]
+        public Guid PrimaryCondition
+        {
+            get
+            {
+                return ValidationHelper.GetGuid(GetValue("PrimaryCondition"), Guid.Empty);
+            }
+            set
+            {
+                SetValue("PrimaryCondition", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Conditions We Treat Image.
+        /// </summary>
+        [DatabaseField]
+        public string ConditionsWeTreatImage
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ConditionsWeTreatImage"), @"");
+            }
+            set
+            {
+                SetValue("ConditionsWeTreatImage", value);
+            }
+        }
+
+
+        /// <summary>
+        /// ConditionsWeTreatImageAltText.
+        /// </summary>
+        [DatabaseField]
+        public string ConditionsWeTreatImageAltText
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ConditionsWeTreatImageAltText"), @"Conditions We Treat Image Alt Text");
+            }
+            set
+            {
+                SetValue("ConditionsWeTreatImageAltText", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Conditions We Treat Link.
+        /// </summary>
+        [DatabaseField]
+        public string ConditionsWeTreatLink
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ConditionsWeTreatLink"), @"");
+            }
+            set
+            {
+                SetValue("ConditionsWeTreatLink", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Programs and Services Image.
+        /// </summary>
+        [DatabaseField]
+        public string ProgramsAndServicesImage
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ProgramsAndServicesImage"), @"");
+            }
+            set
+            {
+                SetValue("ProgramsAndServicesImage", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Programs and Services Image Alt Text.
+        /// </summary>
+        [DatabaseField]
+        public string ProgramsAndServicesImageAltText
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ProgramsAndServicesImageAltText"), @"");
+            }
+            set
+            {
+                SetValue("ProgramsAndServicesImageAltText", value);
+            }
+        }
+
+
+        /// <summary>
+        /// ProgramsAndServicesLink.
+        /// </summary>
+        [DatabaseField]
+        public string ProgramsAndServicesLink
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ProgramsAndServicesLink"), @"");
+            }
+            set
+            {
+                SetValue("ProgramsAndServicesLink", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Show on Treatment and Programs Specialties Tab.
+        /// </summary>
+        [DatabaseField]
+        public bool SpecialtiesTab
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("SpecialtiesTab"), false);
+            }
+            set
+            {
+                SetValue("SpecialtiesTab", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Show on Treatment and Programs Pediatrics Tab.
+        /// </summary>
+        [DatabaseField]
+        public bool PediatricsTab
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("PediatricsTab"), false);
+            }
+            set
+            {
+                SetValue("PediatricsTab", value);
             }
         }
 
@@ -538,10 +672,10 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Gets an object that provides extended API for working with PageType_Page fields.
+        /// Gets an object that provides extended API for working with PageType_Specialty fields.
         /// </summary>
         [RegisterProperty]
-        public PageType_PageFields Fields
+        public PageType_SpecialtyFields Fields
         {
             get
             {
@@ -551,39 +685,39 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Provides extended API for working with PageType_Page fields.
+        /// Provides extended API for working with PageType_Specialty fields.
         /// </summary>
         [RegisterAllProperties]
-        public partial class PageType_PageFields : AbstractHierarchicalObject<PageType_PageFields>
+        public partial class PageType_SpecialtyFields : AbstractHierarchicalObject<PageType_SpecialtyFields>
         {
             /// <summary>
-            /// The content item of type PageType_Page that is a target of the extended API.
+            /// The content item of type PageType_Specialty that is a target of the extended API.
             /// </summary>
-            private readonly PageType_Page mInstance;
+            private readonly PageType_Specialty mInstance;
 
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="PageType_PageFields" /> class with the specified content item of type PageType_Page.
+            /// Initializes a new instance of the <see cref="PageType_SpecialtyFields" /> class with the specified content item of type PageType_Specialty.
             /// </summary>
-            /// <param name="instance">The content item of type PageType_Page that is a target of the extended API.</param>
-            public PageType_PageFields(PageType_Page instance)
+            /// <param name="instance">The content item of type PageType_Specialty that is a target of the extended API.</param>
+            public PageType_SpecialtyFields(PageType_Specialty instance)
             {
                 mInstance = instance;
             }
 
 
             /// <summary>
-            /// PageType_PageID.
+            /// PageType_SpecialtyID.
             /// </summary>
             public int ID
             {
                 get
                 {
-                    return mInstance.PageType_PageID;
+                    return mInstance.PageType_SpecialtyID;
                 }
                 set
                 {
-                    mInstance.PageType_PageID = value;
+                    mInstance.PageType_SpecialtyID = value;
                 }
             }
 
@@ -637,22 +771,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
             /// <summary>
-            /// Primary Category.
-            /// </summary>
-            public int PrimaryCategory
-            {
-                get
-                {
-                    return mInstance.PrimaryCategory;
-                }
-                set
-                {
-                    mInstance.PrimaryCategory = value;
-                }
-            }
-
-
-            /// <summary>
             /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
             /// </summary>
             public bool FeaturedOnHomePage
@@ -669,17 +787,161 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
             /// <summary>
-            /// Show on HTLP.
+            /// Primary Program/Service.
             /// </summary>
-            public bool ShowOnHTLP
+            public Guid PrimaryProgram
             {
                 get
                 {
-                    return mInstance.ShowOnHTLP;
+                    return mInstance.PrimaryProgram;
                 }
                 set
                 {
-                    mInstance.ShowOnHTLP = value;
+                    mInstance.PrimaryProgram = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Primary Condition.
+            /// </summary>
+            public Guid PrimaryCondition
+            {
+                get
+                {
+                    return mInstance.PrimaryCondition;
+                }
+                set
+                {
+                    mInstance.PrimaryCondition = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Conditions We Treat Image.
+            /// </summary>
+            public string ConditionsWeTreatImage
+            {
+                get
+                {
+                    return mInstance.ConditionsWeTreatImage;
+                }
+                set
+                {
+                    mInstance.ConditionsWeTreatImage = value;
+                }
+            }
+
+
+            /// <summary>
+            /// ConditionsWeTreatImageAltText.
+            /// </summary>
+            public string ConditionsWeTreatImageAltText
+            {
+                get
+                {
+                    return mInstance.ConditionsWeTreatImageAltText;
+                }
+                set
+                {
+                    mInstance.ConditionsWeTreatImageAltText = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Conditions We Treat Link.
+            /// </summary>
+            public string ConditionsWeTreatLink
+            {
+                get
+                {
+                    return mInstance.ConditionsWeTreatLink;
+                }
+                set
+                {
+                    mInstance.ConditionsWeTreatLink = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Programs and Services Image.
+            /// </summary>
+            public string ProgramsAndServicesImage
+            {
+                get
+                {
+                    return mInstance.ProgramsAndServicesImage;
+                }
+                set
+                {
+                    mInstance.ProgramsAndServicesImage = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Programs and Services Image Alt Text.
+            /// </summary>
+            public string ProgramsAndServicesImageAltText
+            {
+                get
+                {
+                    return mInstance.ProgramsAndServicesImageAltText;
+                }
+                set
+                {
+                    mInstance.ProgramsAndServicesImageAltText = value;
+                }
+            }
+
+
+            /// <summary>
+            /// ProgramsAndServicesLink.
+            /// </summary>
+            public string ProgramsAndServicesLink
+            {
+                get
+                {
+                    return mInstance.ProgramsAndServicesLink;
+                }
+                set
+                {
+                    mInstance.ProgramsAndServicesLink = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Show on Treatment and Programs Specialties Tab.
+            /// </summary>
+            public bool SpecialtiesTab
+            {
+                get
+                {
+                    return mInstance.SpecialtiesTab;
+                }
+                set
+                {
+                    mInstance.SpecialtiesTab = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Show on Treatment and Programs Pediatrics Tab.
+            /// </summary>
+            public bool PediatricsTab
+            {
+                get
+                {
+                    return mInstance.PediatricsTab;
+                }
+                set
+                {
+                    mInstance.PediatricsTab = value;
                 }
             }
 
@@ -1042,11 +1304,11 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         #region "Constructors"
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PageType_Page" /> class.
+        /// Initializes a new instance of the <see cref="PageType_Specialty" /> class.
         /// </summary>
-        public PageType_Page() : base(CLASS_NAME)
+        public PageType_Specialty() : base(CLASS_NAME)
         {
-            mFields = new PageType_PageFields(this);
+            mFields = new PageType_SpecialtyFields(this);
         }
 
         #endregion
