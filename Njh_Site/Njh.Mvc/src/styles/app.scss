@@ -74,6 +74,7 @@
 // Templates
 @import "./templates/subpage";
 @import "./templates/home";
+@import "./templates/press-release";
 @import "./templates/specialty";
 
 // Elements
@@ -87,7 +88,11 @@
 @import "./components/additional-links";
 @import "./components/alert";
 @import "./components/accordion";
+@import "./components/alphasort";
 @import "./components/blockquote";
+@import "./components/image-slider";
+@import "./components/info-boxes";
+@import './components/modal';
 @import "./components/breadcrumbs";
 @import "./components/image-slider";
 @import "./components/hub-hero";
