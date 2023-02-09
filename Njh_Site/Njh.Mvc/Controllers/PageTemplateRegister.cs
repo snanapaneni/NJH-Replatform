@@ -18,3 +18,9 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                typeof(SubPageLeftNavTemplateProperties),
                                customViewName: "~/Views/Shared/PageTemplates/SubPageLeftNavTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
+
+[assembly: RegisterPageTemplate("NJH.PressReleaseTemplate",
+                                "Press Release Page template",
+                                typeof(PressReleaseTemplateProperties),
+                                customViewName: "~/Views/Shared/PageTemplates/PressReleasePageTemplate.cshtml",
+                                IconClass = "icon-newspaper")]
