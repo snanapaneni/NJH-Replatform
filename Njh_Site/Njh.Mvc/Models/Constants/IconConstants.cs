@@ -49,6 +49,12 @@
             "icon-picture";
 
         /// <summary>
+        /// The multi-pictures icon for an image slider component.
+        /// </summary>
+        public const string Slides =
+            "icon-pictures";
+
+        /// <summary>
         /// The picture icon for an image banner.
         /// It's actually an ID card, but looks appropriate.
         /// </summary>
