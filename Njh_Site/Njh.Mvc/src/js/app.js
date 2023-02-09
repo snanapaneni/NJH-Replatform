@@ -23,12 +23,10 @@ App.Purify = DOMPurify;
 import App__appHeader from "./components/app-header";
 import App__accordion from './components/accordion';
 import App__alphasort from './components/alphasort';
-import App__tabs from "./components/tabs";
-import App__imageSlider from "./components/image-slider";
-import App__listBox from './components/listbox';
-
 import App__imageSlider from "./components/image-slider";
 import App__infoBoxes from "./components/info-boxes";
+import App__listBox from './components/listbox';
+import App__tabs from "./components/tabs";
 
 // Utilities
 import App__linkClasses from "./utilities/link-classes";
@@ -44,16 +42,16 @@ import App__UUID from "./utilities/uuid";
  * Setup the global App object
  * =========================================================================== */
 
+// Global
 App.appHeader = App__appHeader;
-
 
 // Components
 App.accordion = App__accordion;
 App.alphasort = App__alphasort;
-App.tabs = App__tabs;
 App.imageSlider = App__imageSlider;
 App.infoBoxes = App__infoBoxes;
 App.listbox = App__listBox;
+App.tabs = App__tabs;
 
 
 App.utils = {
@@ -69,17 +67,17 @@ App.utils = {
 
 // Global App component initialization
 App.init = function () {
-  console.log("App Init");
+  
+  // Global
   App.appHeader.init();
-  App.accordion.init();
-
-  App.alphasort.init();
-  // App.appSidebar.init();
+  
   // Components
+  App.accordion.init();
+  App.alphasort.init();
   App.imageSlider.init();
   App.infoBoxes.init();
-  App.tabs.init();
   App.listbox.init();
+  App.tabs.init();
 
 
   // Utilities

@@ -18,27 +18,27 @@ using CMS.DataEngine;
 using CMS.DocumentEngine;
 using Njh.Kernel.Kentico.Models.PageTypes;
 
-[assembly: RegisterDocumentType(PageType_Page.CLASS_NAME, typeof(PageType_Page))]
+[assembly: RegisterDocumentType(PageType_ClinicalTrial.CLASS_NAME, typeof(PageType_ClinicalTrial))]
 
 namespace Njh.Kernel.Kentico.Models.PageTypes
 {
     /// <summary>
-    /// Represents a content item of type PageType_Page.
+    /// Represents a content item of type PageType_ClinicalTrial.
     /// </summary>
-    public partial class PageType_Page : TreeNode
+    public partial class PageType_ClinicalTrial : TreeNode
     {
         #region "Constants and variables"
 
         /// <summary>
         /// The name of the data class.
         /// </summary>
-        public const string CLASS_NAME = "NJH.PageType_Page";
+        public const string CLASS_NAME = "NJH.PageType_ClinicalTrial";
 
 
         /// <summary>
-        /// The instance of the class that provides extended API for working with PageType_Page fields.
+        /// The instance of the class that provides extended API for working with PageType_ClinicalTrial fields.
         /// </summary>
-        private readonly PageType_PageFields mFields;
+        private readonly PageType_ClinicalTrialFields mFields;
 
         #endregion
 
@@ -46,18 +46,18 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         #region "Properties"
 
         /// <summary>
-        /// PageType_PageID.
+        /// PageType_ClinicalTrialID.
         /// </summary>
         [DatabaseIDField]
-        public int PageType_PageID
+        public int PageType_ClinicalTrialID
         {
             get
             {
-                return ValidationHelper.GetInteger(GetValue("PageType_PageID"), 0);
+                return ValidationHelper.GetInteger(GetValue("PageType_ClinicalTrialID"), 0);
             }
             set
             {
-                SetValue("PageType_PageID", value);
+                SetValue("PageType_ClinicalTrialID", value);
             }
         }
 
@@ -538,10 +538,10 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Gets an object that provides extended API for working with PageType_Page fields.
+        /// Gets an object that provides extended API for working with PageType_ClinicalTrial fields.
         /// </summary>
         [RegisterProperty]
-        public PageType_PageFields Fields
+        public PageType_ClinicalTrialFields Fields
         {
             get
             {
@@ -551,39 +551,39 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Provides extended API for working with PageType_Page fields.
+        /// Provides extended API for working with PageType_ClinicalTrial fields.
         /// </summary>
         [RegisterAllProperties]
-        public partial class PageType_PageFields : AbstractHierarchicalObject<PageType_PageFields>
+        public partial class PageType_ClinicalTrialFields : AbstractHierarchicalObject<PageType_ClinicalTrialFields>
         {
             /// <summary>
-            /// The content item of type PageType_Page that is a target of the extended API.
+            /// The content item of type PageType_ClinicalTrial that is a target of the extended API.
             /// </summary>
-            private readonly PageType_Page mInstance;
+            private readonly PageType_ClinicalTrial mInstance;
 
 
             /// <summary>
-            /// Initializes a new instance of the <see cref="PageType_PageFields" /> class with the specified content item of type PageType_Page.
+            /// Initializes a new instance of the <see cref="PageType_ClinicalTrialFields" /> class with the specified content item of type PageType_ClinicalTrial.
             /// </summary>
-            /// <param name="instance">The content item of type PageType_Page that is a target of the extended API.</param>
-            public PageType_PageFields(PageType_Page instance)
+            /// <param name="instance">The content item of type PageType_ClinicalTrial that is a target of the extended API.</param>
+            public PageType_ClinicalTrialFields(PageType_ClinicalTrial instance)
             {
                 mInstance = instance;
             }
 
 
             /// <summary>
-            /// PageType_PageID.
+            /// PageType_ClinicalTrialID.
             /// </summary>
             public int ID
             {
                 get
                 {
-                    return mInstance.PageType_PageID;
+                    return mInstance.PageType_ClinicalTrialID;
                 }
                 set
                 {
-                    mInstance.PageType_PageID = value;
+                    mInstance.PageType_ClinicalTrialID = value;
                 }
             }
 
@@ -1042,11 +1042,11 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
         #region "Constructors"
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PageType_Page" /> class.
+        /// Initializes a new instance of the <see cref="PageType_ClinicalTrial" /> class.
         /// </summary>
-        public PageType_Page() : base(CLASS_NAME)
+        public PageType_ClinicalTrial() : base(CLASS_NAME)
         {
-            mFields = new PageType_PageFields(this);
+            mFields = new PageType_ClinicalTrialFields(this);
         }
 
         #endregion

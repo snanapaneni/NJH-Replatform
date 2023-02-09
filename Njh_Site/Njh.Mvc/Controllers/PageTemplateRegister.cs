@@ -1,8 +1,13 @@
 ﻿using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Njh.Mvc.Models.PageTemplateProperties;
 
-[assembly: RegisterPageTemplate(
-                               "NJH.LandingPageTemplate",
+[assembly: RegisterPageTemplate("NJH.ConditionMainTemplate",
+                                "Condition Main Template",
+                                typeof(ConditionMainTemplateProperties),
+                                customViewName: "~/Views/Shared/PageTemplates/ConditionMainTemplate.cshtml",
+                                IconClass = "icon-box")]
+
+[assembly: RegisterPageTemplate("NJH.LandingPageTemplate",
                                "Landing page template",
                                typeof(LandingPageProperties),
                                customViewName: "~/PageTemplates/LandingPage/_LandingPageTemplate.cshtml",
@@ -27,6 +32,12 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                 typeof(HomePageTemplateProperties),
                                 customViewName: "~/Views/Shared/PageTemplates/HomePageTemplate.cshtml",
                                 IconClass = "icon-home")]
+								
+[assembly: RegisterPageTemplate("NJH.SpecialtyMainTemplate",
+    "Specialty Main Template",
+    typeof(SpecialtyMainTemplateProperties),
+    customViewName: "~/Views/Shared/PageTemplates/SpecialtyMainTemplate.cshtml",
+    IconClass = "icon-badge")]								
                                 
 [assembly: RegisterPageTemplate("NJH.PressReleaseTemplate",
                                 "Press Release Page template",
