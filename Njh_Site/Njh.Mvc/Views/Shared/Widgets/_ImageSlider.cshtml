@@ -1,6 +1,7 @@
 ﻿@using Kentico.Content.Web.Mvc
 @using Kentico.PageBuilder.Web.Mvc
 @using Kentico.Web.Mvc
+@using CMS.MacroEngine
 
 @model Njh.Mvc.Models.Widgets.ImageSliderViewModel
 
@@ -13,6 +14,8 @@
         ? Model.SlideDuration.ToString()
         : "false";
     }
+    var pauseStr = MacroResolver.Resolve("{$NJH.ImageSlider.Pause$}");
+    var playStr = MacroResolver.Resolve("{$NJH.ImageSlider.Play$}");
 }
 
 @if (Model?.Slides?.Count==0 && editMode)
@@ -31,7 +34,7 @@ else
             data-state="playing"
             data-hook="imageSlider__toggle">
             <div class="image-slider__pause">
-                    <span class="visually-hidden">{$NJH.ImageSlider.Pause$}</span>
+                <span class="visually-hidden">@pauseStr</span>
                 <svg class="app-icon"
                  xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 320 512">
@@ -40,7 +43,7 @@ else
             </div>
 
             <div class="image-slider__play">
-                    <span class="visually-hidden">{$NJH.ImageSlider.Play$}</span>
+                <span class="visually-hidden">@playStr</span>
                 <svg class="app-icon"
                  xmlns="http://www.w3.org/2000/svg"
                  viewBox="0 0 384 512">
