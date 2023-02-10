@@ -44,10 +44,16 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                 typeof(PressReleaseTemplateProperties),
                                 customViewName: "~/Views/Shared/PageTemplates/PressReleasePageTemplate.cshtml",
                                 IconClass = "icon-newspaper")]
-                                
 [assembly: RegisterPageTemplate(
                                "NJH.HubPageTemplate",
                                "Hub Page template",
                                typeof(HubPageTemplateProperties),
                                customViewName: "~/Views/Shared/PageTemplates/HubPageTemplate.cshtml",
                                IconClass = "icon-l-rows-2")]
+
+[assembly: RegisterPageTemplate(
+                                "NJH.ConditionSpecialtySubpageTemplate",
+                                "Condition/Specialty Subpage Template",
+                                typeof(ConditionSpecialtySubpageTemplateProperties),
+                                customViewName: "~/Views/Shared/PageTemplates/ConditionSpecialtySubpageTemplate.cshtml",
+                                IconClass = "icon-heartshake")]

@@ -137,6 +137,11 @@ namespace Njh.Kernel.Services
                                     false).Select(c => c.CategoryID).ToList();
                 }
 
+                if (!categories.Any())
+                {
+                    return new List<NavItem>();
+                }
+
                 var sql = $"(DocumentID in (Select DocumentID from CMS_DocumentCategory where CategoryID in ({string.Join(",", categories)})))";
 
                 // TODO:Add columns to query
