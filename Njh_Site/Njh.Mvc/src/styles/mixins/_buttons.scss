@@ -50,7 +50,7 @@
         color: map_get($var, "default");
         border-color: map_get($var, "default");
         svg {
-          fill: map_get($var, "color");
+          fill: map_get($var, "default");
         }
 
         &:not(:disabled):not(.disabled):hover,

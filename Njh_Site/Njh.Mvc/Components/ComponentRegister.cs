@@ -1,5 +1,9 @@
 ﻿using Kentico.PageBuilder.Web.Mvc;
 using Njh.Mvc.Components;
+using Njh.Mvc.Components.AdditionalLinks;
+using Njh.Mvc.Components.Accordion;
+using Njh.Mvc.Components.Banner;
+using Njh.Mvc.Components.DonationCTA;
 using Njh.Mvc.Components.Image;
 using Njh.Mvc.Components.Sections.FourColumn;
 using Njh.Mvc.Components.Sections.OneColumn;
@@ -89,3 +93,43 @@ using Njh.Mvc.Models.Constants;
     typeof(ImageComponentProperties),
     AllowCache = true,
     IconClass = IconConstants.Picture)]
+
+[assembly: RegisterWidget(
+    ImageSliderViewComponent.Identifier,
+    typeof(ImageSliderViewComponent),
+    "NJH Image Slider Widget",
+    typeof(ImageSliderComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Slides)]
+
+[assembly: RegisterWidget(
+    AccordionComponent.Identifier,
+    typeof(AccordionComponent),
+    "NJH Accordion Widget",
+    typeof(AccordionComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Accordion)]
+
+[assembly: RegisterWidget(
+    HubHeroBannerViewComponent.Identifier,
+    typeof(HubHeroBannerViewComponent),
+    "NJH Hub Hero Banner Widget",
+    typeof(HubHeroBannerViewComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.ImageBanner)]
+
+[assembly: RegisterWidget(
+    AdditionalLinksComponent.Identifier,
+    typeof(AdditionalLinksComponent),
+    "NJH Additional Links Widget",
+    typeof(AdditionalLinksComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Picture)]
+
+[assembly: RegisterWidget(
+    DonationCtaComponent.Identifier,
+    typeof(DonationCtaComponent),
+    "Donation CTA Widget",
+    typeof(DonationCtaComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Money)]

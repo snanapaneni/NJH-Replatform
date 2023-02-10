@@ -1,0 +1,79 @@
+﻿@addTagHelper *, Kentico.Content.Web.Mvc
+
+@using Kentico.PageBuilder.Web.Mvc
+@using Njh.Kernel.Kentico.Models.PageTypes
+@using Njh.Mvc.Components.Sections.OneColumnFullWidth
+@using Njh.Mvc.Components.Sections.OneColumnFullWidth
+@using Njh.Mvc.Models.PageTemplateProperties
+@using Kentico.Web.Mvc
+@model ComponentViewModel<HubPageTemplateProperties>
+@{
+    var currentPage = Model.Page.ToPageType<PageType_Page>();
+    bool HasPrimaryCta = !string.IsNullOrWhiteSpace(currentPage.CtaTitle) && !string.IsNullOrWhiteSpace(currentPage.CtaUrl);
+    bool HasSecondCta = !string.IsNullOrWhiteSpace(currentPage.Cta2Title) && !string.IsNullOrWhiteSpace(currentPage.Cta2Url);
+    bool HasThirdCta = !string.IsNullOrWhiteSpace(currentPage.Cta3Title) && !string.IsNullOrWhiteSpace(currentPage.Cta3Url);
+
+}
+
+
+<main class="app-main subpage template-hub" id="main">
+    <article class="subpage__no-rail">
+        <div class="subpage__header-cta-wrapper container">
+            @if (!string.IsNullOrWhiteSpace(currentPage.Title))
+            {
+                <header class="subpage__header">
+                    <h1>@currentPage.Title</h1>
+                </header>
+            }
+
+            <!-- CTA - Optional -->
+            <section class="subpage__cta">
+                <!-- Removes itself on mobile -->
+                @if (HasPrimaryCta)
+                {
+                    <a href="@currentPage.CtaUrl" class="btn btn-blue--700">@currentPage.CtaTitle</a>
+                }
+                @if (HasSecondCta || HasThirdCta)
+                {
+                    <ul class="separated-list" role="list">
+                        @if (HasSecondCta)
+                        {
+                            <li><a href="@currentPage.Cta2Url">@currentPage.Cta2Title</a></li>
+                        }
+                        @if (HasThirdCta)
+                        {
+                            <li><a href="@currentPage.Cta3Url">@currentPage.Cta3Title</a></li>
+                        }
+                    </ul>
+                }
+            </section>
+        </div>
+        <editable-area area-identifier="editableRegionHero" area-options-allowed-sections="new string[]{@OneColumnFullWidthSectionViewComponent.Identifier}" />
+        <!-- Content -->
+
+        <section class="subpage__content" id="subpageContent">
+
+            <vc:reviewers></vc:reviewers>
+            <div class="page-blurb container">
+                @if (!string.IsNullOrEmpty(@currentPage.PageBlurb))
+                {
+                    @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageBlurb))
+
+                }
+            </div>
+
+            <div class="rich-text container">
+                @if (!string.IsNullOrEmpty(@currentPage.PageContent))
+                {
+                    @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageContent))
+
+                }
+
+            </div>
+
+
+            <editable-area area-identifier="editableRegion" />
+        </section>
+
+    </article>
+</main>

@@ -37,10 +37,14 @@ $icon-dropdown: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' 
   position: relative;
   top: -0.125rem;
   margin: 0 0.25em 0 0.35em;
+}
 
-  svg {
-    fill: var(--has-color);
-  }
+a .app-icon {
+  fill: var(--has-color);
+}
+
+a:hover .app-icon {
+  fill: var(--bs-link-hover-color);
 }
 
 $footer-icon-color: map_get($app-colors, "blue--700");

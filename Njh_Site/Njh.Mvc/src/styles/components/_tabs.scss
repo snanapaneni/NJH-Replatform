@@ -22,15 +22,15 @@
       border-bottom-right-radius: 0;
     }
 
+    &:hover {
+      background-color: var(--purple--100);
+      color: var(--neutral--900);
+    }
+
     &[aria-selected="true"] {
       background-color: var(--purple--500);
       color: var(--neutral--100);
       z-index: 200;
-    }
-
-    &:hover {
-      background-color: var(--purple--100);
-      color: var(--neutral--900);
     }
   }
 

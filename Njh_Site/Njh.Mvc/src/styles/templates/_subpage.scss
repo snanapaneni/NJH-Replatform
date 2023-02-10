@@ -1,7 +1,9 @@
 .subpage {
   padding-top: 0px;
-  > article {
+  margin-bottom: 3rem;
+  article {
     padding-top: 1rem;
+    padding-bottom: 3rem;
     display: grid;
     grid-template-areas:
       "header"
@@ -72,9 +74,15 @@
 
 .subpage__content {
   grid-area: content;
-  // overflow: hidden;
-  > * {
+  padding-bottom: 3rem;
+  h2,
+  h3 {
+    margin-top: 3rem;
     margin-bottom: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
   }
 }
 
@@ -82,9 +90,27 @@
   grid-area: aside;
   display: none;
   position: relative;
+  padding-bottom: 3rem;
 
   @include media-breakpoint-up(md) {
     display: block;
     border-right: 1px solid var(--neutral--300);
+  }
+}
+
+
+
+// TEMPLATE HUB
+//=============================================
+.template-hub {
+
+  article {
+    grid-template-areas:
+      "header"
+      "hero"
+      "content";
+  }
+  .hub-hero {
+    grid-area: hero;
   }
 }

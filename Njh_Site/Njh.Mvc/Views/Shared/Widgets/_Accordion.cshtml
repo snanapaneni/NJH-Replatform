@@ -1,0 +1,44 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@model Njh.Mvc.Models.Widgets.AccordionViewModel
+
+@if (Model.Items?.Any() == true)
+{
+    <section class="accordion" data-hook="accordion">
+        
+        @foreach (var item in Model.Items)
+        {
+            <div id="accordion_@item.CodeName"
+                 class="accordion__item"
+                 data-hook="accordion__item">
+                <header class="accordion__header">
+                    <button id="accordionTrigger_@item.ID"
+                            class="accordion__trigger"
+                            aria-controls="accordionPanel_@item.ID"
+                            aria-expanded="false"
+                            data-hook="accordion__trigger">
+                        @item.Title
+
+                        <svg class="app-icon"
+                             xmlns="http://www.w3.org/2000/svg"
+                             viewBox="0 0 448 512">
+                            <path class="accordion__trigger-plus"
+                                  d="M256 80V48H192V80 224H48 16v64H48 192V432v32h64V432 288H400h32V224H400 256V80z"/>
+                            <path class="accordion__trigger-minus"
+                                  d="M432 288H400L48 288H16l0-64 32 0 352 0 32 0v64z"/>
+                        </svg>
+                    </button>
+                </header>
+
+                <div id="accordionPanel_@item.ID"
+                     class="accordion__panel"
+                     role="region"
+                     aria-hidden="true"
+                     aria-labelledby="accordionTrigger_@item.ID"
+                     data-hook="accordion__panel">
+                    @Html.Raw(Html.Kentico().ResolveRichText(item.Content))
+                </div>
+            </div>
+        }
+    </section>
+}

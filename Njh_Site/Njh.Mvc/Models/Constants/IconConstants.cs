@@ -49,6 +49,19 @@
             "icon-picture";
 
         /// <summary>
+        /// The multi-pictures icon for an image slider component.
+        /// </summary>
+        public const string Slides =
+            "icon-pictures";
+
+        /// <summary>
+        /// The picture icon for an image banner.
+        /// It's actually an ID card, but looks appropriate.
+        /// </summary>
+        public const string ImageBanner =
+            "icon-id-card";
+
+        /// <summary>
         /// The text icon for widgets.
         /// </summary>
         public const string Text =
@@ -77,5 +90,18 @@
         /// </summary>
         public const string Convert =
             "icon-convert";
+
+        /// <summary>
+        /// The chain/link icon for widgets.
+        /// </summary>
+        public const string Link = "icon-chain";
+        
+        /// The accordion icon for widgets.
+        /// </summary>
+        public const string Accordion = "icon-accordion";
+
+        /// The money icon for widgets.
+        /// </summary>
+        public const string Money = "icon-money-bill";
     }
 }

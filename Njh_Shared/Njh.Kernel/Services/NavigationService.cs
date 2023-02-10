@@ -291,7 +291,6 @@
             return result;
         }
 
-
         /// <inheritdoc/>
         public IEnumerable<NavItem> GetSectionNavigation(TreeNode currentNode)
         {

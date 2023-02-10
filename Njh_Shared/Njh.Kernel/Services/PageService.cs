@@ -1,4 +1,5 @@
-﻿using Njh.Kernel.Constants;
+﻿using CMS.DataEngine;
+using Njh.Kernel.Constants;
 using Njh.Kernel.Extensions;
 using Njh.Kernel.Kentico.Models.PageTypes;
 using Njh.Kernel.Models;
@@ -112,6 +113,30 @@ namespace Njh.Kernel.Services
                 : this.GetUncachedDocuments(published, nodeGuids);
         }
 
+        public IEnumerable<PageType_Page> GetChildPages(string path, IWhereCondition? where = null)
+        {
+            var cacheParameters = new CacheParameters
+            {
+                CacheKey = string.Format(
+                    DataCacheKeys.DataSetByPathByType,
+                    "childpages",
+                    path,
+                    PageType_Page.CLASS_NAME),
+                IsCultureSpecific = true,
+                CultureCode = this.contextConfig?.CultureName,
+                IsSiteSpecific = true,
+                SiteName = this.contextConfig?.SiteName,
+                CacheDependencies = new List<string>
+                {
+                    $"node|{this.contextConfig.SiteName}|{path}|childnodes",
+                },
+            };
+
+            return this.cacheService.Get(
+                () => this.GetUncachedDocuments($"{path}/%"),
+                cacheParameters);
+        }
+
         /// <summary>
         /// Get coupled data with the document.
         /// </summary>
@@ -173,6 +198,23 @@ namespace Njh.Kernel.Services
                 .ToList() ?? new List<PageType_Page>();
 
             return documents;
+        }
+
+        private IEnumerable<PageType_Page> GetUncachedDocuments(string path)
+        {
+            var toReturn =
+                new DocumentQuery<PageType_Page>()
+                    .Path(path)
+                    .OnSite(this.contextConfig.SiteName)
+                    .Culture(this.contextConfig.CultureName)
+                    .CombineWithDefaultCulture(false)
+                    .PublishedVersion()
+                    .Published()
+                    .NestingLevel(1)
+                    .OrderBy("NodeOrder")
+                    .ToList();
+
+            return toReturn;
         }
     }
 }

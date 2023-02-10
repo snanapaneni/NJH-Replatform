@@ -1,4 +1,5 @@
-﻿using Njh.Kernel.Kentico.Models.PageTypes;
+﻿using CMS.DataEngine;
+using Njh.Kernel.Kentico.Models.PageTypes;
 
 namespace Njh.Kernel.Services
 {
@@ -9,5 +10,6 @@ namespace Njh.Kernel.Services
     public interface IPageService
         : IDocumentService<PageType_Page>
     {
+        IEnumerable<PageType_Page> GetChildPages(string path, IWhereCondition? where = null);
     }
 }

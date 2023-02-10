@@ -11,6 +11,8 @@ import * as focusTrap from "focus-trap";
 import _ from "lodash";
 import Swiper from 'swiper/bundle';
 import DOMPurify from 'dompurify'
+import Swiper from "swiper/bundle";
+import DOMPurify from "dompurify";
 
 App.bootstrap = bootstrap;
 App.Swiper = Swiper;
@@ -21,10 +23,12 @@ App.Purify = DOMPurify;
  * =========================================================================== */
 // Components
 import App__appHeader from "./components/app-header";
-import App__tabs from "./components/tabs";
-
+import App__accordion from './components/accordion';
+import App__alphasort from './components/alphasort';
 import App__imageSlider from "./components/image-slider";
 import App__infoBoxes from "./components/info-boxes";
+import App__listBox from './components/listbox';
+import App__tabs from "./components/tabs";
 
 // Utilities
 import App__linkClasses from "./utilities/link-classes";
@@ -40,12 +44,17 @@ import App__UUID from "./utilities/uuid";
  * Setup the global App object
  * =========================================================================== */
 
+// Global
 App.appHeader = App__appHeader;
 
 // Components
-App.tabs = App__tabs;
+App.accordion = App__accordion;
+App.alphasort = App__alphasort;
 App.imageSlider = App__imageSlider;
 App.infoBoxes = App__infoBoxes;
+App.listbox = App__listBox;
+App.tabs = App__tabs;
+
 
 App.utils = {
   linkClasses: App__linkClasses,
@@ -60,13 +69,17 @@ App.utils = {
 
 // Global App component initialization
 App.init = function () {
-  console.log("App Init");
+  
+  // Global
   App.appHeader.init();
-
+  
   // Components
-  App.tabs.init();
+  App.accordion.init();
+  App.alphasort.init();
   App.imageSlider.init();
   App.infoBoxes.init();
+  App.listbox.init();
+  App.tabs.init();
 
 
   // Utilities
@@ -91,7 +104,8 @@ window.addEventListener("load", function (event) {
       isEscape = e.keyCode === 27;
     }
     if (isEscape) {
-      App.appHeader.closeOverlayPanels();
+        App.appHeader.closeOverlayPanels();
+        App.accordion.handleCloseAll();
     }
   };
 

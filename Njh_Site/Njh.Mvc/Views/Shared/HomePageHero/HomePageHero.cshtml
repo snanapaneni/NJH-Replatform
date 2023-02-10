@@ -1,0 +1,78 @@
+﻿@model HomePageHeroViewModel
+
+@if (Model.ImageSlides?.Any() == true)
+{
+    <section class="home-slider image-slider"
+             data-hook="imageSlider"
+             data-autoplay="@(Model.PlaySpeed > 0 ? Model.PlaySpeed.ToString() : "false")">
+
+        @if (Model.PlaySpeed > 0)
+        {
+            <!-- Only load this if autoplay is configured-->
+            <button class="image-slider__toggle"
+                    data-state="playing"
+                    data-hook="imageSlider__toggle">
+                <div class="image-slider__pause">
+                    <span class="visually-hidden">Pause Slider</span>
+                    <svg class="app-icon"
+                         xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 320 512">
+                        <path d="M128 64H0V448H128V64zm192 0H192V448H320V64z"/>
+                    </svg>
+                </div>
+
+                <div class="image-slider__play">
+                    <span class="visually-hidden">Play Slider</span>
+                    <svg class="app-icon"
+                         xmlns="http://www.w3.org/2000/svg"
+                         viewBox="0 0 384 512">
+                        <path d="M384 256L0 32V480L384 256z"/>
+                    </svg>
+                </div>
+            </button>
+        }
+
+
+        <div class="swiper" data-hook="imageSlider__swiper">
+            <div class="swiper-wrapper">
+                @foreach (var imageSlide in Model.ImageSlides)
+                {
+                    <!-- START SINGLE SLIDE  -->
+                    <div class="swiper-slide">
+                        <picture>
+                            @if (!string.IsNullOrWhiteSpace(imageSlide.MobileImageSource))
+                            {
+                                <!-- DESKTOP IMAGE -->
+                                <source srcset="@imageSlide.ImageSource"
+                                        media="(min-width: 992px)"/>
+                            }
+                            <!-- MOBILE IMAGE || DESKTOP IMAGE if not mobile set. -->
+                            <img src="@(string.IsNullOrWhiteSpace(imageSlide.MobileImageSource) ? imageSlide.ImageSource : imageSlide.MobileImageSource)"
+                                 class="home-slider__image"
+                                 alt="@imageSlide.ImageAltText"/>
+                        </picture>
+
+                        <div class="home-slider__content">
+                            <a href="@imageSlide.SlideLinkUrl">
+                                @imageSlide.SlideLinkTitle
+                                <svg class="app-icon"
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     viewBox="0 0 448 512">
+                                    <path d="M422.6 278.6L445.3 256l-22.6-22.6-144-144L256 66.7 210.8 112l22.6 22.6L322.8 224 32 224 0 224l0 64 32 0 290.7 0-89.4 89.4L210.8 400 256 445.3l22.6-22.6 144-144z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- END SINGLE SLIDE  -->
+                }
+
+            </div>
+
+            <!-- REQUIRED SWIPER STUFF -->
+            <div class="swiper-pagination"></div>
+
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+}
