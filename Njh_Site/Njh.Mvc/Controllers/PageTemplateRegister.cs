@@ -57,3 +57,10 @@ using Njh.Mvc.Models.PageTemplateProperties;
                                 typeof(ConditionSpecialtySubpageTemplateProperties),
                                 customViewName: "~/Views/Shared/PageTemplates/ConditionSpecialtySubpageTemplate.cshtml",
                                 IconClass = "icon-heartshake")]
+								
+[assembly: RegisterPageTemplate(
+                                "NJH.StoryDetailTemplate",
+                                "Story Detail template",
+                                typeof(StoryDetailTemplateProperties),
+                                customViewName: "~/Views/Shared/PageTemplates/StoryDetailTemplate.cshtml",
+                                IconClass = "icon-book-opened")]

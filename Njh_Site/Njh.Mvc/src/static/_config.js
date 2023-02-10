@@ -117,4 +117,13 @@ exports.templates = [
     main_components: ["subpage-header", "subpage-aside", "speciality-content"],
     main_after: [""],
   },
+  {
+    templateFilename: "story-detail",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "story-detail-content"],
+    main_after: [""],
+  },
 ];

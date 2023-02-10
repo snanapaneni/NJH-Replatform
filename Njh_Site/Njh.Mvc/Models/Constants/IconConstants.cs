@@ -99,5 +99,9 @@
         /// The accordion icon for widgets.
         /// </summary>
         public const string Accordion = "icon-accordion";
+
+        /// The money icon for widgets.
+        /// </summary>
+        public const string Money = "icon-money-bill";
     }
 }

@@ -3,6 +3,7 @@ using Njh.Mvc.Components;
 using Njh.Mvc.Components.AdditionalLinks;
 using Njh.Mvc.Components.Accordion;
 using Njh.Mvc.Components.Banner;
+using Njh.Mvc.Components.DonationCTA;
 using Njh.Mvc.Components.Image;
 using Njh.Mvc.Components.Sections.FourColumn;
 using Njh.Mvc.Components.Sections.OneColumn;
@@ -124,3 +125,11 @@ using Njh.Mvc.Models.Constants;
     typeof(AdditionalLinksComponentProperties),
     AllowCache = true,
     IconClass = IconConstants.Picture)]
+
+[assembly: RegisterWidget(
+    DonationCtaComponent.Identifier,
+    typeof(DonationCtaComponent),
+    "Donation CTA Widget",
+    typeof(DonationCtaComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.Money)]
