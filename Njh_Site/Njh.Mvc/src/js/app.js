@@ -11,8 +11,6 @@ import * as focusTrap from "focus-trap";
 import _ from "lodash";
 import Swiper from 'swiper/bundle';
 import DOMPurify from 'dompurify'
-import Swiper from "swiper/bundle";
-import DOMPurify from "dompurify";
 
 App.bootstrap = bootstrap;
 App.Swiper = Swiper;
