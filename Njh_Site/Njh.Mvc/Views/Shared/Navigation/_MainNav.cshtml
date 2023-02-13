@@ -7,7 +7,7 @@
 
             @foreach (var link in Model)
             {
-                if ((link.Children.Any() && link.Children.First().Children.Any()) || link.CTAItem != null)
+                if ((link.Children.Any() && link.Children.SelectMany(x => x.Children).Any(x => !string.IsNullOrWhiteSpace(x.Link))) || link.CTAItem != null)
                 {
                     <!-- Single top level item -- START-->
                     <li class="app-header__primary-nav-item@(link.IsOnPath ? " is-current" : "")"
@@ -23,7 +23,7 @@
                             @if (link.Children.Any())
                             {
                                 <div class="app-header__primary-nav-item-panel-row">
-                                    @foreach (var folder in link.Children)
+                                    @foreach (var folder in link.Children.Where(x => x.Children.Any(l => !string.IsNullOrWhiteSpace(l.Link))))
                                     {
                                         <!-- Sub level column -- START -->
                                         <div class="app-header__primary-nav-item-panel-column">
