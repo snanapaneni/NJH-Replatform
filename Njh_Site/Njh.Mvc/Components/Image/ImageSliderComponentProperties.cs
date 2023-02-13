@@ -21,15 +21,15 @@ namespace Njh.Mvc.Components.Image
         /// </summary>
         [EditingComponent(CheckBoxComponent.IDENTIFIER, Order = 2, Label = "{$NJH.ImageSlider.Autoplay.Label$}")]
         [EditingComponentProperty(nameof(CheckBoxProperties.DefaultValue), true)]
-        public bool Autoplay { get; set; }
+        public bool Autoplay { get; set; } = true;
 
         /// <summary>
         /// Gets or sets a value indicating whether to show the play / pause controls of the slide show.
-        /// Recommended value 'true'; must be 'true' if Autoplay is false.
+        /// For accessibility, value should be 'true' when Autoplay is true.
         /// </summary>
-        [EditingComponent(CheckBoxComponent.IDENTIFIER, Order = 3, Label = "{$NJH.ImageSlider.ShowControls.Label$}")]
+        [EditingComponent(CheckBoxComponent.IDENTIFIER, Order = 3, Label = "{$NJH.ImageSlider.ShowControls.Label$}", ExplanationText = "{$NJH.ImageSlider.ShowControls.Explanation$}")]
         [EditingComponentProperty(nameof(CheckBoxProperties.DefaultValue), true)]
-        public bool ShowControls { get; set; }
+        public bool ShowControls { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the time to display each slide, in milliseconds.
@@ -39,6 +39,6 @@ namespace Njh.Mvc.Components.Image
         [EditingComponentProperty(nameof(TextInputProperties.DefaultValue), "3000")]
         [EditingComponentProperty(nameof(TextInputProperties.Size), 10)]
         [EditingComponentProperty(nameof(TextInputProperties.Required), true)]
-        public string? SlideDuration { get; set; }
+        public string? SlideDuration { get; set; } = "3000";
     }
 }

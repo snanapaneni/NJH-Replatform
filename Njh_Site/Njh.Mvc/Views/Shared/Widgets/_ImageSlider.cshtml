@@ -6,6 +6,7 @@
 
 @{
     var editMode = this.Context.Kentico().PageBuilder().EditMode;
+    // autoplay is a string, either of slide duration milliseconds OR "false" (string) when disabled
     var autoplayValue = "false";
     if (Model != null)
     {
@@ -13,6 +14,7 @@
         ? Model.SlideDuration.ToString()
         : "false";
     }
+    var showControls = Model.ShowControls;
 }
 
 @if (Model?.Slides?.Count==0 && editMode)
@@ -25,7 +27,7 @@ else
        Hide the play / pause controls when not auto-playing. *@
 
     <section class="image-slider" data-hook="imageSlider" data-autoplay="@autoplayValue">
-    @if(autoplayValue != "false")
+    @if (showControls)
     {
         <button class="image-slider__toggle"
             data-state="playing"

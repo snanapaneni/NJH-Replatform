@@ -80,9 +80,11 @@ namespace Njh.Mvc.Components.Image
 
                 // get selected path to the NJH Slider Images
                 var slidesPath = props.SlidePaths.FirstOrDefault()?.NodeAliasPath;
-                var slidePageType = PageType_SliderImage.CLASS_NAME;
 
-                var cachedSlides = imageSlideService.GetSlides(slidesPath).ToList();
+                // load data only if path has been set
+                var cachedSlides = string.IsNullOrEmpty(slidesPath)
+                    ? new List<ImageSlide>()
+                    : this.imageSlideService.GetSlides(slidesPath).ToList();
 
                 // read SlideDuration from widget config; default 3000 milliseconds, minimum 1000.
                 int slideDuration = 3000;
