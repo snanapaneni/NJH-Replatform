@@ -16,7 +16,11 @@
     var analyticsScript = SettingsKeyRepository?.GetAnalyticsScript() ?? "";
 
     var pageTitleFormatted = Seo.GetFormattedPageTitle(SettingsKeyRepository, ViewBag.Title, ViewBag.TitleOverride);
-    
+
+    if (ViewBag.IsHomePage == null)
+    {
+        ViewBag.IsHomePage = false;
+    }
 }
 
 <!DOCTYPE html>
@@ -68,7 +72,11 @@
         Skip to content
     </a>
     <vc:header></vc:header>
-    <vc:alert></vc:alert>
+
+    @if (!ViewBag.IsHomePage)
+    {
+        <vc:alert></vc:alert>
+    }
 
     @RenderBody()
 
