@@ -65,10 +65,9 @@ h6,
 
 
 hr {
-  display: block;
-
-  margin: 3rem 0;
-  border-color: var(--neutral--300);
-  
+  --hr: var(--neutral--300);
+  border-top: 3px solid var(--hr);
   opacity: 1;
 }
+
+@include make-heading-rules ($app-colors);
