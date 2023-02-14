@@ -1,6 +1,7 @@
 const App__imageSlider = {
   sliders: [],
   sliderToggles: [],
+  swipers: [],
 
   init: function () {
     this.sliders = document.querySelectorAll("[data-hook=imageSlider]");
@@ -9,7 +10,11 @@ const App__imageSlider = {
 
     this.handleSliders();
 
+    this.swipers = document.querySelectorAll("[data-hook=imageSlider__swiper]");
+
     this.listenToResize();
+
+    this.listenToSwipers();
 
     this.sliderToggles = document.querySelectorAll(
       "[data-hook=imageSlider__toggle]"
@@ -25,13 +30,12 @@ const App__imageSlider = {
    * LISTENERS
    *
    */
-
   listenToToggles: function () {
     this.sliderToggles.forEach((toggle) => {
       toggle.addEventListener("click", (e) => {
         e.preventDefault();
 
-        this.handleToggle(toggle);
+        this.handleTriggerToggle(toggle);
       });
     });
   },
@@ -40,16 +44,33 @@ const App__imageSlider = {
   listenToResize: function () {
     window.onresize = App.utils.timers.debounce(function () {
       const sliders = document.querySelectorAll("[data-hook=imageSlider]");
-      sliders.forEach((slider) => {
-        const firstImage = slider.querySelector("img");
 
-        if (firstImage !== undefined) {
-          slider.style.setProperty(
-            "--swiper-button-top",
-            `${firstImage.offsetHeight / 2}px`
-          );
-        }
+      sliders.forEach((slider) => {
+        const activeImage = slider.querySelector(".swiper-slide-active img");
+
+        App__imageSlider.handleNavigationHeight(activeImage, slider);
       });
+    });
+
+    
+    
+  },
+
+
+  listenToSwipers: function () {
+
+    this.swipers.forEach((slider) => {
+      const swiper = slider.swiper;
+      swiper.on("slideChangeTransitionEnd", function () {
+         const activeImage = slider.querySelector(".swiper-slide-active img");
+
+         App__imageSlider.handleNavigationHeight(activeImage, slider);
+      });
+
+      swiper.on('autoplayStop autoplayStart', function () {
+        App__imageSlider.handleSwiperAutoPlayToggle(swiper);
+      })
+
     });
   },
   /***
@@ -66,6 +87,7 @@ const App__imageSlider = {
         autoHeight: true,
         slidesPerView: 1,
         loop: true,
+        disableOnInteraction: false,
         keyboard: {
           enabled: true,
         },
@@ -73,47 +95,62 @@ const App__imageSlider = {
           el: slider.querySelector(".swiper-pagination"),
           type: "fraction",
         },
-
-        // Navigation arrows
         navigation: {
           nextEl: slider.querySelector(".swiper-button-next"),
           prevEl: slider.querySelector(".swiper-button-prev"),
         },
       });
 
-      // center the buttons on the first image of the slider. 
-      const firstImage = slider.querySelector("img");
-
-      if (firstImage !== undefined) {
-        slider.style.setProperty(
-          "--swiper-button-top",
-          `${firstImage.offsetHeight / 2}px`
-        );
-      }
+      // center the buttons on the first image of the slider.
+      const firstImage = slider.querySelector(".swiper-slide-active img");
+      this.handleNavigationHeight(firstImage, slider);
     });
   },
 
-  handleToggle: function (target) {
-    let state = target.dataset.state;
+  handleSwiperAutoPlayToggle: function (swiper)  {
+
+    const slider = swiper?.$el[0]?.parentNode;    
+    if(slider === undefined || slider === null) return;
+
+    const trigger = slider.querySelector('[data-hook=imageSlider__toggle]');
+    
+    if(trigger === undefined || slider === null) return;
+
+    if(swiper.autoplay.running) {
+      trigger.dataset.state = "playing";
+      return
+    }
+
+    trigger.dataset.state = "paused";
+    return;
+  },
+
+  handleTriggerToggle: function (target) {
 
     const slider = target.parentNode.querySelector(
       "[data-hook=imageSlider__swiper]"
     );
 
-    if (slider === undefined || state === undefined) return;
+    if (slider === undefined || slider === null) return;
 
     const autoPlay = slider.swiper.autoplay;
 
-    if (state === "playing") {
-      autoPlay.pause();
-      target.dataset.state = "paused";
+    if (autoPlay.running) {
+      autoPlay.stop();
       return;
     }
 
-    autoPlay.run();
-    target.dataset.state = "playing";
-
+    autoPlay.start();
     return;
+  },
+
+  handleNavigationHeight: function (target, slider) {
+    if (target === undefined || target === null) return;
+
+    slider.style.setProperty(
+      "--swiper-button-top",
+      `${target.offsetHeight / 2}px`
+    );
   },
 
   /***
