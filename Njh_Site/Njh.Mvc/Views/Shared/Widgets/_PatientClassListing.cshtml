@@ -1,0 +1,34 @@
+﻿@using Kentico.PageBuilder.Web.Mvc
+@using Kentico.Web.Mvc
+@using Njh.Kernel.Models.Dto;
+
+@model Njh.Mvc.Models.Widgets.PatientClassesViewModel
+
+@{
+    var editMode = this.Context.Kentico().PageBuilder().EditMode;
+}
+
+@if (editMode && (Model == null || Model.PatientClasses.Count==0))
+{
+    <h2>Patient Class Listing widget: configuration is required.</h2>
+}
+else
+{
+    <section class="class-listings">
+    @foreach (var dayGroup in Model.PatientClasses)
+    {
+        <div class="class-listings__day">
+        <h2>@dayGroup.Key</h2>
+        <hr />
+        @foreach (var dayClass in dayGroup.Value)
+        {
+        <div class="class-listings__class">
+            <h3><a href="@dayClass.Url">@dayClass.Title</a></h3>
+            <p class="class-listings__time"><strong>@dayClass.DateInfo</strong></p>
+            @Html.Raw(dayClass.Summary)
+        </div>
+        }
+        </div>
+    }
+    </section>
+}

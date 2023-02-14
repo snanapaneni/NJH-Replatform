@@ -14,6 +14,7 @@ using Njh.Mvc.Components.Sections.TwoColumn5050;
 using Njh.Mvc.Components.Sections.TwoColumn6733;
 using Njh.Mvc.Components.Sections.TwoColumn7525;
 using Njh.Mvc.Models.Constants;
+using Njh.Mvc.Components.Patient;
 
 /*
  * Sections
@@ -133,3 +134,12 @@ using Njh.Mvc.Models.Constants;
     typeof(DonationCtaComponentProperties),
     AllowCache = true,
     IconClass = IconConstants.Money)]
+
+[assembly: RegisterWidget(
+    PatientClassListingViewComponent.Identifier,
+    typeof(PatientClassListingViewComponent),
+    "NJH Patient Classes Listing Widget",
+    typeof(PatientClassListingComponentProperties),
+    AllowCache = true,
+    IconClass = IconConstants.DateListing)]
+

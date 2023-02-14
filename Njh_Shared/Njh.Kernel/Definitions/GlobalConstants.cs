@@ -55,5 +55,16 @@ namespace Njh.Kernel.Definitions
             public static Regex RxPhone = new Regex(@"(\+\d{1})?(\d{3})(\d{3})(\d{4})");
             public const string PhoneDisplayFormat = "$2.$3.$4";
         }
+
+        /// <summary>
+        /// Miscellaneous values for use in utility and component classes.
+        /// </summary>
+        public static class Utils
+        {
+            /// <summary>
+            /// Days of the week as strings in Title Case, from Monday to Sunday.
+            /// </summary>
+            public static string[] DaysOfTheWeek = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+        }
     }
 }

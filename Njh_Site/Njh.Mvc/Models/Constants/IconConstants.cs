@@ -95,13 +95,21 @@
         /// The chain/link icon for widgets.
         /// </summary>
         public const string Link = "icon-chain";
-        
+
+        /// <summary>
         /// The accordion icon for widgets.
         /// </summary>
         public const string Accordion = "icon-accordion";
 
+        /// <summary>
         /// The money icon for widgets.
         /// </summary>
         public const string Money = "icon-money-bill";
+
+        /// <summary>
+        /// An icon with listing by date for widgets.
+        /// </summary>
+        public const string DateListing = "icon-l-calendar-number-article";
+
     }
 }
