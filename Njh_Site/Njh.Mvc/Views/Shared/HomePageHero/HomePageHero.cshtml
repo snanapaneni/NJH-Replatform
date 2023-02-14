@@ -51,17 +51,19 @@
                                  class="home-slider__image"
                                  alt="@imageSlide.ImageAltText"/>
                         </picture>
-
-                        <div class="home-slider__content">
-                            <a href="@imageSlide.SlideLinkUrl">
-                                @imageSlide.SlideLinkTitle
-                                <svg class="app-icon"
-                                     xmlns="http://www.w3.org/2000/svg"
-                                     viewBox="0 0 448 512">
-                                    <path d="M422.6 278.6L445.3 256l-22.6-22.6-144-144L256 66.7 210.8 112l22.6 22.6L322.8 224 32 224 0 224l0 64 32 0 290.7 0-89.4 89.4L210.8 400 256 445.3l22.6-22.6 144-144z"/>
-                                </svg>
-                            </a>
-                        </div>
+                        @if (!string.IsNullOrWhiteSpace(imageSlide.SlideLinkUrl) && !string.IsNullOrWhiteSpace(imageSlide.SlideLinkTitle))
+                        {
+                            <div class="home-slider__content">
+                                <a href="@imageSlide.SlideLinkUrl">
+                                    @imageSlide.SlideLinkTitle
+                                    <svg class="app-icon"
+                                         xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 448 512">
+                                        <path d="M422.6 278.6L445.3 256l-22.6-22.6-144-144L256 66.7 210.8 112l22.6 22.6L322.8 224 32 224 0 224l0 64 32 0 290.7 0-89.4 89.4L210.8 400 256 445.3l22.6-22.6 144-144z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        }
                     </div>
                     <!-- END SINGLE SLIDE  -->
                 }
