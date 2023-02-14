@@ -147,6 +147,8 @@
                             cacheParameters.SiteName))
                             .ToList();
 
+                    cp.CacheDependencies.Add(DummyCacheKeys.NodeOrder);
+
                     return navItems;
                 },
                 cacheParameters);
@@ -206,6 +208,8 @@
                             string.Format(DummyCacheKeys.PageNodeId, nodeId),
                             cacheParameters.CultureCode,
                             cacheParameters.SiteName));
+
+                    cp.CacheDependencies.Add(DummyCacheKeys.NodeOrder);
 
                     return ctaItem;
                 },
@@ -358,6 +362,7 @@
                         cp.CacheDependencies.Add(
                             string.Format(DummyCacheKeys.PageSiteNodePathChildren, cacheParameters.SiteName, sectionHead.NodeAliasPath));
                         cp.CacheDependencies.AddRange(navItems.Select(n => string.Format(DummyCacheKeys.PageNodeId, n.NodeID)));
+                        cp.CacheDependencies.Add(DummyCacheKeys.NodeOrder);
                     }
 
                     var structuredItems = StructureChildren(navItems);
@@ -461,6 +466,7 @@
                         // Bust the cache on the change to any of the nav items
                         cp.CacheDependencies.Add(string.Format(DummyCacheKeys.PageSiteNodePathChildren, cacheParameters.SiteName, path));
                         cp.CacheDependencies.AddRange(pagesList.Select(n => string.Format(DummyCacheKeys.PageNodeId, n.NodeID)));
+                        cp.CacheDependencies.Add(DummyCacheKeys.NodeOrder);
                     }
 
                     return pages;
@@ -636,6 +642,7 @@
                         cp.CacheDependencies.Add(
                             string.Format(DummyCacheKeys.PageSiteNodePathChildren, cacheParameters.SiteName, path));
                         cp.CacheDependencies.AddRange(navItems.Select(n => string.Format(DummyCacheKeys.PageNodeId, n.NodeID)));
+                        cp.CacheDependencies.Add(DummyCacheKeys.NodeOrder);
                     }
 
                     return navItems;

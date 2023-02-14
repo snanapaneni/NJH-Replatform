@@ -32,6 +32,7 @@ namespace Njh.Kernel.Services
                 CacheDependencies = new List<string>
                 {
                     $"node|{this.contextConfig.SiteName}|{path}|childnodes",
+                    DummyCacheKeys.NodeOrder,
                 },
             };
 

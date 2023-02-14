@@ -70,5 +70,10 @@
         /// customtableitem._codename_|all.
         /// </summary>
         public const string CustomTableItemsAll = "customtableitem.{0}|all";
+
+        /// <summary>
+        /// nodeorder.
+        /// </summary>
+        public const string NodeOrder = "nodeorder";
     }
 }

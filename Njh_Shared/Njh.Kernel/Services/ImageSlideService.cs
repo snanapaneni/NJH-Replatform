@@ -98,6 +98,8 @@ namespace Njh.Kernel.Services
                             cacheParameters.SiteName))
                             .ToList();
 
+                    cp.CacheDependencies.Add(DummyCacheKeys.NodeOrder);
+
                     return imageSlides;
                 }, cacheParameters);
 

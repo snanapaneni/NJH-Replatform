@@ -42,7 +42,8 @@
                                 cs.CacheDependencies = new List<string>
                                 {
                                     $"nodeid|{toReturn.NodeID}",
-                                    $"node|{this.contextConfig.SiteName}|{path}|childnodes"
+                                    $"node|{this.contextConfig.SiteName}|{path}|childnodes",
+                                    DummyCacheKeys.NodeOrder,
                                 };
                             }
 
