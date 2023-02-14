@@ -10,7 +10,7 @@ namespace Njh.Kernel.Definitions
     {
         ClinicalTrials,
         Conditions,
-        Program,
+        ProgramService,
         ResearchedBy,
         Stories,
         TestMeds,

@@ -62,7 +62,7 @@ namespace Njh.Mvc.Components.RelatedDocuments
                     }
 
                     model.Links = new List<NavItem>();
-                    var relatedServices = relatedDocumentService.GetRelatedDocuments(currentPage, new[] { PageType_Specialty.CLASS_NAME });
+                    var relatedServices = relatedDocumentService.GetRelatedDocuments(currentPage, new[] { PageType_Service.CLASS_NAME });
                     if (relatedServices.Any())
                     {
                         model.Links.AddRange(relatedServices);
