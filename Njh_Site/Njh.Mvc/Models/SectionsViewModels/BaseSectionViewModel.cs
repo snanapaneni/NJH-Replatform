@@ -7,6 +7,7 @@ namespace Njh.Mvc.Models.SectionsViewModels
         public string ThemeName { get; set; } = string.Empty;
         public string CssClass { get; set; } = string.Empty;
         public bool HasPadding { get; set; } = true;
+        public bool HasMargin { get; set; } = true;
 
         public bool UseCssClass
         {
@@ -38,6 +39,19 @@ namespace Njh.Mvc.Models.SectionsViewModels
                 : string.Empty;
         }
 
+        /// <summary>
+        /// Returns the Margin CssClass.
+        /// </summary>
+        /// <returns>
+        /// The margin CSS class.
+        /// </returns>
+        public string GetMarginCssClass()
+        {
+            return
+                HasMargin
+                ? "has-margin"
+                : string.Empty;
+        }
         /// <summary>
         /// Returns the Theme CssClass.
         /// </summary>

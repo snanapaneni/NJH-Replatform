@@ -42,6 +42,7 @@ namespace Njh.Mvc.Components.Sections.FourColumn
                {
                    var themeItem = this.sectionThemeService.GetThemesItemByGuid(themeGuid);
 
+                   model.HasMargin = secProps.HasMargin;
                    model.HasPadding = secProps.HasPadding;
                    model.CssClass = themeItem?.CssClass ?? string.Empty;
                    model.BackgroundColor = themeItem?.BackgroundColor ?? string.Empty;

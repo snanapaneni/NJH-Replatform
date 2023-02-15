@@ -23,5 +23,9 @@ namespace Njh.Mvc.Models.SectionProperties
         [EditingComponentProperty(nameof(CheckBoxProperties.DefaultValue), true)]
         public bool HasPadding { get; set; } = true;
 
+        [EditingComponent(CheckBoxComponent.IDENTIFIER, Order = 3, Label = "{$NJH.Section.Properties.HasMargin$}", ExplanationText = "{$NJH.Section.Properties.HasMargin.Explanation$}")]
+        [EditingComponentProperty(nameof(CheckBoxProperties.DefaultValue), true)]
+        public bool HasMargin { get; set; } = true;
+
     }
 }
