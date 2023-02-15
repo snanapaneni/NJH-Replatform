@@ -46,15 +46,16 @@ namespace Njh.Mvc.Models.FormComponents
         {
             List<ValidationResult> toReturn = new List<ValidationResult>();
 
+            
             int min = Properties.Min;
             int max = Properties.Max;
 
-            if (Value.Length > max)
+            if (Value?.Length > max)
             {
                 toReturn.Add(new ValidationResult($"The maximum is {max}"));
             }
 
-            if (Value.Length < min)
+            if (Value?.Length < min)
             {
                 toReturn.Add(new ValidationResult($"The minimum is {min}"));
             }
