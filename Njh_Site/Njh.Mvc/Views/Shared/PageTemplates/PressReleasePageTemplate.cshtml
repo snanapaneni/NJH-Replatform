@@ -66,8 +66,25 @@
             
             @Html.Raw(Html.Kentico().ResolveRichText(@currentPage.PageContent))
 
+            @Html.Raw(Html.Kentico().ResolveRichText(Model.Properties.BoilerPlateRTEDefaultCopy))
+
+            <div class="resources-contacts">
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <h2 class="like-h3">@Model.Properties.MediaResourcesContentTitle</h2>
+                        <hr class="hr-orange--500" />
+                        @Html.Raw(Html.Kentico().ResolveRichText(@Model.Properties.MediaResourcesContent))
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                        <h2 class="like-h3">@Model.Properties.MediaContactsContentTitle</h2>
+                        <hr class="hr-orange--500" />
+                        @Html.Raw(Html.Kentico().ResolveRichText(@Model.Properties.MediaContactsContent))
+                    </div>
+                </div>
+            </div>
             <!-- example of a widget zone -->
-            <editable-area area-identifier="editableRegion"/>
+            <editable-area area-identifier="editableRegion" />
         </section>
 
         <!-- Left Nav begin, max 5 levels deep -->
