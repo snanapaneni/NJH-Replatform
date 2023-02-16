@@ -27,7 +27,7 @@ else
        Hide the play / pause controls when not auto-playing. *@
 
     <section class="image-slider" data-hook="imageSlider" data-autoplay="@autoplayValue">
-    @if (showControls)
+    @if (Model.Autoplay && Model.ShowControls)
     {
         <button class="image-slider__toggle"
             data-state="playing"

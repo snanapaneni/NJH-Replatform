@@ -17,7 +17,7 @@
         /// Gets or sets a value indicating whether to show the play / pause controls of the slide show.
         /// Recommended value 'true'; must be 'true' if Autoplay is false.
         /// </summary>
-        public bool ShowControls { get; set; }
+        public bool ShowControls { get; set; } = true;
 
         /// <summary>
         /// Gets or sets the time to display each slide, in milliseconds.

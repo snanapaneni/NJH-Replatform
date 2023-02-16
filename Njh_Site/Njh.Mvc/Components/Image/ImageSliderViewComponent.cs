@@ -97,7 +97,6 @@ namespace Njh.Mvc.Components.Image
                 {
                     Slides = cachedSlides,
                     Autoplay = props.Autoplay,
-                    ShowControls = props.ShowControls,
                     SlideDuration = slideDuration,
                 };
 

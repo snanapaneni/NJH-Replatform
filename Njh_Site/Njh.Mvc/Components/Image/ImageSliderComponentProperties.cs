@@ -24,21 +24,14 @@ namespace Njh.Mvc.Components.Image
         public bool Autoplay { get; set; } = true;
 
         /// <summary>
-        /// Gets or sets a value indicating whether to show the play / pause controls of the slide show.
-        /// For accessibility, value should be 'true' when Autoplay is true.
-        /// </summary>
-        [EditingComponent(CheckBoxComponent.IDENTIFIER, Order = 3, Label = "{$NJH.ImageSlider.ShowControls.Label$}", ExplanationText = "{$NJH.ImageSlider.ShowControls.Explanation$}")]
-        [EditingComponentProperty(nameof(CheckBoxProperties.DefaultValue), true)]
-        public bool ShowControls { get; set; } = true;
-
-        /// <summary>
         /// Gets or sets the time to display each slide, in milliseconds.
         /// </summary>
-        [EditingComponent(TextInputComponent.IDENTIFIER, Order = 4, Label = "{$NJH.ImageSlider.Duration.Label$}", ExplanationText = "{$NJH.ImageSlider.Duration.Explanation$}")]
+        [EditingComponent(TextInputComponent.IDENTIFIER, Order = 3, Label = "{$NJH.ImageSlider.Duration.Label$}", ExplanationText = "{$NJH.ImageSlider.Duration.Explanation$}")]
         // [EditingComponentProperty(nameof(TextInputProperties.DataType), nameof(Int32))]
         [EditingComponentProperty(nameof(TextInputProperties.DefaultValue), "3000")]
         [EditingComponentProperty(nameof(TextInputProperties.Size), 10)]
         [EditingComponentProperty(nameof(TextInputProperties.Required), true)]
+        [VisibilityCondition(nameof(Autoplay), ComparisonTypeEnum.IsEqualTo, true, StringComparison = StringComparison.OrdinalIgnoreCase)]
         public string? SlideDuration { get; set; } = "3000";
     }
 }
