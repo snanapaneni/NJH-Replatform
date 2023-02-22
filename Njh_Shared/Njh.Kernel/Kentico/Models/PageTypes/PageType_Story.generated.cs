@@ -351,23 +351,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
         /// <summary>
-        /// Sub Header.
-        /// </summary>
-        [DatabaseField]
-        public string SubHeader
-        {
-            get
-            {
-                return ValidationHelper.GetString(GetValue("SubHeader"), @"");
-            }
-            set
-            {
-                SetValue("SubHeader", value);
-            }
-        }
-
-
-        /// <summary>
         /// Story Type.
         /// </summary>
         [DatabaseField]
@@ -380,6 +363,91 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
             set
             {
                 SetValue("StoryType", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Person's First Name.
+        /// </summary>
+        [DatabaseField]
+        public string PersonFirstName
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PersonFirstName"), @"");
+            }
+            set
+            {
+                SetValue("PersonFirstName", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Person's Full Name.
+        /// </summary>
+        [DatabaseField]
+        public string PersonFullName
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PersonFullName"), @"");
+            }
+            set
+            {
+                SetValue("PersonFullName", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Testimonial Photo.
+        /// </summary>
+        [DatabaseField]
+        public string TestimonialPhoto
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("TestimonialPhoto"), @"");
+            }
+            set
+            {
+                SetValue("TestimonialPhoto", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Testimonial Photo Alt Text.
+        /// </summary>
+        [DatabaseField]
+        public string TestimonialPhotoAltText
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("TestimonialPhotoAltText"), @"");
+            }
+            set
+            {
+                SetValue("TestimonialPhotoAltText", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Testimonial Content.
+        /// </summary>
+        [DatabaseField]
+        public string TestimonialContent
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("TestimonialContent"), @"");
+            }
+            set
+            {
+                SetValue("TestimonialContent", value);
             }
         }
 
@@ -895,22 +963,6 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
 
 
             /// <summary>
-            /// Sub Header.
-            /// </summary>
-            public string SubHeader
-            {
-                get
-                {
-                    return mInstance.SubHeader;
-                }
-                set
-                {
-                    mInstance.SubHeader = value;
-                }
-            }
-
-
-            /// <summary>
             /// Story Type.
             /// </summary>
             public string StoryType
@@ -922,6 +974,86 @@ namespace Njh.Kernel.Kentico.Models.PageTypes
                 set
                 {
                     mInstance.StoryType = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Person's First Name.
+            /// </summary>
+            public string PersonFirstName
+            {
+                get
+                {
+                    return mInstance.PersonFirstName;
+                }
+                set
+                {
+                    mInstance.PersonFirstName = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Person's Full Name.
+            /// </summary>
+            public string PersonFullName
+            {
+                get
+                {
+                    return mInstance.PersonFullName;
+                }
+                set
+                {
+                    mInstance.PersonFullName = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Testimonial Photo.
+            /// </summary>
+            public string TestimonialPhoto
+            {
+                get
+                {
+                    return mInstance.TestimonialPhoto;
+                }
+                set
+                {
+                    mInstance.TestimonialPhoto = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Testimonial Photo Alt Text.
+            /// </summary>
+            public string TestimonialPhotoAltText
+            {
+                get
+                {
+                    return mInstance.TestimonialPhotoAltText;
+                }
+                set
+                {
+                    mInstance.TestimonialPhotoAltText = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Testimonial Content.
+            /// </summary>
+            public string TestimonialContent
+            {
+                get
+                {
+                    return mInstance.TestimonialContent;
+                }
+                set
+                {
+                    mInstance.TestimonialContent = value;
                 }
             }
 
