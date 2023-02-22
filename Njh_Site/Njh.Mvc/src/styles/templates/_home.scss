@@ -14,7 +14,18 @@
     img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 300px;
+      object-fit: cover;
+      object-position: center;
+      
+      @include media-breakpoint-up(sm) {
+        height: 400px;
+      }
+
+      @include media-breakpoint-up(md) {
+        height: 500px;
+      }
+
     }
 
     &__content {

@@ -23,6 +23,9 @@ const App__linkClasses = {
       '[href*="njhealth.org"]',
       '[href*="njhmvc"]',
       '[href*="localhost"]',
+
+      // Manual override
+      '.hide-external-icon'
     ];
 
     // The selectors we want to target.

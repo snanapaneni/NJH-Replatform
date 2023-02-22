@@ -37,6 +37,10 @@ $icon-dropdown: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' 
   position: relative;
   top: -0.125rem;
   margin: 0 0.25em 0 0.35em;
+
+  .hide-external-icon & {
+    display: none !important;
+  }
 }
 
 a .app-icon {

@@ -2,7 +2,7 @@
 
 @if (Model.ImageSlides?.Any() == true)
 {
-    <section class="home-slider image-slider"
+    <section class="home-slider image-slider hide-external-icon"
              data-hook="imageSlider"
              data-autoplay="@(Model.PlaySpeed > 0 ? Model.PlaySpeed.ToString() : "false")">
 
