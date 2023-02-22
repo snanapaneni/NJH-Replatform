@@ -3,12 +3,19 @@
   background-color: var(--orange--900);
   color: var(--neutral--100);
   fill: var(--neutral--100);
-  
+
   &-row {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    @include ios-13-below() {
+      > * {
+        margin-left: .5rem;
+        margin-right: .5rem;
+      }
+    }
   }
   a {
     color: var(--neutral--100);

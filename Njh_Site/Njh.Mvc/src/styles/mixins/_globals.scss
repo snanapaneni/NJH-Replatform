@@ -70,3 +70,9 @@
     margin-right: 0.5rem;
   }
 }
+
+@mixin ios-13-below() {
+	@supports (-webkit-touch-callout: none) and (not (translate: none)) {
+		@content;
+	}
+}
