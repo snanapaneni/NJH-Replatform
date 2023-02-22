@@ -22,835 +22,2559 @@ using Njh.Kernel.Kentico.Models.PageTypes;
 
 namespace Njh.Kernel.Kentico.Models.PageTypes
 {
-	/// <summary>
-	/// Represents a content item of type PageType_Physician.
-	/// </summary>
-	public partial class PageType_Physician : TreeNode
-	{
-		#region "Constants and variables"
-
-		/// <summary>
-		/// The name of the data class.
-		/// </summary>
-		public const string CLASS_NAME = "NJH.PageType_Physician";
-
-
-		/// <summary>
-		/// The instance of the class that provides extended API for working with PageType_Physician fields.
-		/// </summary>
-		private readonly PageType_PhysicianFields mFields;
-
-		#endregion
-
-
-		#region "Properties"
-
-		/// <summary>
-		/// PageType_PhysicianID.
-		/// </summary>
-		[DatabaseIDField]
-		public int PageType_PhysicianID
-		{
-			get
-			{
-				return ValidationHelper.GetInteger(GetValue("PageType_PhysicianID"), 0);
-			}
-			set
-			{
-				SetValue("PageType_PhysicianID", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Page Name.
-		/// </summary>
-		[DatabaseField]
-		public string PageName
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("PageName"), @"");
-			}
-			set
-			{
-				SetValue("PageName", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Page Title.
-		/// </summary>
-		[DatabaseField]
-		public string Title
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Title"), @"");
-			}
-			set
-			{
-				SetValue("Title", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Categories.
-		/// </summary>
-		public string Categories1
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Categories"), @"");
-			}
-			set
-			{
-				SetValue("Categories", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
-		/// </summary>
-		[DatabaseField]
-		public bool FeaturedOnHomePage
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("FeaturedOnHomePage"), false);
-			}
-			set
-			{
-				SetValue("FeaturedOnHomePage", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Display Name.
-		/// </summary>
-		[DatabaseField]
-		public string PhysicianDisplayName
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("PhysicianDisplayName"), @"");
-			}
-			set
-			{
-				SetValue("PhysicianDisplayName", value);
-			}
-		}
-
-
-		/// <summary>
-		/// First Name.
-		/// </summary>
-		[DatabaseField]
-		public string FirstName
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("FirstName"), @"");
-			}
-			set
-			{
-				SetValue("FirstName", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Middle Name.
-		/// </summary>
-		[DatabaseField]
-		public string MiddleName
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("MiddleName"), @"");
-			}
-			set
-			{
-				SetValue("MiddleName", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Last Name.
-		/// </summary>
-		[DatabaseField]
-		public string LastName
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("LastName"), @"");
-			}
-			set
-			{
-				SetValue("LastName", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Suffix.
-		/// </summary>
-		[DatabaseField]
-		public string Suffix
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Suffix"), @"");
-			}
-			set
-			{
-				SetValue("Suffix", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Email.
-		/// </summary>
-		[DatabaseField]
-		public string Email
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Email"), @"");
-			}
-			set
-			{
-				SetValue("Email", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Professional Titles.
-		/// </summary>
-		[DatabaseField]
-		public string ProfessionalTitles
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("ProfessionalTitles"), @"");
-			}
-			set
-			{
-				SetValue("ProfessionalTitles", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Page Blurb.
-		/// </summary>
-		[DatabaseField]
-		public string PageBlurb
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("PageBlurb"), @"");
-			}
-			set
-			{
-				SetValue("PageBlurb", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Page Image (888x507).
-		/// </summary>
-		[DatabaseField]
-		public string PageImage
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("PageImage"), @"");
-			}
-			set
-			{
-				SetValue("PageImage", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Page Image Alt Text.
-		/// </summary>
-		[DatabaseField]
-		public string PageImageAltText
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("PageImageAltText"), @"");
-			}
-			set
-			{
-				SetValue("PageImageAltText", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Short Description/Summary.
-		/// </summary>
-		[DatabaseField]
-		public string Summary
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Summary"), @"");
-			}
-			set
-			{
-				SetValue("Summary", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Check this box if you do not want the link in a test directory to link.
-		/// </summary>
-		[DatabaseField]
-		public bool Hide_URL
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("Hide_URL"), false);
-			}
-			set
-			{
-				SetValue("Hide_URL", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Reviewed Date.
-		/// </summary>
-		[DatabaseField]
-		public DateTime ReviewedDate
-		{
-			get
-			{
-				return ValidationHelper.GetDateTime(GetValue("ReviewedDate"), DateTimeHelper.ZERO_TIME);
-			}
-			set
-			{
-				SetValue("ReviewedDate", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Reviewed By.
-		/// </summary>
-		[DatabaseField]
-		public string ReviewedBy
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("ReviewedBy"), @"");
-			}
-			set
-			{
-				SetValue("ReviewedBy", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Content Contact.
-		/// </summary>
-		[DatabaseField]
-		public string Document_Reviewer
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Document_Reviewer"), @"");
-			}
-			set
-			{
-				SetValue("Document_Reviewer", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Review Comments.
-		/// </summary>
-		[DatabaseField]
-		public string Review_Comments
-		{
-			get
-			{
-				return ValidationHelper.GetString(GetValue("Review_Comments"), @"");
-			}
-			set
-			{
-				SetValue("Review_Comments", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Last Review Date.
-		/// </summary>
-		[DatabaseField]
-		public DateTime Last_review_date
-		{
-			get
-			{
-				return ValidationHelper.GetDateTime(GetValue("Last_review_date"), DateTimeHelper.ZERO_TIME);
-			}
-			set
-			{
-				SetValue("Last_review_date", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Featured this in site search results.
-		/// </summary>
-		[DatabaseField]
-		public bool IsFeaturedInSearchResults
-		{
-			get
-			{
-				return ValidationHelper.GetBoolean(GetValue("IsFeaturedInSearchResults"), false);
-			}
-			set
-			{
-				SetValue("IsFeaturedInSearchResults", value);
-			}
-		}
-
-
-		/// <summary>
-		/// Gets an object that provides extended API for working with PageType_Physician fields.
-		/// </summary>
-		[RegisterProperty]
-		public PageType_PhysicianFields Fields
-		{
-			get
-			{
-				return mFields;
-			}
-		}
-
-
-		/// <summary>
-		/// Provides extended API for working with PageType_Physician fields.
-		/// </summary>
-		[RegisterAllProperties]
-		public partial class PageType_PhysicianFields : AbstractHierarchicalObject<PageType_PhysicianFields>
-		{
-			/// <summary>
-			/// The content item of type PageType_Physician that is a target of the extended API.
-			/// </summary>
-			private readonly PageType_Physician mInstance;
-
-
-			/// <summary>
-			/// Initializes a new instance of the <see cref="PageType_PhysicianFields" /> class with the specified content item of type PageType_Physician.
-			/// </summary>
-			/// <param name="instance">The content item of type PageType_Physician that is a target of the extended API.</param>
-			public PageType_PhysicianFields(PageType_Physician instance)
-			{
-				mInstance = instance;
-			}
-
-
-			/// <summary>
-			/// PageType_PhysicianID.
-			/// </summary>
-			public int ID
-			{
-				get
-				{
-					return mInstance.PageType_PhysicianID;
-				}
-				set
-				{
-					mInstance.PageType_PhysicianID = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Page Name.
-			/// </summary>
-			public string PageName
-			{
-				get
-				{
-					return mInstance.PageName;
-				}
-				set
-				{
-					mInstance.PageName = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Page Title.
-			/// </summary>
-			public string Title
-			{
-				get
-				{
-					return mInstance.Title;
-				}
-				set
-				{
-					mInstance.Title = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Categories.
-			/// </summary>
-			public string Categories
-			{
-				get
-				{
-					return mInstance.Categories1;
-				}
-				set
-				{
-					mInstance.Categories1 = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
-			/// </summary>
-			public bool FeaturedOnHomePage
-			{
-				get
-				{
-					return mInstance.FeaturedOnHomePage;
-				}
-				set
-				{
-					mInstance.FeaturedOnHomePage = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Display Name.
-			/// </summary>
-			public string PhysicianDisplayName
-			{
-				get
-				{
-					return mInstance.PhysicianDisplayName;
-				}
-				set
-				{
-					mInstance.PhysicianDisplayName = value;
-				}
-			}
-
-
-			/// <summary>
-			/// First Name.
-			/// </summary>
-			public string FirstName
-			{
-				get
-				{
-					return mInstance.FirstName;
-				}
-				set
-				{
-					mInstance.FirstName = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Middle Name.
-			/// </summary>
-			public string MiddleName
-			{
-				get
-				{
-					return mInstance.MiddleName;
-				}
-				set
-				{
-					mInstance.MiddleName = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Last Name.
-			/// </summary>
-			public string LastName
-			{
-				get
-				{
-					return mInstance.LastName;
-				}
-				set
-				{
-					mInstance.LastName = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Suffix.
-			/// </summary>
-			public string Suffix
-			{
-				get
-				{
-					return mInstance.Suffix;
-				}
-				set
-				{
-					mInstance.Suffix = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Email.
-			/// </summary>
-			public string Email
-			{
-				get
-				{
-					return mInstance.Email;
-				}
-				set
-				{
-					mInstance.Email = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Professional Titles.
-			/// </summary>
-			public string ProfessionalTitles
-			{
-				get
-				{
-					return mInstance.ProfessionalTitles;
-				}
-				set
-				{
-					mInstance.ProfessionalTitles = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Page Blurb.
-			/// </summary>
-			public string PageBlurb
-			{
-				get
-				{
-					return mInstance.PageBlurb;
-				}
-				set
-				{
-					mInstance.PageBlurb = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Page Image (888x507).
-			/// </summary>
-			public string PageImage
-			{
-				get
-				{
-					return mInstance.PageImage;
-				}
-				set
-				{
-					mInstance.PageImage = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Page Image Alt Text.
-			/// </summary>
-			public string PageImageAltText
-			{
-				get
-				{
-					return mInstance.PageImageAltText;
-				}
-				set
-				{
-					mInstance.PageImageAltText = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Short Description/Summary.
-			/// </summary>
-			public string Summary
-			{
-				get
-				{
-					return mInstance.Summary;
-				}
-				set
-				{
-					mInstance.Summary = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Check this box if you do not want the link in a test directory to link.
-			/// </summary>
-			public bool Hide_URL
-			{
-				get
-				{
-					return mInstance.Hide_URL;
-				}
-				set
-				{
-					mInstance.Hide_URL = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Reviewed Date.
-			/// </summary>
-			public DateTime ReviewedDate
-			{
-				get
-				{
-					return mInstance.ReviewedDate;
-				}
-				set
-				{
-					mInstance.ReviewedDate = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Reviewed By.
-			/// </summary>
-			public string ReviewedBy
-			{
-				get
-				{
-					return mInstance.ReviewedBy;
-				}
-				set
-				{
-					mInstance.ReviewedBy = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Content Contact.
-			/// </summary>
-			public string Document_Reviewer
-			{
-				get
-				{
-					return mInstance.Document_Reviewer;
-				}
-				set
-				{
-					mInstance.Document_Reviewer = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Review Comments.
-			/// </summary>
-			public string Review_Comments
-			{
-				get
-				{
-					return mInstance.Review_Comments;
-				}
-				set
-				{
-					mInstance.Review_Comments = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Last Review Date.
-			/// </summary>
-			public DateTime Last_review_date
-			{
-				get
-				{
-					return mInstance.Last_review_date;
-				}
-				set
-				{
-					mInstance.Last_review_date = value;
-				}
-			}
-
-
-			/// <summary>
-			/// Featured this in site search results.
-			/// </summary>
-			public bool IsFeaturedInSearchResults
-			{
-				get
-				{
-					return mInstance.IsFeaturedInSearchResults;
-				}
-				set
-				{
-					mInstance.IsFeaturedInSearchResults = value;
-				}
-			}
-		}
-
-		#endregion
-
-
-		#region "Constructors"
-
-		/// <summary>
-		/// Initializes a new instance of the <see cref="PageType_Physician" /> class.
-		/// </summary>
-		public PageType_Physician() : base(CLASS_NAME)
-		{
-			mFields = new PageType_PhysicianFields(this);
-		}
-
-		#endregion
-	}
+    /// <summary>
+    /// Represents a content item of type PageType_Physician.
+    /// </summary>
+    public partial class PageType_Physician : TreeNode
+    {
+        #region "Constants and variables"
+
+        /// <summary>
+        /// The name of the data class.
+        /// </summary>
+        public const string CLASS_NAME = "NJH.PageType_Physician";
+
+
+        /// <summary>
+        /// The instance of the class that provides extended API for working with PageType_Physician fields.
+        /// </summary>
+        private readonly PageType_PhysicianFields mFields;
+
+        #endregion
+
+
+        #region "Properties"
+
+        /// <summary>
+        /// PageType_PhysicianID.
+        /// </summary>
+        [DatabaseIDField]
+        public int PageType_PhysicianID
+        {
+            get
+            {
+                return ValidationHelper.GetInteger(GetValue("PageType_PhysicianID"), 0);
+            }
+            set
+            {
+                SetValue("PageType_PhysicianID", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Page Name.
+        /// </summary>
+        [DatabaseField]
+        public string PageName
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PageName"), @"");
+            }
+            set
+            {
+                SetValue("PageName", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Page Title.
+        /// </summary>
+        [DatabaseField]
+        public string Title
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Title"), @"");
+            }
+            set
+            {
+                SetValue("Title", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Categories.
+        /// </summary>
+        public string Categories1
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Categories"), @"");
+            }
+            set
+            {
+                SetValue("Categories", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Primary Category.
+        /// </summary>
+        [DatabaseField]
+        public int PrimaryCategory
+        {
+            get
+            {
+                return ValidationHelper.GetInteger(GetValue("PrimaryCategory"), 0);
+            }
+            set
+            {
+                SetValue("PrimaryCategory", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
+        /// </summary>
+        [DatabaseField]
+        public bool FeaturedOnHomePage
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("FeaturedOnHomePage"), false);
+            }
+            set
+            {
+                SetValue("FeaturedOnHomePage", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Featured this in site search results.
+        /// </summary>
+        [DatabaseField]
+        public bool IsFeaturedInSearchResults
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("IsFeaturedInSearchResults"), false);
+            }
+            set
+            {
+                SetValue("IsFeaturedInSearchResults", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Show on HTLP.
+        /// </summary>
+        [DatabaseField]
+        public bool ShowOnHTLP
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("ShowOnHTLP"), false);
+            }
+            set
+            {
+                SetValue("ShowOnHTLP", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Do you treat.
+        /// </summary>
+        [DatabaseField]
+        public string TreatPediatricsAdults
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("TreatPediatricsAdults"), @"");
+            }
+            set
+            {
+                SetValue("TreatPediatricsAdults", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Do you see Patients?.
+        /// </summary>
+        [DatabaseField]
+        public string SeesPatients
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("SeesPatients"), @"");
+            }
+            set
+            {
+                SetValue("SeesPatients", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Person Type.
+        /// </summary>
+        [DatabaseField]
+        public string PersonType
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PersonType"), @"");
+            }
+            set
+            {
+                SetValue("PersonType", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Research Area Complete.
+        /// </summary>
+        [DatabaseField]
+        public string ResearchComplete
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ResearchComplete"), @"");
+            }
+            set
+            {
+                SetValue("ResearchComplete", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Media Source Doctor.
+        /// </summary>
+        [DatabaseField]
+        public bool MediaSourceDoctor
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("MediaSourceDoctor"), false);
+            }
+            set
+            {
+                SetValue("MediaSourceDoctor", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Content Contact.
+        /// </summary>
+        [DatabaseField]
+        public string Document_Reviewer
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Document_Reviewer"), @"");
+            }
+            set
+            {
+                SetValue("Document_Reviewer", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Review Comments.
+        /// </summary>
+        [DatabaseField]
+        public string Review_Comments
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Review_Comments"), @"");
+            }
+            set
+            {
+                SetValue("Review_Comments", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Last Review Date.
+        /// </summary>
+        [DatabaseField]
+        public DateTime Last_review_date
+        {
+            get
+            {
+                return ValidationHelper.GetDateTime(GetValue("Last_review_date"), DateTimeHelper.ZERO_TIME);
+            }
+            set
+            {
+                SetValue("Last_review_date", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Display Name.
+        /// </summary>
+        [DatabaseField]
+        public string PhysicianDisplayName
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PhysicianDisplayName"), @"");
+            }
+            set
+            {
+                SetValue("PhysicianDisplayName", value);
+            }
+        }
+
+
+        /// <summary>
+        /// First Name.
+        /// </summary>
+        [DatabaseField]
+        public string FirstName
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("FirstName"), @"");
+            }
+            set
+            {
+                SetValue("FirstName", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Middle Name.
+        /// </summary>
+        [DatabaseField]
+        public string MiddleName
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("MiddleName"), @"");
+            }
+            set
+            {
+                SetValue("MiddleName", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Last Name.
+        /// </summary>
+        [DatabaseField]
+        public string LastName
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("LastName"), @"");
+            }
+            set
+            {
+                SetValue("LastName", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Suffix.
+        /// </summary>
+        [DatabaseField]
+        public string Suffix
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Suffix"), @"");
+            }
+            set
+            {
+                SetValue("Suffix", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Email.
+        /// </summary>
+        [DatabaseField]
+        public string Email
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Email"), @"");
+            }
+            set
+            {
+                SetValue("Email", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Do Not Show Email in Bio.
+        /// </summary>
+        [DatabaseField]
+        public bool HideEmail
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("HideEmail"), true);
+            }
+            set
+            {
+                SetValue("HideEmail", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Gender.
+        /// </summary>
+        [DatabaseField]
+        public string Gender
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Gender"), @"");
+            }
+            set
+            {
+                SetValue("Gender", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Page Image (888x507).
+        /// </summary>
+        [DatabaseField]
+        public string PageImage
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PageImage"), @"");
+            }
+            set
+            {
+                SetValue("PageImage", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Page Image Alt Text.
+        /// </summary>
+        [DatabaseField]
+        public string PageImageAltText
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PageImageAltText"), @"");
+            }
+            set
+            {
+                SetValue("PageImageAltText", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Curriculum Vitae.
+        /// </summary>
+        [DatabaseField]
+        public string CurriculumVitae
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("CurriculumVitae"), @"");
+            }
+            set
+            {
+                SetValue("CurriculumVitae", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Professional Titles.
+        /// </summary>
+        [DatabaseField]
+        public string ProfessionalTitles
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ProfessionalTitles"), @"");
+            }
+            set
+            {
+                SetValue("ProfessionalTitles", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Job Titles.
+        /// </summary>
+        [DatabaseField]
+        public string JobTitles
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("JobTitles"), @"");
+            }
+            set
+            {
+                SetValue("JobTitles", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Language.
+        /// </summary>
+        [DatabaseField]
+        public string Language
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Language"), @"");
+            }
+            set
+            {
+                SetValue("Language", value);
+            }
+        }
+
+
+        /// <summary>
+        /// NPI # (Press Ganey).
+        /// </summary>
+        [DatabaseField]
+        public string NPI
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("NPI"), @"");
+            }
+            set
+            {
+                SetValue("NPI", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Check if you do not want to show comments for this person even if they may have comments.
+        /// </summary>
+        [DatabaseField]
+        public bool SuppressPGComments
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("SuppressPGComments"), false);
+            }
+            set
+            {
+                SetValue("SuppressPGComments", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Press Releases and Videos.
+        /// </summary>
+        [DatabaseField]
+        public string PressReleases
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PressReleases"), @"");
+            }
+            set
+            {
+                SetValue("PressReleases", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Clinical Trials - Principal Investigator.
+        /// </summary>
+        [DatabaseField]
+        public string ClinicalTrials
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ClinicalTrials"), @"");
+            }
+            set
+            {
+                SetValue("ClinicalTrials", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Clinical Trials - Co-Investigator.
+        /// </summary>
+        [DatabaseField]
+        public string ClinicalTrials_CoInvestigator
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ClinicalTrials_CoInvestigator"), @"");
+            }
+            set
+            {
+                SetValue("ClinicalTrials_CoInvestigator", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Treats Conditions.
+        /// </summary>
+        [DatabaseField]
+        public string Treats
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Treats"), @"");
+            }
+            set
+            {
+                SetValue("Treats", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Research Areas.
+        /// </summary>
+        [DatabaseField]
+        public string Research
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Research"), @"");
+            }
+            set
+            {
+                SetValue("Research", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Programs & Services.
+        /// </summary>
+        [DatabaseField]
+        public string ProgramsServices
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ProgramsServices"), @"");
+            }
+            set
+            {
+                SetValue("ProgramsServices", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Department / Division.
+        /// </summary>
+        [DatabaseField]
+        public string DivisionDepartment
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("DivisionDepartment"), @"");
+            }
+            set
+            {
+                SetValue("DivisionDepartment", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Has Conflict of Interest.
+        /// </summary>
+        [DatabaseField]
+        public bool HasConflictOfInterest
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("HasConflictOfInterest"), false);
+            }
+            set
+            {
+                SetValue("HasConflictOfInterest", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Conflict of Interest File.
+        /// </summary>
+        [DatabaseField]
+        public string ConflictOfInterestFile
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ConflictOfInterestFile"), @"");
+            }
+            set
+            {
+                SetValue("ConflictOfInterestFile", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Page Blurb.
+        /// </summary>
+        [DatabaseField]
+        public string PageBlurb
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PageBlurb"), @"");
+            }
+            set
+            {
+                SetValue("PageBlurb", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Page Content.
+        /// </summary>
+        [DatabaseField]
+        public string PageContent
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PageContent"), @"");
+            }
+            set
+            {
+                SetValue("PageContent", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Short Description/Summary.
+        /// </summary>
+        [DatabaseField]
+        public string Summary
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Summary"), @"");
+            }
+            set
+            {
+                SetValue("Summary", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Special Interests.
+        /// </summary>
+        [DatabaseField]
+        public string SpecialInterests
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("SpecialInterests"), @"");
+            }
+            set
+            {
+                SetValue("SpecialInterests", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Board Certification.
+        /// </summary>
+        [DatabaseField]
+        public string BoardCertification
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("BoardCertification"), @"");
+            }
+            set
+            {
+                SetValue("BoardCertification", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Teaching or Professional Positions.
+        /// </summary>
+        [DatabaseField]
+        public string TeachingProfessionalPositions
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("TeachingProfessionalPositions"), @"");
+            }
+            set
+            {
+                SetValue("TeachingProfessionalPositions", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Affiliations with the University of Colorado Denver.
+        /// </summary>
+        [DatabaseField]
+        public string AffiliationsWithUniversityOfColoradoDenver
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("AffiliationsWithUniversityOfColoradoDenver"), @"");
+            }
+            set
+            {
+                SetValue("AffiliationsWithUniversityOfColoradoDenver", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Hospital Affiliations.
+        /// </summary>
+        [DatabaseField]
+        public string HospitalAffiliations
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("HospitalAffiliations"), @"");
+            }
+            set
+            {
+                SetValue("HospitalAffiliations", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Professional Memberships.
+        /// </summary>
+        [DatabaseField]
+        public string ProfessionalMemberships
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ProfessionalMemberships"), @"");
+            }
+            set
+            {
+                SetValue("ProfessionalMemberships", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Awards & Recognition.
+        /// </summary>
+        [DatabaseField]
+        public string AwardsRecognition
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("AwardsRecognition"), @"");
+            }
+            set
+            {
+                SetValue("AwardsRecognition", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Publications.
+        /// </summary>
+        [DatabaseField]
+        public string Publications
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Publications"), @"");
+            }
+            set
+            {
+                SetValue("Publications", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Physician Profile.
+        /// </summary>
+        [DatabaseField]
+        public string PhysicianProfile
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("PhysicianProfile"), @"");
+            }
+            set
+            {
+                SetValue("PhysicianProfile", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Location.
+        /// </summary>
+        [DatabaseField]
+        public string RelatedLocations
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("RelatedLocations"), @"");
+            }
+            set
+            {
+                SetValue("RelatedLocations", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Website Information.
+        /// </summary>
+        [DatabaseField]
+        public string WebsiteInformation
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("WebsiteInformation"), @"");
+            }
+            set
+            {
+                SetValue("WebsiteInformation", value);
+            }
+        }
+
+
+        /// <summary>
+        /// BioSketch URL.
+        /// </summary>
+        [DatabaseField]
+        public string BioSketchURL
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("BioSketchURL"), @"");
+            }
+            set
+            {
+                SetValue("BioSketchURL", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Please enter additional links as needed, one per line. Format:
+        /// {Text};{Url]
+        /// 
+        /// Example:
+        /// Donate;/help/donate-now.
+        /// </summary>
+        [DatabaseField]
+        public string SeeMoreLinks
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("SeeMoreLinks"), @"");
+            }
+            set
+            {
+                SetValue("SeeMoreLinks", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Is a 5280 Denver Top Doctor.
+        /// </summary>
+        [DatabaseField]
+        public bool Is5280DenverTopDoctor
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("Is5280DenverTopDoctor"), false);
+            }
+            set
+            {
+                SetValue("Is5280DenverTopDoctor", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Was a 5280 Denver Top Doctor.
+        /// </summary>
+        [DatabaseField]
+        public bool Was5280DenverTopDoctor
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("Was5280DenverTopDoctor"), false);
+            }
+            set
+            {
+                SetValue("Was5280DenverTopDoctor", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Years Doctor was a 5280 Denver Top Doctor.
+        /// </summary>
+        [DatabaseField]
+        public string YearsWas5280DenverTopDoctor
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("YearsWas5280DenverTopDoctor"), @"");
+            }
+            set
+            {
+                SetValue("YearsWas5280DenverTopDoctor", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Is America's Top Doctors/Castle Connolly.
+        /// </summary>
+        [DatabaseField]
+        public bool IsAmericasTopDoc
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("IsAmericasTopDoc"), false);
+            }
+            set
+            {
+                SetValue("IsAmericasTopDoc", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Is Denver Business Journal/Best Doctors in America.
+        /// </summary>
+        [DatabaseField]
+        public bool IsDBJTopDoctor
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("IsDBJTopDoctor"), false);
+            }
+            set
+            {
+                SetValue("IsDBJTopDoctor", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Call To Action (CTA) Title.
+        /// </summary>
+        [DatabaseField]
+        public string CtaTitle
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("CtaTitle"), @"");
+            }
+            set
+            {
+                SetValue("CtaTitle", value);
+            }
+        }
+
+
+        /// <summary>
+        /// CTA Link URL.
+        /// </summary>
+        [DatabaseField]
+        public string CtaUrl
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("CtaUrl"), @"");
+            }
+            set
+            {
+                SetValue("CtaUrl", value);
+            }
+        }
+
+
+        /// <summary>
+        /// CTA no.2 Title.
+        /// </summary>
+        [DatabaseField]
+        public string Cta2Title
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Cta2Title"), @"");
+            }
+            set
+            {
+                SetValue("Cta2Title", value);
+            }
+        }
+
+
+        /// <summary>
+        /// CTA no.2 URL.
+        /// </summary>
+        [DatabaseField]
+        public string Cta2Url
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Cta2Url"), @"");
+            }
+            set
+            {
+                SetValue("Cta2Url", value);
+            }
+        }
+
+
+        /// <summary>
+        /// CTA no.3 Title.
+        /// </summary>
+        [DatabaseField]
+        public string Cta3Title
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Cta3Title"), @"");
+            }
+            set
+            {
+                SetValue("Cta3Title", value);
+            }
+        }
+
+
+        /// <summary>
+        /// CTA no.3 URL.
+        /// </summary>
+        [DatabaseField]
+        public string Cta3Url
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("Cta3Url"), @"");
+            }
+            set
+            {
+                SetValue("Cta3Url", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Check this box if you do not want the link in a test directory to link.
+        /// </summary>
+        [DatabaseField]
+        public bool Hide_URL
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("Hide_URL"), false);
+            }
+            set
+            {
+                SetValue("Hide_URL", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Reviewed Date.
+        /// </summary>
+        [DatabaseField]
+        public DateTime ReviewedDate
+        {
+            get
+            {
+                return ValidationHelper.GetDateTime(GetValue("ReviewedDate"), DateTimeHelper.ZERO_TIME);
+            }
+            set
+            {
+                SetValue("ReviewedDate", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Reviewed By.
+        /// </summary>
+        [DatabaseField]
+        public string ReviewedBy
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ReviewedBy"), @"");
+            }
+            set
+            {
+                SetValue("ReviewedBy", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Drag to select from listed NJH - Physicians.
+        /// </summary>
+        [DatabaseField]
+        public string ReviewerListGUID
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ReviewerListGUID"), @"");
+            }
+            set
+            {
+                SetValue("ReviewerListGUID", value);
+            }
+        }
+
+
+        /// <summary>
+        /// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
+        /// </summary>
+        [DatabaseField]
+        public string ReviewerListText
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ReviewerListText"), @"");
+            }
+            set
+            {
+                SetValue("ReviewerListText", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Open link in new window?.
+        /// </summary>
+        [DatabaseField]
+        public bool ReviewerListTextURLTarget
+        {
+            get
+            {
+                return ValidationHelper.GetBoolean(GetValue("ReviewerListTextURLTarget"), true);
+            }
+            set
+            {
+                SetValue("ReviewerListTextURLTarget", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Alternative List URL.
+        /// </summary>
+        [DatabaseField]
+        public string ReviewerListTextURL
+        {
+            get
+            {
+                return ValidationHelper.GetString(GetValue("ReviewerListTextURL"), @"");
+            }
+            set
+            {
+                SetValue("ReviewerListTextURL", value);
+            }
+        }
+
+
+        /// <summary>
+        /// Gets an object that provides extended API for working with PageType_Physician fields.
+        /// </summary>
+        [RegisterProperty]
+        public PageType_PhysicianFields Fields
+        {
+            get
+            {
+                return mFields;
+            }
+        }
+
+
+        /// <summary>
+        /// Provides extended API for working with PageType_Physician fields.
+        /// </summary>
+        [RegisterAllProperties]
+        public partial class PageType_PhysicianFields : AbstractHierarchicalObject<PageType_PhysicianFields>
+        {
+            /// <summary>
+            /// The content item of type PageType_Physician that is a target of the extended API.
+            /// </summary>
+            private readonly PageType_Physician mInstance;
+
+
+            /// <summary>
+            /// Initializes a new instance of the <see cref="PageType_PhysicianFields" /> class with the specified content item of type PageType_Physician.
+            /// </summary>
+            /// <param name="instance">The content item of type PageType_Physician that is a target of the extended API.</param>
+            public PageType_PhysicianFields(PageType_Physician instance)
+            {
+                mInstance = instance;
+            }
+
+
+            /// <summary>
+            /// PageType_PhysicianID.
+            /// </summary>
+            public int ID
+            {
+                get
+                {
+                    return mInstance.PageType_PhysicianID;
+                }
+                set
+                {
+                    mInstance.PageType_PhysicianID = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Page Name.
+            /// </summary>
+            public string PageName
+            {
+                get
+                {
+                    return mInstance.PageName;
+                }
+                set
+                {
+                    mInstance.PageName = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Page Title.
+            /// </summary>
+            public string Title
+            {
+                get
+                {
+                    return mInstance.Title;
+                }
+                set
+                {
+                    mInstance.Title = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Categories.
+            /// </summary>
+            public string Categories
+            {
+                get
+                {
+                    return mInstance.Categories1;
+                }
+                set
+                {
+                    mInstance.Categories1 = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Primary Category.
+            /// </summary>
+            public int PrimaryCategory
+            {
+                get
+                {
+                    return mInstance.PrimaryCategory;
+                }
+                set
+                {
+                    mInstance.PrimaryCategory = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Use this checkbox to feature pages in the featured sections on Home, Health Insights, Patient Stories, etc.
+            /// </summary>
+            public bool FeaturedOnHomePage
+            {
+                get
+                {
+                    return mInstance.FeaturedOnHomePage;
+                }
+                set
+                {
+                    mInstance.FeaturedOnHomePage = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Featured this in site search results.
+            /// </summary>
+            public bool IsFeaturedInSearchResults
+            {
+                get
+                {
+                    return mInstance.IsFeaturedInSearchResults;
+                }
+                set
+                {
+                    mInstance.IsFeaturedInSearchResults = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Show on HTLP.
+            /// </summary>
+            public bool ShowOnHTLP
+            {
+                get
+                {
+                    return mInstance.ShowOnHTLP;
+                }
+                set
+                {
+                    mInstance.ShowOnHTLP = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Do you treat.
+            /// </summary>
+            public string TreatPediatricsAdults
+            {
+                get
+                {
+                    return mInstance.TreatPediatricsAdults;
+                }
+                set
+                {
+                    mInstance.TreatPediatricsAdults = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Do you see Patients?.
+            /// </summary>
+            public string SeesPatients
+            {
+                get
+                {
+                    return mInstance.SeesPatients;
+                }
+                set
+                {
+                    mInstance.SeesPatients = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Person Type.
+            /// </summary>
+            public string PersonType
+            {
+                get
+                {
+                    return mInstance.PersonType;
+                }
+                set
+                {
+                    mInstance.PersonType = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Research Area Complete.
+            /// </summary>
+            public string ResearchComplete
+            {
+                get
+                {
+                    return mInstance.ResearchComplete;
+                }
+                set
+                {
+                    mInstance.ResearchComplete = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Media Source Doctor.
+            /// </summary>
+            public bool MediaSourceDoctor
+            {
+                get
+                {
+                    return mInstance.MediaSourceDoctor;
+                }
+                set
+                {
+                    mInstance.MediaSourceDoctor = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Content Contact.
+            /// </summary>
+            public string Document_Reviewer
+            {
+                get
+                {
+                    return mInstance.Document_Reviewer;
+                }
+                set
+                {
+                    mInstance.Document_Reviewer = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Review Comments.
+            /// </summary>
+            public string Review_Comments
+            {
+                get
+                {
+                    return mInstance.Review_Comments;
+                }
+                set
+                {
+                    mInstance.Review_Comments = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Last Review Date.
+            /// </summary>
+            public DateTime Last_review_date
+            {
+                get
+                {
+                    return mInstance.Last_review_date;
+                }
+                set
+                {
+                    mInstance.Last_review_date = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Display Name.
+            /// </summary>
+            public string PhysicianDisplayName
+            {
+                get
+                {
+                    return mInstance.PhysicianDisplayName;
+                }
+                set
+                {
+                    mInstance.PhysicianDisplayName = value;
+                }
+            }
+
+
+            /// <summary>
+            /// First Name.
+            /// </summary>
+            public string FirstName
+            {
+                get
+                {
+                    return mInstance.FirstName;
+                }
+                set
+                {
+                    mInstance.FirstName = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Middle Name.
+            /// </summary>
+            public string MiddleName
+            {
+                get
+                {
+                    return mInstance.MiddleName;
+                }
+                set
+                {
+                    mInstance.MiddleName = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Last Name.
+            /// </summary>
+            public string LastName
+            {
+                get
+                {
+                    return mInstance.LastName;
+                }
+                set
+                {
+                    mInstance.LastName = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Suffix.
+            /// </summary>
+            public string Suffix
+            {
+                get
+                {
+                    return mInstance.Suffix;
+                }
+                set
+                {
+                    mInstance.Suffix = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Email.
+            /// </summary>
+            public string Email
+            {
+                get
+                {
+                    return mInstance.Email;
+                }
+                set
+                {
+                    mInstance.Email = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Do Not Show Email in Bio.
+            /// </summary>
+            public bool HideEmail
+            {
+                get
+                {
+                    return mInstance.HideEmail;
+                }
+                set
+                {
+                    mInstance.HideEmail = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Gender.
+            /// </summary>
+            public string Gender
+            {
+                get
+                {
+                    return mInstance.Gender;
+                }
+                set
+                {
+                    mInstance.Gender = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Page Image (888x507).
+            /// </summary>
+            public string PageImage
+            {
+                get
+                {
+                    return mInstance.PageImage;
+                }
+                set
+                {
+                    mInstance.PageImage = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Page Image Alt Text.
+            /// </summary>
+            public string PageImageAltText
+            {
+                get
+                {
+                    return mInstance.PageImageAltText;
+                }
+                set
+                {
+                    mInstance.PageImageAltText = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Curriculum Vitae.
+            /// </summary>
+            public string CurriculumVitae
+            {
+                get
+                {
+                    return mInstance.CurriculumVitae;
+                }
+                set
+                {
+                    mInstance.CurriculumVitae = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Professional Titles.
+            /// </summary>
+            public string ProfessionalTitles
+            {
+                get
+                {
+                    return mInstance.ProfessionalTitles;
+                }
+                set
+                {
+                    mInstance.ProfessionalTitles = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Job Titles.
+            /// </summary>
+            public string JobTitles
+            {
+                get
+                {
+                    return mInstance.JobTitles;
+                }
+                set
+                {
+                    mInstance.JobTitles = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Language.
+            /// </summary>
+            public string Language
+            {
+                get
+                {
+                    return mInstance.Language;
+                }
+                set
+                {
+                    mInstance.Language = value;
+                }
+            }
+
+
+            /// <summary>
+            /// NPI # (Press Ganey).
+            /// </summary>
+            public string NPI
+            {
+                get
+                {
+                    return mInstance.NPI;
+                }
+                set
+                {
+                    mInstance.NPI = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Check if you do not want to show comments for this person even if they may have comments.
+            /// </summary>
+            public bool SuppressPGComments
+            {
+                get
+                {
+                    return mInstance.SuppressPGComments;
+                }
+                set
+                {
+                    mInstance.SuppressPGComments = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Press Releases and Videos.
+            /// </summary>
+            public string PressReleases
+            {
+                get
+                {
+                    return mInstance.PressReleases;
+                }
+                set
+                {
+                    mInstance.PressReleases = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Clinical Trials - Principal Investigator.
+            /// </summary>
+            public string ClinicalTrials
+            {
+                get
+                {
+                    return mInstance.ClinicalTrials;
+                }
+                set
+                {
+                    mInstance.ClinicalTrials = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Clinical Trials - Co-Investigator.
+            /// </summary>
+            public string ClinicalTrials_CoInvestigator
+            {
+                get
+                {
+                    return mInstance.ClinicalTrials_CoInvestigator;
+                }
+                set
+                {
+                    mInstance.ClinicalTrials_CoInvestigator = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Treats Conditions.
+            /// </summary>
+            public string Treats
+            {
+                get
+                {
+                    return mInstance.Treats;
+                }
+                set
+                {
+                    mInstance.Treats = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Research Areas.
+            /// </summary>
+            public string Research
+            {
+                get
+                {
+                    return mInstance.Research;
+                }
+                set
+                {
+                    mInstance.Research = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Programs & Services.
+            /// </summary>
+            public string ProgramsServices
+            {
+                get
+                {
+                    return mInstance.ProgramsServices;
+                }
+                set
+                {
+                    mInstance.ProgramsServices = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Department / Division.
+            /// </summary>
+            public string DivisionDepartment
+            {
+                get
+                {
+                    return mInstance.DivisionDepartment;
+                }
+                set
+                {
+                    mInstance.DivisionDepartment = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Has Conflict of Interest.
+            /// </summary>
+            public bool HasConflictOfInterest
+            {
+                get
+                {
+                    return mInstance.HasConflictOfInterest;
+                }
+                set
+                {
+                    mInstance.HasConflictOfInterest = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Conflict of Interest File.
+            /// </summary>
+            public string ConflictOfInterestFile
+            {
+                get
+                {
+                    return mInstance.ConflictOfInterestFile;
+                }
+                set
+                {
+                    mInstance.ConflictOfInterestFile = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Page Blurb.
+            /// </summary>
+            public string PageBlurb
+            {
+                get
+                {
+                    return mInstance.PageBlurb;
+                }
+                set
+                {
+                    mInstance.PageBlurb = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Page Content.
+            /// </summary>
+            public string PageContent
+            {
+                get
+                {
+                    return mInstance.PageContent;
+                }
+                set
+                {
+                    mInstance.PageContent = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Short Description/Summary.
+            /// </summary>
+            public string Summary
+            {
+                get
+                {
+                    return mInstance.Summary;
+                }
+                set
+                {
+                    mInstance.Summary = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Special Interests.
+            /// </summary>
+            public string SpecialInterests
+            {
+                get
+                {
+                    return mInstance.SpecialInterests;
+                }
+                set
+                {
+                    mInstance.SpecialInterests = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Board Certification.
+            /// </summary>
+            public string BoardCertification
+            {
+                get
+                {
+                    return mInstance.BoardCertification;
+                }
+                set
+                {
+                    mInstance.BoardCertification = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Teaching or Professional Positions.
+            /// </summary>
+            public string TeachingProfessionalPositions
+            {
+                get
+                {
+                    return mInstance.TeachingProfessionalPositions;
+                }
+                set
+                {
+                    mInstance.TeachingProfessionalPositions = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Affiliations with the University of Colorado Denver.
+            /// </summary>
+            public string AffiliationsWithUniversityOfColoradoDenver
+            {
+                get
+                {
+                    return mInstance.AffiliationsWithUniversityOfColoradoDenver;
+                }
+                set
+                {
+                    mInstance.AffiliationsWithUniversityOfColoradoDenver = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Hospital Affiliations.
+            /// </summary>
+            public string HospitalAffiliations
+            {
+                get
+                {
+                    return mInstance.HospitalAffiliations;
+                }
+                set
+                {
+                    mInstance.HospitalAffiliations = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Professional Memberships.
+            /// </summary>
+            public string ProfessionalMemberships
+            {
+                get
+                {
+                    return mInstance.ProfessionalMemberships;
+                }
+                set
+                {
+                    mInstance.ProfessionalMemberships = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Awards & Recognition.
+            /// </summary>
+            public string AwardsRecognition
+            {
+                get
+                {
+                    return mInstance.AwardsRecognition;
+                }
+                set
+                {
+                    mInstance.AwardsRecognition = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Publications.
+            /// </summary>
+            public string Publications
+            {
+                get
+                {
+                    return mInstance.Publications;
+                }
+                set
+                {
+                    mInstance.Publications = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Physician Profile.
+            /// </summary>
+            public string PhysicianProfile
+            {
+                get
+                {
+                    return mInstance.PhysicianProfile;
+                }
+                set
+                {
+                    mInstance.PhysicianProfile = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Location.
+            /// </summary>
+            public string RelatedLocations
+            {
+                get
+                {
+                    return mInstance.RelatedLocations;
+                }
+                set
+                {
+                    mInstance.RelatedLocations = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Website Information.
+            /// </summary>
+            public string WebsiteInformation
+            {
+                get
+                {
+                    return mInstance.WebsiteInformation;
+                }
+                set
+                {
+                    mInstance.WebsiteInformation = value;
+                }
+            }
+
+
+            /// <summary>
+            /// BioSketch URL.
+            /// </summary>
+            public string BioSketchURL
+            {
+                get
+                {
+                    return mInstance.BioSketchURL;
+                }
+                set
+                {
+                    mInstance.BioSketchURL = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Please enter additional links as needed, one per line. Format:
+            /// {Text};{Url]
+            /// 
+            /// Example:
+            /// Donate;/help/donate-now.
+            /// </summary>
+            public string SeeMoreLinks
+            {
+                get
+                {
+                    return mInstance.SeeMoreLinks;
+                }
+                set
+                {
+                    mInstance.SeeMoreLinks = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Is a 5280 Denver Top Doctor.
+            /// </summary>
+            public bool Is5280DenverTopDoctor
+            {
+                get
+                {
+                    return mInstance.Is5280DenverTopDoctor;
+                }
+                set
+                {
+                    mInstance.Is5280DenverTopDoctor = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Was a 5280 Denver Top Doctor.
+            /// </summary>
+            public bool Was5280DenverTopDoctor
+            {
+                get
+                {
+                    return mInstance.Was5280DenverTopDoctor;
+                }
+                set
+                {
+                    mInstance.Was5280DenverTopDoctor = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Years Doctor was a 5280 Denver Top Doctor.
+            /// </summary>
+            public string YearsWas5280DenverTopDoctor
+            {
+                get
+                {
+                    return mInstance.YearsWas5280DenverTopDoctor;
+                }
+                set
+                {
+                    mInstance.YearsWas5280DenverTopDoctor = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Is America's Top Doctors/Castle Connolly.
+            /// </summary>
+            public bool IsAmericasTopDoc
+            {
+                get
+                {
+                    return mInstance.IsAmericasTopDoc;
+                }
+                set
+                {
+                    mInstance.IsAmericasTopDoc = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Is Denver Business Journal/Best Doctors in America.
+            /// </summary>
+            public bool IsDBJTopDoctor
+            {
+                get
+                {
+                    return mInstance.IsDBJTopDoctor;
+                }
+                set
+                {
+                    mInstance.IsDBJTopDoctor = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Call To Action (CTA) Title.
+            /// </summary>
+            public string CtaTitle
+            {
+                get
+                {
+                    return mInstance.CtaTitle;
+                }
+                set
+                {
+                    mInstance.CtaTitle = value;
+                }
+            }
+
+
+            /// <summary>
+            /// CTA Link URL.
+            /// </summary>
+            public string CtaUrl
+            {
+                get
+                {
+                    return mInstance.CtaUrl;
+                }
+                set
+                {
+                    mInstance.CtaUrl = value;
+                }
+            }
+
+
+            /// <summary>
+            /// CTA no.2 Title.
+            /// </summary>
+            public string Cta2Title
+            {
+                get
+                {
+                    return mInstance.Cta2Title;
+                }
+                set
+                {
+                    mInstance.Cta2Title = value;
+                }
+            }
+
+
+            /// <summary>
+            /// CTA no.2 URL.
+            /// </summary>
+            public string Cta2Url
+            {
+                get
+                {
+                    return mInstance.Cta2Url;
+                }
+                set
+                {
+                    mInstance.Cta2Url = value;
+                }
+            }
+
+
+            /// <summary>
+            /// CTA no.3 Title.
+            /// </summary>
+            public string Cta3Title
+            {
+                get
+                {
+                    return mInstance.Cta3Title;
+                }
+                set
+                {
+                    mInstance.Cta3Title = value;
+                }
+            }
+
+
+            /// <summary>
+            /// CTA no.3 URL.
+            /// </summary>
+            public string Cta3Url
+            {
+                get
+                {
+                    return mInstance.Cta3Url;
+                }
+                set
+                {
+                    mInstance.Cta3Url = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Check this box if you do not want the link in a test directory to link.
+            /// </summary>
+            public bool Hide_URL
+            {
+                get
+                {
+                    return mInstance.Hide_URL;
+                }
+                set
+                {
+                    mInstance.Hide_URL = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Reviewed Date.
+            /// </summary>
+            public DateTime ReviewedDate
+            {
+                get
+                {
+                    return mInstance.ReviewedDate;
+                }
+                set
+                {
+                    mInstance.ReviewedDate = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Reviewed By.
+            /// </summary>
+            public string ReviewedBy
+            {
+                get
+                {
+                    return mInstance.ReviewedBy;
+                }
+                set
+                {
+                    mInstance.ReviewedBy = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Drag to select from listed NJH - Physicians.
+            /// </summary>
+            public string ReviewerListGUID
+            {
+                get
+                {
+                    return mInstance.ReviewerListGUID;
+                }
+                set
+                {
+                    mInstance.ReviewerListGUID = value;
+                }
+            }
+
+
+            /// <summary>
+            /// This field takes precedence over the reviewer list.  It can be used for organizations, departments etc.  It will conditionally link to a URL if provided below.
+            /// </summary>
+            public string ReviewerListText
+            {
+                get
+                {
+                    return mInstance.ReviewerListText;
+                }
+                set
+                {
+                    mInstance.ReviewerListText = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Open link in new window?.
+            /// </summary>
+            public bool ReviewerListTextURLTarget
+            {
+                get
+                {
+                    return mInstance.ReviewerListTextURLTarget;
+                }
+                set
+                {
+                    mInstance.ReviewerListTextURLTarget = value;
+                }
+            }
+
+
+            /// <summary>
+            /// Alternative List URL.
+            /// </summary>
+            public string ReviewerListTextURL
+            {
+                get
+                {
+                    return mInstance.ReviewerListTextURL;
+                }
+                set
+                {
+                    mInstance.ReviewerListTextURL = value;
+                }
+            }
+        }
+
+        #endregion
+
+
+        #region "Constructors"
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PageType_Physician" /> class.
+        /// </summary>
+        public PageType_Physician() : base(CLASS_NAME)
+        {
+            mFields = new PageType_PhysicianFields(this);
+        }
+
+        #endregion
+    }
 }
