@@ -1,10 +1,7 @@
 ﻿@model IEnumerable<Njh.Kernel.Models.DTOs.NavItem>
 
-@{
-    var parentPageTitle = Model.First().DisplayTitle;
-    var parentPageLink = Model.First().Link;
-}
-@functions{
+
+@functions {
     // NJHK13-388 Left Nav recursive function
     // NOTE: max depth of tree data is set where LeftNavViewComponent is invoked, e.g. <vc:left-nav max-depth="5"></vc:left-nav>
     // Note Razor syntax: string operator @"(string)" allows line breaks; dbl quote " is escaped as "" inside strings (not backslash)
@@ -14,70 +11,75 @@
         @if (!link.Children.Any())
         {
             listItem += @"
-            <li class=""subpage__aside-nav-item" + (link.IsOnPath ? " is-self" : "") + @""" id=""asideNavItem_" + link.NodeID + @""">
-                <a href=""" + link.Link + @""">" + link.DisplayTitle + @"</a>
-            </li>" + Environment.NewLine;
+        <li class=""subpage__aside-nav-item" + (link.IsOnPath ? " is-self" : "") + @""" id=""asideNavItem_" + link.NodeID + @""">
+            <a href=""" + link.Link + @""">" + link.DisplayTitle + @"</a>
+        </li>" + Environment.NewLine;
         }
         else
         {
             listItem += @"
-            <li class=""subpage__aside-nav-item has-children" + (link.IsOnPath ? " is-self" : "") + @"""id=""asideNavItem_" + link.NodeID 
+        <li class=""subpage__aside-nav-item has-children" + (link.IsOnPath ? " is-self" : "") + @"""id=""asideNavItem_" + link.NodeID
                 + @""">
-                <div class=""subpage__aside-nav-dropdown"">
-                    <button type=""button""
-                    class=""subpage__aside-nav-trigger""
-                    id=""asideNavItem_" + link.NodeID + @"_label""
-                    aria-label=""" + link.DisplayTitle + @" sub menu""
-                    data-bs-toggle=""collapse""
-                    aria-expanded=""" + (link.IsOnPath ? "true" : "false") + @"""
-                    data-bs-target=""#asideNavItem_" + link.NodeID + @"_children""
-                    aria-controls=""asideNavItem_" + link.NodeID + @"_children"">
-                        <span class=""app-icon icon-dropdown""></span>
-                    </button>
-                    <a href=""" + link.Link + @""">" + link.DisplayTitle + @"</a>
-                </div>
-                <ul class=""subpage__aside-nav-list collapse" + (link.IsOnPath ? " show" : "") + @"""
-                    id=""asideNavItem_" + link.NodeID + @"_children""
-                    aria-hidden=""" + (link.IsOnPath ? "false" : "true") + @"""
-                    aria-labelledby=""asideNavItem_" + link.NodeID + @"_label"">";
-                    @foreach (var child in link.Children)
-                    {
-                        listItem += renderNode(child);
-                    }
-                    listItem += @"
-                </ul>
-            </li>" + Environment.NewLine;
+            <div class=""subpage__aside-nav-dropdown"">
+                <button type=""button""
+                class=""subpage__aside-nav-trigger""
+                id=""asideNavItem_" + link.NodeID + @"_label""
+                aria-label=""" + link.DisplayTitle + @" sub menu""
+                data-bs-toggle=""collapse""
+                aria-expanded=""" + (link.IsOnPath ? "true" : "false") + @"""
+                data-bs-target=""#asideNavItem_" + link.NodeID + @"_children""
+                aria-controls=""asideNavItem_" + link.NodeID + @"_children"">
+                    <span class=""app-icon icon-dropdown""></span>
+                </button>
+                <a href=""" + link.Link + @""">" + link.DisplayTitle + @"</a>
+            </div>
+            <ul class=""subpage__aside-nav-list collapse" + (link.IsOnPath ? " show" : "") + @"""
+                id=""asideNavItem_" + link.NodeID + @"_children""
+                aria-hidden=""" + (link.IsOnPath ? "false" : "true") + @"""
+                aria-labelledby=""asideNavItem_" + link.NodeID + @"_label"">";
+            @foreach (var child in link.Children)
+            {
+                listItem += renderNode(child);
+            }
+            listItem += @"
+            </ul>
+        </li>" + Environment.NewLine;
         }
         return listItem;
     }
 }
-
-@* Aside / DOES NOT load on mobile *@
-<aside class="subpage__aside">
-    @* TODO replace Skip Navigation text, aria labels, etc. with resource strings *@
-    <a href="#subpageContent"
+@if (Model != null && Model.Any())
+{
+    var parentPageTitle = Model?.FirstOrDefault()?.DisplayTitle ?? string.Empty;
+    var parentPageLink = Model?.FirstOrDefault()?.Link ?? string.Empty;
+    @* Aside / DOES NOT load on mobile *@
+    <aside class="subpage__aside">
+        @* TODO replace Skip Navigation text, aria labels, etc. with resource strings *@
+        <a href="#subpageContent"
        class="subpage__aside-nav-skip visually-hidden-focusable">
-        Skip Navigation
-    </a>
+            Skip Navigation
+        </a>
 
-    @* The first navItem in the model should be the parent of the current page, and displays a heading *@
-    <nav class="subpage__aside-nav" aria-label="Sibling Pages">
-        <ul role="list" class="subpage__aside-nav-list">
-            <!-- Single Item for the parent page. -->
-            <!-- This is to let the user know all the navigation is based around the parent page. -->
+        @* The first navItem in the model should be the parent of the current page, and displays a heading *@
+        <nav class="subpage__aside-nav" aria-label="Sibling Pages">
+            <ul role="list" class="subpage__aside-nav-list">
+                <!-- Single Item for the parent page. -->
+                <!-- This is to let the user know all the navigation is based around the parent page. -->
             <li class="subpage__aside-nav-item subpage__aside-nav-parent">
-                <h2><a href="@parentPageLink">@parentPageTitle</a></h2>
+                    <h2><a href="@parentPageLink">@parentPageTitle</a></h2>
 
-                @* the rest of the menu is children of the parent: current page, siblings if any, 
-                    and their descendants, to a max depth set by LeftNavViewComponent *@
-                <ul class="subpage__aside-nav-list">
-                    @foreach (var link in Model.First().Children)
-                    {
-                        @Html.Raw(renderNode(link));
-                    }
-                </ul>
-            </li>
-        </ul>
-    </nav>
+                    @* the rest of the menu is children of the parent: current page, siblings if any,
+                        and their descendants, to a max depth set by LeftNavViewComponent *@
+                    <ul class="subpage__aside-nav-list">
+                        @foreach (var link in Model.FirstOrDefault().Children)
+                        {
+                            @Html.Raw(renderNode(link))
+                            ;
+                        }
+                    </ul>
+                </li>
+            </ul>
+        </nav>
 
-</aside>
+    </aside>
+}
