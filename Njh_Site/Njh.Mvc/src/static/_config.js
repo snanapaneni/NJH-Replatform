@@ -40,7 +40,7 @@ exports.templates = [
     footer: "app-footer",
     main_before: ["breadcrumbs", "alert-banner"],
     main_insert: "article",
-    main_components: ["subpage-header", "subpage-aside", "subpage-content"],
+    main_components: ["subpage-header", "subpage-aside", "content/subpage"],
     main_after: [""],
   },
   {
@@ -49,7 +49,7 @@ exports.templates = [
     footer: "app-footer",
     main_before: ["breadcrumbs", "alert-banner"],
     main_insert: "article",
-    main_components: ["subpage-header", "subpage-content"],
+    main_components: ["subpage-header", "content/subpage"],
     main_after: [""],
   },
   {
@@ -106,7 +106,7 @@ exports.templates = [
     main_before: [""],
     main_after: [""],
     main_insert: "article",
-    main_components: ["subpage-aside", "press-release-content"],
+    main_components: ["subpage-aside", "content/press-release"],
   },
   {
     templateFilename: "specialty-main",
@@ -114,7 +114,7 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_insert: "article",
-    main_components: ["subpage-header", "subpage-aside", "speciality-content"],
+    main_components: ["subpage-header", "subpage-aside", "content/speciality"],
     main_after: [""],
   },
   {
@@ -123,7 +123,16 @@ exports.templates = [
     footer: "app-footer",
     main_before: [""],
     main_insert: "article",
-    main_components: ["subpage-header", "subpage-aside", "story-detail-content"],
+    main_components: ["subpage-header", "subpage-aside", "content/story-detail"],
+    main_after: [""],
+  },
+  {
+    templateFilename: "medtest",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "subpage-aside", "content/medtest"],
     main_after: [""],
   },
 ];
