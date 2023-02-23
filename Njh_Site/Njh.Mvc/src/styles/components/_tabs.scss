@@ -53,10 +53,10 @@
     &[aria-hidden="true"] {
       display: none;
     }
-    &:focus {
-      outline: 3px solid transparent;
-      box-shadow: 0 3px 0 3px var(--purple--500);
-    }
+    // &:focus {
+    //   outline: 3px solid transparent;
+    //   box-shadow: 0 3px 0 3px var(--purple--500);
+    // }
   }
 }
 

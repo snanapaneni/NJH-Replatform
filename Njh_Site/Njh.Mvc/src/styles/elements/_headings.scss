@@ -50,7 +50,7 @@ h4,
 }
 
 h5,
-.like-h,
+.like-h5,
 .fr-view h5 {
   @include headings;
   font-size: 1.125rem;
@@ -68,6 +68,10 @@ hr {
   --hr: var(--neutral--300);
   border-top: 3px solid var(--hr);
   opacity: 1;
+
+  &.hr-short {
+    width: 4rem;
+  }
 }
 
 @include make-heading-rules ($app-colors);

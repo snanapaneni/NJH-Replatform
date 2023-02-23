@@ -122,13 +122,20 @@
     margin: 0;
     padding: 0;
   }
-  .info-boxes__rating {
-    display: flex;
-    gap: 0.25rem;
-    margin-bottom: 0.5rem;
-    img {
-      width: 30px;
-    }
+}
+
+.info-boxes__rating,
+.metric-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+
+  @include ios-13-below() {
+    margin: 0.25rem;
+  }
+  img {
+    width: 30px;
   }
 }
 

@@ -97,7 +97,7 @@ exports.templates = [
     main_before: [""],
     main_after: [""],
     main_insert: "article",
-    main_components: ["subpage-header", "subpage-aside", "physician-info-box"],
+    main_components: ["subpage-header", "subpage-aside", "content/physician"],
   },
   {
     templateFilename: "press-release",
