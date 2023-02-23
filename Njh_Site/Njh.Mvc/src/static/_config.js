@@ -144,4 +144,13 @@ exports.templates = [
     main_components: ["subpage-header", "content/patient-classes"],
     main_after: [""],
   },
+  {
+    templateFilename: "events",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "content/events"],
+    main_after: [""],
+  },
 ];

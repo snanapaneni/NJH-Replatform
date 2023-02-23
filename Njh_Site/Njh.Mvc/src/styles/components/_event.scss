@@ -1,0 +1,64 @@
+.event {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+
+  border-bottom: 1px solid var(--neutral--300);
+
+  @include ios-13-below() {
+    > * {
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+    }
+  }
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    gap: 3rem;
+    border-bottom: none;
+  }
+
+  &-date {
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1;
+    span {
+      display: block;
+    }
+    &--day {
+      font-size: 3.5rem;
+      font-weight: 600;
+    }
+
+    @include media-breakpoint-up(md) {
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        right: calc(-1.5rem + 1px);
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background: var(--neutral--300);
+      }
+    }
+  }
+
+  &-content {
+    font-size: .85rem;
+    p, ul {
+      margin-bottom: 0.125rem;
+    }
+    h5 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+  }
+  a {
+    --has-color: var(--blue--700);
+  }
+}
