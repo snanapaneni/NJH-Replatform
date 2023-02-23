@@ -135,4 +135,13 @@ exports.templates = [
     main_components: ["subpage-header", "subpage-aside", "content/medtest"],
     main_after: [""],
   },
+  {
+    templateFilename: "patient-classes",
+    header: "app-header",
+    footer: "app-footer",
+    main_before: [""],
+    main_insert: "article",
+    main_components: ["subpage-header", "content/patient-classes"],
+    main_after: [""],
+  },
 ];

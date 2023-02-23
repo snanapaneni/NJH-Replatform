@@ -1,0 +1,13 @@
+dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem
+}
+
+dt {
+  grid-column: 1;
+}
+
+dd {
+  grid-column: 2;
+}
